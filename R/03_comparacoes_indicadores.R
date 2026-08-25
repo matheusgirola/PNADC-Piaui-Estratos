@@ -20,12 +20,11 @@ library(stringr)
 library(purrr)
 library(ggplot2)
 
-ANO_REF       <- 2026
-TRIMESTRE_REF <- 2
-sufixo <- sprintf("%dT%d", ANO_REF, TRIMESTRE_REF)
-
-dir.create("output/figuras", recursive = TRUE, showWarnings = FALSE)
-dir.create("output/tabelas", recursive = TRUE, showWarnings = FALSE)
+# ANO_REF, TRIMESTRE_REF, sufixo e geografias_agregadas vêm do config
+# compartilhado com o pipeline_trimestral.R — antes estavam declarados nos dois
+# arquivos, e esquecer de atualizar este aqui fazia o script reler a base do
+# trimestre anterior sem reclamar de nada.
+source("R/00_config.R")
 
 # ==============================================================================
 # NOMES PARA EXIBIÇÃO — mexe aqui se quiser mudar como um indicador/recorte
@@ -155,7 +154,7 @@ base <- base %>%
     IC_95  = sprintf("[%.3f — %.3f]", IC_inf, IC_sup),
     Confiabilidade = classificar_cv(CV),
     Tipo_Geo = case_when(
-      Regiao_Geografica %in% c("Brasil", "Nordeste", "Piauí", "Teresina") ~ "Agregados nacionais",
+      Regiao_Geografica %in% geografias_agregadas ~ "Agregados nacionais",
       str_starts(Regiao_Geografica, "Zona_")  ~ "Zona",
       str_starts(Regiao_Geografica, "Admin_") ~ "Estrato administrativo",
       str_starts(Regiao_Geografica, "Agreg_") ~ "Estrato agregado",
@@ -167,7 +166,7 @@ base <- base %>%
   )
 
 geografias_finas <- base %>%
-  filter(!Regiao_Geografica %in% c("Brasil", "Nordeste", "Piauí", "Teresina")) %>%
+  filter(!Regiao_Geografica %in% geografias_agregadas) %>%
   pull(Regiao_Geografica) %>% unique()
 
 paleta_geo <- gerar_paleta_fria(base$Regiao_Geografica)

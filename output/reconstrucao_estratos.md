@@ -144,6 +144,45 @@ irrestrito quereria um estrato de renda alta menor, e o piso é o que impede.
    Piauí inteiro, mas não se pode afirmar que 3 seja política nacional — pode
    ser que o Piauí nunca tenha tido UPAs para 4 ou 5.
 
+## A revalidar no 3º trimestre de 2026
+
+Todas as ressalvas acima têm um pano de fundo comum que só agora ficou claro.
+O IBGE está substituindo a amostra mestra de forma **progressiva**, trocando as
+UPAs de primeira entrevista a cada trimestre: 20% no 3º/2025, 40% no 4º/2025,
+60% no 1º/2026, 80% no 2º/2026 e 100% no 3º/2026.
+
+Isso não afeta a **construção** das UPAs feita aqui — ela parte da malha de
+setores e dos domicílios do Censo 2022, não da amostra da PNADC. O que é
+afetado é o **gabarito**: o `crosswalk_estratos.csv` extraído dos microdados de
+2026T2 reflete uma amostra apenas 80% renovada, ou seja, um conjunto de códigos
+de `Estrato` que **mistura duas safras** — parte no desenho antigo (base Censo
+2010), parte no novo (base Censo 2022).
+
+Isso dá explicação candidata para as duas ressalvas mais incômodas:
+
+- **A ausência do `2254` no GeoServer** (ressalva 3) fica natural se o `2254`
+  for um estrato do desenho **antigo**: a camada publicada reflete o desenho
+  novo, onde ele não existiria mais.
+- **A numeração inconsistente do `E`** (ressalva 2) — `{1,2,3}` em umas células
+  e `{0,1,2}` em outras — pode não ser inconsistência do IBGE, e sim duas
+  convenções de safras diferentes convivendo no mesmo trimestre.
+
+Nenhuma das duas está demonstrada. Mas ambas geram uma **previsão falseável**,
+verificável já na próxima edição: quando a amostra estiver 100% renovada, o
+código `2254020` deve **desaparecer** dos microdados e a numeração do `E` deve
+ficar **uniforme** entre as células. Se isso acontecer, as duas ressalvas se
+fecham; se não acontecer, a explicação era outra.
+
+Vale registrar também o que isso implica para a validação de 11 de 11 células:
+ela foi feita contra um alvo misto. Com 80% da amostra já renovada, a maior
+parte dos códigos observados deve ser do desenho novo — o que é coerente com o
+quadro encontrado, de quase tudo batendo e sobrarem exatamente duas anomalias.
+
+Por isso o `pipeline_trimestral.R` passou a arquivar uma cópia do crosswalk por
+trimestre (`output/crosswalk_estratos_<AAAAT#>.csv`): sem isso, cada rodada
+apagaria a evidência da anterior e a comparação entre safras — que é o que
+decide a questão — ficaria impossível.
+
 ## Ordem de execução
 
 ```
