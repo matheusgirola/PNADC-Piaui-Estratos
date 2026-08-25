@@ -1,0 +1,21 @@
+~$latorio.docx
+~WRL1249.tmp
+
+# Dados brutos: grandes e redistribuíveis a partir da fonte oficial (IBGE)
+data/raw/
+output_user/
+
+# Saídas binárias grandes
+output/*.gpkg
+output/*.gpkg-journal
+# RStudio / R
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# Bases pesadas regeneráveis pelo pipeline
+dados_saida/
+output/renda_individual_*.csv
+output/base_*.csv
+output/tabelas/comparacao_demografica_*.csv

@@ -1,0 +1,12 @@
+estrato_geografico,n_UPAs,k_viavel,k_usado,metodo,objetivo,reducao_variancia_pct,motivo
+221001,929,5,3,programação dinâmica (ótimo exato),970.63273785764,89.52384918872302,n=929 UPAs comporta até 5 estratos; usados 3 (K_ALVO)
+221002,104,0,1,estrato único,NA,NA,n=104 < 450 UPAs (3 x 150) exigidas para 3 estratos
+221003,300,2,1,estrato único,NA,NA,n=300 < 450 UPAs (3 x 150) exigidas para 3 estratos
+222001,190,1,1,estrato único,NA,NA,n=190 < 450 UPAs (3 x 150) exigidas para 3 estratos
+222002,179,1,1,estrato único,NA,NA,n=179 < 450 UPAs (3 x 150) exigidas para 3 estratos
+225101,734,4,3,programação dinâmica (ótimo exato),334.88612637113414,81.32917921989991,n=734 UPAs comporta até 4 estratos; usados 3 (K_ALVO)
+225102,864,5,3,programação dinâmica (ótimo exato),86.29839126590758,79.6834298180521,n=864 UPAs comporta até 5 estratos; usados 3 (K_ALVO)
+225201,818,5,3,programação dinâmica (ótimo exato),368.5490514304405,82.62211869518674,n=818 UPAs comporta até 5 estratos; usados 3 (K_ALVO)
+225202,837,5,3,programação dinâmica (ótimo exato),89.62921779824967,75.89785465629946,n=837 UPAs comporta até 5 estratos; usados 3 (K_ALVO)
+225301,505,3,3,programação dinâmica (ótimo exato),322.48841295222894,80.77258874674101,n=505 UPAs comporta até 3 estratos; usados 3 (K_ALVO)
+225302,489,3,3,programação dinâmica (ótimo exato),108.10817412000765,75.36680518732888,n=489 UPAs comporta até 3 estratos; usados 3 (K_ALVO)

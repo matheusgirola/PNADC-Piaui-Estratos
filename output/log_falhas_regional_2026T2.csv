@@ -1,0 +1,8 @@
+Recorte_Regional,Indicador,Erro
+Estrato_Micro,Taxa_Desocupacao,system is computationally singular: reciprocal condition number = 1.26596e-30
+Estrato_Micro,Chefes_Familia_Desocupados,system is computationally singular: reciprocal condition number = 1.60114e-17
+Estrato_Micro,Conribuintes_Desocupados,system is computationally singular: reciprocal condition number = 3.32306e-17
+Estrato_Micro,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 7.48469e-20
+Estrato_Micro,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 6.13563e-21
+Estrato_Agregado,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 4.83256e-18
+Estrato_Micro,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 1.57449e-21
