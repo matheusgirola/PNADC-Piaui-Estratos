@@ -48,7 +48,8 @@ nomes_indicadores <- c(
   Motivo_Desistencia_Desalentado   = "Motivo da Desistência (Desalentados)",
   Taxa_Nem_Nem                     = "Taxa de Nem-Nem (14 a 29 anos)",
   Motivo_Nao_Procura_NemNem        = "Motivo de Não Procurar Trabalho (Nem-Nem)",
-  Motivo_Nao_Inicio_NemNem         = "Motivo de Não Iniciar Trabalho (Nem-Nem)"
+  Motivo_Nao_Inicio_NemNem         = "Motivo de Não Iniciar Trabalho (Nem-Nem)",
+  Desigualdade_Formal_Informal     = "Desigualdade — Razão Formal/Informal"
 )
 
 nomes_recortes <- c(

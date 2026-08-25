@@ -4,14 +4,7 @@
 # demográficos), testes de significância, gráficos de confiabilidade e a
 # análise de distribuição de renda.
 #
-# Pensado pra rodar a cada atualização trimestral do relatório: muda
-# ANO_REF/TRIMESTRE_REF abaixo e roda o arquivo inteiro.
-#
-# É irmão do 01_run.R/02_testes_significancia.R (série histórica) — usa as
-# mesmas fórmulas de indicador e a mesma lógica de recorte, só que sem loop
-# de trimestres, sem cache em disco (tudo fica na memória do processo já
-# que é só uma rodada) e com a análise de renda a mais no final.
-# ==============================================================================
+
 
 library(PNADcIBGE)
 library(survey)
@@ -23,24 +16,14 @@ library(tibble)
 library(stringr)
 library(ggplot2)
 
-# ---- 0. Trimestre a processar -----------------------------------------------
+# ---- 1. Configuração ---------------------------------------------------------
+# ANO_REF, TRIMESTRE_REF, sufixo, tabela_salario_minimo, sm_hora_corrente e
+# geografias_agregadas vêm todos daqui. Para mudar o trimestre, mexa no
+# R/00_config.R — e SÓ nele; o 03_comparacoes_indicadores.R lê o mesmo arquivo.
 
-ANO_REF       <- 2026
-TRIMESTRE_REF <- 2
-
-sufixo <- sprintf("%dT%d", ANO_REF, TRIMESTRE_REF)
-dir.create("output/figuras", recursive = TRUE, showWarnings = FALSE)
-
-# ---- 1. Salário mínimo por hora, por ano ------------------------------------
-
-tabela_salario_minimo <- tibble(
-  ano     = 2015:2026,
-  sm_hora = c(3.58, 4.00, 4.26, 4.34, 4.54, 4.75, 5.00, 5.51, 6.00, 6.42, 6.87, 7.37)
-)
+source("R/00_config.R")
 
 # ---- 2. Download e variáveis derivadas --------------------------------------
-
-sm_hora_corrente <- tabela_salario_minimo %>% filter(ano == ANO_REF) %>% pull(sm_hora)
 
 message("Baixando PNADC ", sufixo, "...")
 dados_brutos <- get_pnadc(year = ANO_REF, quarter = TRIMESTRE_REF, deflator = TRUE)
@@ -134,12 +117,24 @@ design_pi <- design_trimestre[design_trimestre$variables$UF == "Piauí", ]
 # classificação já validada aqui em cima, exportada pra qualquer script à
 # parte (ex.: de mapa) poder colorir o polígono do IBGE sem precisar
 # redescobrir/duplicar essas regras.
-write_csv(
-  distinct(design_pi$variables, Estrato, Zona, Estrato_Admin, Estrato_agregado),
-  "output/crosswalk_estratos.csv"
-)
+crosswalk_trimestre <- distinct(design_pi$variables, Estrato, Zona,
+                                Estrato_Admin, Estrato_agregado)
 
-# ---- 3. Catálogo de indicadores ---------------------------------------------
+# Duas cópias, manter até 2026 T3:
+#   - sem sufixo: é o que o 04 e o 07 leem, sempre o trimestre corrente
+#   - com sufixo: ARQUIVO. O IBGE está substituindo as UPAs de primeira
+#     entrevista progressivamente (20% no 3ºT/2025 ... 100% no 3ºT/2026), então
+#     o conjunto de códigos de Estrato observado MUDA de trimestre para
+#     trimestre enquanto a troca não termina. Sem guardar uma cópia por
+#     trimestre, cada rodada apagaria a evidência da anterior e não haveria como
+#     comparar as safras — que é justamente como se descobre quais estratos são
+#     resíduo do desenho antigo.
+write_csv(crosswalk_trimestre, "output/crosswalk_estratos.csv")
+write_csv(crosswalk_trimestre, sprintf("output/crosswalk_estratos_%s.csv", sufixo))
+
+message("Crosswalk: ", nrow(crosswalk_trimestre), " estratos distintos no Piauí em ", sufixo, ".")
+
+# ---- 3. Indicadores ---------------------------------------------
 
 catalogo_indicadores <- list(
   list(id = "Taxa_Desocupacao",
@@ -205,6 +200,7 @@ catalogo_indicadores <- list(
   list(id = "Motivo_Nao_Procura_NemNem",
        formula = ~VD4030, denominador = NULL, fun = svymean, subset = ~nem_nem == 1),
   
+  # Legado: não utiliza no trimestral
   list(id = "Motivo_Nao_Inicio_NemNem",
        formula = ~V4078A, denominador = NULL, fun = svymean, subset = ~nem_nem == 1)
 )
@@ -218,7 +214,7 @@ recortes_demograficos <- list(
   Instrucao              = ~VD3004
 )
 
-geografias_agregadas <- c("Brasil", "Nordeste", "Piauí", "Teresina")
+# geografias_agregadas vem do R/00_config.R
 
 # ---- 4. Geografias -----------------------------------------------------------
 
@@ -373,6 +369,118 @@ base_trimestre <- bind_rows(linhas) %>%
   select(Indicador, Subcategoria_Indicador, Estimativa, SE, Ano, Trimestre,
          Regiao_Geografica, Recorte_Demografico, Categoria_Demografica)
 
+# ---- 6b. Desigualdade formal/informal ---------------------------------------
+# A razão entre o rendimento médio dos ocupados formais e o dos informais.
+#
+# Esse indicador não entra no pipeline de cima pois aquele framework calcula UM
+# estimador por vez (svymean ou svyratio). Esta métrica é a razão entre DOIS
+# estimadores, aqui queremos obter o erro padrão entre os dois indicadores 
+#
+# Rendimento_Formal e Rendimento_Informal são estimados sobre a MESMA amostra:
+# compartilham UPAs e estratos, logo são correlacionados. Combinar os dois
+# erros padrão como se fossem independentes ignora a covariância e produz um
+# intervalo errado.
+#
+# Assim, estima-se as duas médias em UM objeto (svyby com
+# covmat = TRUE, que guarda a matriz de covariância) e aplicar svycontrast()
+# sobre a diferença de logaritmos. O svycontrast lineariza pelo método delta
+# usando a covariância de verdade. Exponenciando, volta-se à razão.
+#
+# Trabalhar em log tem duas vantagens: o intervalo resultante é assimétrico na
+# escala da razão (como deve ser, já que razão é positiva e não pode ter limite
+# inferior negativo), e o erro padrão do log é, ele próprio, o CV da razão.
+
+
+calcular_desigualdade <- function(design_geo) {
+
+  d <- aplicar_subset(
+    design_geo,
+    ~ VD4002 == "Pessoas ocupadas" & !is.na(informal) & !is.na(VD4019_real)
+  )
+  if (nrow(d) < 2) return(NULL)
+
+  d$variables$.formalidade <- factor(
+    ifelse(d$variables$informal == 1, "informal", "formal"),
+    levels = c("formal", "informal")
+  )
+  # Estrato com só um dos dois grupos não tem razão a estimar.
+  if (nlevels(droplevels(d$variables$.formalidade)) < 2) return(NULL)
+
+  medias <- svyby(~VD4019_real, ~.formalidade, d, svymean,
+                  na.rm = TRUE, covmat = TRUE)
+
+  m <- coef(medias)
+  if (length(m) < 2 || any(!is.finite(m)) || any(m <= 0)) return(NULL)
+
+  contraste <- svycontrast(medias, quote(log(formal) - log(informal)))
+  log_razao <- as.numeric(coef(contraste))
+  ep_log    <- as.numeric(SE(contraste))
+  if (!is.finite(log_razao) || !is.finite(ep_log)) return(NULL)
+
+  razao <- exp(log_razao)
+
+  tibble(
+    rendimento_formal   = unname(m[["formal"]]),
+    rendimento_informal = unname(m[["informal"]]),
+    razao               = razao,
+    ep_log              = ep_log,
+    # método delta na escala natural, para a base_ manter o mesmo esquema
+    ep_razao            = razao * ep_log,
+    # intervalo construído no log e exponenciado: assimétrico e sempre positivo
+    ic_inf              = exp(log_razao - 1.96 * ep_log),
+    ic_sup              = exp(log_razao + 1.96 * ep_log),
+    # CV de uma razão é, por construção, o erro padrão do seu log
+    cv                  = 100 * ep_log
+  )
+}
+
+message("Calculando a desigualdade formal/informal...")
+linhas_desig <- list()
+
+for (geo_nome in names(lista_geografias)) {
+  design_geo <- lista_geografias[[geo_nome]]
+  if (nrow(design_geo) == 0) next
+
+  res <- tryCatch(
+    calcular_desigualdade(design_geo),
+    error = function(e) {
+      falhas[[length(falhas) + 1]] <<- tibble(
+        Regiao_Geografica = geo_nome, Recorte_Demografico = "Total",
+        Indicador = "Desigualdade_Formal_Informal", Erro = conditionMessage(e)
+      )
+      NULL
+    }
+  )
+  if (!is.null(res)) {
+    linhas_desig[[length(linhas_desig) + 1]] <- res %>%
+      mutate(Regiao_Geografica = geo_nome, .before = 1)
+  }
+}
+
+desigualdade <- bind_rows(linhas_desig)
+
+if (nrow(desigualdade) > 0) {
+  write_csv(desigualdade,
+            sprintf("output/desigualdade_formal_informal_%s.csv", sufixo))
+  message("  -> ", nrow(desigualdade), " geografia(s) com razão formal/informal")
+
+  # Entra também na base_ para herdar a maquinaria de CV e confiabilidade do 03.
+  base_trimestre <- bind_rows(
+    base_trimestre,
+    desigualdade %>%
+      transmute(
+        Indicador = "Desigualdade_Formal_Informal",
+        Subcategoria_Indicador = "Desigualdade_Formal_Informal",
+        Estimativa = razao, SE = ep_razao,
+        Ano = ANO_REF, Trimestre = TRIMESTRE_REF,
+        Regiao_Geografica, Recorte_Demografico = "Total",
+        Categoria_Demografica = "Total"
+      )
+  )
+} else {
+  message("  -> nenhuma geografia produziu razão formal/informal (ver log de falhas)")
+}
+
 write_csv(base_trimestre, sprintf("output/base_%s.csv", sufixo))
 message("  -> ", nrow(base_trimestre), " linhas de indicadores")
 
@@ -383,8 +491,7 @@ if (length(falhas) > 0) {
 }
 
 # ---- 7. Testes de significância DEMOGRÁFICOS ---------------------------------
-# Dentro de cada geografia fina, o indicador difere por sexo/faixa
-# etária/instrução?
+# Verifica se há diferenç significativa por recorte demográfico
 
 extrair_p_valor <- function(teste) {
   for (campo in c("p", "p.value")) {
@@ -502,17 +609,7 @@ if (length(falhas_teste) > 0) {
 # difere ENTRE as categorias de um mesmo tipo de recorte regional — zona
 # urbana x rural, estratos administrativos entre si, estratos agregados
 # entre si, e Teresina x resto do Piauí.
-#
-# "Teresina x Piauí", do jeito que foi pedido, não dá pra testar
-# literalmente: Teresina é um SUBCONJUNTO de Piauí (todo mundo de Teresina
-# também é Piauí), não duas populações separadas — e teste de diferença de
-# média precisa de grupos que não se sobrepõem. Testei Teresina contra o
-# RESTO do Piauí (excluindo Teresina), que é a comparação que de fato
-# responde "Teresina é diferente do resto do estado?".
-#
-# Reaproveita a mesma rodar_teste() da seção 7 — ela já é genérica o
-# suficiente pra receber qualquer design + qualquer variável de
-# agrupamento, então não precisei duplicar a lógica.
+
 
 design_pi$variables$Teresina_Resto <- factor(ifelse(
   design_pi$variables$Estrato_agregado == "Teresina", "Teresina", "Resto do Piauí"

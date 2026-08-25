@@ -1,40 +1,28 @@
 # ==============================================================================
 # 00_config.R — parâmetros compartilhados do pipeline trimestral.
 #
-# POR QUE ISSO EXISTE
-# -------------------
-# ANO_REF e TRIMESTRE_REF estavam declarados em DOIS arquivos
-# (pipeline_trimestral.R e 03_comparacoes_indicadores.R). Como os nomes de
-# arquivo de saída são sufixados por trimestre, as bases antigas continuam em
-# disco — então esquecer de atualizar um dos dois não dava erro: o 03
-# simplesmente relia a base do trimestre anterior e regravava as tabelas
-# daquele trimestre. O relatório saía com a cara de novo e os números velhos.
+# Atualizar esse arquivo para Ano/Trimestre - ele alimenta o 01 e o 03
+# se rodar o 03 sem atualizar esse pode dá bug direto e sem erro viu palhaço, Ele dá a doida e pegar 
+# o antigo
 #
-# Agora os dois arquivos dão source() aqui. Mudar o trimestre é mexer em UM
-# lugar só.
-#
-# USO: no topo de cada script do pipeline,
-#   source("R/00_config.R")
-#
-# Os caminhos são relativos à RAIZ do projeto (é de lá que os scripts rodam,
-# porque todos gravam em "output/..."). Se você abre o .Rproj, o diretório de
-# trabalho já é a raiz e não há nada a fazer.
-# ==============================================================================
+# A cada ano tem que atualizar o salario minimo por hora, é hard-coded
+
 
 library(dplyr)
 library(tibble)
 
 # ---- Trimestre de referência -------------------------------------------------
-# É AQUI que se muda o trimestre. Mais nada.
+# É AQUI que se muda o ano e trimestre. Mais nada.
 
 ANO_REF       <- 2026
 TRIMESTRE_REF <- 2
 
 sufixo <- sprintf("%dT%d", ANO_REF, TRIMESTRE_REF)
 
-# ---- Salário mínimo por hora, por ano ----------------------------------------
+# ---- Salário mínimo por hora SEMANAL, por ano ----------------------------------------
 # Base do corte de subremuneração (rendimento/hora abaixo do mínimo/hora).
 # ACRESCENTE A LINHA DO ANO NOVO quando virar o ano.
+# Pra calcular: (Salario minimo)/220h -> 220h pois o mes comercial em 5 semanas e cada uma tem 44h semanais
 
 tabela_salario_minimo <- tibble(
   ano     = 2015:2026,
@@ -43,23 +31,21 @@ tabela_salario_minimo <- tibble(
 
 sm_hora_corrente <- tabela_salario_minimo %>% filter(ano == ANO_REF) %>% pull(sm_hora)
 
-# Falha explícita e cedo. Sem isso, o erro só apareceria lá na frente, dentro
-# de um mutate(), com a mensagem obscura "must be size N or 1, not 0" — que não
-# diz a coisa mais útil, que é "faltou cadastrar o salário mínimo do ano".
+# Condição que retorna erro caso não tenha o salário pro ano
 if (length(sm_hora_corrente) != 1) {
   stop("Não há salário mínimo cadastrado para ", ANO_REF,
        " em tabela_salario_minimo (R/00_config.R). Acrescente a linha do ano ",
        "antes de rodar o pipeline.")
 }
 
-# ---- Geografias agregadas ----------------------------------------------------
+# ---- Geografias agregadas ---------------------------------------------
 # Os níveis que NÃO são estratos do Piauí. Usado para decidir quais recortes
 # demográficos se aplicam (no pipeline) e para classificar Tipo_Geo (no 03) —
-# outra constante que estava duplicada entre os dois arquivos.
+# mais coisas que repetem no 01 e 03
 
 geografias_agregadas <- c("Brasil", "Nordeste", "Piauí", "Teresina")
 
-# ---- Pastas de saída ---------------------------------------------------------
+# ---- Pastas de saída --------------------------------------------
 
 dir.create("output/figuras", recursive = TRUE, showWarnings = FALSE)
 dir.create("output/tabelas", recursive = TRUE, showWarnings = FALSE)

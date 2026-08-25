@@ -1,272 +1,268 @@
 Regiao_Geografica,Recorte_Demografico,Indicador,Erro
-Zona_Urbana,Raca,Taxa_Desocupacao,system is computationally singular: reciprocal condition number = 9.70503e-17
-Zona_Urbana,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 3997"
-Zona_Urbana,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 305"
-Zona_Urbana,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 305"
-Zona_Urbana,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 8516"
-Zona_Urbana,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 8516"
-Zona_Urbana,Raca,Rendimento_Formal,system is computationally singular: reciprocal condition number = 3.43577e-17
-Zona_Urbana,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 6899"
-Zona_Urbana,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 1617"
-Zona_Urbana,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 3692"
-Zona_Urbana,Raca,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 9.42176e-17
-Zona_Urbana,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 3692"
-Zona_Urbana,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 3692"
-Zona_Urbana,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 1.3518e-17
-Zona_Urbana,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 8516"
-Zona_Urbana,Raca,Desalentados_Fora_Forca,"Lapack routine dgesv: system is exactly singular: U[4,4] = 0"
-Zona_Urbana,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 3020"
-Zona_Urbana,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 120"
+Zona_Urbana,Raca,Taxa_Desocupacao,system is computationally singular: reciprocal condition number = 8.85007e-17
+Zona_Urbana,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 3997"
+Zona_Urbana,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 305"
+Zona_Urbana,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 305"
+Zona_Urbana,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 8516"
+Zona_Urbana,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 8516"
+Zona_Urbana,Raca,Rendimento_Formal,system is computationally singular: reciprocal condition number = 1.30933e-30
+Zona_Urbana,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 6899"
+Zona_Urbana,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 1617"
+Zona_Urbana,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 3692"
+Zona_Urbana,Raca,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 1.89174e-16
+Zona_Urbana,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 3692"
+Zona_Urbana,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 3692"
+Zona_Urbana,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 2.36307e-17
+Zona_Urbana,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 8516"
+Zona_Urbana,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 1.25707e-16
+Zona_Urbana,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 3020"
+Zona_Urbana,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 120"
 Zona_Urbana,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Zona_Urbana,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 1914"
+Zona_Urbana,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 1914"
 Zona_Urbana,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Zona_Urbana,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 377"
-Zona_Urbana,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 7.12631e-18
+Zona_Urbana,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 377"
+Zona_Urbana,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 5.70105e-18
 Zona_Urbana,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Zona_Urbana,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 377"
-Zona_Rural,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 1427"
-Zona_Rural,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 158"
-Zona_Rural,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 158"
-Zona_Rural,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 4410"
-Zona_Rural,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 4410"
-Zona_Rural,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 3542"
-Zona_Rural,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 868"
-Zona_Rural,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 1269"
-Zona_Rural,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 1269"
-Zona_Rural,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 1269"
-Zona_Rural,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 8.27748e-17
-Zona_Rural,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 4410"
-Zona_Rural,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 2144"
-Zona_Rural,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 241"
+Zona_Urbana,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 377"
+Zona_Rural,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 1427"
+Zona_Rural,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 158"
+Zona_Rural,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 158"
+Zona_Rural,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 4410"
+Zona_Rural,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 4410"
+Zona_Rural,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 3542"
+Zona_Rural,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 868"
+Zona_Rural,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 1269"
+Zona_Rural,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 1269"
+Zona_Rural,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 1269"
+Zona_Rural,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 4.79852e-20
+Zona_Rural,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 4410"
+Zona_Rural,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 2144"
+Zona_Rural,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 241"
 Zona_Rural,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Zona_Rural,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 886"
+Zona_Rural,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 886"
 Zona_Rural,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Zona_Rural,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 287"
+Zona_Rural,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 287"
 Zona_Rural,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Zona_Rural,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 287"
-Admin_Capital,Raca,Taxa_Desocupacao,"Lapack routine dgesv: system is exactly singular: U[4,4] = 0"
-Admin_Capital,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 2128"
-Admin_Capital,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 164"
-Admin_Capital,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 164"
-Admin_Capital,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 4334"
-Admin_Capital,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 4334"
-Admin_Capital,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 3573"
-Admin_Capital,Raca,Rendimento_Informal,system is computationally singular: reciprocal condition number = 2.89923e-17
-Admin_Capital,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 761"
-Admin_Capital,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 1964"
-Admin_Capital,Raca,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 2.99619e-21
-Admin_Capital,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 1964"
-Admin_Capital,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 1964"
-Admin_Capital,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 2.10589e-16
-Admin_Capital,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 4334"
-Admin_Capital,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 1438"
-Admin_Capital,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 21"
+Zona_Rural,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 287"
+Admin_Capital,Raca,Taxa_Desocupacao,system is computationally singular: reciprocal condition number = 1.38715e-16
+Admin_Capital,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 2128"
+Admin_Capital,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 164"
+Admin_Capital,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 164"
+Admin_Capital,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 4334"
+Admin_Capital,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 4334"
+Admin_Capital,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 3573"
+Admin_Capital,Raca,Rendimento_Informal,system is computationally singular: reciprocal condition number = 4.09431e-32
+Admin_Capital,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 761"
+Admin_Capital,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 1964"
+Admin_Capital,Raca,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 1.07152e-20
+Admin_Capital,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 1964"
+Admin_Capital,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 1964"
+Admin_Capital,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 4334"
+Admin_Capital,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 1438"
+Admin_Capital,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 21"
 Admin_Capital,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Admin_Capital,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 968"
+Admin_Capital,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 968"
 Admin_Capital,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Admin_Capital,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 176"
+Admin_Capital,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 176"
 Admin_Capital,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Admin_Capital,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 176"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 534"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 80"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 80"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 1324"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 1324"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 1066"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 258"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 454"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 454"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 454"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 1.78356e-17
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 1324"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 568"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 17"
+Admin_Capital,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 176"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 534"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 80"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 80"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 1324"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 1324"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 1066"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 258"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 454"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 454"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 454"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 1.42685e-16
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 1324"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 568"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 17"
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 287"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 3.50563e-33
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 287"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 1.07025e-18
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 82"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 2.5591e-18
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 82"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 1.32202e-18
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 82"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 2762"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 219"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 219"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 7268"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 7268"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 5802"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 1466"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 2543"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 2543"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 2543"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 1.37556e-16
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 7268"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Raca,Desalentados_Fora_Forca,"Lapack routine dgesv: system is exactly singular: U[4,4] = 0"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 3158"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 323"
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 82"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 2762"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 219"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 219"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 7268"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 7268"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 5802"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 1466"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 2543"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 2543"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 2543"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 1.83295e-16
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 7268"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 3.3396e-19
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 3158"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 323"
 "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 1545"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 1545"
 "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 406"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 406"
 "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 406"
-Agreg_Teresina,Raca,Taxa_Desocupacao,"Lapack routine dgesv: system is exactly singular: U[4,4] = 0"
-Agreg_Teresina,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 2128"
-Agreg_Teresina,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 164"
-Agreg_Teresina,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 164"
-Agreg_Teresina,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 4334"
-Agreg_Teresina,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 4334"
-Agreg_Teresina,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 3573"
-Agreg_Teresina,Raca,Rendimento_Informal,system is computationally singular: reciprocal condition number = 2.89923e-17
-Agreg_Teresina,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 761"
-Agreg_Teresina,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 1964"
-Agreg_Teresina,Raca,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 2.99619e-21
-Agreg_Teresina,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 1964"
-Agreg_Teresina,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 1964"
-Agreg_Teresina,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 2.10589e-16
-Agreg_Teresina,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 4334"
-Agreg_Teresina,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 1438"
-Agreg_Teresina,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 21"
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 406"
+Agreg_Teresina,Raca,Taxa_Desocupacao,system is computationally singular: reciprocal condition number = 1.38715e-16
+Agreg_Teresina,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 2128"
+Agreg_Teresina,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 164"
+Agreg_Teresina,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 164"
+Agreg_Teresina,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 4334"
+Agreg_Teresina,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 4334"
+Agreg_Teresina,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 3573"
+Agreg_Teresina,Raca,Rendimento_Informal,system is computationally singular: reciprocal condition number = 4.09431e-32
+Agreg_Teresina,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 761"
+Agreg_Teresina,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 1964"
+Agreg_Teresina,Raca,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 1.07152e-20
+Agreg_Teresina,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 1964"
+Agreg_Teresina,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 1964"
+Agreg_Teresina,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 4334"
+Agreg_Teresina,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 1438"
+Agreg_Teresina,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 21"
 Agreg_Teresina,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Teresina,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 968"
+Agreg_Teresina,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 968"
 Agreg_Teresina,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Teresina,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 176"
+Agreg_Teresina,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 176"
 Agreg_Teresina,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Teresina,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 176"
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 534"
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 80"
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 80"
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 1324"
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 1324"
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 1066"
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 258"
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 454"
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 454"
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 454"
-Agreg_Entorno metropolitano de Teresina (PI),Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 1.78356e-17
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 1324"
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 568"
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 17"
+Agreg_Teresina,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 176"
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 534"
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 80"
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 80"
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 1324"
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 1324"
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 1066"
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 258"
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 454"
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 454"
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 454"
+Agreg_Entorno metropolitano de Teresina (PI),Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 1.42685e-16
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 1324"
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 568"
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 17"
 Agreg_Entorno metropolitano de Teresina (PI),Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 287"
-Agreg_Entorno metropolitano de Teresina (PI),Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 3.50563e-33
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 287"
+Agreg_Entorno metropolitano de Teresina (PI),Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 1.07025e-18
 Agreg_Entorno metropolitano de Teresina (PI),Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 82"
-Agreg_Entorno metropolitano de Teresina (PI),Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 2.5591e-18
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 82"
+Agreg_Entorno metropolitano de Teresina (PI),Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 1.32202e-18
 Agreg_Entorno metropolitano de Teresina (PI),Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 82"
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 962"
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 81"
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 81"
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 2636"
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 2636"
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 2124"
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 512"
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 881"
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 881"
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 881"
-Agreg_Centro-Leste do Piauí,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 1.3018e-16
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 2636"
-Agreg_Centro-Leste do Piauí,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 2.16813e-16
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 1181"
-Agreg_Centro-Leste do Piauí,Raca,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 1.31014e-17
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 159"
+Agreg_Entorno metropolitano de Teresina (PI),Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 82"
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 962"
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 81"
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 81"
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 2636"
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 2636"
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 2124"
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 512"
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 881"
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 881"
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 881"
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 2636"
+Agreg_Centro-Leste do Piauí,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 7.02543e-17
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 1181"
+Agreg_Centro-Leste do Piauí,Raca,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 1.06449e-17
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 159"
 Agreg_Centro-Leste do Piauí,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 586"
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 586"
 Agreg_Centro-Leste do Piauí,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 153"
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 153"
 Agreg_Centro-Leste do Piauí,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Centro-Leste do Piauí,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 153"
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 975"
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 56"
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 56"
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 2584"
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 2584"
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 2025"
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 559"
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 919"
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 919"
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 919"
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 2584"
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 1113"
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 83"
+Agreg_Centro-Leste do Piauí,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 153"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 975"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 56"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 56"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 2584"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 2584"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 2025"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 559"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 919"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 919"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 919"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 2584"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 1113"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 83"
 Agreg_Baixo Parnaíba do Piauí,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 555"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 555"
 Agreg_Baixo Parnaíba do Piauí,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 134"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 134"
 Agreg_Baixo Parnaíba do Piauí,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 134"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 825"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 82"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 82"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 2048"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 2048"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 1653"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 395"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 743"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 743"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 743"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 4.44265e-17
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 2048"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 4.55438e-17
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 864"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 2.7126e-17
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 81"
+Agreg_Baixo Parnaíba do Piauí,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 134"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 825"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 82"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 82"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 2048"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 2048"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 1653"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 395"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 743"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 743"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 743"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 1.33165e-16
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 2048"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 4.57626e-17
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 864"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 2.31702e-17
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 81"
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 404"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 404"
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 119"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 4.33663e-18
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 119"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 7.43423e-18
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 119"
-Micro_2210011,Raca,Taxa_Desocupacao,system is computationally singular: reciprocal condition number = 1.70599e-16
-Micro_2210011,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 994"
-Micro_2210011,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 82"
-Micro_2210011,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 82"
-Micro_2210011,Raca,Rendimento_Medio_Habitual,"Lapack routine dgesv: system is exactly singular: U[4,4] = 0"
-Micro_2210011,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 1931"
-Micro_2210011,Raca,Percentual_Subremuneracao,system is computationally singular: reciprocal condition number = 1.6149e-16
-Micro_2210011,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 1931"
-Micro_2210011,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 1586"
-Micro_2210011,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 345"
-Micro_2210011,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 912"
-Micro_2210011,Raca,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 3.72487e-20
-Micro_2210011,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 912"
-Micro_2210011,Raca,Proporcao_Ocupados_Escolarizados,system is computationally singular: reciprocal condition number = 5.28488e-17
-Micro_2210011,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 912"
-Micro_2210011,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 6.7891e-17
-Micro_2210011,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 1931"
-Micro_2210011,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 608"
-Micro_2210011,Raca,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 7.363e-18
-Micro_2210011,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 5"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 119"
+Micro_2210011,Raca,Taxa_Desocupacao,system is computationally singular: reciprocal condition number = 1.27369e-16
+Micro_2210011,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 994"
+Micro_2210011,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 82"
+Micro_2210011,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 82"
+Micro_2210011,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 1931"
+Micro_2210011,Raca,Percentual_Subremuneracao,system is computationally singular: reciprocal condition number = 7.24655e-17
+Micro_2210011,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 1931"
+Micro_2210011,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 1586"
+Micro_2210011,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 345"
+Micro_2210011,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 912"
+Micro_2210011,Raca,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 2.69126e-19
+Micro_2210011,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 912"
+Micro_2210011,Raca,Proporcao_Ocupados_Escolarizados,system is computationally singular: reciprocal condition number = 5.29703e-17
+Micro_2210011,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 912"
+Micro_2210011,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 5.093e-17
+Micro_2210011,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 1931"
+Micro_2210011,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 608"
+Micro_2210011,Raca,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 1.65668e-17
+Micro_2210011,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 5"
 Micro_2210011,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210011,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 449"
+Micro_2210011,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 449"
 Micro_2210011,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210011,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 82"
+Micro_2210011,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 82"
 Micro_2210011,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210011,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 82"
-Micro_2210012,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 319"
-Micro_2210012,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,system is computationally singular: reciprocal condition number = 2.27253e-26
-Micro_2210012,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 15"
-Micro_2210012,Faixa_Etaria_trabalho,Conribuintes_Desocupados,system is computationally singular: reciprocal condition number = 2.27253e-26
-Micro_2210012,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 15"
-Micro_2210012,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 636"
-Micro_2210012,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 636"
-Micro_2210012,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 543"
-Micro_2210012,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 93"
-Micro_2210012,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 304"
+Micro_2210011,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 82"
+Micro_2210012,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 319"
+Micro_2210012,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,system is computationally singular: reciprocal condition number = 2.27334e-26
+Micro_2210012,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 15"
+Micro_2210012,Faixa_Etaria_trabalho,Conribuintes_Desocupados,system is computationally singular: reciprocal condition number = 2.27334e-26
+Micro_2210012,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 15"
+Micro_2210012,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 636"
+Micro_2210012,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 636"
+Micro_2210012,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 543"
+Micro_2210012,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 93"
+Micro_2210012,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 304"
 Micro_2210012,Faixa_Etaria_trabalho,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 3.02121e-17
-Micro_2210012,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 304"
-Micro_2210012,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 304"
+Micro_2210012,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 304"
+Micro_2210012,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 304"
 Micro_2210012,Sexo,Desalentados_Forca_Ampliada,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE, FALSE, FALSE"
 Micro_2210012,Raca,Desalentados_Forca_Ampliada,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE, FALSE, FALSE"
 Micro_2210012,Faixa_Etaria_trabalho,Desalentados_Forca_Ampliada,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE, FALSE, FALSE"
-Micro_2210012,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 636"
+Micro_2210012,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 636"
 Micro_2210012,Instrucao,Desalentados_Forca_Ampliada,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE, FALSE, FALSE"
 Micro_2210012,Sexo,Desalentados_Fora_Forca,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE, FALSE, FALSE"
 Micro_2210012,Raca,Desalentados_Fora_Forca,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE, FALSE, FALSE"
 Micro_2210012,Faixa_Etaria_trabalho,Desalentados_Fora_Forca,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE, FALSE, FALSE"
-Micro_2210012,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 229"
+Micro_2210012,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 229"
 Micro_2210012,Instrucao,Desalentados_Fora_Forca,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE, FALSE, FALSE"
 Micro_2210012,Sexo,Motivo_Desistencia_Desalentado,PULADO: design ficou com 0 linhas depois do subset/denominador
 Micro_2210012,Raca,Motivo_Desistencia_Desalentado,PULADO: design ficou com 0 linhas depois do subset/denominador
@@ -274,595 +270,593 @@ Micro_2210012,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,PULADO: desig
 Micro_2210012,Instrucao_agregado,Motivo_Desistencia_Desalentado,PULADO: design ficou com 0 linhas depois do subset/denominador
 Micro_2210012,Instrucao,Motivo_Desistencia_Desalentado,PULADO: design ficou com 0 linhas depois do subset/denominador
 Micro_2210012,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210012,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 118"
+Micro_2210012,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 118"
 Micro_2210012,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210012,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 18"
+Micro_2210012,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 18"
 Micro_2210012,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210012,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 18"
+Micro_2210012,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 18"
 Micro_2210013,Raca,Taxa_Desocupacao,system is computationally singular: reciprocal condition number = 3.55231e-27
-Micro_2210013,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 221"
-Micro_2210013,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 11"
-Micro_2210013,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 11"
-Micro_2210013,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 410"
-Micro_2210013,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 410"
-Micro_2210013,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 335"
-Micro_2210013,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 75"
-Micro_2210013,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 210"
-Micro_2210013,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 210"
-Micro_2210013,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 210"
-Micro_2210013,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 410"
-Micro_2210013,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 132"
+Micro_2210013,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 221"
+Micro_2210013,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 11"
+Micro_2210013,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 11"
+Micro_2210013,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 410"
+Micro_2210013,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 410"
+Micro_2210013,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 335"
+Micro_2210013,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 75"
+Micro_2210013,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 210"
+Micro_2210013,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 210"
+Micro_2210013,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 210"
+Micro_2210013,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 410"
+Micro_2210013,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 132"
 Micro_2210013,Sexo,Motivo_Desistencia_Desalentado,PULADO: recorte Sexo tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210013,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 2"
+Micro_2210013,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 2"
 Micro_2210013,Instrucao,Motivo_Desistencia_Desalentado,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2210013,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210013,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 81"
+Micro_2210013,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 81"
 Micro_2210013,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210013,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 8"
+Micro_2210013,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 8"
 Micro_2210013,Instrucao,Motivo_Nao_Procura_NemNem,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2210013,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210013,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 8"
+Micro_2210013,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 8"
 Micro_2210013,Instrucao,Motivo_Nao_Inicio_NemNem,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210020,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 182"
-Micro_2210020,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 19"
-Micro_2210020,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 19"
-Micro_2210020,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 475"
-Micro_2210020,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 475"
-Micro_2210020,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 388"
-Micro_2210020,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 87"
-Micro_2210020,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 163"
+Micro_2210020,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 182"
+Micro_2210020,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 19"
+Micro_2210020,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 19"
+Micro_2210020,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 475"
+Micro_2210020,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 475"
+Micro_2210020,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 388"
+Micro_2210020,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 87"
+Micro_2210020,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 163"
 Micro_2210020,Faixa_Etaria_trabalho,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 3.10202e-27
-Micro_2210020,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 163"
-Micro_2210020,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 163"
-Micro_2210020,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 475"
-Micro_2210020,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 196"
-Micro_2210020,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 9"
+Micro_2210020,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 163"
+Micro_2210020,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 163"
+Micro_2210020,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 475"
+Micro_2210020,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 196"
+Micro_2210020,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 9"
 Micro_2210020,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210020,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 94"
+Micro_2210020,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 94"
 Micro_2210020,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210020,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 24"
-Micro_2210020,Raca,Motivo_Nao_Inicio_NemNem,"Lapack routine dgesv: system is exactly singular: U[6,6] = 0"
+Micro_2210020,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 24"
+Micro_2210020,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 3.83138e-18
 Micro_2210020,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210020,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 24"
-Micro_2210030,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 412"
-Micro_2210030,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 37"
-Micro_2210030,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 37"
-Micro_2210030,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 882"
-Micro_2210030,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 882"
-Micro_2210030,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 721"
-Micro_2210030,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 161"
-Micro_2210030,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 375"
-Micro_2210030,Faixa_Etaria_trabalho,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 1.95845e-16
-Micro_2210030,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 375"
+Micro_2210020,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 24"
+Micro_2210030,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 412"
+Micro_2210030,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 37"
+Micro_2210030,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 37"
+Micro_2210030,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 882"
+Micro_2210030,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 882"
+Micro_2210030,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 721"
+Micro_2210030,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 161"
+Micro_2210030,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 375"
+Micro_2210030,Faixa_Etaria_trabalho,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 3.26408e-17
+Micro_2210030,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 375"
 Micro_2210030,Faixa_Etaria_trabalho,Proporcao_Ocupados_Escolarizados,system is computationally singular: reciprocal condition number = 6.38487e-28
-Micro_2210030,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 375"
-Micro_2210030,Faixa_Etaria_trabalho,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 1.93106e-16
-Micro_2210030,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 882"
-Micro_2210030,Faixa_Etaria_trabalho,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 3.16515e-17
-Micro_2210030,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 273"
+Micro_2210030,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 375"
+Micro_2210030,Faixa_Etaria_trabalho,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 9.65532e-17
+Micro_2210030,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 882"
+Micro_2210030,Faixa_Etaria_trabalho,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 9.49545e-17
+Micro_2210030,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 273"
 Micro_2210030,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210030,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 5"
+Micro_2210030,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 5"
 Micro_2210030,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210030,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 226"
+Micro_2210030,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 226"
 Micro_2210030,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210030,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 44"
+Micro_2210030,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 44"
 Micro_2210030,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2210030,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 44"
-Micro_2220010,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 340"
-Micro_2220010,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 41"
-Micro_2220010,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 41"
-Micro_2220010,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 723"
-Micro_2220010,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 723"
-Micro_2220010,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 578"
-Micro_2220010,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 145"
-Micro_2220010,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 299"
-Micro_2220010,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 299"
-Micro_2220010,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 299"
-Micro_2220010,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 723"
+Micro_2210030,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 44"
+Micro_2220010,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 340"
+Micro_2220010,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 41"
+Micro_2220010,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 41"
+Micro_2220010,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 723"
+Micro_2220010,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 723"
+Micro_2220010,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 578"
+Micro_2220010,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 145"
+Micro_2220010,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 299"
+Micro_2220010,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 299"
+Micro_2220010,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 299"
+Micro_2220010,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 723"
 Micro_2220010,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 1.68685e-27
-Micro_2220010,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 269"
-Micro_2220010,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 10"
+Micro_2220010,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 269"
+Micro_2220010,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 10"
 Micro_2220010,Raca,Taxa_Nem_Nem,system is computationally singular: reciprocal condition number = 7.15423e-29
 Micro_2220010,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2220010,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 176"
-Micro_2220010,Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 3.76612e-18
+Micro_2220010,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 176"
+Micro_2220010,Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 1.03568e-17
 Micro_2220010,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2220010,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 44"
-Micro_2220010,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 2.8604e-17
+Micro_2220010,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 44"
+Micro_2220010,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 3.03361e-18
 Micro_2220010,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2220010,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 44"
-Micro_2220020,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 194"
-Micro_2220020,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 39"
-Micro_2220020,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 39"
-Micro_2220020,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 601"
-Micro_2220020,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 601"
-Micro_2220020,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 488"
-Micro_2220020,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 113"
-Micro_2220020,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 155"
-Micro_2220020,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 155"
-Micro_2220020,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 155"
-Micro_2220020,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 1.68417e-23
-Micro_2220020,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 601"
-Micro_2220020,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 4.62669e-23
-Micro_2220020,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 299"
+Micro_2220010,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 44"
+Micro_2220020,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 194"
+Micro_2220020,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 39"
+Micro_2220020,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 39"
+Micro_2220020,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 601"
+Micro_2220020,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 601"
+Micro_2220020,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 488"
+Micro_2220020,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 113"
+Micro_2220020,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 155"
+Micro_2220020,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 155"
+Micro_2220020,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 155"
+Micro_2220020,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 4.37018e-22
+Micro_2220020,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 601"
+Micro_2220020,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 5.03784e-23
+Micro_2220020,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 299"
 Micro_2220020,Sexo,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2220020,Raca,Motivo_Desistencia_Desalentado,PULADO: recorte Raca tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2220020,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
-Micro_2220020,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 7"
+Micro_2220020,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 7"
 Micro_2220020,Instrucao,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2220020,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2220020,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 111"
-Micro_2220020,Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 4.07473e-18
+Micro_2220020,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 111"
+Micro_2220020,Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 4.31491e-19
 Micro_2220020,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2220020,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 38"
-Micro_2220020,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 1.5329e-18
+Micro_2220020,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 38"
+Micro_2220020,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 8.44102e-18
 Micro_2220020,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2220020,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 38"
-Micro_2251011,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 210"
-Micro_2251011,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 12"
-Micro_2251011,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 12"
-Micro_2251011,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 523"
-Micro_2251011,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 523"
-Micro_2251011,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 419"
-Micro_2251011,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 104"
-Micro_2251011,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 198"
-Micro_2251011,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 198"
-Micro_2251011,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 198"
-Micro_2251011,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 7.32357e-17
-Micro_2251011,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 523"
-Micro_2251011,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 6.9914e-17
-Micro_2251011,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 222"
-Micro_2251011,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 15"
+Micro_2220020,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 38"
+Micro_2251011,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 210"
+Micro_2251011,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 12"
+Micro_2251011,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 12"
+Micro_2251011,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 523"
+Micro_2251011,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 523"
+Micro_2251011,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 419"
+Micro_2251011,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 104"
+Micro_2251011,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 198"
+Micro_2251011,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 198"
+Micro_2251011,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 198"
+Micro_2251011,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 2.75663e-17
+Micro_2251011,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 523"
+Micro_2251011,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 6.09848e-17
+Micro_2251011,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 222"
+Micro_2251011,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 15"
 Micro_2251011,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251011,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 111"
+Micro_2251011,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 111"
 Micro_2251011,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251011,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 19"
+Micro_2251011,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 19"
 Micro_2251011,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251011,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 19"
-Micro_2251012,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 227"
-Micro_2251012,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 15"
-Micro_2251012,Raca,Conribuintes_Desocupados,system is computationally singular: reciprocal condition number = 7.90827e-28
-Micro_2251012,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 15"
-Micro_2251012,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 482"
-Micro_2251012,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 482"
-Micro_2251012,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 377"
-Micro_2251012,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 105"
-Micro_2251012,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 212"
-Micro_2251012,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 212"
-Micro_2251012,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 212"
-Micro_2251012,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 482"
-Micro_2251012,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 174"
-Micro_2251012,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 17"
+Micro_2251011,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 19"
+Micro_2251012,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 227"
+Micro_2251012,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 15"
+Micro_2251012,Raca,Conribuintes_Desocupados,system is computationally singular: reciprocal condition number = 7.91012e-28
+Micro_2251012,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 15"
+Micro_2251012,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 482"
+Micro_2251012,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 482"
+Micro_2251012,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 377"
+Micro_2251012,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 105"
+Micro_2251012,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 212"
+Micro_2251012,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 212"
+Micro_2251012,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 212"
+Micro_2251012,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 482"
+Micro_2251012,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 174"
+Micro_2251012,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 17"
 Micro_2251012,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251012,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 112"
+Micro_2251012,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 112"
 Micro_2251012,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251012,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 19"
+Micro_2251012,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 19"
 Micro_2251012,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251012,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 19"
-Micro_2251013,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 162"
-Micro_2251013,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 17"
-Micro_2251013,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 17"
-Micro_2251013,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 408"
-Micro_2251013,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 408"
-Micro_2251013,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 326"
-Micro_2251013,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 82"
-Micro_2251013,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 145"
-Micro_2251013,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 145"
-Micro_2251013,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 145"
-Micro_2251013,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 408"
-Micro_2251013,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 170"
-Micro_2251013,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 12"
+Micro_2251012,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 19"
+Micro_2251013,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 162"
+Micro_2251013,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 17"
+Micro_2251013,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 17"
+Micro_2251013,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 408"
+Micro_2251013,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 408"
+Micro_2251013,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 326"
+Micro_2251013,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 82"
+Micro_2251013,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 145"
+Micro_2251013,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 145"
+Micro_2251013,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 145"
+Micro_2251013,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 408"
+Micro_2251013,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 170"
+Micro_2251013,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 12"
 Micro_2251013,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251013,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 97"
-Micro_2251013,Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 3.38509e-18
+Micro_2251013,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 97"
+Micro_2251013,Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 4.51345e-18
 Micro_2251013,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251013,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 22"
-Micro_2251013,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 5.15962e-18
+Micro_2251013,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 22"
+Micro_2251013,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 1.37097e-18
 Micro_2251013,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251013,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 22"
-Micro_2251020,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 256"
-Micro_2251020,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 25"
-Micro_2251020,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 25"
-Micro_2251020,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 849"
-Micro_2251020,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 849"
-Micro_2251020,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 694"
-Micro_2251020,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 155"
+Micro_2251013,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 22"
+Micro_2251020,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 256"
+Micro_2251020,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 25"
+Micro_2251020,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 25"
+Micro_2251020,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 849"
+Micro_2251020,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 849"
+Micro_2251020,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 694"
+Micro_2251020,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 155"
 Micro_2251020,Faixa_Etaria_trabalho,Taxa_Informalidade,system is computationally singular: reciprocal condition number = 5.01303e-29
-Micro_2251020,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 231"
-Micro_2251020,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 231"
+Micro_2251020,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 231"
+Micro_2251020,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 231"
 Micro_2251020,Faixa_Etaria_trabalho,Proporcao_Ocupados_Escolarizados,system is computationally singular: reciprocal condition number = 4.51786e-29
-Micro_2251020,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 231"
-Micro_2251020,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 849"
-Micro_2251020,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 411"
-Micro_2251020,Raca,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 1.47853e-17
-Micro_2251020,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 73"
+Micro_2251020,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 231"
+Micro_2251020,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 849"
+Micro_2251020,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 411"
+Micro_2251020,Raca,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 5.54448e-18
+Micro_2251020,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 73"
 Micro_2251020,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251020,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 168"
+Micro_2251020,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 168"
 Micro_2251020,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251020,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 60"
+Micro_2251020,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 60"
 Micro_2251020,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251020,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 60"
-Micro_2251021,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 58"
+Micro_2251020,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 60"
+Micro_2251021,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 58"
 Micro_2251021,Sexo,Chefes_Familia_Desocupados,$ operator is invalid for atomic vectors
 Micro_2251021,Raca,Chefes_Familia_Desocupados,$ operator is invalid for atomic vectors
 Micro_2251021,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,$ operator is invalid for atomic vectors
-Micro_2251021,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 4"
+Micro_2251021,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 4"
 Micro_2251021,Instrucao,Chefes_Familia_Desocupados,$ operator is invalid for atomic vectors
 Micro_2251021,Sexo,Conribuintes_Desocupados,$ operator is invalid for atomic vectors
 Micro_2251021,Raca,Conribuintes_Desocupados,$ operator is invalid for atomic vectors
 Micro_2251021,Faixa_Etaria_trabalho,Conribuintes_Desocupados,$ operator is invalid for atomic vectors
-Micro_2251021,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 4"
+Micro_2251021,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 4"
 Micro_2251021,Instrucao,Conribuintes_Desocupados,$ operator is invalid for atomic vectors
-Micro_2251021,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 211"
-Micro_2251021,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 211"
-Micro_2251021,Raca,Rendimento_Formal,system is computationally singular: reciprocal condition number = 5.6424e-30
-Micro_2251021,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 173"
-Micro_2251021,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 38"
-Micro_2251021,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 54"
-Micro_2251021,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 54"
-Micro_2251021,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 54"
-Micro_2251021,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 211"
-Micro_2251021,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 128"
-Micro_2251021,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 27"
+Micro_2251021,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 211"
+Micro_2251021,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 211"
+Micro_2251021,Raca,Rendimento_Formal,system is computationally singular: reciprocal condition number = 1.13379e-29
+Micro_2251021,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 173"
+Micro_2251021,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 38"
+Micro_2251021,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 54"
+Micro_2251021,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 54"
+Micro_2251021,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 54"
+Micro_2251021,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 211"
+Micro_2251021,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 128"
+Micro_2251021,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 27"
 Micro_2251021,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251021,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 62"
+Micro_2251021,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 62"
 Micro_2251021,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251021,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 17"
+Micro_2251021,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 17"
 Micro_2251021,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251021,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 17"
-Micro_2251022,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 49"
-Micro_2251022,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 8"
-Micro_2251022,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 8"
-Micro_2251022,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 163"
-Micro_2251022,Raca,Percentual_Subremuneracao,system is computationally singular: reciprocal condition number = 5.18686e-17
-Micro_2251022,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 163"
+Micro_2251021,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 17"
+Micro_2251022,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 49"
+Micro_2251022,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 8"
+Micro_2251022,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 8"
+Micro_2251022,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 163"
+Micro_2251022,Raca,Percentual_Subremuneracao,"Lapack routine dgesv: system is exactly singular: U[2,2] = 0"
+Micro_2251022,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 163"
 Micro_2251022,Sexo,Rendimento_Formal,$ operator is invalid for atomic vectors
-Micro_2251022,Raca,Rendimento_Formal,contrasts can be applied only to factors with 2 or more levels
+Micro_2251022,Raca,Rendimento_Formal,contrastes podem ser aplicados apenas a fatores com 2 ou mais níveis
 Micro_2251022,Faixa_Etaria_trabalho,Rendimento_Formal,$ operator is invalid for atomic vectors
-Micro_2251022,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 135"
+Micro_2251022,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 135"
 Micro_2251022,Instrucao,Rendimento_Formal,$ operator is invalid for atomic vectors
-Micro_2251022,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 28"
-Micro_2251022,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 41"
-Micro_2251022,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 41"
-Micro_2251022,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 41"
-Micro_2251022,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 163"
-Micro_2251022,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 76"
-Micro_2251022,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 15"
+Micro_2251022,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 28"
+Micro_2251022,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 41"
+Micro_2251022,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 41"
+Micro_2251022,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 41"
+Micro_2251022,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 163"
+Micro_2251022,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 76"
+Micro_2251022,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 15"
 Micro_2251022,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251022,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 36"
+Micro_2251022,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 36"
 Micro_2251022,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251022,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 16"
+Micro_2251022,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 16"
 Micro_2251022,Sexo,Motivo_Nao_Inicio_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2251022,Raca,Motivo_Nao_Inicio_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2251022,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2251022,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 16"
+Micro_2251022,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 16"
 Micro_2251022,Instrucao,Motivo_Nao_Inicio_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
-Micro_2252011,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 222"
-Micro_2252011,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 13"
-Micro_2252011,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 13"
-Micro_2252011,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 566"
-Micro_2252011,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 566"
-Micro_2252011,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 459"
-Micro_2252011,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 107"
-Micro_2252011,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 209"
-Micro_2252011,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 209"
-Micro_2252011,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 209"
-Micro_2252011,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 566"
+Micro_2252011,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 222"
+Micro_2252011,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 13"
+Micro_2252011,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 13"
+Micro_2252011,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 566"
+Micro_2252011,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 566"
+Micro_2252011,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 459"
+Micro_2252011,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 107"
+Micro_2252011,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 209"
+Micro_2252011,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 209"
+Micro_2252011,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 209"
+Micro_2252011,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 566"
 Micro_2252011,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 8.4622e-28
-Micro_2252011,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 232"
-Micro_2252011,Raca,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 7.86572e-18
-Micro_2252011,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 19"
+Micro_2252011,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 232"
+Micro_2252011,Raca,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 5.89929e-18
+Micro_2252011,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 19"
 Micro_2252011,Raca,Taxa_Nem_Nem,system is computationally singular: reciprocal condition number = 1.44806e-30
 Micro_2252011,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252011,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 129"
+Micro_2252011,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 129"
 Micro_2252011,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252011,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 32"
+Micro_2252011,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 32"
 Micro_2252011,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252011,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 32"
-Micro_2252012,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 230"
-Micro_2252012,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 8"
-Micro_2252012,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 8"
-Micro_2252012,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 522"
-Micro_2252012,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 522"
-Micro_2252012,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 400"
-Micro_2252012,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 122"
-Micro_2252012,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 222"
-Micro_2252012,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 222"
-Micro_2252012,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 222"
-Micro_2252012,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 522"
-Micro_2252012,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 195"
-Micro_2252012,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 3"
+Micro_2252011,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 32"
+Micro_2252012,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 230"
+Micro_2252012,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 8"
+Micro_2252012,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 8"
+Micro_2252012,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 522"
+Micro_2252012,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 522"
+Micro_2252012,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 400"
+Micro_2252012,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 122"
+Micro_2252012,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 222"
+Micro_2252012,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 222"
+Micro_2252012,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 222"
+Micro_2252012,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 522"
+Micro_2252012,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 195"
+Micro_2252012,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 3"
 Micro_2252012,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252012,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 109"
-Micro_2252012,Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 9.71624e-18
+Micro_2252012,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 109"
+Micro_2252012,Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 1.12504e-17
 Micro_2252012,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252012,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 21"
+Micro_2252012,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 21"
 Micro_2252012,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252012,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 21"
-Micro_2252013,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 183"
-Micro_2252013,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 12"
-Micro_2252013,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 12"
-Micro_2252013,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 388"
-Micro_2252013,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 388"
-Micro_2252013,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 288"
-Micro_2252013,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 100"
-Micro_2252013,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 171"
+Micro_2252012,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 21"
+Micro_2252013,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 183"
+Micro_2252013,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 12"
+Micro_2252013,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 12"
+Micro_2252013,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 388"
+Micro_2252013,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 388"
+Micro_2252013,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 288"
+Micro_2252013,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 100"
+Micro_2252013,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 171"
 Micro_2252013,Faixa_Etaria_trabalho,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 1.3982e-27
-Micro_2252013,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 171"
-Micro_2252013,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 171"
-Micro_2252013,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 388"
-Micro_2252013,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 3.6047e-17
-Micro_2252013,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 134"
-Micro_2252013,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 6.52568e-18
-Micro_2252013,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 8"
+Micro_2252013,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 171"
+Micro_2252013,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 171"
+Micro_2252013,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 388"
+Micro_2252013,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 3.68351e-17
+Micro_2252013,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 134"
+Micro_2252013,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 3.26284e-18
+Micro_2252013,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 8"
 Micro_2252013,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252013,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 95"
+Micro_2252013,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 95"
 Micro_2252013,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252013,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 16"
+Micro_2252013,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 16"
 Micro_2252013,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252013,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 16"
-Micro_2252020,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 261"
-Micro_2252020,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 20"
-Micro_2252020,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 20"
-Micro_2252020,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 847"
-Micro_2252020,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 847"
-Micro_2252020,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 671"
-Micro_2252020,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 176"
+Micro_2252013,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 16"
+Micro_2252020,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 261"
+Micro_2252020,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 20"
+Micro_2252020,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 20"
+Micro_2252020,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 847"
+Micro_2252020,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 847"
+Micro_2252020,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 671"
+Micro_2252020,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 176"
 Micro_2252020,Faixa_Etaria_trabalho,Taxa_Informalidade,system is computationally singular: reciprocal condition number = 1.85406e-29
-Micro_2252020,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 241"
-Micro_2252020,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 241"
-Micro_2252020,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 241"
-Micro_2252020,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 847"
-Micro_2252020,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 424"
-Micro_2252020,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 46"
+Micro_2252020,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 241"
+Micro_2252020,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 241"
+Micro_2252020,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 241"
+Micro_2252020,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 847"
+Micro_2252020,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 424"
+Micro_2252020,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 46"
 Micro_2252020,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252020,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 173"
+Micro_2252020,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 173"
 Micro_2252020,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252020,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 54"
+Micro_2252020,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 54"
 Micro_2252020,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252020,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 54"
-Micro_2252021,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 57"
+Micro_2252020,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 54"
+Micro_2252021,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 57"
 Micro_2252021,Sexo,Chefes_Familia_Desocupados,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE"
 Micro_2252021,Raca,Chefes_Familia_Desocupados,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE"
 Micro_2252021,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE"
-Micro_2252021,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 2"
+Micro_2252021,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 2"
 Micro_2252021,Instrucao,Chefes_Familia_Desocupados,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2252021,Sexo,Conribuintes_Desocupados,"PULADO: resposta numérica (classe original: numeric) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: 0, 0"
 Micro_2252021,Raca,Conribuintes_Desocupados,"PULADO: resposta numérica (classe original: numeric) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: 0, 0"
 Micro_2252021,Faixa_Etaria_trabalho,Conribuintes_Desocupados,"PULADO: resposta numérica (classe original: numeric) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: 0, 0"
-Micro_2252021,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 2"
+Micro_2252021,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 2"
 Micro_2252021,Instrucao,Conribuintes_Desocupados,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252021,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 151"
-Micro_2252021,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 151"
-Micro_2252021,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 109"
-Micro_2252021,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 42"
-Micro_2252021,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 55"
-Micro_2252021,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 55"
-Micro_2252021,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 55"
-Micro_2252021,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 151"
-Micro_2252021,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 61"
+Micro_2252021,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 151"
+Micro_2252021,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 151"
+Micro_2252021,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 109"
+Micro_2252021,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 42"
+Micro_2252021,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 55"
+Micro_2252021,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 55"
+Micro_2252021,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 55"
+Micro_2252021,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 151"
+Micro_2252021,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 61"
 Micro_2252021,Sexo,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2252021,Raca,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2252021,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
-Micro_2252021,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 4"
+Micro_2252021,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 4"
 Micro_2252021,Instrucao,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2252021,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252021,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 24"
+Micro_2252021,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 24"
 Micro_2252021,Sexo,Motivo_Nao_Procura_NemNem,PULADO: recorte Sexo tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2252021,Raca,Motivo_Nao_Procura_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2252021,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252021,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 3"
+Micro_2252021,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 3"
 Micro_2252021,Instrucao,Motivo_Nao_Procura_NemNem,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2252021,Sexo,Motivo_Nao_Inicio_NemNem,PULADO: recorte Sexo tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2252021,Raca,Motivo_Nao_Inicio_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2252021,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252021,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 3"
+Micro_2252021,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 3"
 Micro_2252021,Instrucao,Motivo_Nao_Inicio_NemNem,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252022,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 22"
+Micro_2252022,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 22"
 Micro_2252022,Sexo,Chefes_Familia_Desocupados,PULADO: recorte Sexo tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2252022,Raca,Chefes_Familia_Desocupados,PULADO: recorte Raca tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2252022,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252022,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 1"
+Micro_2252022,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 1"
 Micro_2252022,Instrucao,Chefes_Familia_Desocupados,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2252022,Sexo,Conribuintes_Desocupados,PULADO: recorte Sexo tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2252022,Raca,Conribuintes_Desocupados,PULADO: recorte Raca tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2252022,Faixa_Etaria_trabalho,Conribuintes_Desocupados,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252022,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 1"
+Micro_2252022,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 1"
 Micro_2252022,Instrucao,Conribuintes_Desocupados,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252022,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 110"
-Micro_2252022,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 110"
-Micro_2252022,Raca,Rendimento_Formal,system is computationally singular: reciprocal condition number = 2.361e-30
-Micro_2252022,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 98"
+Micro_2252022,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 110"
+Micro_2252022,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 110"
+Micro_2252022,Raca,Rendimento_Formal,system is computationally singular: reciprocal condition number = 4.66239e-30
+Micro_2252022,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 98"
 Micro_2252022,Sexo,Rendimento_Informal,$ operator is invalid for atomic vectors
 Micro_2252022,Raca,Rendimento_Informal,$ operator is invalid for atomic vectors
 Micro_2252022,Faixa_Etaria_trabalho,Rendimento_Informal,$ operator is invalid for atomic vectors
-Micro_2252022,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 12"
+Micro_2252022,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 12"
 Micro_2252022,Instrucao,Rendimento_Informal,$ operator is invalid for atomic vectors
-Micro_2252022,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 21"
-Micro_2252022,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 21"
-Micro_2252022,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 21"
-Micro_2252022,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 110"
-Micro_2252022,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 67"
-Micro_2252022,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 3"
+Micro_2252022,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 21"
+Micro_2252022,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 21"
+Micro_2252022,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 21"
+Micro_2252022,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 110"
+Micro_2252022,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 67"
+Micro_2252022,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 3"
 Micro_2252022,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252022,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 25"
+Micro_2252022,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 25"
 Micro_2252022,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252022,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 8"
+Micro_2252022,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 8"
 Micro_2252022,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2252022,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 8"
-Micro_2253010,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 69"
-Micro_2253010,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 6"
-Micro_2253010,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 6"
-Micro_2253010,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 152"
-Micro_2253010,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 152"
-Micro_2253010,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 130"
-Micro_2253010,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 22"
-Micro_2253010,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 63"
-Micro_2253010,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 63"
-Micro_2253010,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 63"
-Micro_2253010,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 152"
-Micro_2253010,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 47"
-Micro_2253010,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 1.35308e-17
-Micro_2253010,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 6"
+Micro_2252022,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 8"
+Micro_2253010,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 69"
+Micro_2253010,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 6"
+Micro_2253010,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 6"
+Micro_2253010,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 152"
+Micro_2253010,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 152"
+Micro_2253010,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 130"
+Micro_2253010,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 22"
+Micro_2253010,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 63"
+Micro_2253010,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 63"
+Micro_2253010,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 63"
+Micro_2253010,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 152"
+Micro_2253010,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 47"
+Micro_2253010,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 2.46014e-18
+Micro_2253010,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 6"
 Micro_2253010,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253010,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 31"
+Micro_2253010,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 31"
 Micro_2253010,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253010,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 10"
+Micro_2253010,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 10"
 Micro_2253010,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253010,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 10"
-Micro_2253011,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 214"
-Micro_2253011,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 15"
-Micro_2253011,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 15"
-Micro_2253011,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 465"
-Micro_2253011,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 465"
-Micro_2253011,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 383"
-Micro_2253011,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 82"
-Micro_2253011,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 199"
-Micro_2253011,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 199"
-Micro_2253011,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 199"
-Micro_2253011,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 465"
-Micro_2253011,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 166"
-Micro_2253011,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 17"
+Micro_2253010,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 10"
+Micro_2253011,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 214"
+Micro_2253011,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 15"
+Micro_2253011,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 15"
+Micro_2253011,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 465"
+Micro_2253011,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 465"
+Micro_2253011,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 383"
+Micro_2253011,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 82"
+Micro_2253011,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 199"
+Micro_2253011,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 199"
+Micro_2253011,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 199"
+Micro_2253011,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 465"
+Micro_2253011,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 166"
+Micro_2253011,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 17"
 Micro_2253011,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253011,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 97"
+Micro_2253011,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 97"
 Micro_2253011,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253011,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 21"
+Micro_2253011,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 21"
 Micro_2253011,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253011,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 21"
-Micro_2253012,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 194"
-Micro_2253012,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 21"
-Micro_2253012,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 21"
-Micro_2253012,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 428"
-Micro_2253012,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 428"
-Micro_2253012,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 354"
-Micro_2253012,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 74"
-Micro_2253012,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 173"
-Micro_2253012,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 173"
-Micro_2253012,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 173"
-Micro_2253012,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 6.67708e-23
-Micro_2253012,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 428"
-Micro_2253012,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 169"
+Micro_2253011,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 21"
+Micro_2253012,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 194"
+Micro_2253012,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 21"
+Micro_2253012,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 21"
+Micro_2253012,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 428"
+Micro_2253012,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 428"
+Micro_2253012,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 354"
+Micro_2253012,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 74"
+Micro_2253012,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 173"
+Micro_2253012,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 173"
+Micro_2253012,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 173"
+Micro_2253012,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 1.15292e-22
+Micro_2253012,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 428"
+Micro_2253012,Faixa_Etaria_trabalho,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 6.97125e-17
+Micro_2253012,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 169"
 Micro_2253012,Sexo,Motivo_Desistencia_Desalentado,PULADO: recorte Sexo tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2253012,Raca,Motivo_Desistencia_Desalentado,PULADO: recorte Raca tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2253012,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253012,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 1"
+Micro_2253012,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 1"
 Micro_2253012,Instrucao,Motivo_Desistencia_Desalentado,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2253012,Raca,Taxa_Nem_Nem,"Lapack routine dgesv: system is exactly singular: U[2,2] = 0"
 Micro_2253012,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253012,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 83"
-Micro_2253012,Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 5.73054e-18
+Micro_2253012,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 83"
+Micro_2253012,Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 1.77942e-18
 Micro_2253012,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253012,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 21"
-Micro_2253012,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 5.73054e-18
+Micro_2253012,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 21"
+Micro_2253012,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 1.77942e-18
 Micro_2253012,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253012,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 21"
-Micro_2253020,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 142"
-Micro_2253020,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 21"
-Micro_2253020,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 21"
-Micro_2253020,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 474"
-Micro_2253020,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 474"
-Micro_2253020,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 395"
-Micro_2253020,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 79"
-Micro_2253020,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 121"
-Micro_2253020,Raca,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 8.00347e-17
-Micro_2253020,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 121"
-Micro_2253020,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 121"
-Micro_2253020,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 8.29227e-22
-Micro_2253020,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 474"
-Micro_2253020,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 7.2496e-22
-Micro_2253020,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 245"
-Micro_2253020,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 35"
+Micro_2253012,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 21"
+Micro_2253020,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 142"
+Micro_2253020,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 21"
+Micro_2253020,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 21"
+Micro_2253020,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 474"
+Micro_2253020,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 474"
+Micro_2253020,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 395"
+Micro_2253020,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 79"
+Micro_2253020,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 121"
+Micro_2253020,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 121"
+Micro_2253020,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 121"
+Micro_2253020,Raca,Desalentados_Forca_Ampliada,system is computationally singular: reciprocal condition number = 5.88279e-22
+Micro_2253020,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 474"
+Micro_2253020,Raca,Desalentados_Fora_Forca,system is computationally singular: reciprocal condition number = 1.80911e-21
+Micro_2253020,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 245"
+Micro_2253020,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 35"
 Micro_2253020,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253020,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 77"
+Micro_2253020,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 77"
 Micro_2253020,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253020,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 29"
-Micro_2253020,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 7.2024e-18
+Micro_2253020,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 29"
+Micro_2253020,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 3.6012e-18
 Micro_2253020,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253020,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 29"
-Micro_2253021,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 36"
-Micro_2253021,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 6"
-Micro_2253021,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 6"
-Micro_2253021,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 112"
-Micro_2253021,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 112"
-Micro_2253021,Faixa_Etaria_trabalho,Rendimento_Formal,system is computationally singular: reciprocal condition number = 3.53227e-17
-Micro_2253021,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 91"
-Micro_2253021,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 21"
-Micro_2253021,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 30"
-Micro_2253021,Faixa_Etaria_trabalho,Taxa_Subocupacao,system is computationally singular: reciprocal condition number = 6.18038e-17
-Micro_2253021,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 30"
-Micro_2253021,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 30"
-Micro_2253021,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 112"
-Micro_2253021,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 56"
+Micro_2253020,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 29"
+Micro_2253021,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 36"
+Micro_2253021,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 6"
+Micro_2253021,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 6"
+Micro_2253021,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 112"
+Micro_2253021,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 112"
+Micro_2253021,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 91"
+Micro_2253021,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 21"
+Micro_2253021,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 30"
+Micro_2253021,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 30"
+Micro_2253021,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 30"
+Micro_2253021,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 112"
+Micro_2253021,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 56"
 Micro_2253021,Sexo,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2253021,Raca,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2253021,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
-Micro_2253021,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 4"
+Micro_2253021,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 4"
 Micro_2253021,Instrucao,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2253021,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253021,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 23"
+Micro_2253021,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 23"
 Micro_2253021,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253021,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 11"
+Micro_2253021,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 11"
 Micro_2253021,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253021,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 11"
-Micro_2253022,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 34"
+Micro_2253021,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 11"
+Micro_2253022,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 34"
 Micro_2253022,Sexo,Chefes_Familia_Desocupados,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE"
 Micro_2253022,Raca,Chefes_Familia_Desocupados,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE"
 Micro_2253022,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE"
-Micro_2253022,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 3"
+Micro_2253022,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 3"
 Micro_2253022,Instrucao,Chefes_Familia_Desocupados,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2253022,Sexo,Conribuintes_Desocupados,$ operator is invalid for atomic vectors
 Micro_2253022,Raca,Conribuintes_Desocupados,$ operator is invalid for atomic vectors
 Micro_2253022,Faixa_Etaria_trabalho,Conribuintes_Desocupados,$ operator is invalid for atomic vectors
-Micro_2253022,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 3"
+Micro_2253022,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 3"
 Micro_2253022,Instrucao,Conribuintes_Desocupados,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253022,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 97"
-Micro_2253022,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 97"
-Micro_2253022,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 74"
-Micro_2253022,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 23"
-Micro_2253022,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 31"
-Micro_2253022,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 31"
-Micro_2253022,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 31"
-Micro_2253022,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 97"
-Micro_2253022,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 43"
+Micro_2253022,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 97"
+Micro_2253022,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 97"
+Micro_2253022,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 74"
+Micro_2253022,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 23"
+Micro_2253022,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 31"
+Micro_2253022,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 31"
+Micro_2253022,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 31"
+Micro_2253022,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 97"
+Micro_2253022,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 43"
 Micro_2253022,Sexo,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2253022,Raca,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2253022,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
-Micro_2253022,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 5"
+Micro_2253022,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 5"
 Micro_2253022,Instrucao,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2253022,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253022,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 21"
+Micro_2253022,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 21"
 Micro_2253022,Sexo,Motivo_Nao_Procura_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2253022,Raca,Motivo_Nao_Procura_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2253022,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253022,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 5"
+Micro_2253022,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 5"
 Micro_2253022,Instrucao,Motivo_Nao_Procura_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2253022,Sexo,Motivo_Nao_Inicio_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2253022,Raca,Motivo_Nao_Inicio_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2253022,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253022,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 5"
+Micro_2253022,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 5"
 Micro_2253022,Instrucao,Motivo_Nao_Inicio_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
-Micro_2254020,Faixa_Etaria_trabalho,Taxa_Desocupacao,system is computationally singular: reciprocal condition number = 2.07085e-17
-Micro_2254020,Instrucao_agregado,Taxa_Desocupacao,"replacement has 0 rows, data has 136"
+Micro_2254020,Faixa_Etaria_trabalho,Taxa_Desocupacao,system is computationally singular: reciprocal condition number = 4.53738e-17
+Micro_2254020,Instrucao_agregado,Taxa_Desocupacao,"substituto tem 0 linha, dados têm 136"
 Micro_2254020,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2254020,Instrucao_agregado,Chefes_Familia_Desocupados,"replacement has 0 rows, data has 10"
+Micro_2254020,Instrucao_agregado,Chefes_Familia_Desocupados,"substituto tem 0 linha, dados têm 10"
 Micro_2254020,Faixa_Etaria_trabalho,Conribuintes_Desocupados,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2254020,Instrucao_agregado,Conribuintes_Desocupados,"replacement has 0 rows, data has 10"
-Micro_2254020,Instrucao_agregado,Rendimento_Medio_Habitual,"replacement has 0 rows, data has 320"
-Micro_2254020,Instrucao_agregado,Percentual_Subremuneracao,"replacement has 0 rows, data has 320"
-Micro_2254020,Instrucao_agregado,Rendimento_Formal,"replacement has 0 rows, data has 226"
-Micro_2254020,Instrucao_agregado,Rendimento_Informal,"replacement has 0 rows, data has 94"
-Micro_2254020,Instrucao_agregado,Taxa_Informalidade,"replacement has 0 rows, data has 126"
-Micro_2254020,Instrucao_agregado,Taxa_Subocupacao,"replacement has 0 rows, data has 126"
+Micro_2254020,Instrucao_agregado,Conribuintes_Desocupados,"substituto tem 0 linha, dados têm 10"
+Micro_2254020,Instrucao_agregado,Rendimento_Medio_Habitual,"substituto tem 0 linha, dados têm 320"
+Micro_2254020,Instrucao_agregado,Percentual_Subremuneracao,"substituto tem 0 linha, dados têm 320"
+Micro_2254020,Instrucao_agregado,Rendimento_Formal,"substituto tem 0 linha, dados têm 226"
+Micro_2254020,Instrucao_agregado,Rendimento_Informal,"substituto tem 0 linha, dados têm 94"
+Micro_2254020,Instrucao_agregado,Taxa_Informalidade,"substituto tem 0 linha, dados têm 126"
+Micro_2254020,Instrucao_agregado,Taxa_Subocupacao,"substituto tem 0 linha, dados têm 126"
 Micro_2254020,Raca,Proporcao_Ocupados_Escolarizados,system is computationally singular: reciprocal condition number = 3.35312e-29
-Micro_2254020,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"replacement has 0 rows, data has 126"
-Micro_2254020,Instrucao_agregado,Desalentados_Forca_Ampliada,"replacement has 0 rows, data has 320"
-Micro_2254020,Instrucao_agregado,Desalentados_Fora_Forca,"replacement has 0 rows, data has 138"
-Micro_2254020,Instrucao_agregado,Motivo_Desistencia_Desalentado,"replacement has 0 rows, data has 13"
+Micro_2254020,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,"substituto tem 0 linha, dados têm 126"
+Micro_2254020,Instrucao_agregado,Desalentados_Forca_Ampliada,"substituto tem 0 linha, dados têm 320"
+Micro_2254020,Instrucao_agregado,Desalentados_Fora_Forca,"substituto tem 0 linha, dados têm 138"
+Micro_2254020,Instrucao_agregado,Motivo_Desistencia_Desalentado,"substituto tem 0 linha, dados têm 13"
 Micro_2254020,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2254020,Instrucao_agregado,Taxa_Nem_Nem,"replacement has 0 rows, data has 72"
-Micro_2254020,Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 1.66327e-18
+Micro_2254020,Instrucao_agregado,Taxa_Nem_Nem,"substituto tem 0 linha, dados têm 72"
+Micro_2254020,Raca,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 3.32655e-18
 Micro_2254020,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2254020,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"replacement has 0 rows, data has 22"
-Micro_2254020,Raca,Motivo_Nao_Inicio_NemNem,"Lapack routine dgesv: system is exactly singular: U[4,4] = 0"
+Micro_2254020,Instrucao_agregado,Motivo_Nao_Procura_NemNem,"substituto tem 0 linha, dados têm 22"
+Micro_2254020,Raca,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 1.73857e-17
 Micro_2254020,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2254020,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"replacement has 0 rows, data has 22"
+Micro_2254020,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,"substituto tem 0 linha, dados têm 22"
