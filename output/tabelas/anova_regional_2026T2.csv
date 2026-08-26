@@ -1,74 +1,74 @@
-Indicador,Indicador_Nome,Recorte_Regional,Recorte_Nome,Metodo,Estatistica,GL,p_valor,Significancia,N
-Proporcao_Ocupados_Escolarizados,Ocupados com Ensino Médio Completo ou Mais,Estrato_Micro,Estrato_Micro,svyglm+regTermTest,16.285036172667994,"25, 174",1.5683906082758982e-33,***,4961
-Proporcao_Ocupados_Escolarizados,Ocupados com Ensino Médio Completo ou Mais,Zona,Zona (Urbana/Rural),svyglm+regTermTest,215.72813070741063,"1, 198",1.6127094290322182e-33,***,4961
-Rendimento_Medio_Habitual,Rendimento Médio Habitual,Estrato_Micro,Estrato_Micro,svyglm+regTermTest,11.924974441122568,"25, 174",3.4242543774883795e-26,***,12926
-Rendimento_Informal,Rendimento Médio — Setor Informal,Estrato_Micro,Estrato_Micro,svyglm+regTermTest,11.412937313210636,"25, 174",3.110525384926383e-25,***,2485
-Rendimento_Formal,Rendimento Médio — Setor Formal,Estrato_Micro,Estrato_Micro,svyglm+regTermTest,11.38342478808026,"25, 174",3.538079910235891e-25,***,10441
-Rendimento_Medio_Habitual,Rendimento Médio Habitual,Zona,Zona (Urbana/Rural),svyglm+regTermTest,138.01018981207162,"1, 198",1.6002184553094636e-24,***,12926
-Taxa_Subocupacao,Subocupação por Insuficiência de Horas,Estrato_Administrativo,Estrato Administrativo,svyglm+regTermTest,67.56303140274585,"2, 197",4.535049127856031e-23,***,4961
-Proporcao_Ocupados_Escolarizados,Ocupados com Ensino Médio Completo ou Mais,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svyglm+regTermTest,126.51454483247392,"1, 198",5.15160077604624e-23,***,4961
-Taxa_Subocupacao,Subocupação por Insuficiência de Horas,Estrato_Agregado,Estrato Agregado/Geográfico,svyglm+regTermTest,36.53127576391136,"4, 195",8.92036242530058e-23,***,4961
-Taxa_Subocupacao,Subocupação por Insuficiência de Horas,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svyglm+regTermTest,122.35399019524831,"1, 198",1.866762022411273e-22,***,4961
-Rendimento_Informal,Rendimento Médio — Setor Informal,Zona,Zona (Urbana/Rural),svyglm+regTermTest,121.56761806050552,"1, 198",2.385631493834186e-22,***,2485
-Proporcao_Ocupados_Escolarizados,Ocupados com Ensino Médio Completo ou Mais,Estrato_Administrativo,Estrato Administrativo,svyglm+regTermTest,63.71346424405143,"2, 197",4.569925609445846e-22,***,4961
-Proporcao_Ocupados_Escolarizados,Ocupados com Ensino Médio Completo ou Mais,Estrato_Agregado,Estrato Agregado/Geográfico,svyglm+regTermTest,32.018474720399546,"4, 195",1.658436034800673e-20,***,4961
-Percentual_Subremuneracao,Subremuneração (abaixo do salário-mínimo/hora),Estrato_Micro,Estrato_Micro,svyglm+regTermTest,8.588915362810603,"25, 174",1.676736740746338e-19,***,12926
-Desalentados_Forca_Ampliada,Desalentados na Força de Trabalho Ampliada,Estrato_Agregado,Estrato Agregado/Geográfico,svyglm+regTermTest,27.397206665485108,"4, 195",4.7154883774131064e-18,***,12926
-Taxa_Informalidade,Taxa de Informalidade,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svyglm+regTermTest,90.85879799558607,"1, 198",5.775464736903755e-18,***,4961
-Desalentados_Forca_Ampliada,Desalentados na Força de Trabalho Ampliada,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svyglm+regTermTest,88.53928394033066,"1, 198",1.2941226310453707e-17,***,12926
-Desalentados_Forca_Ampliada,Desalentados na Força de Trabalho Ampliada,Estrato_Administrativo,Estrato Administrativo,svyglm+regTermTest,47.26706623672973,"2, 197",1.7100803400361535e-17,***,12926
-Taxa_Informalidade,Taxa de Informalidade,Estrato_Micro,Estrato_Micro,svyglm+regTermTest,7.553215936972247,"25, 174",3.454234179991394e-17,***,4961
-Taxa_Informalidade,Taxa de Informalidade,Estrato_Agregado,Estrato Agregado/Geográfico,svyglm+regTermTest,25.809909112621668,"4, 195",3.541753179615136e-17,***,4961
-Taxa_Informalidade,Taxa de Informalidade,Estrato_Administrativo,Estrato Administrativo,svyglm+regTermTest,45.489812276751266,"2, 197",5.725188647447344e-17,***,4961
-Taxa_Informalidade,Taxa de Informalidade,Zona,Zona (Urbana/Rural),svyglm+regTermTest,82.63821274628282,"1, 198",1.0394534321427664e-16,***,4961
-Desalentados_Fora_Forca,Desalentados Fora da Força de Trabalho,Estrato_Agregado,Estrato Agregado/Geográfico,svyglm+regTermTest,23.187539927605073,"4, 195",1.0845853568351965e-15,***,5164
-Percentual_Subremuneracao,Subremuneração (abaixo do salário-mínimo/hora),Zona,Zona (Urbana/Rural),svyglm+regTermTest,75.62319408624911,"1, 198",1.3137469769573866e-15,***,12926
-Desalentados_Fora_Forca,Desalentados Fora da Força de Trabalho,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svyglm+regTermTest,72.5511494419446,"1, 198",4.0765059032550456e-15,***,5164
-Desalentados_Fora_Forca,Desalentados Fora da Força de Trabalho,Estrato_Administrativo,Estrato Administrativo,svyglm+regTermTest,38.89223222101838,"2, 197",5.810239215099641e-15,***,5164
-Rendimento_Formal,Rendimento Médio — Setor Formal,Zona,Zona (Urbana/Rural),svyglm+regTermTest,68.06527739249539,"1, 198",2.1827703385067337e-14,***,10441
-Rendimento_Informal,Rendimento Médio — Setor Informal,Estrato_Agregado,Estrato Agregado/Geográfico,svyglm+regTermTest,20.29153672906757,"4, 195",5.4495791958636326e-14,***,2485
-Percentual_Subremuneracao,Subremuneração (abaixo do salário-mínimo/hora),Estrato_Agregado,Estrato Agregado/Geográfico,svyglm+regTermTest,20.03945484524479,"4, 195",7.718613302206391e-14,***,12926
-Percentual_Subremuneracao,Subremuneração (abaixo do salário-mínimo/hora),Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svyglm+regTermTest,57.62823528825194,"1, 198",1.218873518509479e-12,***,12926
-Rendimento_Informal,Rendimento Médio — Setor Informal,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svyglm+regTermTest,53.41309834190229,"1, 198",6.503851070921241e-12,***,2485
-Rendimento_Medio_Habitual,Rendimento Médio Habitual,Estrato_Agregado,Estrato Agregado/Geográfico,svyglm+regTermTest,16.810766449996198,"4, 195",7.408229569673663e-12,***,12926
-Percentual_Subremuneracao,Subremuneração (abaixo do salário-mínimo/hora),Estrato_Administrativo,Estrato Administrativo,svyglm+regTermTest,28.830556407291652,"2, 197",1.0413673897989558e-11,***,12926
-Rendimento_Informal,Rendimento Médio — Setor Informal,Estrato_Administrativo,Estrato Administrativo,svyglm+regTermTest,28.5470496012446,"2, 197",1.2970513992797059e-11,***,2485
-Taxa_Subocupacao,Subocupação por Insuficiência de Horas,Estrato_Micro,Estrato_Micro,svyglm+regTermTest,5.217861663081161,"25, 174",1.6688395592909654e-11,***,4961
-Rendimento_Medio_Habitual,Rendimento Médio Habitual,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svyglm+regTermTest,42.49976964854613,"1, 198",5.745583377061567e-10,***,12926
-Taxa_Subocupacao,Subocupação por Insuficiência de Horas,Zona,Zona (Urbana/Rural),svyglm+regTermTest,41.11177966383407,"1, 198",1.0323709988566703e-9,***,4961
-Rendimento_Medio_Habitual,Rendimento Médio Habitual,Estrato_Administrativo,Estrato Administrativo,svyglm+regTermTest,22.398477726242938,"2, 197",1.7179744404622121e-9,***,12926
-Taxa_Nem_Nem,Taxa de Nem-Nem (14 a 29 anos),Zona,Zona (Urbana/Rural),svyglm+regTermTest,36.925795559745254,"1, 198",6.188939814117871e-9,***,2800
-Desalentados_Forca_Ampliada,Desalentados na Força de Trabalho Ampliada,Zona,Zona (Urbana/Rural),svyglm+regTermTest,34.35168517484699,"1, 198",1.896032763613552e-8,***,12926
-Taxa_Nem_Nem,Taxa de Nem-Nem (14 a 29 anos),Estrato_Micro,Estrato_Micro,svyglm+regTermTest,3.727915173268833,"25, 174",1.451868757324581e-7,***,2800
-Motivo_Nao_Procura_NemNem,Motivo de Não Procurar Trabalho (Nem-Nem),Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svychisq,9.748285618880832,"3.71185285148057, 738.658717444633",2.703288568713206e-7,***,664
-Motivo_Nao_Procura_NemNem,Motivo de Não Procurar Trabalho (Nem-Nem),Estrato_Administrativo,Estrato Administrativo,svychisq,6.075966915557918,"6.88361040522998, 1369.83847064077",6.395164503137707e-7,***,664
-Desalentados_Fora_Forca,Desalentados Fora da Força de Trabalho,Zona,Zona (Urbana/Rural),svyglm+regTermTest,21.601932847356053,"1, 198",6.116049463061281e-6,***,5164
-Rendimento_Formal,Rendimento Médio — Setor Formal,Estrato_Agregado,Estrato Agregado/Geográfico,svyglm+regTermTest,7.465188340925307,"4, 195",1.2920947853750253e-5,***,10441
-Motivo_Nao_Procura_NemNem,Motivo de Não Procurar Trabalho (Nem-Nem),Zona,Zona (Urbana/Rural),svychisq,6.853999724690431,"3.8184867685495, 759.87886694135",2.8840097968618835e-5,***,664
-Rendimento_Formal,Rendimento Médio — Setor Formal,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svyglm+regTermTest,17.689066592978595,"1, 198",3.9389154563228344e-5,***,10441
-Rendimento_Formal,Rendimento Médio — Setor Formal,Estrato_Administrativo,Estrato Administrativo,svyglm+regTermTest,10.392683991406756,"2, 197",5.1179555886939946e-5,***,10441
-Taxa_Nem_Nem,Taxa de Nem-Nem (14 a 29 anos),Estrato_Administrativo,Estrato Administrativo,svyglm+regTermTest,10.3819573889266,"2, 197",5.167858556565606e-5,***,2800
-Taxa_Nem_Nem,Taxa de Nem-Nem (14 a 29 anos),Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svyglm+regTermTest,16.83153323029623,"1, 198",5.9648249332051095e-5,***,2800
-Motivo_Desistencia_Desalentado,Motivo da Desistência (Desalentados),Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svychisq,7.928599399916533,"2.70910645027508, 539.112183604742",7.076766286605498e-5,***,361
-Taxa_Desocupacao,Taxa de Desocupação,Estrato_Administrativo,Estrato Administrativo,svyglm+regTermTest,9.946970351655947,"2, 197",7.665711355591332e-5,***,5424
-Motivo_Nao_Procura_NemNem,Motivo de Não Procurar Trabalho (Nem-Nem),Estrato_Agregado,Estrato Agregado/Geográfico,svychisq,3.015057869487495,"14.6787862996716, 2921.07847363464",8.980710359220983e-5,***,664
-Taxa_Desocupacao,Taxa de Desocupação,Estrato_Agregado,Estrato Agregado/Geográfico,svyglm+regTermTest,5.750880574822436,"4, 195",2.1419208487641176e-4,***,5424
-Motivo_Nao_Inicio_NemNem,Motivo de Não Iniciar Trabalho (Nem-Nem),Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svychisq,5.558299428127845,"3.8099942637581, 758.188858487863",2.713562159770272e-4,***,664
-Motivo_Nao_Inicio_NemNem,Motivo de Não Iniciar Trabalho (Nem-Nem),Estrato_Administrativo,Estrato Administrativo,svychisq,3.928787279455228,"7.01785055327201, 1396.55226010113",2.921166274644801e-4,***,664
-Taxa_Nem_Nem,Taxa de Nem-Nem (14 a 29 anos),Estrato_Agregado,Estrato Agregado/Geográfico,svyglm+regTermTest,5.44643726568682,"4, 195",3.537772759785005e-4,***,2800
-Conribuintes_Desocupados,Conribuintes_Desocupados,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svyglm+regTermTest,11.81883091469192,"1, 198",7.146642861169544e-4,***,463
-Motivo_Desistencia_Desalentado,Motivo da Desistência (Desalentados),Zona,Zona (Urbana/Rural),svychisq,6.390604825760183,"2.26679716626322, 451.092636086381",0.00112574755321562,**,361
-Desalentados_Forca_Ampliada,Desalentados na Força de Trabalho Ampliada,Estrato_Micro,Estrato_Micro,svyglm+regTermTest,2.220901918765327,"25, 174",0.00148520072041784,**,12926
-Conribuintes_Desocupados,Conribuintes_Desocupados,Estrato_Administrativo,Estrato Administrativo,svyglm+regTermTest,5.986335881422772,"2, 197",0.00299300877032552,**,463
-Conribuintes_Desocupados,Conribuintes_Desocupados,Estrato_Agregado,Estrato Agregado/Geográfico,svyglm+regTermTest,4.1324523509495155,"4, 195",0.00309104407737861,**,463
-Taxa_Desocupacao,Taxa de Desocupação,Zona,Zona (Urbana/Rural),svyglm+regTermTest,7.277287870113308,"1, 198",0.00758566566367404,**,5424
-Chefes_Familia_Desocupados,Pessoas Responsáveis pelo Domicílio Desocupadas,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svyglm+regTermTest,6.459831143468338,"1, 198",0.0117998161418445,*,463
-Desalentados_Fora_Forca,Desalentados Fora da Força de Trabalho,Estrato_Micro,Estrato_Micro,svyglm+regTermTest,1.8275549342915505,"25, 174",0.0134210208659535,*,5164
-Motivo_Desistencia_Desalentado,Motivo da Desistência (Desalentados),Estrato_Agregado,Estrato Agregado/Geográfico,svychisq,2.3525423143633595,"7.68638153124463, 1529.58992471768",0.01781136450028958,*,361
-Motivo_Nao_Inicio_NemNem,Motivo de Não Iniciar Trabalho (Nem-Nem),Zona,Zona (Urbana/Rural),svychisq,2.9816441142438967,"4.023391401955, 800.654888989044",0.01826057465858945,*,664
-Chefes_Familia_Desocupados,Pessoas Responsáveis pelo Domicílio Desocupadas,Estrato_Agregado,Estrato Agregado/Geográfico,svyglm+regTermTest,2.8088759743920932,"4, 195",0.0267970194118413,*,463
-Chefes_Familia_Desocupados,Pessoas Responsáveis pelo Domicílio Desocupadas,Estrato_Administrativo,Estrato Administrativo,svyglm+regTermTest,3.3430610855247664,"2, 197",0.03734405141783194,*,463
-Motivo_Desistencia_Desalentado,Motivo da Desistência (Desalentados),Estrato_Administrativo,Estrato Administrativo,svychisq,2.4742029822414264,"3.94301997395514, 784.660974817073",0.0439075659464572,*,361
-Taxa_Desocupacao,Taxa de Desocupação,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,svyglm+regTermTest,3.624219369715075,"1, 198",0.05839453828284221,ns,5424
-Conribuintes_Desocupados,Conribuintes_Desocupados,Zona,Zona (Urbana/Rural),svyglm+regTermTest,1.235789284419061,"1, 198",0.26763210227323897,ns,463
-Chefes_Familia_Desocupados,Pessoas Responsáveis pelo Domicílio Desocupadas,Zona,Zona (Urbana/Rural),svyglm+regTermTest,0.5476650777370526,"1, 198",0.46014989242512794,ns,463
+Indicador,Indicador_Nome,Recorte_Regional,Recorte_Nome,Variavel_Testada,Metodo,Estatistica,GL,p_valor,Significancia,p_ajustado,Significancia_ajustada,N
+Taxa_Subocupacao,Subocupação por Insuficiência de Horas,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svyglm+regTermTest(LRT),312.63286273726317,"1, 199",4.437221237019557e-39,***,3.2391715030242764e-37,***,4961
+Proporcao_Ocupados_Escolarizados,Ocupados com Ensino Médio Completo ou Mais,Zona,Zona (Urbana/Rural),Zona,svyglm+regTermTest(LRT),399.6113567920238,"1, 199",1.1394222702725604e-34,***,4.1588912864948455e-33,***,4961
+Desalentados_Forca_Ampliada,Desalentados na Força de Trabalho Ampliada,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svyglm+regTermTest(LRT),181.51141183446225,"1, 199",2.892132999454461e-33,***,7.037523632005854e-32,***,12926
+Taxa_Subocupacao,Subocupação por Insuficiência de Horas,Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svyglm+regTermTest(LRT),339.1476123662851,"2, 199",1.0787913374380732e-27,***,1.9687941908244835e-26,***,4961
+Desalentados_Fora_Forca,Desalentados Fora da Força de Trabalho,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svyglm+regTermTest(LRT),143.0499652276012,"1, 199",5.7557136884352245e-27,***,8.403341985115429e-26,***,5164
+Proporcao_Ocupados_Escolarizados,Ocupados com Ensino Médio Completo ou Mais,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svyglm+regTermTest(LRT),290.53723466982865,"1, 199",1.1312312124112263e-24,***,1.2581333800176603e-23,***,4961
+Proporcao_Ocupados_Escolarizados,Ocupados com Ensino Médio Completo ou Mais,Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svyglm+regTermTest(LRT),296.446729939561,"2, 199",1.2064292685100852e-24,***,1.2581333800176603e-23,***,4961
+Rendimento_Medio_Habitual,Rendimento Médio Habitual,Zona,Zona (Urbana/Rural),Zona,svyglm+regTermTest(LRT),2185564058.3423843,"1, 199",1.7086251898504633e-24,***,1.5591204857385474e-23,***,12926
+Rendimento_Informal,Rendimento Médio — Setor Informal,Zona,Zona (Urbana/Rural),Zona,svyglm+regTermTest(LRT),262412095.9160824,"1, 199",2.5679129267224314e-22,***,2.082862707230416e-21,***,2485
+Proporcao_Ocupados_Escolarizados,Ocupados com Ensino Médio Completo ou Mais,Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svyglm+regTermTest(LRT),304.0373770213482,"4, 199",5.968000977714998e-21,***,4.3566407137319484e-20,***,4961
+Taxa_Informalidade,Taxa de Informalidade,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svyglm+regTermTest(LRT),182.01553786118075,"1, 199",2.3495313703062102e-18,***,1.559234454839576e-17,***,4961
+Taxa_Subocupacao,Subocupação por Insuficiência de Horas,Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svyglm+regTermTest(LRT),363.1664283254172,"4, 199",1.5212281590473067e-17,***,9.254137967537782e-17,***,4961
+Taxa_Informalidade,Taxa de Informalidade,Zona,Zona (Urbana/Rural),Zona,svyglm+regTermTest(LRT),206.88665242211573,"1, 199",1.9605204907993936e-17,***,1.1009076602181208e-16,***,4961
+Taxa_Informalidade,Taxa de Informalidade,Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svyglm+regTermTest(LRT),182.0222700039967,"2, 199",1.0165552785239553e-16,***,5.300609666589198e-16,***,4961
+Desalentados_Forca_Ampliada,Desalentados na Força de Trabalho Ampliada,Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svyglm+regTermTest(LRT),203.81442500026697,"2, 199",9.008863067946954e-16,***,4.384313359734185e-15,***,12926
+Percentual_Subremuneracao,Subremuneração (abaixo do salário-mínimo/hora),Zona,Zona (Urbana/Rural),Zona,svyglm+regTermTest(LRT),199.1461878681885,"1, 199",9.966492883894804e-16,***,4.547212378277004e-15,***,12926
+Rendimento_Formal,Rendimento Médio — Setor Formal,Zona,Zona (Urbana/Rural),Zona,svyglm+regTermTest(LRT),902554038.793724,"1, 199",2.39517441681642e-14,***,1.0285160731035217e-13,***,10441
+Taxa_Informalidade,Taxa de Informalidade,Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svyglm+regTermTest(LRT),213.796846621035,"4, 199",5.748916867379725e-14,***,2.331505173992888e-13,***,4961
+Percentual_Subremuneracao,Subremuneração (abaixo do salário-mínimo/hora),Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svyglm+regTermTest(LRT),237.67706058414933,"4, 199",1.354491732286283e-13,***,5.204099813520982e-13,***,12926
+Percentual_Subremuneracao,Subremuneração (abaixo do salário-mínimo/hora),Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svyglm+regTermTest(LRT),166.3394840363144,"1, 199",3.604553446766453e-13,***,1.3156620080697552e-12,***,12926
+Percentual_Subremuneracao,Subremuneração (abaixo do salário-mínimo/hora),Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svyglm+regTermTest(LRT),167.76237757375202,"2, 199",5.499935563206157e-13,***,1.9118823624478548e-12,***,12926
+Rendimento_Informal,Rendimento Médio — Setor Informal,Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svyglm+regTermTest(LRT),515888776.7698183,"4, 199",1.7754899458790818e-12,***,5.89139845678059e-12,***,2485
+Desalentados_Fora_Forca,Desalentados Fora da Força de Trabalho,Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svyglm+regTermTest(LRT),164.95306137554508,"2, 199",2.3238255306028837e-12,***,7.375620162348283e-12,***,5164
+Rendimento_Informal,Rendimento Médio — Setor Informal,Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svyglm+regTermTest(LRT),483905764.70122623,"2, 199",5.940274646493721e-12,***,1.8068335383085065e-11,***,2485
+Rendimento_Informal,Rendimento Médio — Setor Informal,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svyglm+regTermTest(LRT),478354890.01124096,"1, 199",7.1480213838125375e-12,***,2.0872222440732608e-11,***,2485
+Rendimento_Medio_Habitual,Rendimento Médio Habitual,Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svyglm+regTermTest(LRT),3505483346.895653,"4, 199",3.95721258338253e-10,***,1.1110635330266335e-9,***,12926
+Rendimento_Medio_Habitual,Rendimento Médio Habitual,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svyglm+regTermTest(LRT),3208846184.4555817,"1, 199",6.308938135194422e-10,***,1.7057499402562694e-9,***,12926
+Rendimento_Medio_Habitual,Rendimento Médio Habitual,Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svyglm+regTermTest(LRT),3211092539.2286987,"2, 199",6.642095288265373e-10,***,1.7316891287263291e-9,***,12926
+Taxa_Subocupacao,Subocupação por Insuficiência de Horas,Zona,Zona (Urbana/Rural),Zona,svyglm+regTermTest(LRT),88.47604324429767,"1, 199",3.261933707515326e-9,***,8.211074505124786e-9,***,4961
+Rendimento_Informal,Rendimento Médio — Setor Informal,Estrato_Micro,Estrato de 7 dígitos,Estrato,svyglm+regTermTest(LRT),784557622.3094864,"25, 199",3.642691271033833e-9,***,8.863882092848993e-9,***,2485
+Rendimento_Medio_Habitual,Rendimento Médio Habitual,Estrato_Micro,Estrato de 7 dígitos,Estrato,svyglm+regTermTest(LRT),6655493580.072311,"25, 199",7.3631095283252504e-9,***,1.7338935340894944e-8,***,12926
+Taxa_Nem_Nem,Taxa de Nem-Nem (14 a 29 anos),Zona,Zona (Urbana/Rural),Zona,svyglm+regTermTest(LRT),48.48009382457758,"1, 199",9.737500900136838e-9,***,2.221367392843716e-8,***,2800
+Desalentados_Forca_Ampliada,Desalentados na Força de Trabalho Ampliada,Zona,Zona (Urbana/Rural),Zona,svyglm+regTermTest(LRT),170.32771197596367,"1, 199",1.2950103266666444e-8,***,2.864719813535304e-8,***,12926
+Desalentados_Forca_Ampliada,Desalentados na Força de Trabalho Ampliada,Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svyglm+regTermTest(LRT),230.71577065124168,"4, 199",6.862679564121975e-8,***,1.4734576711203065e-7,***,12926
+Motivo_Nao_Procura_NemNem,Motivo de Não Procurar Trabalho (Nem-Nem),Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svychisq,9.7482856188808409,"3.71185285148057, 738.658717444633",2.703288568713167e-7,***,5.638287586173176e-7,***,664
+Desalentados_Fora_Forca,Desalentados Fora da Força de Trabalho,Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svyglm+regTermTest(LRT),194.15954215317515,"4, 199",5.762448622846306e-7,***,1.1684965262993895e-6,***,5164
+Motivo_Nao_Procura_NemNem,Motivo de Não Procurar Trabalho (Nem-Nem),Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svychisq,6.075966915557926,"6.88361040522998, 1369.83847064077",6.395164503137591e-7,***,1.26174867224066e-6,***,664
+Desalentados_Fora_Forca,Desalentados Fora da Força de Trabalho,Zona,Zona (Urbana/Rural),Zona,svyglm+regTermTest(LRT),104.38971634449672,"1, 199",4.68597589473596e-6,***,9.002006324098029e-6,***,5164
+Taxa_Nem_Nem,Taxa de Nem-Nem (14 a 29 anos),Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svyglm+regTermTest(LRT),27.926854004605048,"2, 199",2.714383483446254e-5,***,5.080769084399399e-5,***,2800
+Motivo_Nao_Procura_NemNem,Motivo de Não Procurar Trabalho (Nem-Nem),Zona,Zona (Urbana/Rural),Zona,svychisq,6.853999724690449,"3.8184867685495, 759.87886694135",2.884009796861771e-5,***,5.263317879272732e-5,***,664
+Rendimento_Formal,Rendimento Médio — Setor Formal,Estrato_Micro,Estrato de 7 dígitos,Estrato,svyglm+regTermTest(LRT),4154244431.288475,"25, 199",2.994132021717331e-5,***,5.331015550862566e-5,***,10441
+Taxa_Nem_Nem,Taxa de Nem-Nem (14 a 29 anos),Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svyglm+regTermTest(LRT),25.56633149220761,"1, 199",3.888160300559792e-5,***,6.757992903353925e-5,***,2800
+Rendimento_Formal,Rendimento Médio — Setor Formal,Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svyglm+regTermTest(LRT),1399940580.8401108,"2, 199",4.010020947466896e-5,***,6.807709980583335e-5,***,10441
+Rendimento_Formal,Rendimento Médio — Setor Formal,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svyglm+regTermTest(LRT),1378339573.0834274,"1, 199",4.254015086448491e-5,***,7.057797757062269e-5,***,10441
+Rendimento_Formal,Rendimento Médio — Setor Formal,Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svyglm+regTermTest(LRT),1521285436.4518356,"4, 199",6.423510939256038e-5,***,1.0420362190348684e-4,***,10441
+Motivo_Desistencia_Desalentado,Motivo da Desistência (Desalentados),Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svychisq,7.928599399916534,"2.70910645027508, 539.112183604742",7.076766286605498e-5,***,1.1230520411352204e-4,***,361
+Motivo_Nao_Procura_NemNem,Motivo de Não Procurar Trabalho (Nem-Nem),Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svychisq,3.015057869487499,"14.6787862996716, 2921.07847363465",8.980710359220716e-5,***,1.394876289836409e-4,***,664
+Motivo_Nao_Inicio_NemNem,Motivo de Não Iniciar Trabalho (Nem-Nem),Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svychisq,5.5582994281278495,"3.80999426375811, 758.188858487863",2.7135621597702435e-4,***,4.126875784650578e-4,***,664
+Motivo_Nao_Inicio_NemNem,Motivo de Não Iniciar Trabalho (Nem-Nem),Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svychisq,3.928787279455237,"7.01785055327201, 1396.55226010113",2.9211662746447196e-4,***,4.351941592838052e-4,***,664
+Taxa_Desocupacao,Taxa de Desocupação,Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svyglm+regTermTest(LRT),27.404489861101865,"2, 199",3.247928928276584e-4,***,4.7419762352838126e-4,***,5424
+Conribuintes_Desocupados,Responsáveis ou Cônjuges Desocupados,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svyglm+regTermTest(LRT),14.489073846055136,"1, 199",6.844718228470172e-4,***,9.797341778006324e-4,***,463
+Taxa_Nem_Nem,Taxa de Nem-Nem (14 a 29 anos),Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svyglm+regTermTest(LRT),32.710378647313064,"4, 199",9.633223761134878e-4,***,0.00135235641262085,**,2800
+Motivo_Desistencia_Desalentado,Motivo da Desistência (Desalentados),Zona,Zona (Urbana/Rural),Zona,svychisq,6.390604825760182,"2.26679716626322, 451.092636086381",0.00112574755321562,**,0.00155055795065548,**,361
+Conribuintes_Desocupados,Responsáveis ou Cônjuges Desocupados,Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svyglm+regTermTest(LRT),15.835645702713691,"2, 199",0.00195843382124595,**,0.00264751238798063,**,463
+Taxa_Desocupacao,Taxa de Desocupação,Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svyglm+regTermTest(LRT),35.203477962148554,"4, 199",0.00717503962515709,**,0.00952323441157214,**,5424
+Taxa_Desocupacao,Taxa de Desocupação,Zona,Zona (Urbana/Rural),Zona,svyglm+regTermTest(LRT),13.654460478976034,"1, 199",0.00950557014847932,**,0.01239118965783912,*,5424
+Chefes_Familia_Desocupados,Pessoas Responsáveis pelo Domicílio Desocupadas,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svyglm+regTermTest(LRT),7.942436250509331,"1, 199",0.01055957709346265,*,0.01352366890917147,*,463
+Motivo_Desistencia_Desalentado,Motivo da Desistência (Desalentados),Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svychisq,2.3525423143633577,"7.68638153124463, 1529.58992471768",0.01781136450028968,*,0.02241775187105426,*,361
+Motivo_Nao_Inicio_NemNem,Motivo de Não Iniciar Trabalho (Nem-Nem),Zona,Zona (Urbana/Rural),Zona,svychisq,2.981644114243889,"4.02339140195499, 800.654888989043",0.01826057465858976,*,0.02259359237418733,*,664
+Proporcao_Ocupados_Escolarizados,Ocupados com Ensino Médio Completo ou Mais,Estrato_Micro,Estrato de 7 dígitos,Estrato,svyglm+regTermTest(LRT),611.0808041338096,"25, 199",0.03592029896517693,*,0.04370303040763193,*,4961
+Chefes_Familia_Desocupados,Pessoas Responsáveis pelo Domicílio Desocupadas,Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svyglm+regTermTest(LRT),19.171814228452035,"4, 199",0.03740191361148969,*,0.04475966710883192,*,463
+Chefes_Familia_Desocupados,Pessoas Responsáveis pelo Domicílio Desocupadas,Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svyglm+regTermTest(LRT),8.273818179468321,"2, 199",0.04360034217512581,*,0.05087702085859322,ns,463
+Motivo_Desistencia_Desalentado,Motivo da Desistência (Desalentados),Estrato_Administrativo,Estrato Administrativo,Estrato_Admin,svychisq,2.4742029822414273,"3.94301997395514, 784.660974817072",0.04390756594645716,*,0.05087702085859322,ns,361
+Conribuintes_Desocupados,Responsáveis ou Cônjuges Desocupados,Estrato_Agregado,Estrato Agregado/Geográfico,Estrato_agregado,svyglm+regTermTest(LRT),19.001027379654943,"4, 199",0.05636017468669711,ns,0.0636952619229739,ns,463
+Taxa_Desocupacao,Taxa de Desocupação,Teresina_x_Resto_Piaui,Teresina x Resto do Piauí,Teresina_Resto,svyglm+regTermTest(LRT),4.689140599934035,"1, 199",0.0567149592464836,ns,0.0636952619229739,ns,5424
+Percentual_Subremuneracao,Subremuneração (abaixo do salário-mínimo/hora),Estrato_Micro,Estrato de 7 dígitos,Estrato,svyglm+regTermTest(LRT),404.9948827539074,"25, 199",0.08894269776703695,ns,0.0983760141968742,ns,12926
+Taxa_Subocupacao,Subocupação por Insuficiência de Horas,Estrato_Micro,Estrato de 7 dígitos,Estrato,svyglm+regTermTest(LRT),416.5959783029748,"25, 199",0.108359912814654,ns,0.118063785604026,ns,4961
+Taxa_Informalidade,Taxa de Informalidade,Estrato_Micro,Estrato de 7 dígitos,Estrato,svyglm+regTermTest(LRT),353.0513119461657,"25, 199",0.1445166667851563,ns,0.15514289228406483,ns,4961
+Conribuintes_Desocupados,Responsáveis ou Cônjuges Desocupados,Zona,Zona (Urbana/Rural),Zona,svyglm+regTermTest(LRT),2.0259019317596767,"1, 199",0.26777691652051444,ns,0.28330021602895006,ns,463
+Chefes_Familia_Desocupados,Pessoas Responsáveis pelo Domicílio Desocupadas,Zona,Zona (Urbana/Rural),Zona,svyglm+regTermTest(LRT),0.7710084192718796,"1, 199",0.4598471567049176,ns,0.4795548919922713,ns,463
+Taxa_Nem_Nem,Taxa de Nem-Nem (14 a 29 anos),Estrato_Micro,Estrato de 7 dígitos,Estrato,svyglm+regTermTest(LRT),92.39477594720256,"25, 199",0.5398479465964965,ns,0.5550549310076653,ns,2800
+Desalentados_Forca_Ampliada,Desalentados na Força de Trabalho Ampliada,Estrato_Micro,Estrato de 7 dígitos,Estrato,svyglm+regTermTest(LRT),369.07755843683935,"25, 199",0.6620540918470087,ns,0.671249287567106,ns,12926
+Desalentados_Fora_Forca,Desalentados Fora da Força de Trabalho,Estrato_Micro,Estrato de 7 dígitos,Estrato,svyglm+regTermTest(LRT),298.717246520288,"25, 199",0.799823646725,ns,0.799823646725,ns,5164

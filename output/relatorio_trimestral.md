@@ -8,7 +8,8 @@
 >
 > **Regra que decide o que entra no corpo do texto:** um recorte demográfico
 > só é comentado aqui se, *naquele recorte geográfico*, a diferença for
-> estatisticamente significativa **e** o CV ficar abaixo de 15% em **todas** as
+> significativa **pelo p-valor ajustado** (coluna `p_ajustado`, que corrige o
+> volume de comparações) **e** o CV ficar abaixo de 15% em **todas** as
 > categorias demográficas e em **todas** as categorias geográficas do recorte.
 > Basta uma célula acima de 15% para o recorte inteiro sair do corpo do texto e
 > ir para o anexo metodológico. A regra é conservadora de propósito: comentar
@@ -74,7 +75,10 @@ caem dentro dele.
 **Diferença visível não é diferença comprovada.** A última linha de cada
 tabela traz o teste que responde se as diferenças entre as categorias daquele
 recorte são estatisticamente significativas. É esse teste, e não a inspeção
-visual da tabela, que autoriza afirmar que dois estratos são diferentes.
+visual da tabela, que autoriza afirmar que dois estratos são diferentes. O
+p-valor usado é o **ajustado**: como o relatório faz centenas de comparações
+por trimestre, algumas sairiam significativas por puro acaso, e a correção
+desconta esse efeito.
 
 ---
 
@@ -117,13 +121,13 @@ metodológico; aqui são exibidos apenas os extremos.
 
 **Diferença entre as categorias de cada recorte**
 
-| Recorte | p-valor | Significativo a 5%? |
-|---|---:|:---:|
-| Zona (urbana × rural) | {P} | {SIG} |
-| Estrato administrativo | {P} | {SIG} |
-| Estrato agregado | {P} | {SIG} |
-| Estrato (7 dígitos) | {P} | {SIG} |
-| Teresina × resto do Piauí | {P} | {SIG} |
+| Recorte | p-valor | p ajustado | Significativo a 5%? |
+|---|---:|---:|:---:|
+| Zona (urbana × rural) | {P} | {P_AJ} | {SIG} |
+| Estrato administrativo | {P} | {P_AJ} | {SIG} |
+| Estrato agregado | {P} | {P_AJ} | {SIG} |
+| Estrato (7 dígitos) | {P} | {P_AJ} | {SIG} |
+| Teresina × resto do Piauí | {P} | {P_AJ} | {SIG} |
 
 ![Taxa de desocupação por recorte geográfico](figuras/comp_geo_Taxa_Desocupacao.png)
 
@@ -209,7 +213,7 @@ quanto a formalidade separa os rendimentos.
 **Tabela 5** — Rendimento médio real habitualmente recebido em todos os
 trabalhos, por recorte geográfico — {TRIMESTRE_REF}
 
-| Recorte | Categoria | Estimativa (R\$) | IC 95% | CV (%) | Precisão |
+| Recorte | Categoria | Estimativa (R$) | IC 95% | CV (%) | Precisão |
 |---|---|---:|:---:|---:|---|
 | Agregados | Brasil | {EST} | {IC} | {CV} | {PREC} |
 | … | … | … | … | … | … |
@@ -226,9 +230,9 @@ Nota: valores deflacionados para reais do último trimestre da série.
 **Figura 4** — Rendimento médio real habitual por recorte geográfico —
 {TRIMESTRE_REF}
 
-O rendimento médio no Piauí foi de R\$ {REND_PI}, equivalente a {PCT_BR}% da
+O rendimento médio no Piauí foi de R$ {REND_PI}, equivalente a {PCT_BR}% da
 média nacional. Dentro do estado, {ESTRATO_MAX} apresentou o maior rendimento
-médio (R\$ {VALOR_MAX}) e {ESTRATO_MIN} o menor (R\$ {VALOR_MIN}) — uma razão de
+médio (R$ {VALOR_MAX}) e {ESTRATO_MIN} o menor (R$ {VALOR_MIN}) — uma razão de
 {RAZAO} entre os extremos.
 
 Vale registrar o que uma média de rendimento não mostra: ela é sensível a
@@ -325,8 +329,8 @@ diagnóstico por completo. A comparação com os rendimentos absolutos das Figur
 ### 3.4 Inserção no mercado de trabalho
 
 As duas dimensões anteriores tratam de ter trabalho e de quanto ele paga. Esta
-trata da qualidade do vínculo: se a ocupação é ou não formalizada, com jornada suficiente ou
-não, com qual grau de escolaridade. São as condições que determinam acesso a
+trata da qualidade do vínculo: com ou sem carteira, com jornada suficiente ou
+não, com qual escolaridade. São as condições que determinam acesso a
 previdência, seguro-desemprego, licenças e estabilidade — e que separam um
 mercado de trabalho que protege de um que apenas ocupa.
 
@@ -505,23 +509,54 @@ recortes territoriais produzem diferenças que não se explicam por acaso
 amostral?
 
 **Tabela 14** — Testes de diferença entre categorias, por indicador e recorte
-geográfico — {TRIMESTRE_REF}
+geográfico — 2º trimestre de 2026
 
 | Indicador | Zona | Estrato administrativo | Estrato agregado | Estrato (7 díg.) | Teresina × resto |
 |---|:---:|:---:|:---:|:---:|:---:|
-| Taxa de desocupação | {SIG} | {SIG} | {SIG} | {SIG} | {SIG} |
-| Responsáveis desocupados | {SIG} | {SIG} | {SIG} | {SIG} | {SIG} |
-| Responsáveis ou cônjuges desocupados | {SIG} | {SIG} | {SIG} | {SIG} | {SIG} |
-| Rendimento médio habitual | {SIG} | {SIG} | {SIG} | {SIG} | {SIG} |
-| Sub-remuneração | {SIG} | {SIG} | {SIG} | {SIG} | {SIG} |
-| Taxa de informalidade | {SIG} | {SIG} | {SIG} | {SIG} | {SIG} |
-| Sub-ocupação | {SIG} | {SIG} | {SIG} | {SIG} | {SIG} |
-| Ocupados com médio completo ou mais | {SIG} | {SIG} | {SIG} | {SIG} | {SIG} |
-| Desalentados (força ampliada) | {SIG} | {SIG} | {SIG} | {SIG} | {SIG} |
-| Desalentados (fora da força) | {SIG} | {SIG} | {SIG} | {SIG} | {SIG} |
-| Jovens nem-nem | {SIG} | {SIG} | {SIG} | {SIG} | {SIG} |
+| Taxa de desocupação | \* | \*\*\* | \*\* | — | ns |
+| Responsáveis desocupados | ns | ns | \* | — | \* |
+| Responsáveis ou cônjuges desocupados | ns | \*\* | ns | — | \*\*\* |
+| Rendimento médio habitual | \*\*\* | \*\*\* | \*\*\* | \*\*\* | \*\*\* |
+| Sub-remuneração | \*\*\* | \*\*\* | \*\*\* | ns | \*\*\* |
+| Taxa de informalidade | \*\*\* | \*\*\* | \*\*\* | ns | \*\*\* |
+| Sub-ocupação | \*\*\* | \*\*\* | \*\*\* | ns | \*\*\* |
+| Ocupados com médio completo ou mais | \*\*\* | \*\*\* | \*\*\* | \* | \*\*\* |
+| Desalentados (força ampliada) | \*\*\* | \*\*\* | \*\*\* | ns | \*\*\* |
+| Desalentados (fora da força) | \*\*\* | \*\*\* | \*\*\* | ns | \*\*\* |
+| Jovens nem-nem | \*\*\* | \*\*\* | \*\* | ns | \*\*\* |
 
-Legenda: \*\*\* p < 0,001; \*\* p < 0,01; \* p < 0,05; ns = não significativo.
+Legenda: \*\*\* p < 0,001; \*\* p < 0,01; \* p < 0,05; ns = não significativo;
+— = o teste não se sustenta nessa resolução (ver adiante). Os símbolos
+referem-se ao **p-valor ajustado** para multiplicidade; a tabela completa, com
+os p-valores brutos ao lado, está no anexo metodológico.
+
+**Como ler a tabela.** Duas leituras saltam.
+
+A primeira: **quase tudo difere entre territórios**. Nas quatro colunas em que
+o teste se sustenta, a esmagadora maioria das células traz três asteriscos. O
+Piauí não é homogêneo em praticamente nenhuma das dimensões medidas — e a
+coluna "Teresina × resto" mostra que a capital se destaca do estado em dez dos
+onze indicadores.
+
+A segunda é mais sutil e diz respeito ao **tipo** de indicador. Os três
+primeiros — desocupação e suas variantes por posição no domicílio — são os
+únicos que oscilam entre significativo e não significativo conforme o recorte.
+Todos os demais, ligados a **renda, informalidade e escolaridade**, são
+significativos em todos os cortes territoriais disponíveis. A diferença é
+substantiva: estar desempregado é uma condição relativamente distribuída pelo
+estado, enquanto *quanto se ganha e sob que vínculo* depende fortemente de onde
+se mora.
+
+**Sobre a coluna do estrato de 7 dígitos.** Três indicadores trazem "—". Não
+são resultados omitidos por conveniência: nesse recorte, com 26 categorias e
+estratos de até 3 UPAs, a matriz de covariância replicada perde posto e o
+p-valor que sairia dali seria enviesado para encontrar diferença (seção 6.5 do
+anexo). No caso da taxa de desocupação o posto cai para 1 de 26 — o teste
+simplesmente não existe. A leitura desses três indicadores no nível mais fino
+deve se apoiar nos intervalos de confiança das tabelas anteriores, não em
+teste de hipótese. Onde o teste se sustenta no recorte fino, ele é conservador:
+apenas rendimento médio e escolaridade dos ocupados discriminam entre os 26
+estratos.
 Fonte: `output/tabelas/anova_regional_{SUFIXO}.csv`. Elaboração própria.
 
 ![ANOVA regional](figuras/anova_regional_{SUFIXO}.png)
@@ -529,17 +564,33 @@ Fonte: `output/tabelas/anova_regional_{SUFIXO}.csv`. Elaboração própria.
 **Figura 17** — p-valores dos testes de diferença entre categorias, por
 indicador e recorte regional — {TRIMESTRE_REF}
 
-Dos {N_TESTES} testes realizados, {N_SIGNIFICATIVOS} apontaram diferenças
-significativas a 5%. {SINTESE — indicar quais recortes discriminam mais e quais
-indicadores são mais homogêneos no território.}
+Dos {N_TESTES} testes realizados, {N_SIGNIFICATIVOS_BRUTOS} apontaram
+diferenças significativas a 5% pelo p-valor bruto e {N_SIGNIFICATIVOS} após o
+ajuste para multiplicidade. {SINTESE — indicar quais recortes discriminam mais
+e quais indicadores são mais homogêneos no território.}
 
-Uma observação metodológica que a leitura desta tabela exige: significância
-estatística não é o mesmo que relevância prática. Um recorte com muitas
-categorias — como o de 7 dígitos — tende a produzir p-valores baixos apenas
-porque há mais oportunidades de encontrar alguma diferença. E o inverso também
-vale: um recorte com poucas observações pode não atingir significância mesmo
-diante de uma diferença real e grande, por falta de amostra. O anexo
-metodológico detalha os testes empregados e suas limitações.
+Duas observações que a leitura desta tabela exige.
+
+**Significância estatística não é relevância prática.** Uma diferença pode ser
+estatisticamente sólida e pequena demais para orientar política pública; e um
+recorte com poucas observações pode não atingir significância diante de uma
+diferença real e grande, por falta de amostra. O teste responde "isto é
+distinguível do acaso?", não "isto importa?".
+
+**Os p-valores desta edição passaram por duas correções.** A primeira é de
+calibração: o teste usado é a razão de verossimilhanças de Rao-Scott, e não o
+teste de Wald, porque este último rejeitava a hipótese nula em metade das
+vezes em que ela era verdadeira nos recortes com muitas categorias. A segunda
+é de multiplicidade: com centenas de comparações por trimestre, parte da
+significância bruta seria produto do volume de testes, e o ajuste desconta esse
+efeito. Há ainda uma terceira, de natureza diferente: alguns cruzamentos **não
+produzem teste algum**. Quando a matriz de covariância do modelo perde posto —
+o que acontece em recortes de muitas categorias dentro de estratos pequenos —
+o p-valor que sairia dali seria enviesado na direção de encontrar diferença.
+Nesses casos o teste é refeito no recorte agregado, e se ainda assim não
+sustentar, a célula fica vazia. Uma lacuna honesta vale mais que um asterisco
+inventado. O anexo metodológico (seções 6.4, 6.5 e 6.8) documenta as três, com
+as simulações e os diagnósticos que as motivaram.
 
 ---
 
@@ -564,7 +615,7 @@ deixada no texto e o que melhora a redação.
 ### Correções de conteúdo
 
 **§2.1 — a faixa etária dos nem-nem diverge do código.** O texto diz "pessoas
-de 15 a 29 anos"; o `pipeline_trimestral.R` usa `V2009 >= 14 & V2009 <= 29`,
+de 15 a 29 anos"; o `01_pipeline_trimestral.R` usa `V2009 >= 14 & V2009 <= 29`,
 ou seja, 14 a 29 anos — o mesmo corte da categoria "Jovens" em
 `Faixa_Etaria_trabalho`. Os dois precisam concordar. Recomendo ajustar o texto
 para 14 a 29 anos, que é o corte que o IBGE usa na força de trabalho.
@@ -672,7 +723,7 @@ impessoais ("computa-se", "adotou-se") às vezes no mesmo parágrafo.
 
 Revisão visual das figuras geradas em {SUFIXO}. Nenhuma é reprovada; as
 correções abaixo são de legibilidade, e todas ficam no
-`03_comparacoes_indicadores.R` e no `pipeline_trimestral.R`.
+`03_comparacoes_indicadores.R` e no `01_pipeline_trimestral.R`.
 
 **O recorte de 7 dígitos não aparece em nenhuma figura `comp_geo_*`.** Este é o
 achado mais substantivo da revisão. Em `03_comparacoes_indicadores.R`, a
@@ -725,16 +776,89 @@ geografias em que a diferença foi significativa.
 **Nos histogramas de renda, os títulos das facetas vazam os nomes internos.**
 Aparecem `Zona_Urbana`, `Admin_Capital`, `Agreg_Teresina`, `Micro_2210011`, e
 vários cortados pela metade (*"gião Integrada de Desenvolvimento Econômic"*). O
-`pipeline_trimestral.R` monta esse gráfico com os nomes brutos da lista de
+`01_pipeline_trimestral.R` monta esse gráfico com os nomes brutos da lista de
 geografias, sem aplicar a limpeza de rótulos que o `03` já tem em
 `nome_geografia()`. Reaproveitar aquela função resolve. O eixo vertical também
 sai em notação científica (2.0e+07) no painel do Brasil.
+
+**Transversal e corrigido: todas as figuras saíam com fundo transparente.**
+Só apareceu ao renderizar as figuras desta execução. `ggsave()` com
+`theme_minimal()` grava PNG com canal alfa zerado — medi 0,00 nas cinco
+figuras testadas. Sobre página branca não se nota; sobre fundo escuro (modo
+noturno do Word, GitHub em tema escuro, PDF com fundo colorido) o texto cinza
+desaparece e a figura fica ilegível. A `anova_regional` chegava a sair
+inteiramente preta. Corrigido com `bg = "white"` nos sete `ggsave()` do
+projeto — as figuras regeneradas agora saem com três canais, sem alfa.
+
+**Corrigido: dois rótulos apareciam com o nome interno da variável.** O painel
+do estrato de sete dígitos exibia `Estrato_Micro`, e o indicador de
+responsáveis ou cônjuges desocupados exibia `Conribuintes_Desocupados` — com o
+erro de digitação e tudo. Faltavam nas tabelas `nomes_recortes` e
+`nomes_indicadores` do `03`, então caíam no identificador cru. Acrescentei
+esses dois mais `Raca` e `Instrucao_agregado`, que tinham o mesmo problema. O
+erro de digitação no identificador **não** foi corrigido no pipeline, de
+propósito: renomeá-lo mudaria os nomes dos arquivos de figura e quebraria as
+referências deste relatório. O conserto está só no rótulo exibido.
 
 **Transversal: a fonte sai monoespaçada.** Todas as figuras são renderizadas em
 fonte de largura fixa, o que dá aparência de saída de terminal em vez de figura
 de relatório. É o R caindo para uma família padrão na ausência da fonte
 esperada. Definir `base_family` no tema — ou instalar a fonte desejada —
 uniformiza o conjunto.
+
+### O que a primeira execução com dados reais mudou
+
+Até esta rodada, as decisões metodológicas descritas acima haviam sido testadas
+apenas em desenho sintético. A execução do pipeline sobre os microdados do 2º
+trimestre de 2026 confirmou parte delas, refutou uma e revelou um problema que
+a simulação não alcançava.
+
+**O desenho amostral não é o que o anexo descrevia.** Desde que o IBGE passou a
+distribuir os 200 pesos replicados de *bootstrap*, o `PNADcIBGE` deixa de
+montar um desenho de linearização de Taylor e monta um `svrepdesign`. A troca é
+automática — o pacote testa a presença das colunas `V1028001`–`V1028200` e
+decide sozinho. A consequência é que os graus de liberdade dos testes valem
+**199 em qualquer domínio**, e não o número de UPAs menos o de estratos (343,
+no Piauí). O anexo foi corrigido nas seções 3.1, 5.1, 6.3, 8 e 9.
+
+**Três erros do log anterior desapareceram.** As 575 falhas do recorte
+`Instrucao_agregado`, as 18 de `$ operator is invalid for atomic vectors` e as
+mensagens de estrato com uma única UPA não ocorrem mais. As primeiras eram o
+bug de mapeamento entre o nome do recorte e a coluna testada — pior do que
+parecia, porque o recorte `Instrucao` não falhava: testava silenciosamente a
+variável errada. As últimas eram impossíveis desde o início, já que desenho
+replicado não expõe PSU na estimação.
+
+**Uma expectativa minha estava errada.** Eu esperava que a troca do teste de
+Wald pelo LRT eliminasse as falhas de matriz singular. Não eliminou, e não
+poderia: as 97 ocorrências estão concentradas nos três indicadores de motivo
+(`Motivo_Nao_Procura_NemNem`, `Motivo_Nao_Inicio_NemNem`,
+`Motivo_Desistencia_Desalentado`), que têm resposta categórica e por isso vão
+pelo `svychisq` — **nunca foram testes de Wald**. A causa é tabela esparsa, e
+nenhuma das seis estatísticas disponíveis no `svychisq` contorna matriz
+singular.
+
+**O problema novo é o mais sério.** Em recorte fino, réplicas *bootstrap*
+individuais podem ficar sem observação em alguma célula, o que provoca
+separação completa no ajuste e coeficientes da ordem de 10¹⁵. Como a variância
+replicada é a dispersão entre réplicas, uma única réplica assim degenera a
+matriz inteira. Ocorreu em 380 dos 2.236 modelos, e o efeito não é neutro: a
+taxa de rejeição sobe de 32,2% para 42,2% quando o posto é deficiente. O
+pipeline passou a recusar esses testes, registrando o motivo no log em vez de
+publicar o p-valor. Optou-se por não substituí-los pelo recorte agregado: esse
+recorte já é uma linha da bateria, e a substituição duplicaria o mesmo teste,
+distorcendo o ajuste de multiplicidade. A seção 6.5 do anexo documenta o
+diagnóstico completo.
+
+Vale sublinhar o alcance: **nada disso afeta as estimativas**. Médias, razões e
+coeficientes de variação vêm de `svymean` e `svyratio`, que não têm ajuste
+iterativo e não podem divergir. O que estava em risco eram os testes.
+
+**Nota de ambiente.** A execução exigiu `LC_ALL` em UTF-8. Em locale `POSIX` as
+comparações com literais acentuados — `UF == "Piauí"`, os rótulos de
+`Estrato_agregado` — falham silenciosamente ou param o script. Não é problema
+do código, mas convém registrar para quem for reproduzir em servidor Linux
+recém-provisionado.
 
 ### Uma questão de infraestrutura, não de texto
 

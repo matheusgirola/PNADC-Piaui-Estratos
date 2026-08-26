@@ -178,7 +178,7 @@ ela foi feita contra um alvo misto. Com 80% da amostra já renovada, a maior
 parte dos códigos observados deve ser do desenho novo — o que é coerente com o
 quadro encontrado, de quase tudo batendo e sobrarem exatamente duas anomalias.
 
-Por isso o `pipeline_trimestral.R` passou a arquivar uma cópia do crosswalk por
+Por isso o `01_pipeline_trimestral.R` passou a arquivar uma cópia do crosswalk por
 trimestre (`output/crosswalk_estratos_<AAAAT#>.csv`): sem isso, cada rodada
 apagaria a evidência da anterior e a comparação entre safras — que é o que
 decide a questão — ficaria impossível.
@@ -186,11 +186,11 @@ decide a questão — ficaria impossível.
 ## Ordem de execução
 
 ```
-pipeline_trimestral.R        -> output/crosswalk_estratos.csv
-04_mapas_estratos_piaui.R    -> output/estratos_piaui.gpkg
-06_upas_piaui.R              -> output/upas_piaui.csv            (5.949 UPAs)
-07_estrato_estatistico.R     -> output/upas_com_estrato_estatistico.csv
-08_mapa_aaagsse.R            -> output/figuras/mapa_aaagsse_piaui.png
+01_pipeline_trimestral.R  -> output/crosswalk_estratos.csv
+04_mapas_estratos_piaui.R -> output/estratos_piaui.gpkg
+06_upas_piaui.R           -> output/upas_piaui.csv            (5.949 UPAs)
+07_estrato_estatistico.R  -> output/upas_com_estrato_estatistico.csv
+08_mapa_aaagsse.R         -> output/figuras/mapa_aaagsse_piaui.png
 ```
 
 ### Dados necessários (não versionados)

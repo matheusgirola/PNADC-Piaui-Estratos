@@ -1,8 +1,8 @@
 Recorte_Regional,Indicador,Erro
-Estrato_Micro,Taxa_Desocupacao,system is computationally singular: reciprocal condition number = 1.26596e-30
-Estrato_Micro,Chefes_Familia_Desocupados,system is computationally singular: reciprocal condition number = 4.48922e-17
-Estrato_Micro,Conribuintes_Desocupados,system is computationally singular: reciprocal condition number = 1.75798e-17
-Estrato_Micro,Motivo_Desistencia_Desalentado,system is computationally singular: reciprocal condition number = 5.86047e-21
-Estrato_Micro,Motivo_Nao_Procura_NemNem,system is computationally singular: reciprocal condition number = 1.57297e-20
-Estrato_Agregado,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 5.61873e-18
-Estrato_Micro,Motivo_Nao_Inicio_NemNem,system is computationally singular: reciprocal condition number = 1.5258e-21
+Estrato_Micro,Taxa_Desocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 26 — ver o recorte Estrato_Agregado, que responde à mesma pergunta em resolução menor"
+Estrato_Micro,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 24 de 26 — ver o recorte Estrato_Agregado, que responde à mesma pergunta em resolução menor"
+Estrato_Micro,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 25 de 26 — ver o recorte Estrato_Agregado, que responde à mesma pergunta em resolução menor"
+Estrato_Micro,Motivo_Desistencia_Desalentado,"RECUSADO pela guarda de variância: tabela 4x25 com 41% de células vazias (limite 20%) — ver o recorte Estrato_Agregado, que responde à mesma pergunta em resolução menor"
+Estrato_Micro,Motivo_Nao_Procura_NemNem,"RECUSADO pela guarda de variância: tabela 6x26 com 35% de células vazias (limite 20%) — ver o recorte Estrato_Agregado, que responde à mesma pergunta em resolução menor"
+Estrato_Agregado,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: system is computationally singular: reciprocal condition number = 5.61873e-18 (não há recorte agregado equivalente nesta dimensão)
+Estrato_Micro,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 6x26 com 49% de células vazias (limite 20%) — ver o recorte Estrato_Agregado, que responde à mesma pergunta em resolução menor"

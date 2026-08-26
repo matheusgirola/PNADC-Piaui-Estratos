@@ -21,7 +21,7 @@ library(purrr)
 library(ggplot2)
 
 # ANO_REF, TRIMESTRE_REF, sufixo e geografias_agregadas vêm do config
-# compartilhado com o pipeline_trimestral.R — antes estavam declarados nos dois
+# compartilhado com o 01_pipeline_trimestral.R — antes estavam declarados nos dois
 # arquivos, e esquecer de atualizar este aqui fazia o script reler a base do
 # trimestre anterior sem reclamar de nada.
 source("R/00_config.R")
@@ -36,6 +36,10 @@ source("R/00_config.R")
 nomes_indicadores <- c(
   Taxa_Desocupacao                 = "Taxa de Desocupação",
   Chefes_Familia_Desocupados       = "Pessoas Responsáveis pelo Domicílio Desocupadas",
+  # O identificador tem erro de digitação no pipeline (falta o "t" de
+  # Contribuintes). Corrigi-lo lá renomearia arquivos de figura e quebraria
+  # as referências do relatório, então o conserto fica no rótulo de exibição.
+  Conribuintes_Desocupados         = "Responsáveis ou Cônjuges Desocupados",
   Rendimento_Medio_Habitual        = "Rendimento Médio Habitual",
   Percentual_Subremuneracao        = "Subremuneração (abaixo do salário-mínimo/hora)",
   Rendimento_Formal                = "Rendimento Médio — Setor Formal",
@@ -55,11 +59,14 @@ nomes_indicadores <- c(
 nomes_recortes <- c(
   Total                    = "Total",
   Sexo                     = "Sexo",
+  Raca                     = "Cor ou Raça",
   Faixa_Etaria_trabalho    = "Faixa Etária",
-  Instrucao                = "Grau de Instrução",
+  Instrucao                = "Grau de Instrução (detalhado)",
+  Instrucao_agregado       = "Grau de Instrução (dicotomizado)",
   Zona                     = "Zona (Urbana/Rural)",
   Estrato_Administrativo   = "Estrato Administrativo",
   Estrato_Agregado         = "Estrato Agregado/Geográfico",
+  Estrato_Micro            = "Estrato de 7 dígitos",
   Teresina_x_Resto_Piaui   = "Teresina x Resto do Piauí"
 )
 
@@ -204,7 +211,7 @@ for (i in seq_len(nrow(combinacoes_geo))) {
     theme(strip.text = element_text(face = "bold"))
   
   nome_arq <- sprintf("output/figuras/comp_geo_%s.png", make.names(ind))
-  ggsave(nome_arq, p, width = 8, height = 3 + 1.6 * n_distinct(d$Tipo_Geo))
+  ggsave(nome_arq, p, width = 8, height = 3 + 1.6 * n_distinct(d$Tipo_Geo), bg = "white")
 }
 
 message("Comparação geográfica: tabela + ", nrow(combinacoes_geo), " gráfico(s) salvos.")
@@ -218,14 +225,30 @@ tabela_demo <- demo %>%
   select(Indicador, Indicador_Nome, Subcategoria_Indicador, Regiao_Geografica, Geografia_Nome,
          Recorte_Demografico, Recorte_Nome, Categoria_Demografica,
          Estimativa, SE, IC_95, IC_inf, IC_sup, CV, Confiabilidade)
+# p_valor, p_ajustado e as duas colunas de significância são anexados logo abaixo
 
 if (!is.null(testes_demo)) {
+
+  # Prepara o de-para dos testes ANTES do join. Se o pipeline que gerou o
+  # arquivo for anterior ao ajuste de multiplicidade, a coluna p_ajustado não
+  # existe — cria-se vazia para o restante do script não precisar saber disso.
+  chaves_testes_demo <- testes_demo %>%
+    select(Indicador, Regiao_Geografica, Recorte_Demografico,
+           p_valor, any_of("p_ajustado")) %>%
+    distinct()
+  if (!"p_ajustado" %in% names(chaves_testes_demo)) {
+    chaves_testes_demo$p_ajustado <- NA_real_
+  }
+
   tabela_demo <- tabela_demo %>%
-    left_join(
-      testes_demo %>% select(Indicador, Regiao_Geografica, Recorte_Demografico, p_valor) %>% distinct(),
-      by = c("Indicador", "Regiao_Geografica", "Recorte_Demografico")
-    ) %>%
-    mutate(Significancia = estrelas_p(p_valor))
+    left_join(chaves_testes_demo,
+              by = c("Indicador", "Regiao_Geografica", "Recorte_Demografico")) %>%
+    mutate(
+      Significancia = estrelas_p(p_valor),
+      # o ajustado é o que decide o que entra no corpo do relatório; o bruto
+      # fica na tabela para quem quiser conferir
+      Significancia_ajustada = estrelas_p(p_ajustado)
+    )
 } else {
   tabela_demo$p_valor <- NA_real_
   tabela_demo$Significancia <- ""
@@ -250,11 +273,18 @@ if (!is.null(testes_demo)) {
       Indicador_Nome = nome_indicador(Indicador),
       Geografia_Nome = nome_geografia(Regiao_Geografica),
       Recorte_Nome   = nome_recorte(Recorte_Demografico),
-      Significancia  = estrelas_p(p_valor)
+      Significancia  = estrelas_p(p_valor),
+      Significancia_ajustada = if ("p_ajustado" %in% names(testes_demo))
+        estrelas_p(p_ajustado) else NA_character_
     ) %>%
+    # Variavel_Testada explicita QUAL coluna sustentou o teste — o nome do
+    # recorte e a variável não coincidem em Instrucao/Instrucao_agregado.
+    # any_of() mantém compatibilidade com bases de trimestres anteriores.
     select(Indicador, Indicador_Nome, Regiao_Geografica, Geografia_Nome,
-           Recorte_Demografico, Recorte_Nome, Metodo, Estatistica, GL,
-           p_valor, Significancia, N) %>%
+           Recorte_Demografico, Recorte_Nome,
+           any_of("Variavel_Testada"),
+           Metodo, Estatistica, GL,
+           p_valor, Significancia, any_of(c("p_ajustado", "Significancia_ajustada")), N) %>%
     arrange(p_valor)
   write_csv(tabela_anova_demo, sprintf("output/tabelas/anova_demografica_%s.csv", sufixo))
   
@@ -272,7 +302,7 @@ if (!is.null(testes_demo)) {
     theme_minimal(base_size = 7) +
     theme(strip.text = element_text(face = "bold"), axis.text.y = element_text(size = 5))
   ggsave(sprintf("output/figuras/anova_demografica_%s.png", sufixo), p_anova_demo,
-         width = 9, height = 4 + 2.2 * n_distinct(d$Recorte_Nome))
+         width = 9, height = 4 + 2.2 * n_distinct(d$Recorte_Nome), bg = "white")
   
   message("ANOVA demográfica: tabela + gráfico salvos (", nrow(tabela_anova_demo), " testes).")
 } else {
@@ -287,10 +317,14 @@ if (!is.null(testes_regional)) {
     mutate(
       Indicador_Nome = nome_indicador(Indicador),
       Recorte_Nome    = nome_recorte(Recorte_Regional),
-      Significancia   = estrelas_p(p_valor)
+      Significancia   = estrelas_p(p_valor),
+      Significancia_ajustada = if ("p_ajustado" %in% names(testes_regional))
+        estrelas_p(p_ajustado) else NA_character_
     ) %>%
     select(Indicador, Indicador_Nome, Recorte_Regional, Recorte_Nome,
-           Metodo, Estatistica, GL, p_valor, Significancia, N) %>%
+           any_of("Variavel_Testada"),
+           Metodo, Estatistica, GL, p_valor, Significancia,
+           any_of(c("p_ajustado", "Significancia_ajustada")), N) %>%
     arrange(p_valor)
   write_csv(tabela_anova_regional, sprintf("output/tabelas/anova_regional_%s.csv", sufixo))
   
@@ -308,7 +342,7 @@ if (!is.null(testes_regional)) {
     theme_minimal(base_size = 8) +
     theme(strip.text = element_text(face = "bold"))
   ggsave(sprintf("output/figuras/anova_regional_%s.png", sufixo), p_anova_regional,
-         width = 8, height = 3 + 2.4 * n_distinct(d$Recorte_Nome))
+         width = 8, height = 3 + 2.4 * n_distinct(d$Recorte_Nome), bg = "white")
   
   message("ANOVA regional: tabela + gráfico salvos (", nrow(tabela_anova_regional), " testes).")
 } else {

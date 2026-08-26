@@ -5,7 +5,7 @@ operacionais e as formulações matemáticas empregadas na estimação dos
 indicadores de ocupação, rendimento e educação por estrato geográfico do Piauí
 a partir dos microdados trimestrais da Pesquisa Nacional por Amostra de
 Domicílios Contínua (PNADC). Detalham-se os estimadores sob plano amostral
-complexo, a estimação de variância por linearização de Taylor, a construção e
+complexo, a estimação de variância por replicação *bootstrap*, a construção e
 a interpretação do coeficiente de variação, os testes de hipótese adequados a
 dados amostrais ponderados e conglomerados, e o procedimento de reconstrução da
 geografia dos estratos amostrais — incluindo a formação das Unidades Primárias
@@ -116,6 +116,29 @@ entrevistas ao todo.
 Utilizam-se os microdados trimestrais, com deflatores oficiais aplicados aos
 rendimentos (`deflator = TRUE`), de modo que os valores monetários são
 comparáveis ao longo da série.
+
+**Pesos replicados.** A partir do momento em que os microdados passaram a
+trazer os 200 pesos replicados de *bootstrap* distribuídos pelo IBGE
+(`V1028001` a `V1028200`), o objeto de desenho deixa de ser construído por
+`svydesign` com pós-estratificação e passa a ser um `svrepdesign` do tipo
+`bootstrap`. A troca é feita pelo próprio pacote `PNADcIBGE`, que testa a
+presença dessas colunas e escolhe o caminho — não é uma opção do analista:
+
+```r
+if (!(FALSE %in% (sprintf("V1028%03d", seq(1:200)) %in% names(data_pnadc)))) {
+  survey::svrepdesign(data = data_pnadc, weight = ~V1028, type = "bootstrap",
+                      repweights = "V1028[0-9]+", mse = TRUE, ...)
+}
+```
+
+A consequência é metodológica e percorre todo o restante deste anexo: a
+variância não é mais estimada por linearização, e sim por replicação (seção
+5.1), e os graus de liberdade dos testes passam a ser governados pelo número de
+réplicas, não pela contagem de UPAs (seção 6.3).
+
+No 2º trimestre de 2026, o recorte do Piauí reúne **12.926 pessoas em 369 UPAs
+distribuídas por 26 estratos**, com 4.633 domicílios e população expandida de
+3.390.985 pessoas. O menor estrato do estado contém 3 UPAs.
 
 ### 3.2 A estrutura do estrato: `AAAGGSE`
 
@@ -324,18 +347,31 @@ intervalos de confiança, e não por teste formal.
 
 ### 5.1 Estimação da variância
 
-A variância é estimada por **linearização de Taylor** (WOLTER, 2007;
-SÄRNDAL; SWENSSON; WRETMAN, 1992). Para um estimador não linear como a razão
-(5), define-se a variável linearizada
+A variância é estimada por **replicação** *bootstrap* (WOLTER, 2007; RAO;
+WU, 1988), com os 200 conjuntos de pesos replicados publicados pelo IBGE. Cada
+conjunto $r$ reproduz uma reamostragem das UPAs dentro dos estratos; o
+indicador é **recalculado por inteiro** com cada um deles, e a variância é a
+dispersão dos 200 resultados em torno da estimativa de amostra cheia:
 
 $$
-u_i \;=\; \frac{y_i - \hat{R}\,x_i}{\hat{X}}
+\hat{V}(\hat\theta) \;=\; \frac{1}{R-1}\sum_{r=1}^{R}\left(\hat\theta_{(r)} - \hat\theta\right)^{2},
+\qquad R = 200
 \tag{11}
 $$
 
-e a variância de $\hat{R}$ é aproximada pela variância do total estimado de
-$u_i$. Sob amostragem estratificada com conglomerados de primeiro estágio, esta
-assume a forma
+O centro da soma é $\hat\theta$, a estimativa de amostra cheia, e não a média
+das réplicas — é o que a opção `mse = TRUE` determina, e é a escolha
+conservadora, pois incorpora eventual viés das réplicas à variância.
+
+A vantagem prática da replicação é dispensar a linearização: para um estimador
+não linear como a razão (5), não é preciso derivar variável linearizada
+alguma, porque cada réplica recalcula a razão inteira. A exceção é o contraste
+da seção 4.4, que continua aplicando o método delta — só que sobre a matriz de
+covariância vinda das réplicas.
+
+**Por que a UPA continua governando a precisão.** A replicação estima a mesma
+quantidade que a linearização estimaria. Sob amostragem estratificada com
+conglomerados de primeiro estágio, essa quantidade assume a forma
 
 $$
 \hat{V}(\hat{R}) \;=\; \sum_{h=1}^{H} \frac{n_h}{n_h - 1}\sum_{a=1}^{n_h}\left(t_{ha} - \bar{t}_h\right)^{2},
@@ -346,14 +382,20 @@ t_{ha} = \sum_{i \in \text{UPA}_{ha}} w_i\, u_i,
 \tag{12}
 $$
 
-em que $h$ indexa estratos e $a$ indexa UPAs dentro do estrato. A expressão
-deixa explícito por que a **UPA** é a unidade que governa a precisão: a soma
-interna percorre UPAs, não pessoas. Dobrar o número de entrevistas dentro das
-mesmas UPAs reduz pouco a variância; dobrar o número de UPAs reduz muito.
+em que $h$ indexa estratos e $a$ indexa UPAs dentro do estrato, e $u_i$ é a
+variável linearizada do estimador. A expressão não é a que o cálculo executa,
+mas deixa explícito por que a **UPA** é a unidade que governa a precisão: a
+soma interna percorre UPAs, não pessoas. Dobrar o número de entrevistas dentro
+das mesmas UPAs reduz pouco a variância; dobrar o número de UPAs reduz muito.
+É também o que a reamostragem das réplicas reproduz, já que ela sorteia UPAs,
+não indivíduos.
 
-Note-se ainda a exigência de $n_h \ge 2$ UPAs por estrato para que (12) seja
-computável — condição que o desenho da PNADC garante por construção, e que
-motiva o piso de 150 UPAs por estrato estatístico discutido na seção 7.
+Note-se ainda a exigência de $n_h \ge 2$ UPAs por estrato para que a expressão
+seja computável — condição que o desenho da PNADC garante por construção, e que
+motiva o piso de 150 UPAs por estrato estatístico discutido na seção 7. No
+desenho replicado essa exigência não produz erro explícito: um estrato com
+poucas UPAs simplesmente gera réplicas instáveis, problema tratado na seção
+6.5.
 
 ### 5.2 Erro padrão e intervalo de confiança
 
@@ -406,14 +448,14 @@ CANADA, 2010).
 
 **Regra de inclusão no corpo do relatório.** Um recorte demográfico só é
 comentado no texto principal se, naquele recorte geográfico, a diferença for
-estatisticamente significativa **e** o CV for inferior a 15% em **todas** as
-células — todas as categorias demográficas, em todas as categorias geográficas
+estatisticamente significativa **pelo p-valor ajustado** (seção 6.8) **e** o CV
+for inferior a 15% em **todas** as células — todas as categorias demográficas, em todas as categorias geográficas
 do recorte. Formalmente, para o recorte demográfico $d$ dentro do recorte
 geográfico $g$:
 
 $$
 \text{incluir}(d, g) \;\iff\;
-p_{d,g} < 0{,}05
+p^{\text{aj}}_{d,g} < 0{,}05
 \;\wedge\;
 \max_{c \in \mathcal{C}_d}\;\max_{r \in \mathcal{R}_g}\; \operatorname{CV}(\hat\theta_{c,r}) < 15\%
 \tag{15}
@@ -493,8 +535,15 @@ quasi-verossimilhança é necessária: a binomial ordinária pressupõe variânc
 igual à média e ensaios independentes, o que a ponderação e a conglomeração
 violam; a quasibinomial estima o parâmetro de dispersão a partir dos dados.
 
-A hipótese $H_0: \beta_2 = \dots = \beta_C = 0$ é avaliada pelo teste de Wald
-com variância robusta ao plano amostral (`regTermTest`):
+A hipótese $H_0: \beta_2 = \dots = \beta_C = 0$ é avaliada por
+`regTermTest`, com a razão de verossimilhanças de trabalho de Rao-Scott
+(`method = "LRT"`) e graus de liberdade do desenho. A escolha desse teste em
+detrimento do teste de Wald é justificada na seção 6.4 e não é de detalhe: sob
+o Wald, os recortes com muitas categorias rejeitavam a hipótese nula em metade
+das vezes em que ela era verdadeira.
+
+Para referência, a estatística de Wald — a alternativa descartada — tem a
+forma:
 
 $$
 F \;=\; \frac{1}{q}\left(\hat{\boldsymbol\beta} - \boldsymbol\beta_0\right)^{\!\top}
@@ -503,16 +552,219 @@ F \;=\; \frac{1}{q}\left(\hat{\boldsymbol\beta} - \boldsymbol\beta_0\right)^{\!\
 \tag{18}
 $$
 
-com $q = C - 1$ graus de liberdade no numerador e graus de liberdade do
-denominador determinados pelo número de UPAs menos o número de estratos.
+com $q = C - 1$ graus de liberdade no numerador e, no denominador, os graus de
+liberdade do desenho, obtidos por `degf(design)`.
 
-Esse último ponto merece ênfase: **os graus de liberdade do teste são
-governados pelo número de UPAs, não pelo número de pessoas entrevistadas**. Um
-estrato com dez mil entrevistas distribuídas em poucas UPAs tem poder de teste
-modesto. É a razão pela qual diferenças visualmente grandes entre estratos
-finos frequentemente não alcançam significância.
+**De onde vem esse número.** Em desenho estratificado por conglomerados, seria
+o número de UPAs menos o número de estratos — no Piauí do 2º trimestre de 2026,
+$369 - 26 = 343$. No desenho replicado que o `PNADcIBGE` de fato constrói, ele
+é o número de réplicas menos um: **199**, qualquer que seja o domínio. As duas
+contas não coincidem, e a segunda é a que vale aqui.
 
-### 6.4 Dois conjuntos de testes
+Esse ponto merece ênfase por dois motivos. O primeiro é que **os graus de
+liberdade não são governados pelo número de pessoas entrevistadas**: um estrato
+com dez mil entrevistas distribuídas em poucas UPAs tem pouca informação
+efetiva sobre a variabilidade entre grupos.
+
+O segundo é uma ressalva do desenho replicado, e é desfavorável: como o valor
+199 vem das réplicas, **ele não encolhe em domínio pequeno**. O estrato
+`2252022`, com 3 UPAs, recebe os mesmos 199 graus de liberdade que o Piauí
+inteiro. A distribuição de referência é, portanto, otimista justamente onde a
+amostra é mais frágil. É mais uma razão para o teste conservador da seção 6.4,
+para a guarda da seção 6.5 e para o ajuste de multiplicidade da seção 6.8 — e
+não uma razão para relaxar nenhum dos três.
+
+### 6.4 Calibração dos testes
+
+Um teste está **calibrado** quando rejeita a hipótese nula na frequência que
+declara: um teste a 5% deve produzir falsos positivos em 5% das vezes em que a
+hipótese nula é verdadeira. Calibração não é o mesmo que poder — um teste pode
+ser calibrado e fraco, ou descalibrado e aparentemente sensível.
+
+Há motivo teórico para desconfiar do teste de Wald neste desenho. A estatística
+(18) depende da inversa da matriz de covariância estimada. Quando o número de
+parâmetros testados $q$ cresce em relação aos graus de liberdade do desenho,
+essa matriz é estimada com poucos graus de liberdade e sua inversa amplifica o
+ruído, inflando a estatística. O problema é conhecido na literatura de
+amostragem complexa (THOMAS; RAO, 1987; KORN; GRAUBARD, 1990) e é severo
+justamente na configuração dos recortes finos: muitas categorias, poucas UPAs
+por categoria.
+
+**Verificação por simulação.** Geraram-se 400 conjuntos de dados sob hipótese
+nula estrita — nenhuma diferença entre grupos —, replicando a estrutura do
+desenho: grupos coincidindo com estratos, UPAs aninhadas nos grupos,
+correlação intraclasse induzida por efeito aleatório de UPA e pesos desiguais.
+A tabela reporta a proporção de rejeições a 5%; o valor ideal é 0,050.
+
+A simulação foi conduzida sobre desenho estratificado por conglomerados, em que
+os graus de liberdade acompanham a contagem de UPAs — daí a coluna "GL do
+desenho" variar entre as linhas. No desenho replicado da produção esse valor é
+fixo em 199 (seção 6.3), o que **agrava** o quadro em vez de aliviá-lo: a
+referência fica mais permissiva exatamente nas configurações finas. A
+conclusão qualitativa — o Wald é inutilizável no recorte fino, o LRT não é —
+vale com folga maior.
+
+| Configuração | Parâmetros | GL do desenho | Wald | **LRT** | ANOVA clássica |
+|---|---:|---:|---:|---:|---:|
+| 5 grupos, 12 UPAs cada *(≈ estrato agregado)* | 4 | 55 | 0,050 | **0,037** | 0,573 |
+| 20 grupos, 4 UPAs cada *(≈ estrato fino)* | 19 | 60 | 0,505 | **0,035** | 0,993 |
+| 26 grupos, 3 UPAs cada *(≈ pior caso)* | 25 | 52 | 0,797 | **0,028** | 0,993 |
+
+A leitura é direta. Com poucas categorias e muitas UPAs, o Wald é
+perfeitamente calibrado. No recorte fino, ele rejeita a hipótese nula em **mais
+da metade das vezes em que ela é verdadeira** — dez vezes o nível nominal
+declarado. No pior caso, quatro em cada cinco testes produziriam um falso
+positivo. A última coluna mostra por que a ANOVA clássica não é alternativa:
+ignorar o plano amostral leva a taxas de erro entre 57% e 99%.
+
+**O LRT é conservador, não impotente.** A objeção natural a um teste
+conservador é que ele deixe de detectar diferenças reais. Repetindo a simulação
+sob hipóteses alternativas, na configuração de 20 grupos:
+
+| Efeito (em desvios-padrão) | Wald | **LRT** |
+|---|---:|---:|
+| 0,00 *(nulo)* | 0,535 | **0,035** |
+| 0,15 | 0,677 | **0,102** |
+| 0,30 | 0,907 | **0,415** |
+| 0,50 | 0,998 | **0,945** |
+| 0,80 | 1,000 | **1,000** |
+
+O LRT detecta 94,5% dos efeitos de meio desvio-padrão e a totalidade dos
+efeitos de 0,8 — poder adequado para as diferenças que interessam
+substantivamente. A aparente superioridade do Wald em efeitos pequenos é
+ilusória: com taxa de falsos positivos de 53,5% na linha nula, quase toda a
+"detecção" a 0,15 é ruído.
+
+**Decisão.** Adota-se `method = "LRT"` com `df = degf(design)` em todos os
+testes de resposta numérica e binária. O custo computacional é idêntico ao do
+Wald.
+
+Registre-se que o teste de Rao-Scott da seção 6.2, usado para respostas
+categóricas, já incorpora correção de segunda ordem com referência $F$ e não
+sofre do problema de calibração descrito aqui. Ele tem, porém, um modo de
+falha próprio — inversão de matriz singular quando a tabela é esparsa — tratado
+na seção seguinte.
+
+### 6.5 Degeneração da variância replicada e a guarda de posto
+
+O desenho replicado introduz um modo de falha que não existe sob linearização,
+e que só se manifesta no recorte fino.
+
+**O mecanismo.** A variância de um coeficiente é a dispersão dele entre as 200
+réplicas (equação 11). Num recorte com muitas categorias, uma réplica pode
+ficar sem nenhuma observação de determinada célula. No ajuste quasibinomial
+isso configura **separação completa**: a verossimilhança é maximizada com o
+coeficiente tendendo ao infinito, e o algoritmo para em torno de $10^{15}$.
+Como a variância é a dispersão entre réplicas, **uma única réplica nessa
+condição domina a matriz inteira**.
+
+O caso mais visível no 2º trimestre de 2026 é o teste central do relatório — a
+taxa de desocupação entre os 26 estratos finos. O modelo de amostra cheia
+converge sem incidente: os 26 coeficientes são finitos e o maior tem valor
+absoluto 2,43. Ainda assim,
+
+$$
+\operatorname{posto}\left[\hat{V}(\hat{\boldsymbol\beta})\right] \;=\; 1
+\quad\text{de}\quad 25,
+\qquad
+\max_{jk}\left|\hat{V}_{jk}\right| \;=\; 1{,}2\times10^{28}
+$$
+
+porque 26 das 200 réplicas produziram coeficientes da ordem de $10^{15}$.
+
+O sintoma final é obscuro e vale registrar, porque não sugere a causa: com
+$\hat{V}$ degenerada, os autovalores de $\hat{V}_0^{-1}\hat{V}$ — usados pelo
+`regTermTest` para a aproximação de soma de qui-quadrados — saem **complexos**,
+e a rotina `pFsum` do pacote `survey` interrompe com a mensagem
+`Non-numeric argument to mathematical function`. Um erro de aritmética
+denunciando um problema amostral.
+
+**A extensão do problema.** Sobre os 2.236 modelos `svyglm` da bateria
+demográfica do trimestre:
+
+| Diagnóstico | Modelos |
+|---|---:|
+| Ao menos uma réplica divergente (critério invariante de escala) | 137 (6,1%) |
+| Matriz de covariância de posto deficiente | 380 |
+| — destes, com réplica divergente | 129 |
+| — destes, **sem** réplica divergente | 251 |
+
+A divergência explica apenas um terço da degeneração; o restante é
+quase-separação que não chega a estourar numericamente. **Por isso a guarda
+adotada é o posto da matriz, e não um limiar sobre a magnitude do
+coeficiente**: é mais abrangente e não depende de constante arbitrária.
+
+**Por que não basta ignorar.** Entre os testes que concluíram, a taxa de
+rejeição a 5% foi de **32,2% com posto completo e 42,2% com posto deficiente**.
+Variância degenerada subestima o erro padrão em alguma direção do espaço de
+parâmetros, e o teste rejeita em excesso. O viés é sistemático e aponta para
+onde mais atrapalha: inventar significância.
+
+**O risco é previsível.** Ele é governado pelo tamanho da menor célula do
+recorte, não pelo tamanho total da amostra:
+
+| Menor célula do recorte | Modelos | Posto deficiente |
+|---|---:|---:|
+| até 5 observações | 591 | 37,9% |
+| 6 a 10 | 224 | 20,1% |
+| 11 a 25 | 301 | 16,3% |
+| 26 a 50 | 271 | 7,4% |
+| 51 a 100 | 301 | 3,3% |
+| acima de 100 | 519 | 0,6% |
+
+Por recorte, a assimetria é a esperada: o grau de instrução detalhado
+(`VD3004`, sete níveis) produz 49,5% de posto deficiente, contra 2,2% do sexo.
+
+**O caso categórico.** Para respostas categóricas o caminho é o `svychisq`, que
+inverte a covariância das proporções de célula; a raiz é a mesma — célula
+vazia tem variância nula — mas o sintoma é a singularidade explícita. As seis
+estatísticas disponíveis (`F`, `Chisq`, `Wald`, `adjWald`, `lincom`,
+`saddlepoint`) falham igualmente: não há escolha de estatística que contorne
+uma matriz singular. Varrendo 387 combinações de indicador de motivo × recorte
+× geografia, a fração de células vazias separa bem os casos:
+
+| Células vazias na tabela | Combinações | Falhas |
+|---|---:|---:|
+| até 20% | 124 | 0 |
+| 20 a 30% | 74 | 2 |
+| 30 a 40% | 67 | 14 |
+| acima de 40% | 122 | 74 |
+
+**A guarda adotada.** O teste é **recusado** — não substituído — quando:
+
+- a resposta é numérica ou binária e
+  $\operatorname{posto}[\hat{V}] < \dim[\hat{V}]$; ou
+- a resposta é categórica e a tabela tem mais de 20% de células vazias.
+
+A recusa é registrada no log de falhas com o motivo e com remissão ao recorte
+agregado onde a mesma pergunta é respondida em resolução menor.
+
+**Por que recusar em vez de cair para o recorte agregado.** A alternativa
+natural seria, barrado o recorte fino, repetir o teste no agregado
+correspondente. Ela foi descartada porque **o recorte agregado já é uma linha
+da bateria**, por decisão de desenho do estudo: `Instrucao_agregado` acompanha
+`Instrucao`, e `Estrato_Agregado` acompanha `Estrato_Micro`. A substituição
+produziria uma linha idêntica à existente — mesmo domínio, mesma variável,
+mesmo p-valor — com duas consequências indesejáveis: a tabela sugeriria duas
+evidências onde há uma, e o procedimento de Benjamini-Hochberg (seção 6.8)
+contaria o mesmo teste duas vezes na família, distorcendo o controle de taxa de
+falsas descobertas exatamente nos indicadores que mais dependem dele.
+
+Nas dimensões sem versão agregada — sexo, cor ou raça, faixa etária, todas já
+curtas — a recusa é definitiva e aparece no log, nunca como p-valor.
+
+**O que foi recusado.** Descartar as réplicas divergentes e seguir adiante
+resolveria o problema numérico: no caso da taxa de desocupação o posto volta a
+25 de 25 e o erro padrão do primeiro coeficiente passa de 0,3858 para 0,3513.
+A opção foi descartada porque altera o estimador por conveniência
+computacional, sem fundamento amostral que a sustente.
+
+Registre-se, por fim, o alcance limitado do problema: ele atinge **apenas os
+testes**. As estimativas pontuais e os coeficientes de variação da seção 5 vêm
+de `svymean` e `svyratio`, que não envolvem ajuste iterativo e não podem
+divergir. Os números das tabelas de resultados não são afetados.
+
+### 6.6 Dois conjuntos de testes
 
 **Testes demográficos.** Dentro de cada recorte geográfico, verificam se o
 indicador difere entre categorias de sexo, cor/raça, faixa etária e instrução.
@@ -523,7 +775,7 @@ mesmo recorte territorial — urbano × rural, entre estratos administrativos,
 entre estratos agregados, entre estratos finos. Respondem à pergunta "há
 desigualdade territorial *no estado*?".
 
-### 6.5 Uma advertência sobre a comparação Teresina × Piauí
+### 6.7 Uma advertência sobre a comparação Teresina × Piauí
 
 Comparar Teresina ao Piauí, literalmente, não é um teste válido: Teresina é um
 **subconjunto** do Piauí, e todo residente da capital também é piauiense. Um
@@ -536,20 +788,63 @@ A comparação implementada é, portanto, **Teresina × resto do Piauí**, com a
 capital excluída do segundo grupo. É esta que responde à pergunta de interesse
 substantivo: a capital difere do restante do estado?
 
-### 6.6 Comparações múltiplas
+### 6.8 Comparações múltiplas
 
-O conjunto de testes realizados a cada trimestre é numeroso — dezenas de
-indicadores por dezenas de combinações de recorte. Sob a hipótese nula global,
-espera-se que aproximadamente 5% dos testes resultem significativos por acaso.
+O conjunto de testes realizados a cada trimestre é numeroso — cada indicador é
+confrontado com o mesmo recorte demográfico em dezenas de geografias. Sob a
+hipótese nula global, cerca de 5% desses testes resultariam significativos por
+acaso: com aproximadamente 36 geografias por indicador, isso equivale a quase
+duas "descobertas" espúrias por linha da tabela.
 
-Optou-se pelo limiar convencional de 5% **sem correção** para multiplicidade,
-em coerência com o caráter descritivo e exploratório do relatório: os
-resultados são apresentados como um panorama territorial, não como um conjunto
-de hipóteses confirmatórias pré-registradas. A interpretação substantiva
-prioriza, por consequência, padrões que se repetem entre indicadores e entre
-trimestres, e não achados isolados marginalmente significativos. Havendo
-interesse em uso confirmatório, recomenda-se o controle da taxa de falsas
-descobertas (BENJAMINI; HOCHBERG, 1995) sobre a família de testes pertinente.
+**Ordem das correções.** Registre-se, porque a sequência importa: o ajuste para
+multiplicidade só faz sentido depois de resolvida a calibração da seção 6.4.
+Corrigir p-valores produzidos por um teste que rejeita a hipótese nula em 50%
+das vezes em que ela é verdadeira não recupera a inferência — apenas redistribui
+valores que já não significam o que declaram. Primeiro se conserta o teste,
+depois se corrige a multiplicidade.
+
+**Procedimento adotado.** Aplica-se o controle da taxa de falsas descobertas de
+Benjamini-Hochberg (BENJAMINI; HOCHBERG, 1995). Ordenados os $M$ p-valores da
+família, $p_{(1)} \le \dots \le p_{(M)}$, rejeita-se $H_{0}$ para todo
+$i \le k$, onde
+
+$$
+k \;=\; \max\left\{ i \;:\; p_{(i)} \le \frac{i}{M}\,\alpha \right\}
+\tag{19}
+$$
+
+O p-valor ajustado reportado é $p^{\text{aj}}_{(i)} = \min_{j \ge i}
+\left\{ \min\left( \frac{M}{j} p_{(j)},\, 1 \right) \right\}$, de modo que a
+comparação direta com $\alpha = 0{,}05$ reproduz o procedimento.
+
+**Definição das famílias.** A escolha da família é a decisão substantiva do
+ajuste, e não uma tecnicalidade: ela define sobre qual conjunto de perguntas se
+controla o erro.
+
+| Bateria | Família adotada | Justificativa |
+|---|---|---|
+| Testes demográficos | indicador × recorte demográfico, ajustando ao longo das geografias | corresponde à pergunta efetivamente formulada: "em quais territórios este indicador difere por sexo?" |
+| Testes regionais | a bateria inteira | é pequena (poucos recortes × indicadores) e a tabela de síntese é lida como um todo |
+
+Ajustar os testes demográficos ao longo dos *indicadores* misturaria perguntas
+distintas — se a desocupação difere por sexo nada informa sobre se o rendimento
+difere por idade — e diluiria o controle sem ganho interpretativo.
+
+**Por que Benjamini-Hochberg e não Bonferroni.** O procedimento de Bonferroni
+controla a probabilidade de ocorrer *qualquer* falso positivo na família
+(*family-wise error rate*). É a garantia adequada quando uma única conclusão
+errada compromete a decisão — um ensaio clínico, por exemplo. Este relatório é
+um levantamento descritivo, em que o custo de um falso positivo isolado é
+baixo e o de apagar diferenças territoriais reais é alto. O controle da taxa de
+falsas descobertas responde à pergunta pertinente: *entre os resultados que
+declaro significativos, que proporção deve ser falsa?* Com $\alpha = 0{,}05$,
+espera-se que no máximo 5% das diferenças apontadas sejam espúrias.
+
+**Reporte.** As duas colunas coexistem nas saídas: `p_valor` é o bruto e
+`p_ajustado` é o corrigido, acompanhados de `n_testes_familia`, que explicita o
+tamanho da família sobre a qual o ajuste foi calculado. O corpo do relatório
+usa o ajustado; o Apêndice C publica ambos, de modo que o leitor possa refazer
+o julgamento sob outro critério.
 
 ---
 
@@ -586,7 +881,7 @@ Piauí. Define-se a partição em células
 
 $$
 c(s) \;=\; \left(\text{município}(s),\; S(s)\right)
-\tag{19}
+\tag{20}
 $$
 
 com $S(s) \in \{1, 2, 3\}$ indicando urbano tradicional, rural e FCU. O
@@ -598,7 +893,7 @@ $G_c = (V_c, E_c)$, com
 
 $$
 E_c \;=\; \left\{ (s, s') \in V_c \times V_c \;:\; s \neq s',\; \partial A_s \cap \partial A_{s'} \neq \varnothing \right\}
-\tag{20}
+\tag{21}
 $$
 
 em que $\partial A_s$ denota a fronteira do polígono do setor $s$. Adota-se
@@ -612,7 +907,7 @@ $$
 \text{(i) } G_c[u] \text{ é conexo}
 \qquad\qquad
 \text{(ii) } \sum_{s \in u} D_s \;\ge\; m_{S(c)}
-\tag{21}
+\tag{22}
 $$
 
 com $D_s$ o número de DPPO do setor e
@@ -623,7 +918,7 @@ m_{S} =
 60, & S = 2 \quad (\text{rural})\\
 90, & S \in \{1, 3\} \quad (\text{urbano tradicional e FCU})
 \end{cases}
-\tag{22}
+\tag{23}
 $$
 
 **A variável de capacidade.** $D_s$ é obtido da variável `V06001` dos Agregados
@@ -631,7 +926,7 @@ por Setores do Censo 2022 — "pessoas responsáveis em domicílios particulares
 permanentes ocupados". Como todo DPPO tem exatamente uma pessoa responsável,
 `V06001` **é** a contagem de DPPO do setor.
 
-**Algoritmo.** A partição que satisfaz (21) não é única, e o problema de
+**Algoritmo.** A partição que satisfaz (22) não é única, e o problema de
 encontrar a partição de cardinalidade máxima sob restrição de conexidade é
 NP-difícil. Adota-se heurística gulosa de crescimento de regiões: partindo de
 cada setor como unidade isolada, enquanto existir unidade $u$ com
@@ -642,7 +937,7 @@ $$
 u^{*} = \arg\min_{u\,:\,\text{carga}(u) < m} \text{carga}(u),
 \qquad
 v^{*} = \arg\min_{v \in N(u^{*})} \text{carga}(v)
-\tag{23}
+\tag{24}
 $$
 
 A escolha do vizinho de *menor* carga, e não do maior ou do mais próximo,
@@ -670,7 +965,7 @@ da média é, a menos de termos de correção para população finita,
 
 $$
 V\!\left(\hat{\bar{Y}}_{\text{st}}\right) \;\approx\; \frac{1}{n}\left(\sum_{h=1}^{k} W_h S_h\right)^{2}
-\tag{24}
+\tag{25}
 $$
 
 com $W_h = N_h / N$ a fração da população no estrato $h$ e $S_h$ o
@@ -679,21 +974,21 @@ portanto, a minimizar
 
 $$
 \Phi \;=\; \sum_{h=1}^{k} W_h S_h \;=\; \frac{1}{N}\sum_{h=1}^{k} N_h S_h
-\tag{25}
+\tag{26}
 $$
 
 sujeito à restrição de capacidade da especificação:
 
 $$
 N_h \;\ge\; 150 \quad \text{para todo } h
-\tag{26}
+\tag{27}
 $$
 
 **Solução exata.** Em estratificação univariada os estratos ótimos são sempre
 **intervalos contíguos** da variável ordenada — não faz sentido um estrato
 "pular" uma faixa de renda. Ordenando as UPAs por rendimento,
 $x_{(1)} \le \dots \le x_{(n)}$, o problema reduz-se a escolher $k-1$ pontos de
-corte. Como cada parcela $N_h S_h$ em (25) depende apenas dos elementos daquele
+corte. Como cada parcela $N_h S_h$ em (26) depende apenas dos elementos daquele
 estrato, o objetivo é **separável**, e admite solução por programação dinâmica:
 
 $$
@@ -701,11 +996,11 @@ f_h(j) \;=\; \min_{\,(h-1)\cdot 150\;\le\; i \;\le\; j - 150}
 \Big\{\, f_{h-1}(i) \;+\; c(i+1,\, j) \,\Big\},
 \qquad
 c(a,b) = (b-a+1)\, S_{[a,b]}
-\tag{27}
+\tag{28}
 $$
 
 com $f_1(j) = c(1,j)$ para $j \ge 150$, e a solução ótima em $f_k(n)$. Os
-limites do índice $i$ impõem simultaneamente a restrição (26) ao estrato
+limites do índice $i$ impõem simultaneamente a restrição (27) ao estrato
 corrente e a viabilidade dos $h-1$ estratos anteriores. As somas acumuladas de
 $x$ e $x^2$ permitem avaliar $c(a,b)$ em tempo constante, de modo que a
 complexidade é $O(k\,n^{2})$ — com $n \le 929$ no Piauí, menos de um segundo, e
@@ -771,15 +1066,23 @@ completo consta de `output/reconstrucao_estratos.md`.
 | Fonte dos indicadores | PNAD Contínua trimestral, microdados |
 | Deflacionamento | deflatores oficiais do IBGE (`deflator = TRUE`) |
 | Estimador de média | razão de Hájek |
-| Estimação de variância | linearização de Taylor, UPA como unidade de conglomeração |
+| Objeto de desenho | `svrepdesign` *bootstrap*, montado pelo `PNADcIBGE` a partir dos 200 pesos replicados do IBGE |
+| Estimação de variância | replicação *bootstrap*, 200 réplicas, `mse = TRUE`; UPA como unidade de reamostragem |
 | Nível de confiança | 95% (aproximação normal, $z = 1{,}96$) |
 | Limiar de precisão para o corpo do texto | CV < 15% |
 | Classes de CV | < 5% excelente; 5–15% boa; 15–30% regular; ≥ 30% baixa |
 | Razão formal/informal | contraste `log` via `svyby(covmat = TRUE)` + `svycontrast` |
 | Teste — resposta categórica | qui-quadrado de Rao-Scott (`svychisq`) |
-| Teste — resposta numérica | Wald sobre `svyglm` gaussiano (`regTermTest`) |
-| Teste — resposta binária | Wald sobre `svyglm` quasibinomial |
-| Nível de significância | p < 0,05, sem correção para multiplicidade |
+| Teste — resposta numérica | Rao-Scott LRT sobre `svyglm` gaussiano (`regTermTest(method = "LRT")`) |
+| Teste — resposta binária | Rao-Scott LRT sobre `svyglm` quasibinomial |
+| Graus de liberdade dos testes | `degf(design)` = 199 (nº de réplicas − 1), fixo em todos os domínios |
+| Guarda — resposta numérica/binária | recusa se `qr(vcov)$rank < ncol(vcov)` |
+| Guarda — resposta categórica | recusa se mais de 20% das células da tabela estiverem vazias |
+| Ação sobre teste barrado | recusa registrada em log, sem substituição pelo recorte agregado |
+| Nível de significância | p < 0,05 sobre o p-valor ajustado |
+| Correção para multiplicidade | Benjamini-Hochberg (FDR) |
+| Família — testes demográficos | indicador × recorte demográfico, ao longo das geografias |
+| Família — testes regionais | a bateria inteira do trimestre |
 | Malha territorial | setores censitários do Censo 2022, Piauí |
 | Sistema de referência | SIRGAS 2000 (EPSG:4674) |
 | Contiguidade para UPAs | tipo *queen* (`sf::st_touches`) |
@@ -831,6 +1134,23 @@ dos responsáveis **com** rendimento, enquanto `V06001` conta **todos** os
 responsáveis. O peso correto para a agregação ao nível da UPA seria o número de
 responsáveis com rendimento, que os Agregados por Setores não publicam.
 
+**Graus de liberdade insensíveis ao tamanho do domínio.** Como o desenho é
+replicado, `degf` vale 199 em qualquer recorte — do estado inteiro ao estrato
+de 3 UPAs. A distribuição de referência dos testes é, portanto, otimista onde a
+amostra é mais frágil. As guardas da seção 6.5 e o ajuste da seção 6.8
+compensam parcialmente, mas não eliminam a ressalva: no estrato de sete
+dígitos, um p-valor próximo do limiar deve ser lido como indício, não como
+conclusão.
+
+**Testes recusados por degeneração da variância.** Parte dos cruzamentos entre
+indicador, geografia e recorte demográfico não produz teste algum, por decisão
+metodológica e não por falha: quando a matriz de covariância replicada perde
+posto, o resultado é registrado no log em vez de publicado. Isso concentra as
+ausências nos recortes de muitas categorias dentro de estratos pequenos —
+exatamente onde a estimativa também seria imprecisa. A tabela de resultados
+demográficos completos do Apêndice A é, nesses casos, mais esparsa que a de
+estimativas.
+
 **Desigualdade sem teste formal entre territórios.** Conforme a seção 4.4, a
 razão formal/informal dispõe de intervalo de confiança correto, mas não integra
 a bateria de testes da seção 6: comparar razões entre estratos exigiria um
@@ -878,6 +1198,10 @@ KISH, Leslie. **Survey sampling**. New York: John Wiley & Sons, 1965.
 KOZAK, Marcin. Optimal stratification using random search method in agricultural
 surveys. **Statistics in Transition**, v. 6, n. 5, p. 797-806, 2004.
 
+KORN, Edward L.; GRAUBARD, Barry I. Simultaneous testing of regression
+coefficients with complex survey data: use of Bonferroni t statistics. **The
+American Statistician**, v. 44, n. 4, p. 270-276, 1990.
+
 LAVALLÉE, Pierre; HIDIROGLOU, Michael. On the stratification of skewed
 populations. **Survey Methodology**, v. 14, n. 1, p. 33-43, 1988.
 
@@ -902,6 +1226,10 @@ RAO, J. N. K.; SCOTT, A. J. On chi-squared tests for multiway contingency
 tables with cell proportions estimated from survey data. **The Annals of
 Statistics**, v. 12, n. 1, p. 46-60, 1984.
 
+RAO, J. N. K.; WU, C. F. J. Resampling inference with complex survey data.
+**Journal of the American Statistical Association**, v. 83, n. 401,
+p. 231-241, 1988.
+
 SÄRNDAL, Carl-Erik; SWENSSON, Bengt; WRETMAN, Jan. **Model assisted survey
 sampling**. New York: Springer, 1992.
 
@@ -913,6 +1241,10 @@ confirmar os dados completos antes da publicação)*
 
 STATISTICS CANADA. **Survey methods and practices**. Ottawa: Statistics Canada,
 2010. (Catalogue no. 12-587-X).
+
+THOMAS, D. Roland; RAO, J. N. K. Small-sample comparisons of level and power
+for simple goodness-of-fit statistics under cluster sampling. **Journal of the
+American Statistical Association**, v. 82, n. 398, p. 630-636, 1987.
 
 WOLTER, Kirk M. **Introduction to variance estimation**. 2. ed. New York:
 Springer, 2007.
@@ -1033,11 +1365,15 @@ significativas a 5%.
 
 Fonte: `output/tabelas/anova_demografica_{SUFIXO}.csv`.
 
-Ao ler esta tabela, tenha presente a advertência da seção 6.6: são
-{N_TESTES_DEMO} testes, dos quais se espera que cerca de 5% resultem
-significativos por acaso sob a hipótese nula. Padrões que se repetem entre
-indicadores e entre trimestres são muito mais informativos do que qualquer
-resultado isolado.
+A tabela traz as duas colunas de p-valor. `p_valor` é o bruto; `p_ajustado`
+aplica o controle de falsas descobertas descrito na seção 6.8, sobre a família
+formada por indicador × recorte demográfico. São {N_TESTES_DEMO} testes no
+total, e a diferença entre as duas colunas mede quanto da significância bruta
+era atribuível ao volume de comparações.
+
+Mesmo com o ajuste, padrões que se repetem entre indicadores e entre trimestres
+continuam sendo mais informativos do que qualquer resultado isolado — o
+controle de FDR reduz os falsos positivos, não os elimina.
 
 ---
 
