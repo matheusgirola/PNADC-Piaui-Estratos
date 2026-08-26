@@ -32,6 +32,7 @@ library(patchwork)  # install.packages("patchwork") se não tiver
 poligonos_estratos <- st_read(
   "https://geoservicos.ibge.gov.br/geoserver/PNADC/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=PNADC:v_ibge_estpnadc_trimestral_poligono&outputFormat=application/json"
 )
+sf_use_s2(FALSE)
 
 message("Colunas do polígono do IBGE (conferindo onde está o código do estrato):")
 print(names(poligonos_estratos))

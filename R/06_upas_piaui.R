@@ -70,7 +70,7 @@ MIN_DPPO <- c("1" = 90,   # urbano tradicional (exceto FCU)
 
 # ---- 1. Malha de setores ------------------------------------------------------
 
-caminho_shp <- "data/raw/setores/PI_setores_CD2022.shp"
+caminho_shp <- "./data/raw/PI_setores_CD2022/PI_setores_CD2022.shp"
 if (!file.exists(caminho_shp)) {
   stop("Não achei ", caminho_shp, ". Baixa a malha de setores do Censo 2022 do Piauí ",
        "(PI_setores_CD2022.zip, no geoftp do IBGE) e descompacta em data/raw/setores/.")
