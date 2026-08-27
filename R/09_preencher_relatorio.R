@@ -886,10 +886,13 @@ if (length(redacoes$itens) > 0) {
 if (CONVERTER_DOCX){
   message("Convertendo arquivo markdown para documento word")
   
-  result <- try(pandoc_run(args = c(SAIDA, "-o", str_replace(SAIDA, "md", "docx"))), silent = TRUE) 
+  # Usa um custom-refence.docx pra formatar mais bonitinho no word e publicar
+  result <- try(pandoc_run(args = c(SAIDA, "-o", str_replace(SAIDA, "md", "docx"), 
+                                    "--reference-doc = custom-reference.docx --trace")) )
   
   if (inherits(result, "try-error")) {
-    message("Erro ao rodar o pandoc, verifique se o pacote está instalado ou se o arquivo de destino está em execução.")
+    message("Erro ao rodar o pandoc, verifique se o pacote está instalado, se o arquivo de destino",
+    "está em execução ou se existe o custom-reference.docx")
   } else if (length(result) == 0){
     message("Conversão rodada com sucesso")
   }
