@@ -1,105 +1,52 @@
 <!-- GERADO AUTOMATICAMENTE por R/09_preencher_relatorio.R a partir de ./output/relatorio_trimestral.md. Trimestre: 2026T2. Não editar à mão — a próxima rodada sobrescreve sem aviso. -->
 
 
-# Ocupação e rendimento nos estratos do Piauí — 2º trimestre de 2026
-
-> Duas construções são resolvidas pelo script: as diretivas
-> `<!-- @tabela ... -->`, que viram tabelas inteiras, e as expressões
-> `{{est Indicador Geografia}}`, que viram números. Uma terceira,
-> `<!-- @redigir: ... -->`, marca o que depende de leitura humana e sai no
-> arquivo gerado como um bloco **A REDIGIR** — são os trechos de
-> interpretação, que nenhuma consulta a CSV resolve.
->
-> O script FALHA se sobrar qualquer marcador não resolvido, de propósito: um
-> relatório meio preenchido publicado por engano é pior que nenhum.
->
-> **Regra que decide o que entra no corpo do texto:** um recorte demográfico
-> só é comentado aqui se, *naquele recorte geográfico*, a diferença for
-> significativa **pelo p-valor ajustado** (coluna `p_ajustado`, que corrige o
-> volume de comparações) **e** o CV ficar abaixo de 15% em **todas** as
-> categorias demográficas e em **todas** as categorias geográficas do recorte.
-> Basta uma célula acima de 15% para o recorte inteiro sair do corpo do texto e
-> ir para o anexo metodológico. A regra é conservadora de propósito: comentar
-> uma diferença entre homens e mulheres que só aparece em metade dos estratos —
-> e some na outra metade por imprecisão amostral — é pior do que não comentar.
-
----
-
+<!-- TO-DO: Ver o que já deixo na 1 e 2 seção pré-preenchido pra próximas edições -->
 ## 1 Introdução
-
-<!-- Manter o texto atual do relatorio.docx (§1). Ver "Notas de revisão do
-     texto atual" ao final deste arquivo: há correções de redação e uma
-     divergência de numeração de seções a resolver. -->
-
-**Tabela 1** — Indicadores de trabalho e rendimento — Brasil, Nordeste, Piauí e
-Teresina — até 2º trimestre de 2026
-
-> **A REDIGIR** — manter a Tabela 1 do relatorio.docx (série histórica de Brasil, Nordeste, Piauí e Teresina), acrescentando a coluna do trimestre corrente. Ela não é gerada pelo pipeline, que estima um trimestre por vez.
-
-Fonte: IBGE — Pesquisa Nacional por Amostra de Domicílios Contínua trimestral.
-Elaboração própria.
-
----
-
 ## 2 Metodologia
-
-<!-- Manter o texto atual do relatorio.docx (§2.1 a §2.4), com as correções
-     listadas em "Notas de revisão do texto atual". -->
-
 ### 2.1 Dimensões e indicadores analisados
 ### 2.2 Recortes geográficos
 ### 2.3 Recortes demográficos
 ### 2.4 Robustez dos indicadores estimados
 ### 2.5 Comparações entre os recortes
 
----
 
 ## 3 Análise dos resultados
 
-### 3.1 Como ler esta seção
-
 As quatro subseções a seguir seguem a mesma estrutura: um indicador principal,
 que responde à pergunta central da dimensão, e indicadores auxiliares, que
-qualificam a resposta. Cada uma traz uma tabela com as estimativas por recorte
-geográfico, um gráfico com os intervalos de confiança e um texto que aponta as
-diferenças relevantes.
+qualificam a resposta. Cada uma traz as estimativas por recorte
+geográfico e um texto que aponta as diferenças relevantes.
 
-Três chaves de leitura ajudam a interpretar os números:
+Três chaves de leitura ajudam a interpretar os números: Primeiro, o intervalo importa mais que o ponto. Toda estimativa aqui vem de uma amostra. Quando os intervalos de confiança das estimativas de dois estratos se
+sobrepõem, a diferença entre eles pode ser apenas ruído amostral, mesmo que os
+valores centrais pareçam distantes.
 
-**O intervalo importa mais que o ponto.** Toda estimativa aqui vem de uma
-amostra, não de um censo. Quando os intervalos de confiança de dois estratos se
-sobrepõem, a diferença entre eles pode ser apenas ruído amostral — mesmo que os
-valores centrais pareçam distantes. Por isso o gráfico mostra a barra inteira,
-e não só o ponto.
-
-**Nem toda estimativa tem o mesmo peso.** A coluna de precisão classifica cada
+Segundo, Nem toda estimativa tem o mesmo peso. A coluna de precisão classifica cada
 número pelo coeficiente de variação: quanto menor, mais confiável. Estimativas
 marcadas como *regular* devem ser lidas com cautela; as marcadas como *baixa*
 aparecem na tabela por completude, mas não sustentam conclusão. Isso é
 esperado — quanto mais fino o recorte territorial, menos pessoas da amostra
 caem dentro dele.
 
-**Diferença visível não é diferença comprovada.** A última linha de cada
+Por fim, a  última linha de cada
 tabela traz o teste que responde se as diferenças entre as categorias daquele
-recorte são estatisticamente significativas. É esse teste, e não a inspeção
+recorte são estatisticamente significativas - os testes descritos na seção 2.5. É esse teste, e não a inspeção
 visual da tabela, que autoriza afirmar que dois estratos são diferentes. O
 p-valor usado é o **ajustado**: como o relatório faz centenas de comparações
 por trimestre, algumas sairiam significativas por puro acaso, e a correção
 desconta esse efeito.
 
----
-
 ### 3.2 Desocupação
 
-Esta dimensão responde à pergunta mais direta que se pode fazer sobre um
-mercado de trabalho: quem procura emprego está conseguindo encontrar? A taxa de
-desocupação mede isso para a população em geral. Os dois indicadores auxiliares
-deslocam a pergunta para onde a resposta dói mais — o orçamento doméstico:
-quando quem está sem trabalho é a pessoa responsável pelo domicílio, ou quem
-divide com ela o sustento da casa, o desemprego deixa de ser um problema
-individual e vira um problema familiar.
-
 #### 3.2.1 Taxa de desocupação
+
+O Piauí registrou taxa de desocupação de 8,3%, ante
+7,6% no Nordeste e 5,4%
+no Brasil. Dentro do estado, a distância entre o estrato com maior e menor
+desocupação foi de 14,5 pontos percentuais, separando
+estrato 2220020 (19,3%)
+de estrato 2210013 (4,8%).
 
 **Tabela 2** — Taxa de desocupação, por recorte geográfico — 2º trimestre de 2026
 
@@ -141,13 +88,6 @@ metodológico; aqui são exibidos apenas os extremos.
 **Figura 1** — Taxa de desocupação por recorte geográfico, com intervalo de
 confiança de 95% — 2º trimestre de 2026
 
-O Piauí registrou taxa de desocupação de 8,3%, ante
-7,6% no Nordeste e 5,4%
-no Brasil. Dentro do estado, a distância entre o estrato com maior e menor
-desocupação foi de 14,5 pontos percentuais, separando
-estrato 2220020 (19,3%)
-de estrato 2210013 (4,8%).
-
 
 A diferença
 entre Teresina e o restante do estado não alcançou significância estatística
@@ -155,8 +95,7 @@ neste trimestre (p ajustado = 0,064), o
 que recomenda cautela antes de tratá-la como um padrão consolidado.
 
 A comparação entre zona urbana e rural merece atenção específica, porque a
-desocupação rural costuma ser estruturalmente mais baixa por um motivo que não
-é positivo: parte da população ocupada na agricultura familiar não procura
+desocupação rural costuma ser estruturalmente mais baixa: parte da população ocupada na agricultura familiar não procura, e muitas vezes se ocupam mais com produção por subsistência (verificar esse mecanismo)
 trabalho no sentido que a pesquisa capta, e por isso não é contada como
 desocupada. Neste trimestre a diferença foi de 3,4
 pontos (\*).
@@ -168,7 +107,12 @@ pontos (\*).
 Este indicador mede quanto dos desocupados são pessoas responsáveis pelo
 domicílio. Uma taxa de desocupação alta concentrada em jovens que moram com os
 pais tem um significado social muito diferente da mesma taxa concentrada em
-quem sustenta a casa — e é essa distinção que o indicador captura.
+quem sustenta a casa.
+
+Em estrato 2251012,
+58,6% dos desocupados eram
+responsáveis pelo domicílio, contra 26,1%
+em estrato 2210030.
 
 **Tabela 3** — Pessoas responsáveis pelo domicílio entre os desocupados, por
 recorte geográfico — 2º trimestre de 2026
@@ -209,11 +153,6 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 **Figura 2** — Pessoas responsáveis pelo domicílio entre os desocupados —
 2º trimestre de 2026
 
-Em estrato 2251012,
-58,6% dos desocupados eram
-responsáveis pelo domicílio, contra 26,1%
-em estrato 2210030.
-
 > **A REDIGIR** — uma ou duas frases interpretando o contraste acima — o que significa, para o orçamento das famílias daquele estrato, essa concentração.
 
 #### 3.2.3 Desocupação de quem contribui para a renda do domicílio
@@ -221,6 +160,11 @@ em estrato 2210030.
 Amplia o indicador anterior para incluir o cônjuge ou companheiro(a), captando
 não apenas quem é formalmente o responsável pelo domicílio mas o conjunto de
 adultos de quem a renda da casa depende diretamente.
+
+No Piauí, 55,6% dos desocupados eram
+responsáveis pelo domicílio ou cônjuges, contra
+37,9% apenas de responsáveis — a diferença
+corresponde aos cônjuges desocupados.
 
 **Tabela 4** — Responsáveis ou cônjuges entre os desocupados, por recorte
 geográfico — 2º trimestre de 2026
@@ -260,25 +204,16 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 3** — Responsáveis ou cônjuges entre os desocupados — 2º trimestre de 2026
 
+> **A REDIGIR** — o que essa diferença diz sobre o arranjo de sustento das famílias do estado.
+
+### 3.3 Rendimento
+
+#### 3.3.1 Rendimento médio real habitual
+
 No Piauí, 55,6% dos desocupados eram
 responsáveis pelo domicílio ou cônjuges, contra
 37,9% apenas de responsáveis — a diferença
 corresponde aos cônjuges desocupados.
-
-> **A REDIGIR** — o que essa diferença diz sobre o arranjo de sustento das famílias do estado.
-
----
-
-### 3.3 Rendimento
-
-Se a dimensão anterior pergunta quem tem trabalho, esta pergunta quanto esse
-trabalho paga. O rendimento médio habitual é o indicador principal: mede o que
-a pessoa recebe de forma regular, e não o que recebeu excepcionalmente naquele
-mês, o que o torna mais adequado para comparar territórios. Os auxiliares
-tratam do piso e da dispersão: quantos ganham abaixo do mínimo por hora, e
-quanto a formalidade separa os rendimentos.
-
-#### 3.3.1 Rendimento médio real habitual
 
 **Tabela 5** — Rendimento médio real habitualmente recebido em todos os
 trabalhos, por recorte geográfico — 2º trimestre de 2026
@@ -320,16 +255,7 @@ Nota: valores deflacionados para reais do último trimestre da série.
 **Figura 4** — Rendimento médio real habitual por recorte geográfico —
 2º trimestre de 2026
 
-O rendimento médio no Piauí foi de R\$ 2.547,
-equivalente a 68,1% da média
-nacional. Dentro do estado, estrato 2210013
-apresentou o maior rendimento médio (R\$ 6.034)
-e estrato 2252020 o menor
-(R\$ 1.113) — uma razão de
-5,42 entre os extremos.
-
-Vale registrar o que uma média de rendimento não mostra: ela é sensível a
-valores muito altos e, em territórios pequenos, um punhado de rendimentos
+Ressalta-se que a média de rendimento  é sensível a valores muito altos e, em territórios pequenos, um punhado de rendimentos
 elevados desloca o resultado inteiro. A distribuição completa dos rendimentos
 por estrato está no anexo metodológico, e é ela que revela se a média
 representa a maioria ou é puxada pela cauda.
@@ -340,8 +266,12 @@ representa a maioria ou é puxada pela cauda.
 
 Mede o percentual de ocupados que, dividido o que recebem pelas horas que
 trabalham, ganham menos que o salário mínimo por hora — hoje R$ 7,37.
-É um indicador de precariedade que a taxa de desocupação não alcança: trata-se
-de gente trabalhando, e trabalhando por menos do que o piso legal equivalente.
+38,2% dos ocupados do Piauí recebiam abaixo
+do mínimo por hora. A incidência foi de
+67,4% em
+estrato 2252021 e
+17,7% em
+estrato 2210012.
 
 **Tabela 6** — Sub-remuneração por hora trabalhada, por recorte geográfico —
 2º trimestre de 2026
@@ -382,21 +312,18 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 **Figura 5** — Percentual de ocupados com rendimento-hora abaixo do salário
 mínimo horário — 2º trimestre de 2026
 
-38,2% dos ocupados do Piauí recebiam abaixo
-do mínimo por hora. A incidência foi de
-67,4% em
-estrato 2252021 e
-17,7% em
-estrato 2210012.
-
 > **A REDIGIR** — o que a distância entre esses dois extremos sugere sobre a estrutura produtiva dos territórios envolvidos.
 
 #### 3.3.3 Desigualdade entre formais e informais
 
 O indicador é a razão entre o rendimento médio dos ocupados formais e o dos
 informais. Um valor de 2,0 significa que o trabalhador formal ganha, em média,
-o dobro do informal. Quanto mais alta a razão, mais a carteira assinada — e não
-o esforço ou a jornada — determina quanto se ganha.
+o dobro do informal. A razão formal/informal no Piauí foi de 2,72 — ou seja,
+o trabalhador com carteira ganhou, em média, 172% a mais que o
+informal: R\$ 3.675 contra R\$ 1.353.
+Entre os estratos, a razão foi mais alta em estrato 2253020
+(3,63) e mais baixa em estrato 2253022
+(1,35).
 
 **Tabela 7** — Rendimento médio por situação de formalidade e razão
 formal/informal, por recorte geográfico — 2º trimestre de 2026
@@ -435,13 +362,6 @@ procedimento.
 
 **Figura 7** — Rendimento médio dos ocupados informais — 2º trimestre de 2026
 
-A razão formal/informal no Piauí foi de 2,72 — ou seja,
-o trabalhador com carteira ganhou, em média, 172% a mais que o
-informal: R\$ 3.675 contra R\$ 1.353.
-Entre os estratos, a razão foi mais alta em estrato 2253020
-(3,63) e mais baixa em estrato 2253022
-(1,35).
-
 Vale contrastar com a capital: em Teresina a razão foi de
 2,12, a mais baixa entre os recortes agregados — não
 porque o formal pague pouco ali, mas porque o informal teresinense ganha
@@ -457,17 +377,18 @@ diagnóstico por completo. A comparação com os rendimentos absolutos das Figur
 
 > **A REDIGIR** — dizer qual dos dois casos se aplica aos estratos de razão mais baixa deste trimestre, olhando os rendimentos absolutos das Figuras 6 e 7.
 
----
-
 ### 3.4 Inserção no mercado de trabalho
 
-As duas dimensões anteriores tratam de ter trabalho e de quanto ele paga. Esta
-trata da qualidade do vínculo: com ou sem carteira, com jornada suficiente ou
-não, com qual escolaridade. São as condições que determinam acesso a
-previdência, seguro-desemprego, licenças e estabilidade — e que separam um
-mercado de trabalho que protege de um que apenas ocupa.
-
 #### 3.4.1 Taxa de informalidade
+
+A informalidade no Piauí atingiu 49,5% dos
+ocupados, contra 48,7% no Nordeste e
+37,4% no Brasil. A variação interna ao estado foi
+de 46,8 pontos, de
+30,3% em
+estrato 2210012 a
+77,1% em
+estrato 2252021.
 
 **Tabela 8** — Taxa de informalidade, por recorte geográfico — 2º trimestre de 2026
 
@@ -506,15 +427,6 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 8** — Taxa de informalidade por recorte geográfico — 2º trimestre de 2026
 
-A informalidade no Piauí atingiu 49,5% dos
-ocupados, contra 48,7% no Nordeste e
-37,4% no Brasil. A variação interna ao estado foi
-de 46,8 pontos, de
-30,3% em
-estrato 2210012 a
-77,1% em
-estrato 2252021.
-
 O contraste entre zona urbana e rural tende a ser o mais acentuado deste
 indicador, e por razão estrutural: a produção agrícola familiar e o trabalho
 por conta própria no campo são majoritariamente informais por natureza da
@@ -526,9 +438,9 @@ atividade, não por escolha do trabalhador. Neste trimestre a diferença foi de
 
 #### 3.4.2 Sub-ocupação por insuficiência de horas
 
-Capta quem está trabalhando menos horas do que gostaria e poderia. É o
-indicador que revela a ociosidade escondida dentro da ocupação: a pessoa é
-contada como ocupada, mas sua capacidade de trabalho está sendo subutilizada.
+11,2% dos ocupados do Piauí estavam subocupados, com
+27,5% em estrato 2251020
+e 7,8% em estrato 2253012.
 
 **Tabela 9** — Sub-ocupação por insuficiência de horas, por recorte geográfico
 — 2º trimestre de 2026
@@ -569,18 +481,19 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 **Figura 9** — Percentual de ocupados subocupados por insuficiência de horas —
 2º trimestre de 2026
 
-11,2% dos ocupados do Piauí estavam subocupados, com
-27,5% em estrato 2251020
-e 7,8% em estrato 2253012.
 
 > **A REDIGIR** — relacionar a subocupação com a informalidade do mesmo território — jornada insuficiente e vínculo precário costumam andar juntos, mas nem sempre.
 
 #### 3.4.3 Escolaridade dos ocupados
 
-Mede o percentual de ocupados com ensino médio completo ou mais. Funciona como
-aproximação da qualificação da mão de obra empregada e, indiretamente, do tipo
-de posto de trabalho que cada território oferece.
-
+91,4% em
+estrato 2210013 e
+32,2% em
+estrato 2254020 — uma diferença de
+59,2 pontos. Cabe uma cautela de leitura: este indicador mede a
+escolaridade de quem *está ocupado*, não a da população. Um estrato pode
+aparecer com escolaridade alta simplesmente porque os menos escolarizados não
+encontraram trabalho, e não porque a população seja mais escolarizada.
 **Tabela 10** — Ocupados com ensino médio completo ou mais, por recorte
 geográfico — 2º trimestre de 2026
 
@@ -620,25 +533,15 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 **Figura 10** — Percentual de ocupados com ensino médio completo ou mais —
 2º trimestre de 2026
 
-91,4% em
-estrato 2210013 e
-32,2% em
-estrato 2254020 — uma diferença de
-59,2 pontos. Cabe uma cautela de leitura: este indicador mede a
-escolaridade de quem *está ocupado*, não a da população. Um estrato pode
-aparecer com escolaridade alta simplesmente porque os menos escolarizados não
-encontraram trabalho, e não porque a população seja mais escolarizada.
-
----
-
 ### 3.5 Desalento
 
-O desalento é a face do desemprego que as estatísticas convencionais não
-capturam. Uma pessoa desalentada gostaria de trabalhar, está disponível para
-isso, mas deixou de procurar por acreditar que não encontraria vaga. Como não
-procurou, não é contada como desocupada — sai da força de trabalho e some da
-taxa de desocupação. É por isso que um território pode ter desemprego em queda
-e mercado de trabalho piorando ao mesmo tempo.
+O desalento atingiu 7,0% da força de
+trabalho ampliada do Piauí, com 23,2%
+em estrato 2251022 e
+7,2% em
+estrato 2251011. Entre as pessoas fora da
+força de trabalho, os desalentados foram
+68,4% no estado.
 
 #### 3.5.1 Percentual de desalentados
 
@@ -686,19 +589,18 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 **Figura 12** — Desalentados como percentual das pessoas fora da força de
 trabalho — 2º trimestre de 2026
 
-O desalento atingiu 7,0% da força de
-trabalho ampliada do Piauí, com 23,2%
-em estrato 2251022 e
-7,2% em
-estrato 2251011. Entre as pessoas fora da
-força de trabalho, os desalentados foram
-68,4% no estado.
+
 
 A leitura conjunta com a taxa de desocupação é o que dá sentido ao indicador.
 
 > **A REDIGIR** — comparar a lista de estratos com maior desalento com a de maior desocupação (Tabelas 2 e 11) e dizer se coincidem. Quando desalento alto convive com desocupação baixa, a taxa de desemprego daquele território está subestimando o problema.
 
 #### 3.5.2 Jovens que não trabalham nem estudam
+
+24,3% dos jovens piauienses de 14 a 29 anos não
+trabalhavam nem estudavam. A incidência variou de
+13,5% em estrato 2210012 a
+49,8% em estrato 2251022.
 
 **Tabela 12** — Jovens de 14 a 29 anos que não trabalham nem estudam, por
 recorte geográfico — 2º trimestre de 2026
@@ -739,25 +641,18 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 **Figura 13** — Percentual de jovens de 14 a 29 anos que não trabalham nem
 estudam — 2º trimestre de 2026
 
-24,3% dos jovens piauienses de 14 a 29 anos não
-trabalhavam nem estudavam. A incidência variou de
-13,5% em estrato 2210012 a
-49,8% em estrato 2251022.
-
-Este é o indicador com maior conteúdo prospectivo do relatório: ele não mede o
-mercado de trabalho de hoje, mas a formação — ou a não formação — da força de
-trabalho da próxima década.
-
 > **A REDIGIR** — o que a amplitude entre os estratos extremos significa para a próxima década de oferta de trabalho no estado.
 
 > **A REDIGIR** — bloco demográfico dos nem-nem — é o recorte em que a diferença por sexo costuma ser mais acentuada, por conta do trabalho doméstico e de cuidado não remunerado. Incluir só se significativo E com CV abaixo de 15% em todas as subdivisões.
 
 #### 3.5.3 Motivos para não procurar trabalho
 
-Os indicadores anteriores dizem quantos desistiram. Este diz por quê — e é o
-que separa um diagnóstico de falta de vagas de um diagnóstico de
-incompatibilidade entre a mão de obra disponível e as vagas existentes. Os dois
-pedem políticas públicas diferentes.
+Estes são os indicadores mais frágeis do relatório em termos de precisão: são
+proporções calculadas sobre um subconjunto já pequeno — os desalentados, ou os
+jovens nem-nem — e depois repartidas entre várias categorias de resposta. É
+normal que a maioria das células apareça com CV alto nos estratos mais finos, e
+elas devem ser lidas como indicativas, não conclusivas. Incluimos elas pois são importantissimos
+para distinguir quem desistiu de procurar emprego por baixar perspectivas de emprego na região, por obrigações domésticas ou por apenas desinteresse.
 
 ![Motivo da desistência entre os desalentados](./output/figuras/comp_geo_Motivo_Desistencia_Desalentado.png)
 
@@ -911,17 +806,6 @@ categorias de V4078A não entram nesta tabela.
 
 > **A REDIGIR** — comparar o peso das três categorias entre os territórios — "tinha que cuidar dos afazeres domésticos" e "por problema de saúde ou gravidez" são impedimentos, enquanto "não queria trabalhar" é desinteresse declarado; tratar as duas primeiras como a mesma coisa que "não queria trabalhar" seria um erro de leitura.
 
-Estes são os indicadores mais frágeis do relatório em termos de precisão: são
-proporções calculadas sobre um subconjunto já pequeno — os desalentados, ou os
-jovens nem-nem — e depois repartidas entre várias categorias de resposta. É
-normal que a maioria das células apareça com CV alto nos estratos mais finos, e
-elas devem ser lidas como indicativas, não conclusivas. As Tabelas 13 e 15 são
-a exceção deliberada: como pedido, elas mostram categorias específicas
-**independentemente do CV** — a leitura deve se apoiar no IC ao lado de cada
-estimativa, não na estimativa pontual sozinha.
-
----
-
 ### 3.6 Síntese: onde as diferenças são estatisticamente significativas
 
 Esta subseção reúne, em um único quadro, o resultado dos testes aplicados ao
@@ -951,9 +835,7 @@ Legenda: \*\*\* p < 0,001; \*\* p < 0,01; \* p < 0,05; ns = não significativo;
 referem-se ao **p-valor ajustado** para multiplicidade; a tabela completa, com
 os p-valores brutos ao lado, está no anexo metodológico.
 
-**Como ler a tabela.** Duas leituras saltam.
-
-A primeira: **quase tudo difere entre territórios**. Nas quatro colunas em que
+Duas leituras saltam da tabela. A primeira: **quase tudo difere entre territórios**. Nas quatro colunas em que
 o teste se sustenta, a esmagadora maioria das células traz três asteriscos. O
 Piauí não é homogêneo em praticamente nenhuma das dimensões medidas — e a
 coluna "Teresina × resto" mostra que a capital se destaca do estado em dez dos
@@ -968,7 +850,7 @@ substantiva: estar desempregado é uma condição relativamente distribuída pel
 estado, enquanto *quanto se ganha e sob que vínculo* depende fortemente de onde
 se mora.
 
-**Sobre a coluna do estrato de 7 dígitos.** Três indicadores trazem "—". Não
+Em relação a coluna do estrato de 7 dígitos.** Três indicadores trazem "—". Não
 são resultados omitidos por conveniência: nesse recorte, com 26 categorias e
 estratos de até 3 UPAs, a matriz de covariância replicada perde posto e o
 p-valor que sairia dali seria enviesado para encontrar diferença (seção 6.5 do
@@ -987,30 +869,9 @@ indicador e recorte regional — 2º trimestre de 2026
 
 > **A REDIGIR** — dizer quantos testes regionais foram realizados, quantos deram significativos pelo p-valor bruto e quantos sobreviveram ao ajuste (os três números saem no console ao rodar o pipeline), e indicar quais recortes discriminam mais e quais indicadores são mais homogêneos no território.
 
-Duas observações que a leitura desta tabela exige.
-
-**Significância estatística não é relevância prática.** Uma diferença pode ser
-estatisticamente sólida e pequena demais para orientar política pública; e um
+Duas observações que a leitura desta tabela exige. A significância estatística não é relevância prática.** Uma diferença pode ser estatisticamente sólida e pequena demais para orientar política pública; e um
 recorte com poucas observações pode não atingir significância diante de uma
-diferença real e grande, por falta de amostra. O teste responde "isto é
-distinguível do acaso?", não "isto importa?".
-
-**Os p-valores desta edição passaram por duas correções.** A primeira é de
-calibração: o teste usado é a razão de verossimilhanças de Rao-Scott, e não o
-teste de Wald, porque este último rejeitava a hipótese nula em metade das
-vezes em que ela era verdadeira nos recortes com muitas categorias. A segunda
-é de multiplicidade: com centenas de comparações por trimestre, parte da
-significância bruta seria produto do volume de testes, e o ajuste desconta esse
-efeito. Há ainda uma terceira, de natureza diferente: alguns cruzamentos **não
-produzem teste algum**. Quando a matriz de covariância do modelo perde posto —
-o que acontece em recortes de muitas categorias dentro de estratos pequenos —
-o p-valor que sairia dali seria enviesado na direção de encontrar diferença.
-Nesses casos o teste é refeito no recorte agregado, e se ainda assim não
-sustentar, a célula fica vazia. Uma lacuna honesta vale mais que um asterisco
-inventado. O anexo metodológico (seções 6.4, 6.5 e 6.8) documenta as três, com
-as simulações e os diagnósticos que as motivaram.
-
----
+diferença real e grande, por falta de amostra.
 
 ## 4 Considerações finais
 

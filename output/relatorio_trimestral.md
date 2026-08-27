@@ -28,7 +28,9 @@
 > ir para o anexo metodológico. A regra é conservadora de propósito: comentar
 > uma diferença entre homens e mulheres que só aparece em metade dos estratos —
 > e some na outra metade por imprecisão amostral — leva a interpretações imprecisas.
+<!-- /@somente-modelo -->
 
+**VERSÃO AUTOMATÓTICA DO RELATÓRIO - REVER OS TEXTOS E REDIGIR AS ANÁLISES RESTANTE**
 
 <!-- TO-DO: Ver o que já deixo na 1 e 2 seção pré-preenchido pra próximas edições -->
 ## 1 Introdução
