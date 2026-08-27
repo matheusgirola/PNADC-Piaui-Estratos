@@ -536,6 +536,112 @@ tabela_motivos <- function(ind, geo) {
     "|---|---:|:---:|---:|---|", linhas)
 }
 
+# TABELA GEOGRÁFICA DE UM SUBCONJUNTO DE MOTIVOS
+# -----------------------------------------------
+# Pedido explícito: além da Tabela de motivos por categoria (Piauí sozinho,
+# acima), duas tabelas com a mesma estrutura geográfica das seções 3.2 a 3.4
+# (Agregados, Zona, Administrativo, Estrato agregado, extremos do estrato de 7
+# dígitos) — só que para indicadores de MOTIVO, que são categóricos. Como cada
+# indicador de motivo tem várias categorias por geografia, a tabela empilha um
+# bloco de linhas geográficas por motivo selecionado, com uma coluna "Motivo"
+# identificando qual bloco é qual.
+#
+# Chave por indicador: cada indicador de motivo pode pedir um subconjunto
+# diferente de categorias.
+MOTIVOS_TABELA_GEOGRAFICA <- list(
+  Motivo_Desistencia_Desalentado = c(
+    "Não havia trabalho na localidade",
+    "Tinha que cuidar dos afazeres domésticos",
+    "Não conseguia trabalho adequado"
+  ),
+  Motivo_Nao_Inicio_NemNem = c(
+    "Por não querer trabalhar",
+    "Tinha que cuidar dos afazeres domésticos",
+    "Por problema de saúde ou gravidez"
+  )
+)
+
+# Busca UMA linha (indicador x geografia x motivo). Diferente de linha_de(): lá
+# a consulta é ambígua de propósito quando há mais de uma categoria (indicador
+# não é de motivo); aqui a categoria é parte da chave de busca.
+linha_motivo_geografico <- function(ind, geo, motivo_prefixo) {
+  r <- base %>%
+    filter(Indicador == ind, Regiao_Geografica == geo, Recorte_Demografico == "Total") %>%
+    mutate(rotulo = map_chr(Subcategoria_Indicador, rotulo_motivo)) %>%
+    filter(str_starts(rotulo, fixed(motivo_prefixo)))
+  if (nrow(r) == 0) return(NULL)
+  if (nrow(r) > 1) {
+    # Dois rótulos batendo no mesmo prefixo seria coincidência rara demais
+    # para ignorar em silêncio, mas não impede a tabela de sair.
+    registrar_ausente(sprintf(
+      "%s em %s: %d categorias casaram com o prefixo \"%s\" — usando a primeira",
+      ind, geo, nrow(r), motivo_prefixo))
+    r <- slice(r, 1)
+  }
+  mutate(r, cv = 100 * SE / Estimativa)
+}
+
+# Extremos entre estratos de 7 dígitos, restritos a UM motivo — análogo a
+# extremos_micro(), mas filtrando a categoria antes de ordenar por tamanho.
+extremos_micro_motivo <- function(ind, motivo_prefixo) {
+  todos <- base %>%
+    filter(Indicador == ind, Recorte_Demografico == "Total",
+           str_starts(Regiao_Geografica, "Micro_")) %>%
+    mutate(rotulo = map_chr(Subcategoria_Indicador, rotulo_motivo)) %>%
+    filter(str_starts(rotulo, fixed(motivo_prefixo))) %>%
+    mutate(cv = 100 * SE / Estimativa, codigo = str_remove(Regiao_Geografica, "^Micro_")) %>%
+    arrange(desc(Estimativa))
+  utilizaveis <- filter(todos, is.finite(cv), cv < CV_MAXIMO_EXTREMO)
+  if (nrow(utilizaveis) >= 2) utilizaveis else todos
+}
+
+linha_percentual_ic <- function(recorte, categoria, motivo, r) {
+  if (is.null(r)) {
+    return(linha_md(recorte, categoria, motivo, "—", "—", "—", "—"))
+  }
+  linha_md(recorte, categoria, motivo,
+           num(r$Estimativa * 100, 1),
+           sprintf("[%s; %s]", num(max(0, r$Estimativa - 1.96 * r$SE) * 100, 1),
+                   num((r$Estimativa + 1.96 * r$SE) * 100, 1)),
+           num(r$cv, 1), classe_cv(r$cv))
+}
+
+tabela_motivos_geografico <- function(ind) {
+  motivos <- MOTIVOS_TABELA_GEOGRAFICA[[ind]]
+  if (is.null(motivos)) {
+    stop("Nenhum motivo configurado em MOTIVOS_TABELA_GEOGRAFICA para ", ind,
+         " — adicione uma entrada antes de usar tipo=motivos-geografico.")
+  }
+
+  linhas <- character(0)
+  for (motivo in motivos) {
+    bloco <- LINHAS_GEOGRAFICAS %>%
+      filter(geografia %in% base$Regiao_Geografica) %>%
+      pmap_chr(function(recorte, categoria, geografia) {
+        r <- linha_motivo_geografico(ind, geografia, motivo)
+        if (is.null(r)) registrar_ausente(paste(ind, "-", motivo, "- ausente em", geografia))
+        linha_percentual_ic(recorte, categoria, motivo, r)
+      })
+
+    ex <- extremos_micro_motivo(ind, motivo)
+    linhas_micro <- character(0)
+    if (nrow(ex) >= 2) {
+      topo <- slice_head(ex, n = 1); fundo <- slice_tail(ex, n = 1)
+      linhas_micro <- c(
+        linha_percentual_ic("Estrato (7 dígitos)", paste0("maior: ", topo$codigo), motivo, topo),
+        linha_percentual_ic("Estrato (7 dígitos)", paste0("menor: ", fundo$codigo), motivo, fundo)
+      )
+    } else {
+      registrar_ausente(paste(ind, "-", motivo, "- sem estratos finos suficientes para extremos"))
+    }
+
+    linhas <- c(linhas, bloco, linhas_micro)
+  }
+
+  c(linha_md("Recorte", "Categoria", "Motivo", "Estimativa (%)", "IC 95%", "CV (%)", "Precisão"),
+    "|---|---|---|---:|:---:|---:|---|", linhas)
+}
+
 # A tabela-síntese da subseção 3.6: indicadores nas linhas, recortes nas colunas.
 INDICADORES_SINTESE <- tribble(
   ~id,                                ~rotulo,
@@ -674,6 +780,7 @@ resolver_tabelas <- function(linhas) {
       formalidade = tabela_formalidade(),
       motivos     = tabela_motivos(arg[["indicador"]],
                                    if ("geografia" %in% names(arg)) arg[["geografia"]] else "Piauí"),
+      "motivos-geografico" = tabela_motivos_geografico(arg[["indicador"]]),
       sintese     = tabela_sintese(),
       stop("Tipo de tabela desconhecido: ", tipo)
     )
@@ -782,7 +889,7 @@ if (CONVERTER_DOCX){
   result <- try(pandoc_run(args = c(SAIDA, "-o", str_replace(SAIDA, "md", "docx"))), silent = TRUE) 
   
   if (inherits(result, "try-error")) {
-    message("Erro ao rodar o pandoc, verificar se o pacote está instalado")
+    message("Erro ao rodar o pandoc, verifique se o pacote está instalado ou se o arquivo de destino está em execução.")
   } else if (length(result) == 0){
     message("Conversão rodada com sucesso")
   }

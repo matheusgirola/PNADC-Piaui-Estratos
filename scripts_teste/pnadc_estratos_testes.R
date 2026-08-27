@@ -7,7 +7,7 @@ library(ggsurvey)
 library(tidyr)
 
 # Aqui você seleciona o ano, ele é um parametro pra função logo abaixo  que puxa os dados
-ANO = 2025
+ANO = 2026
 
 dadosPNADc <- get_pnadc(year=ANO, quarter = 2)
 
@@ -111,8 +111,8 @@ dados_processados <- dadosPNADc %>%
   )
 
 # Vetores para fazer o loop e calcular os dados
-nivel_regional_piaui <- c(V1022, V1023, Estrato_agregado)
-recorte_demografico <- c(Faixa_Etaria_trabalho, V2007, VD3004)
+# nivel_regional_piaui <- c(V1022, V1023, Estrato_agregado)
+# recorte_demografico <- c(Faixa_Etaria_trabalho, V2007, VD3004)
 
 
 # Aqui o grande bulking o relatorio
@@ -286,7 +286,7 @@ View(tmp)
 # Motivo de ter desistido de procurar emprego
 tmp <- svyby(
   formula = ~V4074A,
-  by = ~Estrato_agregado,
+  by = ~UF,
   design = subset(dados_processados, VD4005 == "Pessoas desalentadas"),
   FUN = svymean,
   na.rm = TRUE
@@ -308,7 +308,7 @@ View(tmp)
 # Motivo de não ter procurado emprego nem e nem
 tmp <- svyby(
   formula = ~V4074A,
-  by = ~Estrato_agregado,
+  by = ~UF,
   design = subset(dados_processados, nem_nem),
   FUN = svymean,
   na.rm = TRUE
@@ -318,7 +318,7 @@ View(tmp)
 # MOitvo por não ter começado a trablhar na semana de refeencia netre os jovems
 tmp <- svyby(
   formula = ~V4078A,
-  by = ~Estrato_agregado,
+  by = ~UF,
   design = subset(dados_processados, nem_nem),
   FUN = svymean,
   na.rm = TRUE
