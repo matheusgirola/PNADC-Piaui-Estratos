@@ -1,10 +1,21 @@
+<!-- @somente-modelo -->
+> ⚠️ **ESTE ARQUIVO É O MODELO — NÃO É UM RELATÓRIO PRONTO.** Se você está
+> vendo `{{chaves duplas}}` no meio do texto, você abriu o arquivo errado; isso
+> é esperado *aqui*, e só aqui. A edição de cada trimestre, sem nenhuma chave
+> visível, fica em `output/relatorio_trimestral_<AAAAT#>.md` (ex.:
+> `relatorio_trimestral_2026T2.md`) — **é esse outro arquivo que se lê, se
+> publica e se distribui.**
+>
+> **Como gerar a edição.** Rode `Rscript R/09_preencher_relatorio.R`, que lê
+> as saídas do pipeline (`R/01_pipeline_trimestral.R` e
+> `R/03_comparacoes_indicadores.R` já executados) e grava o arquivo acima.
+> Este modelo aqui nunca é sobrescrito — é o mesmo texto-base reaproveitado a
+> cada trimestre. Este aviso em si some na edição gerada; o resto do arquivo é
+> o texto-base que vale para qualquer trimestre.
+<!-- /@somente-modelo -->
+
 # Ocupação e rendimento nos estratos do Piauí — {{trimestre}}
 
-> **Como usar este arquivo.** Este é o MODELO do relatório, reaproveitado a cada
-> trimestre — não a edição publicável. Para gerar a edição, rode
-> `Rscript R/09_preencher_relatorio.R`, que lê as saídas do pipeline e grava
-> `output/relatorio_trimestral_<AAAAT#>.md`.
->
 > Duas construções são resolvidas pelo script: as diretivas
 > `<!-- @tabela ... -->`, que viram tabelas inteiras, e as expressões
 > `\{\{est Indicador Geografia\}\}`, que viram números. Uma terceira,
@@ -115,7 +126,7 @@ metodológico; aqui são exibidos apenas os extremos.
 
 <!-- @tabela tipo=testes indicador=Taxa_Desocupacao -->
 
-![Taxa de desocupação por recorte geográfico](figuras/comp_geo_Taxa_Desocupacao.png)
+![Taxa de desocupação por recorte geográfico](./output/figuras/comp_geo_Taxa_Desocupacao.png)
 
 **Figura 1** — Taxa de desocupação por recorte geográfico, com intervalo de
 confiança de 95% — {{trimestre}}
@@ -164,7 +175,7 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 <!-- @tabela tipo=testes indicador=Chefes_Familia_Desocupados -->
 
-![Responsáveis pelo domicílio entre os desocupados](figuras/comp_geo_Chefes_Familia_Desocupados.png)
+![Responsáveis pelo domicílio entre os desocupados](./output/figuras/comp_geo_Chefes_Familia_Desocupados.png)
 
 **Figura 2** — Pessoas responsáveis pelo domicílio entre os desocupados —
 {{trimestre}}
@@ -193,7 +204,7 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 <!-- @tabela tipo=testes indicador=Conribuintes_Desocupados -->
 
-![Responsáveis ou cônjuges entre os desocupados](figuras/comp_geo_Conribuintes_Desocupados.png)
+![Responsáveis ou cônjuges entre os desocupados](./output/figuras/comp_geo_Conribuintes_Desocupados.png)
 
 **Figura 3** — Responsáveis ou cônjuges entre os desocupados — {{trimestre}}
 
@@ -229,7 +240,7 @@ Nota: valores deflacionados para reais do último trimestre da série.
 
 <!-- @tabela tipo=testes indicador=Rendimento_Medio_Habitual -->
 
-![Rendimento médio habitual por recorte geográfico](figuras/comp_geo_Rendimento_Medio_Habitual.png)
+![Rendimento médio habitual por recorte geográfico](./output/figuras/comp_geo_Rendimento_Medio_Habitual.png)
 
 **Figura 4** — Rendimento médio real habitual por recorte geográfico —
 {{trimestre}}
@@ -268,7 +279,7 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 <!-- @tabela tipo=testes indicador=Percentual_Subremuneracao -->
 
-![Sub-remuneração por recorte geográfico](figuras/comp_geo_Percentual_Subremuneracao.png)
+![Sub-remuneração por recorte geográfico](./output/figuras/comp_geo_Percentual_Subremuneracao.png)
 
 **Figura 5** — Percentual de ocupados com rendimento-hora abaixo do salário
 mínimo horário — {{trimestre}}
@@ -303,11 +314,11 @@ razão não pode ser negativa, e o intervalo é construído na escala logarítmi
 antes de voltar à escala da razão. O anexo metodológico (§4.4) detalha o
 procedimento.
 
-![Rendimento no setor formal](figuras/comp_geo_Rendimento_Formal.png)
+![Rendimento no setor formal](./output/figuras/comp_geo_Rendimento_Formal.png)
 
 **Figura 6** — Rendimento médio dos ocupados formais — {{trimestre}}
 
-![Rendimento no setor informal](figuras/comp_geo_Rendimento_Informal.png)
+![Rendimento no setor informal](./output/figuras/comp_geo_Rendimento_Informal.png)
 
 **Figura 7** — Rendimento médio dos ocupados informais — {{trimestre}}
 
@@ -355,7 +366,7 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 <!-- @tabela tipo=testes indicador=Taxa_Informalidade -->
 
-![Taxa de informalidade por recorte geográfico](figuras/comp_geo_Taxa_Informalidade.png)
+![Taxa de informalidade por recorte geográfico](./output/figuras/comp_geo_Taxa_Informalidade.png)
 
 **Figura 8** — Taxa de informalidade por recorte geográfico — {{trimestre}}
 
@@ -394,7 +405,7 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 <!-- @tabela tipo=testes indicador=Taxa_Subocupacao -->
 
-![Sub-ocupação por recorte geográfico](figuras/comp_geo_Taxa_Subocupacao.png)
+![Sub-ocupação por recorte geográfico](./output/figuras/comp_geo_Taxa_Subocupacao.png)
 
 **Figura 9** — Percentual de ocupados subocupados por insuficiência de horas —
 {{trimestre}}
@@ -422,7 +433,7 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 <!-- @tabela tipo=testes indicador=Proporcao_Ocupados_Escolarizados -->
 
-![Ocupados com médio completo ou mais](figuras/comp_geo_Proporcao_Ocupados_Escolarizados.png)
+![Ocupados com médio completo ou mais](./output/figuras/comp_geo_Proporcao_Ocupados_Escolarizados.png)
 
 **Figura 10** — Percentual de ocupados com ensino médio completo ou mais —
 {{trimestre}}
@@ -460,12 +471,12 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 <!-- @tabela tipo=testes indicador=Desalentados_Forca_Ampliada -->
 
-![Desalentados na força ampliada](figuras/comp_geo_Desalentados_Forca_Ampliada.png)
+![Desalentados na força ampliada](./output/figuras/comp_geo_Desalentados_Forca_Ampliada.png)
 
 **Figura 11** — Percentual de desalentados na força de trabalho ampliada —
 {{trimestre}}
 
-![Desalentados fora da força de trabalho](figuras/comp_geo_Desalentados_Fora_Forca.png)
+![Desalentados fora da força de trabalho](./output/figuras/comp_geo_Desalentados_Fora_Forca.png)
 
 **Figura 12** — Desalentados como percentual das pessoas fora da força de
 trabalho — {{trimestre}}
@@ -495,7 +506,7 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 <!-- @tabela tipo=testes indicador=Taxa_Nem_Nem -->
 
-![Taxa de jovens nem-nem](figuras/comp_geo_Taxa_Nem_Nem.png)
+![Taxa de jovens nem-nem](./output/figuras/comp_geo_Taxa_Nem_Nem.png)
 
 **Figura 13** — Percentual de jovens de 14 a 29 anos que não trabalham nem
 estudam — {{trimestre}}
@@ -520,17 +531,17 @@ que separa um diagnóstico de falta de vagas de um diagnóstico de
 incompatibilidade entre a mão de obra disponível e as vagas existentes. Os dois
 pedem políticas públicas diferentes.
 
-![Motivo da desistência entre os desalentados](figuras/comp_geo_Motivo_Desistencia_Desalentado.png)
+![Motivo da desistência entre os desalentados](./output/figuras/comp_geo_Motivo_Desistencia_Desalentado.png)
 
 **Figura 14** — Motivo declarado da desistência, entre os desalentados —
 {{trimestre}}
 
-![Motivo de não procurar trabalho entre os nem-nem](figuras/comp_geo_Motivo_Nao_Procura_NemNem.png)
+![Motivo de não procurar trabalho entre os nem-nem](./output/figuras/comp_geo_Motivo_Nao_Procura_NemNem.png)
 
 **Figura 15** — Motivo de não ter procurado trabalho, entre os jovens nem-nem —
 {{trimestre}}
 
-![Motivo de não iniciar trabalho entre os nem-nem](figuras/comp_geo_Motivo_Nao_Inicio_NemNem.png)
+![Motivo de não iniciar trabalho entre os nem-nem](./output/figuras/comp_geo_Motivo_Nao_Inicio_NemNem.png)
 
 **Figura 16** — Motivo de não ter iniciado trabalho, entre os jovens nem-nem —
 {{trimestre}}
@@ -597,7 +608,7 @@ apenas rendimento médio e escolaridade dos ocupados discriminam entre os 26
 estratos.
 Fonte: `output/tabelas/anova_regional_{{sufixo}}.csv`. Elaboração própria.
 
-![ANOVA regional](figuras/anova_regional_{{sufixo}}.png)
+![ANOVA regional](./output/figuras/anova_regional_{{sufixo}}.png)
 
 **Figura 17** — p-valores dos testes de diferença entre categorias, por
 indicador e recorte regional — {{trimestre}}

@@ -51,11 +51,13 @@ library(readr)
 library(stringr)
 library(tibble)
 library(purrr)
+library(pandoc)
 
 source("R/00_config.R")
 
-MODELO <- "output/relatorio_trimestral.md"
-SAIDA  <- sprintf("output/relatorio_trimestral_%s.md", sufixo)
+MODELO <- "./output/relatorio_trimestral.md"
+SAIDA  <- sprintf("./output/relatorio_trimestral_%s.md", sufixo)
+CONVERTER_DOCX = TRUE
 
 # ---- 1. Leitura das saídas do pipeline ---------------------------------------
 
@@ -450,27 +452,82 @@ tabela_formalidade <- function() {
     "|---|---|---:|---:|---:|:---:|---:|---|", linhas)
 }
 
+# O svymean nomeia cada célula com a VARIÁVEL colada na categoria
+# ("VD4030Estava estudando"), não com o id do indicador. É o prefixo da
+# variável que precisa sair. O sufixo de letra da variável (V4074A, VD4004A)
+# só é consumido quando NÃO for a inicial do rótulo: "VD4030Tinha que cuidar"
+# tem o T do rótulo colado no nome da variável, e um [A-Z]? ganancioso comeria
+# essa letra.
+rotulo_motivo <- function(cat) {
+  r <- str_remove(cat, "^~?V[D]?[0-9]{4}[A-Z](?![:lower:])|^~?V[D]?[0-9]{4}")
+  str_trim(str_remove_all(r, '^[~"]+|"$'))
+}
+
+# RESTRIÇÃO A UM SUBCONJUNTO DE CATEGORIAS
+# -----------------------------------------
+# Pedido explícito: a Tabela 13 (motivo de não ter procurado trabalho, VD4030,
+# indicador Motivo_Nao_Procura_NemNem) mostra só as seis categorias abaixo —
+# os códigos IBGE 03, 04, 05, 06, 07 e 09 do dicionário de VD4030 — mesmo que
+# alguma delas tenha CV alto. As demais categorias de VD4030 ("Por outro
+# motivo", "Por não querer trabalhar", "Por ser muito jovem ou muito idoso
+# para trabalhar" etc., códigos 01, 02, 08 e outros) ficam de fora.
+#
+# O casamento é por PREFIXO do rótulo, não por igualdade exata: o rótulo que
+# sai do svymean (via pnadc_labeller) pode ser uma versão abreviada da
+# descrição oficial do dicionário — "Estava estudando" em vez de "Estava
+# estudando (curso de qualquer tipo ou por conta própria)" — e casar pelo
+# início evita que uma pontuação diferente derrube o filtro inteiro.
+#
+# Chave por INDICADOR, não por dimensão: só Motivo_Nao_Procura_NemNem é
+# restrito. Motivo_Desistencia_Desalentado e Motivo_Nao_Inicio_NemNem (que no
+# modelo aparecem só como figura, sem tabela) continuam completos caso um dia
+# ganhem uma diretiva @tabela.
+MOTIVOS_INCLUIR <- list(
+  Motivo_Nao_Procura_NemNem = c(
+    "Não conseguia trabalho adequado",
+    "Não tinha experiência profissional ou qualificação",
+    "Não havia trabalho na localidade",
+    "Tinha que cuidar dos afazeres domésticos",
+    "Estava estudando",
+    "Por problema de saúde ou gravidez"
+  )
+)
+
 # Indicadores de motivo: a resposta é categórica, então a "tabela geográfica"
 # não se aplica — o que interessa é a distribuição das categorias.
 tabela_motivos <- function(ind, geo) {
   d <- base %>%
     filter(Indicador == ind, Regiao_Geografica == geo, Recorte_Demografico == "Total") %>%
-    mutate(cv = 100 * SE / Estimativa) %>%
+    mutate(cv = 100 * SE / Estimativa, rotulo = map_chr(Subcategoria_Indicador, rotulo_motivo)) %>%
     arrange(desc(Estimativa))
   if (nrow(d) == 0) {
     registrar_ausente(paste("motivos de", ind, "em", geo))
     return("*(sem dados para este indicador neste trimestre)*")
   }
-  linhas <- pmap_chr(list(d$Subcategoria_Indicador, d$Estimativa, d$SE, d$cv),
-    function(cat, est, se, cv) {
-      # O svymean nomeia cada célula com a VARIÁVEL colada na categoria
-      # ("VD4030Estava estudando"), não com o id do indicador. É o prefixo da
-      # variável que precisa sair.
-      # O sufixo de letra da variável (V4074A, VD4004A) só é consumido quando
-      # NÃO for a inicial do rótulo: "VD4030Tinha que cuidar" tem o T do rótulo
-      # colado no nome da variável, e um [A-Z]? ganancioso comeria essa letra.
-      rotulo <- str_remove(cat, "^~?V[D]?[0-9]{4}[A-Z](?![:lower:])|^~?V[D]?[0-9]{4}")
-      rotulo <- str_trim(str_remove_all(rotulo, '^[~"]+|"$'))
+
+  incluir <- MOTIVOS_INCLUIR[[ind]]
+  if (!is.null(incluir)) {
+    total_antes <- nrow(d)
+    d <- filter(d, map_lgl(rotulo, ~ any(str_starts(.x, fixed(incluir)))))
+    # Independente do CV, por pedido — mas se NENHUMA das categorias-alvo
+    # aparecer (rótulo mudou, indicador mudou de variável), é bug silencioso
+    # esperando para acontecer. Aqui vira aviso, não silêncio.
+    if (nrow(d) == 0) {
+      registrar_ausente(paste0(
+        "nenhuma das categorias de MOTIVOS_INCLUIR bateu com os rótulos de ",
+        ind, " em ", geo, " (", total_antes, " categorias disponíveis — ",
+        "confira se o rótulo do IBGE mudou de texto)"))
+      return("*(nenhuma das categorias selecionadas está disponível para este indicador/geografia)*")
+    }
+    if (nrow(d) < length(incluir)) {
+      registrar_ausente(sprintf(
+        "%s em %s: só %d de %d categorias solicitadas apareceram na amostra",
+        ind, geo, nrow(d), length(incluir)))
+    }
+  }
+
+  linhas <- pmap_chr(list(d$rotulo, d$Estimativa, d$SE, d$cv),
+    function(rotulo, est, se, cv) {
       linha_md(rotulo, num(est * 100, 1),
                sprintf("[%s; %s]", num(max(0, est - 1.96*se) * 100, 1), num((est + 1.96*se) * 100, 1)),
                num(cv, 1), classe_cv(cv))
@@ -544,11 +601,32 @@ resolver_condicionais <- function(txt) {
 proteger_literais <- function(txt) str_replace_all(txt, "\\\\\\{\\\\\\{", "\u0001LIT\u0001")
 restaurar_literais <- function(txt) str_replace_all(txt, "\u0001LIT\u0001", "{{")
 
+# POR QUE vapply() AQUI E NÃO A FUNÇÃO DIRETO EM str_replace_all()
+# -----------------------------------------------------------------
+# str_replace_all(string, pattern, function) não tem contrato fixo de
+# chamada entre versões do stringr: em 1.5.1 (o que roda aqui) a função é
+# chamada UMA VEZ POR OCORRÊNCIA, com um vetor escalar — foi assim que este
+# código foi escrito e testado. Em versões mais novas (confirmado com R
+# 4.5.2/stringr atual), ela é chamada UMA VEZ PARA TODAS as ocorrências do
+# texto inteiro, passando um vetor com todas de uma vez.
+#
+# O código original indexava o resultado de str_match() com m[2]/m[3], que só
+# está correto quando m é uma matriz de UMA linha. Com várias ocorrências, m
+# vira uma matriz de N linhas, e m[2] deixa de ser "grupo 2 da linha 1" — vira
+# o segundo elemento em ordem de coluna, ou seja, o TEXTO INTEIRO da segunda
+# ocorrência. Foi exatamente esse deslocamento que produziu o
+# "{{{{trimestre}} ...}}" do erro: o nome da expressão virou o texto bruto de
+# outra expressão do documento.
+#
+# vapply() torna a função explicitamente elemento-a-elemento e devolve sempre
+# um vetor do mesmo tamanho da entrada — o contrato que str_replace_all()
+# exige — então funciona da mesma forma em qualquer versão do stringr,
+# chamada a função uma vez por ocorrência ou todas de uma vez.
 resolver_expressoes <- function(txt) {
-  str_replace_all(txt, "\\{\\{([a-z_]+)([^\\}]*)\\}\\}", function(inteiro) {
+  resolver_uma <- function(inteiro) {
     m <- str_match(inteiro, "\\{\\{([a-z_]+)([^\\}]*)\\}\\}")
-    nome <- m[2]
-    args <- str_split(str_trim(m[3]), "\\s+")[[1]]
+    nome <- m[1, 2]
+    args <- str_split(str_trim(m[1, 3]), "\\s+")[[1]]
     args <- args[nzchar(args)]
     fn <- VOCABULARIO[[nome]]
     if (is.null(fn)) stop("Expressão desconhecida no modelo: {{", nome, " ...}}")
@@ -556,7 +634,9 @@ resolver_expressoes <- function(txt) {
     # $ é metacaractere de substituição no stringr; escapar evita corromper
     # valores em reais.
     str_replace_all(valor, "\\$", "\\\\$")
-  })
+  }
+  str_replace_all(txt, "\\{\\{([a-z_]+)([^\\}]*)\\}\\}",
+                  function(inteiros) vapply(inteiros, resolver_uma, character(1), USE.NAMES = FALSE))
 }
 
 # 6c. Trechos que dependem de leitura humana.
@@ -621,6 +701,21 @@ if (length(corte) == 1) {
   }
 }
 
+# O banner "isto é o modelo, não o relatório" só faz sentido para quem abre
+# output/relatorio_trimestral.md. Na edição gerada ele é ruído — e pior,
+# ficaria mentindo, já que o próprio arquivo deixaria de ser o modelo.
+remover_somente_modelo <- function(linhas) {
+  ini <- which(str_detect(linhas, fixed("<!-- @somente-modelo -->")))
+  fim <- which(str_detect(linhas, fixed("<!-- /@somente-modelo -->")))
+  if (length(ini) == 0) return(linhas)
+  if (length(ini) != 1 || length(fim) != 1 || fim < ini) {
+    stop("Marcadores @somente-modelo malformados no modelo (abertura e ",
+         "fechamento devem aparecer uma vez cada, na ordem certa).")
+  }
+  linhas[-(ini:fim)]
+}
+linhas <- remover_somente_modelo(linhas)
+
 linhas <- resolver_redigir(linhas)
 linhas <- resolver_tabelas(linhas)
 texto  <- paste(linhas, collapse = "\n")
@@ -650,6 +745,16 @@ texto <- str_replace_all(texto, "—%", "—")
 texto <- restaurar_literais(texto)
 texto <- str_replace_all(texto, "\\\\\\}\\\\\\}", "}}")
 
+# Cabeçalho invisível na renderização (comentário HTML), visível em qualquer
+# listagem de arquivo, diff ou "raw view". Existe para que ninguém confunda
+# esta edição com o modelo — ou uma edição velha com a mais recente — só de
+# olhar o arquivo errado no navegador do repositório.
+cabecalho <- sprintf(
+  "<!-- GERADO AUTOMATICAMENTE por R/09_preencher_relatorio.R a partir de %s. Trimestre: %s. Não editar à mão — a próxima rodada sobrescreve sem aviso. -->\n\n",
+  MODELO, sufixo
+)
+texto <- paste0(cabecalho, texto)
+
 write_lines(texto, SAIDA)
 
 message("  -> ", SAIDA, " (", format(nchar(texto), big.mark = "."), " caracteres)")
@@ -667,6 +772,21 @@ if (length(redacoes$itens) > 0) {
   for (i in seq_along(redacoes$itens)) {
     message("  ", i, ". ", str_trunc(redacoes$itens[i], 90))
   }
+}
+
+
+# Convert a file using the high-level wrapper
+if (CONVERTER_DOCX){
+  message("Convertendo arquivo markdown para documento word")
+  
+  result <- try(pandoc_run(args = c(SAIDA, "-o", str_replace(SAIDA, "md", "docx"))), silent = TRUE) 
+  
+  if (inherits(result, "try-error")) {
+    message("Erro ao rodar o pandoc, verificar se o pacote está instalado")
+  } else if (length(result) == 0){
+    message("Conversão rodada com sucesso")
+  }
+  
 }
 
 message("\nConcluído: ", sufixo)

@@ -222,6 +222,21 @@ paleta <- function(categorias) {
   setNames(colorRampPalette(c("#08306B", "#2171B5", "#6BAED6", "#969696", "#252525"))(length(categorias)),
            categorias)
 }
+
+
+# Os setores censitários ficam sem contorno (color = NA) porque desenhar a
+# borda de cada um deles polui o mapa — mas isso também apaga a fronteira
+# real dos estratos, que é o que se quer enxergar. Dissolvo os setores por
+# categoria e desenho só esse contorno dissolvido por cima do preenchimento.
+contorno_por_grupo <- function(dados, var) {
+  dados %>%
+    filter(!is.na(.data[[var]])) %>%
+    group_by(.data[[var]]) %>%
+    summarise(.groups = "drop") %>%
+    st_make_valid()
+}
+
+
 tema_mapa <- theme_minimal(base_size = 8) +
   theme(axis.text = element_blank(), axis.ticks = element_blank(),
         panel.grid = element_blank(), legend.position = "bottom", legend.title = element_blank(),
@@ -249,6 +264,7 @@ p_estrato7 <- ggplot(setores) +
 
 p_zona <- ggplot(setores) +
   geom_sf(aes(fill = Zona), color = NA) +
+  geom_sf(data = contorno_por_grupo(setores, "Zona"), fill = NA, color = "black", linewidth = 0.4) +
   scale_fill_manual(
     values = c("Urbana" = "#2196C9", "Rural" = "#D9D9D9"),  # urbana clara/viva (precisa se destacar, já que ocupa pouca área) x rural neutro claro (não pode dominar o olho)
     na.value = "grey85"
@@ -257,11 +273,13 @@ p_zona <- ggplot(setores) +
 
 p_admin <- ggplot(setores) +
   geom_sf(aes(fill = Estrato_Admin), color = NA) +
+  geom_sf(data = contorno_por_grupo(setores, "Estrato_Admin"), fill = NA, color = "black", linewidth = 0.4) +
   scale_fill_manual(values = paleta(setores$Estrato_Admin), na.value = "grey85") +
   labs(title = "Estrato Administrativo") + tema_mapa
 
 p_agreg <- ggplot(setores) +
   geom_sf(aes(fill = Estrato_agregado), color = NA) +
+  geom_sf(data = contorno_por_grupo(setores, "Estrato_agregado"), fill = NA, color = "black", linewidth = 0.4) +
   scale_fill_manual(values = paleta(setores$Estrato_agregado), na.value = "grey85") +
   labs(title = "Estrato Agregado") + tema_mapa
 

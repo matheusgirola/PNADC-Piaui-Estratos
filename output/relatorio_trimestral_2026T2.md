@@ -1,10 +1,8 @@
-# Ocupação e rendimento nos estratos do Piauí — {{trimestre}}
+<!-- GERADO AUTOMATICAMENTE por R/09_preencher_relatorio.R a partir de ./output/relatorio_trimestral.md. Trimestre: 2026T2. Não editar à mão — a próxima rodada sobrescreve sem aviso. -->
 
-> **Como usar este arquivo.** Este é o MODELO do relatório, reaproveitado a cada
-> trimestre — não a edição publicável. Para gerar a edição, rode
-> `Rscript R/09_preencher_relatorio.R`, que lê as saídas do pipeline e grava
-> `output/relatorio_trimestral_<AAAAT#>.md`.
->
+
+# Ocupação e rendimento nos estratos do Piauí — 2º trimestre de 2026
+
 > Duas construções são resolvidas pelo script: as diretivas
 > `<!-- @tabela ... -->`, que viram tabelas inteiras, e as expressões
 > `{{est Indicador Geografia}}`, que viram números. Uma terceira,
@@ -34,7 +32,7 @@
      divergência de numeração de seções a resolver. -->
 
 **Tabela 1** — Indicadores de trabalho e rendimento — Brasil, Nordeste, Piauí e
-Teresina — até {{trimestre}}
+Teresina — até 2º trimestre de 2026
 
 > **A REDIGIR** — manter a Tabela 1 do relatorio.docx (série histórica de Brasil, Nordeste, Piauí e Teresina), acrescentando a coluna do trimestre corrente. Ela não é gerada pelo pipeline, que estima um trimestre por vez.
 
@@ -103,7 +101,7 @@ individual e vira um problema familiar.
 
 #### 3.2.1 Taxa de desocupação
 
-**Tabela 2** — Taxa de desocupação, por recorte geográfico — {{trimestre}}
+**Tabela 2** — Taxa de desocupação, por recorte geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
 |---|---|---:|:---:|---:|---|
@@ -125,7 +123,7 @@ individual e vira um problema familiar.
 | Estrato (7 dígitos) | menor: 2210013 | 4,8 | [2,2; 7,4] | 27,3 | regular |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-Nota: os {{n_estratos}} estratos de 7 dígitos aparecem na íntegra no anexo
+Nota: os 13 estratos de 7 dígitos aparecem na íntegra no anexo
 metodológico; aqui são exibidos apenas os extremos.
 
 **Diferença entre as categorias de cada recorte**
@@ -138,30 +136,30 @@ metodológico; aqui são exibidos apenas os extremos.
 | Estrato (7 dígitos) | — | — | — |
 | Teresina × resto do Piauí | 0,057 | 0,064 | não |
 
-![Taxa de desocupação por recorte geográfico](figuras/comp_geo_Taxa_Desocupacao.png)
+![Taxa de desocupação por recorte geográfico](./output/figuras/comp_geo_Taxa_Desocupacao.png)
 
 **Figura 1** — Taxa de desocupação por recorte geográfico, com intervalo de
-confiança de 95% — {{trimestre}}
+confiança de 95% — 2º trimestre de 2026
 
-O Piauí registrou taxa de desocupação de {{est Taxa_Desocupacao Piauí}}%, ante
-{{est Taxa_Desocupacao Nordeste}}% no Nordeste e {{est Taxa_Desocupacao Brasil}}%
+O Piauí registrou taxa de desocupação de 8,3%, ante
+7,6% no Nordeste e 5,4%
 no Brasil. Dentro do estado, a distância entre o estrato com maior e menor
-desocupação foi de {{amplitude Taxa_Desocupacao}} pontos percentuais, separando
-{{extremo Taxa_Desocupacao max rotulo}} ({{extremo Taxa_Desocupacao max valor}}%)
-de {{extremo Taxa_Desocupacao min rotulo}} ({{extremo Taxa_Desocupacao min valor}}%).
+desocupação foi de 14,5 pontos percentuais, separando
+estrato 2220020 (19,3%)
+de estrato 2210013 (4,8%).
 
 
 A diferença
 entre Teresina e o restante do estado não alcançou significância estatística
-neste trimestre (p ajustado = {{p Taxa_Desocupacao Teresina_x_Resto_Piaui}}), o
+neste trimestre (p ajustado = 0,064), o
 que recomenda cautela antes de tratá-la como um padrão consolidado.
 
 A comparação entre zona urbana e rural merece atenção específica, porque a
 desocupação rural costuma ser estruturalmente mais baixa por um motivo que não
 é positivo: parte da população ocupada na agricultura familiar não procura
 trabalho no sentido que a pesquisa capta, e por isso não é contada como
-desocupada. Neste trimestre a diferença foi de {{dif Taxa_Desocupacao Zona_Urbana Zona_Rural}}
-pontos ({{estrelas Taxa_Desocupacao Zona}}).
+desocupada. Neste trimestre a diferença foi de 3,4
+pontos (\*).
 
 > **A REDIGIR** — bloco demográfico da desocupação — incluir só se o recorte for significativo E o CV ficar abaixo de 15% em TODAS as subdivisões de cada corte geográfico (ver anexo §5.3). Consultar output/tabelas/comparacao_demografica_<sufixo>.csv.
 
@@ -173,7 +171,7 @@ pais tem um significado social muito diferente da mesma taxa concentrada em
 quem sustenta a casa — e é essa distinção que o indicador captura.
 
 **Tabela 3** — Pessoas responsáveis pelo domicílio entre os desocupados, por
-recorte geográfico — {{trimestre}}
+recorte geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
 |---|---|---:|:---:|---:|---|
@@ -206,15 +204,15 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | — | — | — |
 | Teresina × resto do Piauí | 0,011 | 0,014 | sim |
 
-![Responsáveis pelo domicílio entre os desocupados](figuras/comp_geo_Chefes_Familia_Desocupados.png)
+![Responsáveis pelo domicílio entre os desocupados](./output/figuras/comp_geo_Chefes_Familia_Desocupados.png)
 
 **Figura 2** — Pessoas responsáveis pelo domicílio entre os desocupados —
-{{trimestre}}
+2º trimestre de 2026
 
-Em {{extremo Chefes_Familia_Desocupados max rotulo}},
-{{extremo Chefes_Familia_Desocupados max valor}}% dos desocupados eram
-responsáveis pelo domicílio, contra {{extremo Chefes_Familia_Desocupados min valor}}%
-em {{extremo Chefes_Familia_Desocupados min rotulo}}.
+Em estrato 2251012,
+58,6% dos desocupados eram
+responsáveis pelo domicílio, contra 26,1%
+em estrato 2210030.
 
 > **A REDIGIR** — uma ou duas frases interpretando o contraste acima — o que significa, para o orçamento das famílias daquele estrato, essa concentração.
 
@@ -225,7 +223,7 @@ não apenas quem é formalmente o responsável pelo domicílio mas o conjunto de
 adultos de quem a renda da casa depende diretamente.
 
 **Tabela 4** — Responsáveis ou cônjuges entre os desocupados, por recorte
-geográfico — {{trimestre}}
+geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
 |---|---|---:|:---:|---:|---|
@@ -258,13 +256,13 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | — | — | — |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Responsáveis ou cônjuges entre os desocupados](figuras/comp_geo_Conribuintes_Desocupados.png)
+![Responsáveis ou cônjuges entre os desocupados](./output/figuras/comp_geo_Conribuintes_Desocupados.png)
 
-**Figura 3** — Responsáveis ou cônjuges entre os desocupados — {{trimestre}}
+**Figura 3** — Responsáveis ou cônjuges entre os desocupados — 2º trimestre de 2026
 
-No Piauí, {{est Conribuintes_Desocupados Piauí}}% dos desocupados eram
+No Piauí, 55,6% dos desocupados eram
 responsáveis pelo domicílio ou cônjuges, contra
-{{est Chefes_Familia_Desocupados Piauí}}% apenas de responsáveis — a diferença
+37,9% apenas de responsáveis — a diferença
 corresponde aos cônjuges desocupados.
 
 > **A REDIGIR** — o que essa diferença diz sobre o arranjo de sustento das famílias do estado.
@@ -283,7 +281,7 @@ quanto a formalidade separa os rendimentos.
 #### 3.3.1 Rendimento médio real habitual
 
 **Tabela 5** — Rendimento médio real habitualmente recebido em todos os
-trabalhos, por recorte geográfico — {{trimestre}}
+trabalhos, por recorte geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (R$) | IC 95% | CV (%) | Precisão |
 |---|---|---:|:---:|---:|---|
@@ -317,18 +315,18 @@ Nota: valores deflacionados para reais do último trimestre da série.
 | Estrato (7 dígitos) | < 0,001 | < 0,001 | sim |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Rendimento médio habitual por recorte geográfico](figuras/comp_geo_Rendimento_Medio_Habitual.png)
+![Rendimento médio habitual por recorte geográfico](./output/figuras/comp_geo_Rendimento_Medio_Habitual.png)
 
 **Figura 4** — Rendimento médio real habitual por recorte geográfico —
-{{trimestre}}
+2º trimestre de 2026
 
-O rendimento médio no Piauí foi de {{est Rendimento_Medio_Habitual Piauí}},
-equivalente a {{pct_de Rendimento_Medio_Habitual Piauí Brasil}}% da média
-nacional. Dentro do estado, {{extremo Rendimento_Medio_Habitual max rotulo}}
-apresentou o maior rendimento médio ({{extremo Rendimento_Medio_Habitual max valor}})
-e {{extremo Rendimento_Medio_Habitual min rotulo}} o menor
-({{extremo Rendimento_Medio_Habitual min valor}}) — uma razão de
-{{razao_extremos Rendimento_Medio_Habitual}} entre os extremos.
+O rendimento médio no Piauí foi de R\$ 2.547,
+equivalente a 68,1% da média
+nacional. Dentro do estado, estrato 2210013
+apresentou o maior rendimento médio (R\$ 6.034)
+e estrato 2252020 o menor
+(R\$ 1.113) — uma razão de
+5,42 entre os extremos.
 
 Vale registrar o que uma média de rendimento não mostra: ela é sensível a
 valores muito altos e, em territórios pequenos, um punhado de rendimentos
@@ -341,12 +339,12 @@ representa a maioria ou é puxada pela cauda.
 #### 3.3.2 Sub-remuneração
 
 Mede o percentual de ocupados que, dividido o que recebem pelas horas que
-trabalham, ganham menos que o salário mínimo por hora — hoje R$ {{sm_hora}}.
+trabalham, ganham menos que o salário mínimo por hora — hoje R$ 7,37.
 É um indicador de precariedade que a taxa de desocupação não alcança: trata-se
 de gente trabalhando, e trabalhando por menos do que o piso legal equivalente.
 
 **Tabela 6** — Sub-remuneração por hora trabalhada, por recorte geográfico —
-{{trimestre}}
+2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
 |---|---|---:|:---:|---:|---|
@@ -379,17 +377,17 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | 0,089 | 0,098 | não |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Sub-remuneração por recorte geográfico](figuras/comp_geo_Percentual_Subremuneracao.png)
+![Sub-remuneração por recorte geográfico](./output/figuras/comp_geo_Percentual_Subremuneracao.png)
 
 **Figura 5** — Percentual de ocupados com rendimento-hora abaixo do salário
-mínimo horário — {{trimestre}}
+mínimo horário — 2º trimestre de 2026
 
-{{est Percentual_Subremuneracao Piauí}}% dos ocupados do Piauí recebiam abaixo
+38,2% dos ocupados do Piauí recebiam abaixo
 do mínimo por hora. A incidência foi de
-{{extremo Percentual_Subremuneracao max valor}}% em
-{{extremo Percentual_Subremuneracao max rotulo}} e
-{{extremo Percentual_Subremuneracao min valor}}% em
-{{extremo Percentual_Subremuneracao min rotulo}}.
+67,4% em
+estrato 2252021 e
+17,7% em
+estrato 2210012.
 
 > **A REDIGIR** — o que a distância entre esses dois extremos sugere sobre a estrutura produtiva dos territórios envolvidos.
 
@@ -401,7 +399,7 @@ o dobro do informal. Quanto mais alta a razão, mais a carteira assinada — e n
 o esforço ou a jornada — determina quanto se ganha.
 
 **Tabela 7** — Rendimento médio por situação de formalidade e razão
-formal/informal, por recorte geográfico — {{trimestre}}
+formal/informal, por recorte geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Formais (R$) | Informais (R$) | Razão | IC 95% da razão | CV (%) | Precisão |
 |---|---|---:|---:|---:|:---:|---:|---|
@@ -421,7 +419,7 @@ formal/informal, por recorte geográfico — {{trimestre}}
 | Estrato agregado | Alto Parnaíba e Chapadas Sul | R$ 3.509 | R$ 1.277 | 2,75 | [2,35; 3,22] | 8,1 | boa |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-Dados: `output/desigualdade_formal_informal_{{sufixo}}.csv`.
+Dados: `output/desigualdade_formal_informal_2026T2.csv`.
 
 Nota de leitura sobre o intervalo desta tabela: ao contrário dos demais, ele é
 **assimétrico** em torno da estimativa. Isso é intencional e correto — uma
@@ -429,25 +427,25 @@ razão não pode ser negativa, e o intervalo é construído na escala logarítmi
 antes de voltar à escala da razão. O anexo metodológico (§4.4) detalha o
 procedimento.
 
-![Rendimento no setor formal](figuras/comp_geo_Rendimento_Formal.png)
+![Rendimento no setor formal](./output/figuras/comp_geo_Rendimento_Formal.png)
 
-**Figura 6** — Rendimento médio dos ocupados formais — {{trimestre}}
+**Figura 6** — Rendimento médio dos ocupados formais — 2º trimestre de 2026
 
-![Rendimento no setor informal](figuras/comp_geo_Rendimento_Informal.png)
+![Rendimento no setor informal](./output/figuras/comp_geo_Rendimento_Informal.png)
 
-**Figura 7** — Rendimento médio dos ocupados informais — {{trimestre}}
+**Figura 7** — Rendimento médio dos ocupados informais — 2º trimestre de 2026
 
-A razão formal/informal no Piauí foi de {{desigualdade Piauí razao}} — ou seja,
-o trabalhador com carteira ganhou, em média, {{pct_a_mais Piauí}}% a mais que o
-informal: {{desigualdade Piauí formal}} contra {{desigualdade Piauí informal}}.
-Entre os estratos, a razão foi mais alta em {{desig_extremo max rotulo}}
-({{desig_extremo max valor}}) e mais baixa em {{desig_extremo min rotulo}}
-({{desig_extremo min valor}}).
+A razão formal/informal no Piauí foi de 2,72 — ou seja,
+o trabalhador com carteira ganhou, em média, 172% a mais que o
+informal: R\$ 3.675 contra R\$ 1.353.
+Entre os estratos, a razão foi mais alta em estrato 2253020
+(3,63) e mais baixa em estrato 2253022
+(1,35).
 
 Vale contrastar com a capital: em Teresina a razão foi de
-{{desigualdade Teresina razao}}, a mais baixa entre os recortes agregados — não
+2,12, a mais baixa entre os recortes agregados — não
 porque o formal pague pouco ali, mas porque o informal teresinense ganha
-{{desigualdade Teresina informal}}, bem acima do informal do interior.
+R\$ 2.142, bem acima do informal do interior.
 
 Duas leituras opostas produzem o mesmo número baixo, e vale distingui-las. Uma
 razão próxima de 1 pode significar que o mercado formal daquele território não
@@ -471,7 +469,7 @@ mercado de trabalho que protege de um que apenas ocupa.
 
 #### 3.4.1 Taxa de informalidade
 
-**Tabela 8** — Taxa de informalidade, por recorte geográfico — {{trimestre}}
+**Tabela 8** — Taxa de informalidade, por recorte geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
 |---|---|---:|:---:|---:|---|
@@ -504,25 +502,25 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | 0,145 | 0,155 | não |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Taxa de informalidade por recorte geográfico](figuras/comp_geo_Taxa_Informalidade.png)
+![Taxa de informalidade por recorte geográfico](./output/figuras/comp_geo_Taxa_Informalidade.png)
 
-**Figura 8** — Taxa de informalidade por recorte geográfico — {{trimestre}}
+**Figura 8** — Taxa de informalidade por recorte geográfico — 2º trimestre de 2026
 
-A informalidade no Piauí atingiu {{est Taxa_Informalidade Piauí}}% dos
-ocupados, contra {{est Taxa_Informalidade Nordeste}}% no Nordeste e
-{{est Taxa_Informalidade Brasil}}% no Brasil. A variação interna ao estado foi
-de {{amplitude Taxa_Informalidade}} pontos, de
-{{extremo Taxa_Informalidade min valor}}% em
-{{extremo Taxa_Informalidade min rotulo}} a
-{{extremo Taxa_Informalidade max valor}}% em
-{{extremo Taxa_Informalidade max rotulo}}.
+A informalidade no Piauí atingiu 49,5% dos
+ocupados, contra 48,7% no Nordeste e
+37,4% no Brasil. A variação interna ao estado foi
+de 46,8 pontos, de
+30,3% em
+estrato 2210012 a
+77,1% em
+estrato 2252021.
 
 O contraste entre zona urbana e rural tende a ser o mais acentuado deste
 indicador, e por razão estrutural: a produção agrícola familiar e o trabalho
 por conta própria no campo são majoritariamente informais por natureza da
 atividade, não por escolha do trabalhador. Neste trimestre a diferença foi de
-{{dif Taxa_Informalidade Zona_Urbana Zona_Rural}} pontos
-({{estrelas Taxa_Informalidade Zona}}).
+24,1 pontos
+(\*\*\*).
 
 > **A REDIGIR** — bloco demográfico da informalidade — incluir só se significativo E com CV abaixo de 15% em todas as subdivisões de cada corte geográfico.
 
@@ -533,7 +531,7 @@ indicador que revela a ociosidade escondida dentro da ocupação: a pessoa é
 contada como ocupada, mas sua capacidade de trabalho está sendo subutilizada.
 
 **Tabela 9** — Sub-ocupação por insuficiência de horas, por recorte geográfico
-— {{trimestre}}
+— 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
 |---|---|---:|:---:|---:|---|
@@ -566,14 +564,14 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | 0,108 | 0,118 | não |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Sub-ocupação por recorte geográfico](figuras/comp_geo_Taxa_Subocupacao.png)
+![Sub-ocupação por recorte geográfico](./output/figuras/comp_geo_Taxa_Subocupacao.png)
 
 **Figura 9** — Percentual de ocupados subocupados por insuficiência de horas —
-{{trimestre}}
+2º trimestre de 2026
 
-{{est Taxa_Subocupacao Piauí}}% dos ocupados do Piauí estavam subocupados, com
-{{extremo Taxa_Subocupacao max valor}}% em {{extremo Taxa_Subocupacao max rotulo}}
-e {{extremo Taxa_Subocupacao min valor}}% em {{extremo Taxa_Subocupacao min rotulo}}.
+11,2% dos ocupados do Piauí estavam subocupados, com
+27,5% em estrato 2251020
+e 7,8% em estrato 2253012.
 
 > **A REDIGIR** — relacionar a subocupação com a informalidade do mesmo território — jornada insuficiente e vínculo precário costumam andar juntos, mas nem sempre.
 
@@ -584,7 +582,7 @@ aproximação da qualificação da mão de obra empregada e, indiretamente, do t
 de posto de trabalho que cada território oferece.
 
 **Tabela 10** — Ocupados com ensino médio completo ou mais, por recorte
-geográfico — {{trimestre}}
+geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
 |---|---|---:|:---:|---:|---|
@@ -617,16 +615,16 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | 0,036 | 0,044 | sim |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Ocupados com médio completo ou mais](figuras/comp_geo_Proporcao_Ocupados_Escolarizados.png)
+![Ocupados com médio completo ou mais](./output/figuras/comp_geo_Proporcao_Ocupados_Escolarizados.png)
 
 **Figura 10** — Percentual de ocupados com ensino médio completo ou mais —
-{{trimestre}}
+2º trimestre de 2026
 
-{{extremo Proporcao_Ocupados_Escolarizados max valor}}% em
-{{extremo Proporcao_Ocupados_Escolarizados max rotulo}} e
-{{extremo Proporcao_Ocupados_Escolarizados min valor}}% em
-{{extremo Proporcao_Ocupados_Escolarizados min rotulo}} — uma diferença de
-{{amplitude Proporcao_Ocupados_Escolarizados}} pontos. Cabe uma cautela de leitura: este indicador mede a
+91,4% em
+estrato 2210013 e
+32,2% em
+estrato 2254020 — uma diferença de
+59,2 pontos. Cabe uma cautela de leitura: este indicador mede a
 escolaridade de quem *está ocupado*, não a da população. Um estrato pode
 aparecer com escolaridade alta simplesmente porque os menos escolarizados não
 encontraram trabalho, e não porque a população seja mais escolarizada.
@@ -645,7 +643,7 @@ e mercado de trabalho piorando ao mesmo tempo.
 #### 3.5.1 Percentual de desalentados
 
 **Tabela 11** — Desalentados na força de trabalho ampliada, por recorte
-geográfico — {{trimestre}}
+geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
 |---|---|---:|:---:|---:|---|
@@ -678,23 +676,23 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | 0,662 | 0,671 | não |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Desalentados na força ampliada](figuras/comp_geo_Desalentados_Forca_Ampliada.png)
+![Desalentados na força ampliada](./output/figuras/comp_geo_Desalentados_Forca_Ampliada.png)
 
 **Figura 11** — Percentual de desalentados na força de trabalho ampliada —
-{{trimestre}}
+2º trimestre de 2026
 
-![Desalentados fora da força de trabalho](figuras/comp_geo_Desalentados_Fora_Forca.png)
+![Desalentados fora da força de trabalho](./output/figuras/comp_geo_Desalentados_Fora_Forca.png)
 
 **Figura 12** — Desalentados como percentual das pessoas fora da força de
-trabalho — {{trimestre}}
+trabalho — 2º trimestre de 2026
 
-O desalento atingiu {{est Desalentados_Forca_Ampliada Piauí}}% da força de
-trabalho ampliada do Piauí, com {{extremo Desalentados_Forca_Ampliada max valor}}%
-em {{extremo Desalentados_Forca_Ampliada max rotulo}} e
-{{extremo Desalentados_Forca_Ampliada min valor}}% em
-{{extremo Desalentados_Forca_Ampliada min rotulo}}. Entre as pessoas fora da
+O desalento atingiu 7,0% da força de
+trabalho ampliada do Piauí, com 23,2%
+em estrato 2251022 e
+7,2% em
+estrato 2251011. Entre as pessoas fora da
 força de trabalho, os desalentados foram
-{{est Desalentados_Fora_Forca Piauí}}% no estado.
+68,4% no estado.
 
 A leitura conjunta com a taxa de desocupação é o que dá sentido ao indicador.
 
@@ -703,7 +701,7 @@ A leitura conjunta com a taxa de desocupação é o que dá sentido ao indicador
 #### 3.5.2 Jovens que não trabalham nem estudam
 
 **Tabela 12** — Jovens de 14 a 29 anos que não trabalham nem estudam, por
-recorte geográfico — {{trimestre}}
+recorte geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
 |---|---|---:|:---:|---:|---|
@@ -736,15 +734,15 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | 0,540 | 0,555 | não |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Taxa de jovens nem-nem](figuras/comp_geo_Taxa_Nem_Nem.png)
+![Taxa de jovens nem-nem](./output/figuras/comp_geo_Taxa_Nem_Nem.png)
 
 **Figura 13** — Percentual de jovens de 14 a 29 anos que não trabalham nem
-estudam — {{trimestre}}
+estudam — 2º trimestre de 2026
 
-{{est Taxa_Nem_Nem Piauí}}% dos jovens piauienses de 14 a 29 anos não
+24,3% dos jovens piauienses de 14 a 29 anos não
 trabalhavam nem estudavam. A incidência variou de
-{{extremo Taxa_Nem_Nem min valor}}% em {{extremo Taxa_Nem_Nem min rotulo}} a
-{{extremo Taxa_Nem_Nem max valor}}% em {{extremo Taxa_Nem_Nem max rotulo}}.
+13,5% em estrato 2210012 a
+49,8% em estrato 2251022.
 
 Este é o indicador com maior conteúdo prospectivo do relatório: ele não mede o
 mercado de trabalho de hoje, mas a formação — ou a não formação — da força de
@@ -761,31 +759,28 @@ que separa um diagnóstico de falta de vagas de um diagnóstico de
 incompatibilidade entre a mão de obra disponível e as vagas existentes. Os dois
 pedem políticas públicas diferentes.
 
-![Motivo da desistência entre os desalentados](figuras/comp_geo_Motivo_Desistencia_Desalentado.png)
+![Motivo da desistência entre os desalentados](./output/figuras/comp_geo_Motivo_Desistencia_Desalentado.png)
 
 **Figura 14** — Motivo declarado da desistência, entre os desalentados —
-{{trimestre}}
+2º trimestre de 2026
 
-![Motivo de não procurar trabalho entre os nem-nem](figuras/comp_geo_Motivo_Nao_Procura_NemNem.png)
+![Motivo de não procurar trabalho entre os nem-nem](./output/figuras/comp_geo_Motivo_Nao_Procura_NemNem.png)
 
 **Figura 15** — Motivo de não ter procurado trabalho, entre os jovens nem-nem —
-{{trimestre}}
+2º trimestre de 2026
 
-![Motivo de não iniciar trabalho entre os nem-nem](figuras/comp_geo_Motivo_Nao_Inicio_NemNem.png)
+![Motivo de não iniciar trabalho entre os nem-nem](./output/figuras/comp_geo_Motivo_Nao_Inicio_NemNem.png)
 
 **Figura 16** — Motivo de não ter iniciado trabalho, entre os jovens nem-nem —
-{{trimestre}}
+2º trimestre de 2026
 
-**Tabela 13** — Distribuição dos motivos declarados — {{trimestre}}
+**Tabela 13** — Distribuição dos motivos declarados — 2º trimestre de 2026
 
 | Motivo declarado | Participação (%) | IC 95% | CV (%) | Precisão |
 |---|---:|:---:|---:|---|
 | Tinha que cuidar dos afazeres domésticos, do(s) filho(s) ou de outro(s) parente(s) | 43,2 | [37,6; 48,9] | 6,7 | boa |
-| Por outro motivo | 26,2 | [21,1; 31,3] | 9,9 | boa |
 | Por problema de saúde ou gravidez | 18,5 | [14,7; 22,3] | 10,5 | boa |
 | Estava estudando | 6,9 | [4,7; 9,0] | 16,0 | regular |
-| Por não querer trabalhar | 5,0 | [2,6; 7,3] | 24,4 | regular |
-| Por ser muito jovem ou muito idoso para trabalhar | 0,2 | [0,0; 0,5] | 65,9 | baixa |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
@@ -855,12 +850,12 @@ deve se apoiar nos intervalos de confiança das tabelas anteriores, não em
 teste de hipótese. Onde o teste se sustenta no recorte fino, ele é conservador:
 apenas rendimento médio e escolaridade dos ocupados discriminam entre os 26
 estratos.
-Fonte: `output/tabelas/anova_regional_{{sufixo}}.csv`. Elaboração própria.
+Fonte: `output/tabelas/anova_regional_2026T2.csv`. Elaboração própria.
 
-![ANOVA regional](figuras/anova_regional_{{sufixo}}.png)
+![ANOVA regional](./output/figuras/anova_regional_2026T2.png)
 
 **Figura 17** — p-valores dos testes de diferença entre categorias, por
-indicador e recorte regional — {{trimestre}}
+indicador e recorte regional — 2º trimestre de 2026
 
 > **A REDIGIR** — dizer quantos testes regionais foram realizados, quantos deram significativos pelo p-valor bruto e quantos sobreviveram ao ajuste (os três números saem no console ao rodar o pipeline), e indicar quais recortes discriminam mais e quais indicadores são mais homogêneos no território.
 

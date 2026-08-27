@@ -126,8 +126,21 @@ tema_mapa <- theme_minimal(base_size = 9) +
         plot.subtitle = element_text(size = 7.5, colour = "grey30"))
 
 mapa <- function(dados, var, cores, titulo, subtitulo = NULL, ncol_leg = 1) {
+  # Sem contorno, os milhares de setores censitários ficam "picotados" -
+  # dá pra ver a cor de cada categoria, mas não onde um estrato termina e
+  # o outro começa. Dissolvo os setores por categoria (uma geometria por
+  # valor de `var`) e desenho só o contorno dessa geometria dissolvida, por
+  # cima do preenchimento — isso destaca a fronteira real dos estratos sem
+  # poluir o mapa com a linha de cada setor individual.
+  contorno <- dados %>%
+    filter(!is.na(.data[[var]])) %>%
+    group_by(.data[[var]]) %>%
+    summarise(.groups = "drop") %>%
+    st_make_valid()
+  
   ggplot(dados) +
     geom_sf(aes(fill = .data[[var]]), color = NA) +
+    geom_sf(data = contorno, fill = NA, color = "black", linewidth = 0.45) +
     scale_fill_manual(values = cores, na.value = "grey92",
                       guide = if (ncol_leg == 0) "none"
                               else guide_legend(ncol = ncol_leg)) +
