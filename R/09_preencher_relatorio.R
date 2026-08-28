@@ -2,48 +2,16 @@
 # 09_preencher_relatorio.R — preenche o modelo do relatório com os números do
 # trimestre.
 #
-# POR QUE ISSO EXISTE
-# -------------------
-# O modelo em output/relatorio_trimestral.md tinha cerca de 340 marcadores do
-# tipo {EST}, {CV}, {IC}, {SIG}. Preenchê-los à mão a cada trimestre é caro e,
-# pior, é o tipo de tarefa em que um erro passa despercebido: trocar duas
-# linhas de uma tabela de dezesseis não deixa rastro visível.
-#
-# O problema de fundo era que {SIG} aparecia 61 vezes sem dizer a que se
-# referia. Um marcador sem endereço não é preenchível por máquina. Este script
-# resolve isso com duas construções:
-#
-#   1. DIRETIVAS DE TABELA — uma linha de comentário HTML no lugar da tabela
-#      inteira. O script gera cabeçalho, linhas e rodapé:
-#
-#          <!-- @tabela tipo=geografica indicador=Taxa_Desocupacao -->
-#
-#      Dez das tabelas do modelo estavam elípticas ("Mesma estrutura da Tabela
-#      2"). Gerar em vez de preencher resolve as duas coisas de uma vez.
-#
-#   2. EXPRESSÕES ENDEREÇADAS — para o texto corrido, onde não há tabela que
-#      dê contexto:
-#
-#          O Piauí registrou {{est Taxa_Desocupacao Piauí}}% ...
-#
-# E uma terceira construção para os trechos condicionais que o modelo já
-# previa em prosa:
-#
-#          {{#se-significativo Taxa_Desocupacao Teresina_x_Resto_Piaui}}
-#          ... texto usado quando dá significativo ...
-#          {{/se}}
-#
-# REGRA DE OURO: o script FALHA se sobrar qualquer marcador não resolvido.
+# AVISO: o script FALHA se sobrar qualquer marcador não resolvido.
 # Um relatório meio preenchido publicado por engano é pior que nenhum.
 #
 # USO:
-#   source("R/00_config.R")   # já feito aqui dentro
+#   source("R/00_config.R")   
 #   Rscript R/09_preencher_relatorio.R
 #
 # ENTRADA : output/relatorio_trimestral.md          (o modelo, versionado)
-# SAÍDA   : output/relatorio_trimestral_<AAAAT#>.md (a edição do trimestre)
-#
-# O modelo NÃO é sobrescrito — ele é o ativo que se reusa todo trimestre.
+# SAÍDA    : output/relatorio_trimestral_<AAAAT#>.md (a edição do trimestre)
+# SAIDA OPCIONAL: output/relatorio_trimestral_<AAAAT#>.docx (CONVERTER_DOCX = TRUE)
 # ==============================================================================
 
 library(dplyr)
@@ -529,7 +497,7 @@ tabela_motivos <- function(ind, geo) {
   linhas <- pmap_chr(list(d$rotulo, d$Estimativa, d$SE, d$cv),
     function(rotulo, est, se, cv) {
       linha_md(rotulo, num(est * 100, 1),
-               sprintf("[%s; %s]", num(max(0, est - 1.96*se) * 100, 1), num((est + 1.96*se) * 100, 1)),
+               sprintf("[ %s, %s )", num(max(0, est - 1.96*se) * 100, 1), num((est + 1.96*se) * 100, 1)),
                num(cv, 1), classe_cv(cv))
     })
   c(linha_md("Motivo declarado", "Participação (%)", "IC 95%", "CV (%)", "Precisão"),
@@ -601,7 +569,7 @@ linha_percentual_ic <- function(recorte, categoria, motivo, r) {
   }
   linha_md(recorte, categoria, motivo,
            num(r$Estimativa * 100, 1),
-           sprintf("[%s; %s]", num(max(0, r$Estimativa - 1.96 * r$SE) * 100, 1),
+           sprintf("( %s, %s )", num(max(0, r$Estimativa - 1.96 * r$SE) * 100, 1),
                    num((r$Estimativa + 1.96 * r$SE) * 100, 1)),
            num(r$cv, 1), classe_cv(r$cv))
 }
@@ -882,13 +850,26 @@ if (length(redacoes$itens) > 0) {
 }
 
 
-# Convert a file using the high-level wrapper
+# Converte em docx seguindo o modelo na pasta: opcional
 if (CONVERTER_DOCX){
   message("Convertendo arquivo markdown para documento word")
   
+  # Isso garante que os caminhos dos arquivos estejam limpos e absolutos para o Windows
+  arquivo_entrada <- normalizePath(SAIDA, mustWork = TRUE)
+  arquivo_saida <- str_replace(arquivo_entrada, "\\.md$", ".docx")
+  arquivo_estilo  <- normalizePath("custom-reference.docx", mustWork = TRUE)
+  arquivo_remover_figura <- normalizePath("remover-figuras.lua", mustWork = TRUE)
+  
   # Usa um custom-refence.docx pra formatar mais bonitinho no word e publicar
-  result <- try(pandoc_run(args = c(SAIDA, "-o", str_replace(SAIDA, "md", "docx"), 
-                                    "--reference-doc = custom-reference.docx --trace")) )
+  # merda do pandoc_run precisa passar cada argumento separado da flag
+  result <- try(pandoc_run(args = c(
+    arquivo_entrada,
+    "-o", arquivo_saida,
+    paste0("--reference-doc=", arquivo_estilo),
+    paste0('--lua-filter=',arquivo_remover_figura),
+    "--toc",
+    "--toc-depth=2" #, --trace como flag caso você queira ver o que está dando errado
+  )))
   
   if (inherits(result, "try-error")) {
     message("Erro ao rodar o pandoc, verifique se o pacote está instalado, se o arquivo de destino",

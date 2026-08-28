@@ -87,14 +87,18 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 Nota: os {{n_estratos}} estratos de 7 dígitos aparecem na íntegra no anexo
 metodológico; aqui são exibidos apenas os extremos.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 3** — Taxa de desocupação, diferença entre as categorias de cada recorte - {{trimestre}}
 
 <!-- @tabela tipo=testes indicador=Taxa_Desocupacao -->
 
-![Taxa de desocupação por recorte geográfico](./output/figuras/comp_geo_Taxa_Desocupacao.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 1** — Taxa de desocupação por recorte geográfico, com intervalo de
 confiança de 95% — {{trimestre}}
+
+![](./output/figuras/comp_geo_Taxa_Desocupacao.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 {{#se-significativo Taxa_Desocupacao Teresina_x_Resto_Piaui}}A diferença entre
 Teresina e o restante do estado é estatisticamente significativa (p ajustado =
@@ -126,21 +130,27 @@ Em {{extremo Chefes_Familia_Desocupados max rotulo}},
 responsáveis pelo domicílio, contra {{extremo Chefes_Familia_Desocupados min valor}}%
 em {{extremo Chefes_Familia_Desocupados min rotulo}}.
 
-**Tabela 3** — Pessoas responsáveis pelo domicílio entre os desocupados, por
+**Tabela 4** — Pessoas responsáveis pelo domicílio entre os desocupados, por
 recorte geográfico — {{trimestre}}
 
 <!-- @tabela tipo=geografica indicador=Chefes_Familia_Desocupados -->
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 5** — Pessoas responsáveis pelo domicílio entre os desocupados, 
+diferença entre as categorias de cada recorte — {{trimestre}}
 
 <!-- @tabela tipo=testes indicador=Chefes_Familia_Desocupados -->
 
-![Responsáveis pelo domicílio entre os desocupados](./output/figuras/comp_geo_Chefes_Familia_Desocupados.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 2** — Pessoas responsáveis pelo domicílio entre os desocupados —
 {{trimestre}}
+
+![](./output/figuras/comp_geo_Chefes_Familia_Desocupados.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
 
 <!-- @redigir: uma ou duas frases interpretando o contraste acima — o que significa, para o orçamento das famílias daquele estrato, essa concentração. -->
 
@@ -155,20 +165,24 @@ responsáveis pelo domicílio ou cônjuges, contra
 {{est Chefes_Familia_Desocupados Piauí}}% apenas de responsáveis — a diferença
 corresponde aos cônjuges desocupados.
 
-**Tabela 4** — Responsáveis ou cônjuges entre os desocupados, por recorte
+**Tabela 6** — Responsáveis ou cônjuges entre os desocupados, por recorte
 geográfico — {{trimestre}}
 
 <!-- @tabela tipo=geografica indicador=Conribuintes_Desocupados -->
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 7** — Responsáveis ou cônjuges entre os desocupados, diferença entre as categorias de cada recorte — {{trimestre}}
 
 <!-- @tabela tipo=testes indicador=Conribuintes_Desocupados -->
 
-![Responsáveis ou cônjuges entre os desocupados](./output/figuras/comp_geo_Conribuintes_Desocupados.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 3** — Responsáveis ou cônjuges entre os desocupados — {{trimestre}}
+
+![](./output/figuras/comp_geo_Conribuintes_Desocupados.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 <!-- @redigir: o que essa diferença diz sobre o arranjo de sustento das famílias do estado. -->
 
@@ -181,25 +195,29 @@ responsáveis pelo domicílio ou cônjuges, contra
 {{est Chefes_Familia_Desocupados Piauí}}% apenas de responsáveis — a diferença
 corresponde aos cônjuges desocupados.
 
-**Tabela 5** — Rendimento médio real habitualmente recebido em todos os
+
+**Tabela 8** — Rendimento médio real habitualmente recebido em todos os
 trabalhos, por recorte geográfico — {{trimestre}}
 
 <!-- @tabela tipo=geografica indicador=Rendimento_Medio_Habitual -->
 
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-Nota: valores deflacionados para reais do último trimestre da série.
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria. Nota: valores deflacionados para reais do último trimestre da série.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 9** — Rendimento médio real habitualmente recebido em todos os
+trabalhos, diferença entre as categorias de cada recorte — {{trimestre}}
 
 <!-- @tabela tipo=testes indicador=Rendimento_Medio_Habitual -->
 
-![Rendimento médio habitual por recorte geográfico](./output/figuras/comp_geo_Rendimento_Medio_Habitual.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 4** — Rendimento médio real habitual por recorte geográfico —
 {{trimestre}}
 
-Ressalta-se que a média de rendimento  é sensível a valores muito altos e, em territórios pequenos, um punhado de rendimentos
-elevados desloca o resultado inteiro. A distribuição completa dos rendimentos
+![](./output/figuras/comp_geo_Rendimento_Medio_Habitual.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+Ressalta-se que a média de rendimento  é sensível a valores muito altos e, em territórios pequenos, um punhado de rendimentos elevados desloca o resultado inteiro. A distribuição completa dos rendimentos
 por estrato está no anexo metodológico, e é ela que revela se a média
 representa a maioria ou é puxada pela cauda.
 
@@ -216,21 +234,26 @@ do mínimo por hora. A incidência foi de
 {{extremo Percentual_Subremuneracao min valor}}% em
 {{extremo Percentual_Subremuneracao min rotulo}}.
 
-**Tabela 6** — Sub-remuneração por hora trabalhada, por recorte geográfico —
+**Tabela 10** — Sub-remuneração por hora trabalhada, por recorte geográfico —
 {{trimestre}}
 
 <!-- @tabela tipo=geografica indicador=Percentual_Subremuneracao -->
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 11** — Sub-remuneração por hora trabalhada, diferença entre as categorias de cada recorte —
+{{trimestre}}
 
 <!-- @tabela tipo=testes indicador=Percentual_Subremuneracao -->
 
-![Sub-remuneração por recorte geográfico](./output/figuras/comp_geo_Percentual_Subremuneracao.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 5** — Percentual de ocupados com rendimento-hora abaixo do salário
 mínimo horário — {{trimestre}}
+
+![](./output/figuras/comp_geo_Percentual_Subremuneracao.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 <!-- @redigir: o que a distância entre esses dois extremos sugere sobre a estrutura produtiva dos territórios envolvidos. -->
 
@@ -245,7 +268,7 @@ Entre os estratos, a razão foi mais alta em {{desig_extremo max rotulo}}
 ({{desig_extremo max valor}}) e mais baixa em {{desig_extremo min rotulo}}
 ({{desig_extremo min valor}}).
 
-**Tabela 7** — Rendimento médio por situação de formalidade e razão
+**Tabela 12** — Rendimento médio por situação de formalidade e razão
 formal/informal, por recorte geográfico — {{trimestre}}
 
 <!-- @tabela tipo=formalidade -->
@@ -259,13 +282,17 @@ razão não pode ser negativa, e o intervalo é construído na escala logarítmi
 antes de voltar à escala da razão. O anexo metodológico (§4.4) detalha o
 procedimento.
 
-![Rendimento no setor formal](./output/figuras/comp_geo_Rendimento_Formal.png)
-
 **Figura 6** — Rendimento médio dos ocupados formais — {{trimestre}}
 
-![Rendimento no setor informal](./output/figuras/comp_geo_Rendimento_Informal.png)
+![](./output/figuras/comp_geo_Rendimento_Formal.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 7** — Rendimento médio dos ocupados informais — {{trimestre}}
+
+![](./output/figuras/comp_geo_Rendimento_Informal.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 Vale contrastar com a capital: em Teresina a razão foi de
 {{desigualdade Teresina razao}}, a mais baixa entre os recortes agregados — não
@@ -295,19 +322,23 @@ de {{amplitude Taxa_Informalidade}} pontos, de
 {{extremo Taxa_Informalidade max valor}}% em
 {{extremo Taxa_Informalidade max rotulo}}.
 
-**Tabela 8** — Taxa de informalidade, por recorte geográfico — {{trimestre}}
+**Tabela 13** — Taxa de informalidade, por recorte geográfico — {{trimestre}}
 
 <!-- @tabela tipo=geografica indicador=Taxa_Informalidade -->
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 14** — Taxa de informalidade, diferença entre as categorias de cada recorte — {{trimestre}}
 
 <!-- @tabela tipo=testes indicador=Taxa_Informalidade -->
 
-![Taxa de informalidade por recorte geográfico](./output/figuras/comp_geo_Taxa_Informalidade.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 8** — Taxa de informalidade por recorte geográfico — {{trimestre}}
+
+![](./output/figuras/comp_geo_Taxa_Informalidade.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 O contraste entre zona urbana e rural tende a ser o mais acentuado deste
 indicador, e por razão estrutural: a produção agrícola familiar e o trabalho
@@ -324,22 +355,26 @@ atividade, não por escolha do trabalhador. Neste trimestre a diferença foi de
 {{extremo Taxa_Subocupacao max valor}}% em {{extremo Taxa_Subocupacao max rotulo}}
 e {{extremo Taxa_Subocupacao min valor}}% em {{extremo Taxa_Subocupacao min rotulo}}.
 
-**Tabela 9** — Sub-ocupação por insuficiência de horas, por recorte geográfico
+**Tabela 15** — Sub-ocupação por insuficiência de horas, por recorte geográfico
 — {{trimestre}}
 
 <!-- @tabela tipo=geografica indicador=Taxa_Subocupacao -->
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 16** — Sub-ocupação por insuficiência de horas, diferença entre as categorias de cada recorteo
+— {{trimestre}}
 
 <!-- @tabela tipo=testes indicador=Taxa_Subocupacao -->
 
-![Sub-ocupação por recorte geográfico](./output/figuras/comp_geo_Taxa_Subocupacao.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 9** — Percentual de ocupados subocupados por insuficiência de horas —
 {{trimestre}}
 
+![](./output/figuras/comp_geo_Taxa_Subocupacao.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 <!-- @redigir: relacionar a subocupação com a informalidade do mesmo território — jornada insuficiente e vínculo precário costumam andar juntos, mas nem sempre. -->
 
@@ -353,21 +388,28 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 escolaridade de quem *está ocupado*, não a da população. Um estrato pode
 aparecer com escolaridade alta simplesmente porque os menos escolarizados não
 encontraram trabalho, e não porque a população seja mais escolarizada.
-**Tabela 10** — Ocupados com ensino médio completo ou mais, por recorte
+
+**Tabela 17** — Ocupados com ensino médio completo ou mais, por recorte
 geográfico — {{trimestre}}
 
 <!-- @tabela tipo=geografica indicador=Proporcao_Ocupados_Escolarizados -->
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 18** — Ocupados com ensino médio completo ou mais, diferença entre as categorias de cada recorte — {{trimestre}}
 
 <!-- @tabela tipo=testes indicador=Proporcao_Ocupados_Escolarizados -->
 
-![Ocupados com médio completo ou mais](./output/figuras/comp_geo_Proporcao_Ocupados_Escolarizados.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
 
 **Figura 10** — Percentual de ocupados com ensino médio completo ou mais —
 {{trimestre}}
+
+![](./output/figuras/comp_geo_Proporcao_Ocupados_Escolarizados.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
 
 ### 3.5 Desalento
 
@@ -381,28 +423,33 @@ força de trabalho, os desalentados foram
 
 #### 3.5.1 Percentual de desalentados
 
-**Tabela 11** — Desalentados na força de trabalho ampliada, por recorte
+**Tabela 19** — Desalentados na força de trabalho ampliada, por recorte
 geográfico — {{trimestre}}
 
 <!-- @tabela tipo=geografica indicador=Desalentados_Forca_Ampliada -->
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+
+**Tabela 20** — Desalentados na força de trabalho ampliada, diferença entre as categorias de cada recorte — {{trimestre}}
 
 <!-- @tabela tipo=testes indicador=Desalentados_Forca_Ampliada -->
 
-![Desalentados na força ampliada](./output/figuras/comp_geo_Desalentados_Forca_Ampliada.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 11** — Percentual de desalentados na força de trabalho ampliada —
 {{trimestre}}
 
-![Desalentados fora da força de trabalho](./output/figuras/comp_geo_Desalentados_Fora_Forca.png)
+![](./output/figuras/comp_geo_Desalentados_Forca_Ampliada.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+![](./output/figuras/comp_geo_Desalentados_Fora_Forca.png)
 
 **Figura 12** — Desalentados como percentual das pessoas fora da força de
 trabalho — {{trimestre}}
 
-
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 A leitura conjunta com a taxa de desocupação é o que dá sentido ao indicador.
 
@@ -415,21 +462,25 @@ trabalhavam nem estudavam. A incidência variou de
 {{extremo Taxa_Nem_Nem min valor}}% em {{extremo Taxa_Nem_Nem min rotulo}} a
 {{extremo Taxa_Nem_Nem max valor}}% em {{extremo Taxa_Nem_Nem max rotulo}}.
 
-**Tabela 12** — Jovens de 14 a 29 anos que não trabalham nem estudam, por
+**Tabela 21** — Jovens de 14 a 29 anos que não trabalham nem estudam, por
 recorte geográfico — {{trimestre}}
 
 <!-- @tabela tipo=geografica indicador=Taxa_Nem_Nem -->
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 22** — Jovens de 14 a 29 anos que não trabalham nem estudam, diferença entre as categorias de cada recorte — {{trimestre}}
 
 <!-- @tabela tipo=testes indicador=Taxa_Nem_Nem -->
 
-![Taxa de jovens nem-nem](./output/figuras/comp_geo_Taxa_Nem_Nem.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 13** — Percentual de jovens de 14 a 29 anos que não trabalham nem
 estudam — {{trimestre}}
+
+![](./output/figuras/comp_geo_Taxa_Nem_Nem.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 <!-- @redigir: o que a amplitude entre os estratos extremos significa para a próxima década de oferta de trabalho no estado. -->
 
@@ -444,22 +495,28 @@ normal que a maioria das células apareça com CV alto nos estratos mais finos, 
 elas devem ser lidas como indicativas, não conclusivas. Incluimos elas pois são importantissimos
 para distinguir quem desistiu de procurar emprego por baixar perspectivas de emprego na região, por obrigações domésticas ou por apenas desinteresse.
 
-![Motivo da desistência entre os desalentados](./output/figuras/comp_geo_Motivo_Desistencia_Desalentado.png)
-
 **Figura 14** — Motivo declarado da desistência, entre os desalentados —
 {{trimestre}}
 
-![Motivo de não procurar trabalho entre os nem-nem](./output/figuras/comp_geo_Motivo_Nao_Procura_NemNem.png)
+![](./output/figuras/comp_geo_Motivo_Desistencia_Desalentado.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 15** — Motivo de não ter procurado trabalho, entre os jovens nem-nem —
 {{trimestre}}
 
-![Motivo de não iniciar trabalho entre os nem-nem](./output/figuras/comp_geo_Motivo_Nao_Inicio_NemNem.png)
+![](./output/figuras/comp_geo_Motivo_Nao_Procura_NemNem.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 16** — Motivo de não ter iniciado trabalho, entre os jovens nem-nem —
 {{trimestre}}
 
-**Tabela 13** — Motivo da desistência entre os desalentados, por recorte
+![](./output/figuras/comp_geo_Motivo_Nao_Inicio_NemNem.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela 23** — Motivo da desistência entre os desalentados, por recorte
 geográfico — {{trimestre}}
 
 <!-- @tabela tipo=motivos-geografico indicador=Motivo_Desistencia_Desalentado -->
@@ -472,7 +529,7 @@ categorias de V4074A não entram nesta tabela.
 
 <!-- @redigir: comparar o peso das três categorias entre os territórios — "não havia trabalho na localidade" e "não conseguia trabalho adequado" são causas do lado da oferta (falta de vaga, ou vaga incompatível), enquanto "tinha que cuidar dos afazeres domésticos" é do lado da demanda por cuidado; são diagnósticos que pedem políticas diferentes. -->
 
-**Tabela 14** — Distribuição dos motivos declarados, jovens que não procuraram
+**Tabela 24** — Distribuição dos motivos declarados, jovens que não procuraram
 trabalho — {{trimestre}}
 
 <!-- @tabela tipo=motivos indicador=Motivo_Nao_Procura_NemNem geografia=Piauí -->
@@ -481,7 +538,7 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 <!-- @redigir: nomear o motivo mais frequente da tabela acima e dizer que política pública ele aponta — falta de vaga pede uma coisa, incompatibilidade de qualificação pede outra. -->
 
-**Tabela 15** — Motivo de não ter iniciado trabalho entre os jovens nem-nem,
+**Tabela 25** — Motivo de não ter iniciado trabalho entre os jovens nem-nem,
 por recorte geográfico — {{trimestre}}
 
 <!-- @tabela tipo=motivos-geografico indicador=Motivo_Nao_Inicio_NemNem -->
@@ -501,7 +558,7 @@ longo da seção. A pergunta que ela responde é: para cada indicador, quais
 recortes territoriais produzem diferenças que não se explicam por acaso
 amostral?
 
-**Tabela 16** — Testes de diferença entre categorias, por indicador e recorte
+**Tabela 26** — Testes de diferença entre categorias, por indicador e recorte
 geográfico — 2º trimestre de 2026
 
 <!-- @tabela tipo=sintese -->
@@ -536,12 +593,14 @@ deve se apoiar nos intervalos de confiança das tabelas anteriores, não em
 teste de hipótese. Onde o teste se sustenta no recorte fino, ele é conservador:
 apenas rendimento médio e escolaridade dos ocupados discriminam entre os 26
 estratos.
-Fonte: `output/tabelas/anova_regional_{{sufixo}}.csv`. Elaboração própria.
-
-![ANOVA regional](./output/figuras/anova_regional_{{sufixo}}.png)
 
 **Figura 17** — p-valores dos testes de diferença entre categorias, por
 indicador e recorte regional — {{trimestre}}
+
+![](./output/figuras/anova_regional_{{sufixo}}.png)
+
+Fonte: `output/tabelas/anova_regional_{{sufixo}}.csv`. Elaboração própria.
+
 
 <!-- @redigir: dizer quantos testes regionais foram realizados, quantos deram significativos pelo p-valor bruto e quantos sobreviveram ao ajuste (os três números saem no console ao rodar o pipeline), e indicar quais recortes discriminam mais e quais indicadores são mais homogêneos no território. -->
 

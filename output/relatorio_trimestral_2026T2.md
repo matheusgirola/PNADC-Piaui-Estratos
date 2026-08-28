@@ -1,6 +1,8 @@
 <!-- GERADO AUTOMATICAMENTE por R/09_preencher_relatorio.R a partir de ./output/relatorio_trimestral.md. Trimestre: 2026T2. Não editar à mão — a próxima rodada sobrescreve sem aviso. -->
 
 
+**VERSÃO AUTOMATÓTICA DO RELATÓRIO - REVER OS TEXTOS E REDIGIR AS ANÁLISES RESTANTE**
+
 <!-- TO-DO: Ver o que já deixo na 1 e 2 seção pré-preenchido pra próximas edições -->
 ## 1 Introdução
 ## 2 Metodologia
@@ -73,7 +75,7 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 Nota: os 13 estratos de 7 dígitos aparecem na íntegra no anexo
 metodológico; aqui são exibidos apenas os extremos.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 3** — Taxa de desocupação, diferença entre as categorias de cada recorte - 2º trimestre de 2026
 
 | Recorte | p-valor | p ajustado | Significativo a 5%? |
 |---|---:|---:|:---:|
@@ -83,10 +85,14 @@ metodológico; aqui são exibidos apenas os extremos.
 | Estrato (7 dígitos) | — | — | — |
 | Teresina × resto do Piauí | 0,057 | 0,064 | não |
 
-![Taxa de desocupação por recorte geográfico](./output/figuras/comp_geo_Taxa_Desocupacao.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 1** — Taxa de desocupação por recorte geográfico, com intervalo de
 confiança de 95% — 2º trimestre de 2026
+
+![](./output/figuras/comp_geo_Taxa_Desocupacao.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 
 A diferença
@@ -114,7 +120,7 @@ Em estrato 2251012,
 responsáveis pelo domicílio, contra 26,1%
 em estrato 2210030.
 
-**Tabela 3** — Pessoas responsáveis pelo domicílio entre os desocupados, por
+**Tabela 4** — Pessoas responsáveis pelo domicílio entre os desocupados, por
 recorte geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
@@ -138,7 +144,8 @@ recorte geográfico — 2º trimestre de 2026
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 5** — Pessoas responsáveis pelo domicílio entre os desocupados, 
+diferença entre as categorias de cada recorte — 2º trimestre de 2026
 
 | Recorte | p-valor | p ajustado | Significativo a 5%? |
 |---|---:|---:|:---:|
@@ -148,10 +155,15 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | — | — | — |
 | Teresina × resto do Piauí | 0,011 | 0,014 | sim |
 
-![Responsáveis pelo domicílio entre os desocupados](./output/figuras/comp_geo_Chefes_Familia_Desocupados.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 2** — Pessoas responsáveis pelo domicílio entre os desocupados —
 2º trimestre de 2026
+
+![](./output/figuras/comp_geo_Chefes_Familia_Desocupados.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
 
 > **A REDIGIR** — uma ou duas frases interpretando o contraste acima — o que significa, para o orçamento das famílias daquele estrato, essa concentração.
 
@@ -166,7 +178,7 @@ responsáveis pelo domicílio ou cônjuges, contra
 37,9% apenas de responsáveis — a diferença
 corresponde aos cônjuges desocupados.
 
-**Tabela 4** — Responsáveis ou cônjuges entre os desocupados, por recorte
+**Tabela 6** — Responsáveis ou cônjuges entre os desocupados, por recorte
 geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
@@ -190,7 +202,7 @@ geográfico — 2º trimestre de 2026
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 7** — Responsáveis ou cônjuges entre os desocupados, diferença entre as categorias de cada recorte — 2º trimestre de 2026
 
 | Recorte | p-valor | p ajustado | Significativo a 5%? |
 |---|---:|---:|:---:|
@@ -200,9 +212,13 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | — | — | — |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Responsáveis ou cônjuges entre os desocupados](./output/figuras/comp_geo_Conribuintes_Desocupados.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 3** — Responsáveis ou cônjuges entre os desocupados — 2º trimestre de 2026
+
+![](./output/figuras/comp_geo_Conribuintes_Desocupados.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 > **A REDIGIR** — o que essa diferença diz sobre o arranjo de sustento das famílias do estado.
 
@@ -215,7 +231,8 @@ responsáveis pelo domicílio ou cônjuges, contra
 37,9% apenas de responsáveis — a diferença
 corresponde aos cônjuges desocupados.
 
-**Tabela 5** — Rendimento médio real habitualmente recebido em todos os
+
+**Tabela 8** — Rendimento médio real habitualmente recebido em todos os
 trabalhos, por recorte geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (R$) | IC 95% | CV (%) | Precisão |
@@ -237,10 +254,10 @@ trabalhos, por recorte geográfico — 2º trimestre de 2026
 | Estrato (7 dígitos) | maior: 2210013 | R$ 6.034 | [R$ 4.434; R$ 7.635] | 13,5 | boa |
 | Estrato (7 dígitos) | menor: 2252020 | R$ 1.113 | [R$ 986; R$ 1.239] | 5,8 | boa |
 
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-Nota: valores deflacionados para reais do último trimestre da série.
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria. Nota: valores deflacionados para reais do último trimestre da série.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 9** — Rendimento médio real habitualmente recebido em todos os
+trabalhos, diferença entre as categorias de cada recorte — 2º trimestre de 2026
 
 | Recorte | p-valor | p ajustado | Significativo a 5%? |
 |---|---:|---:|:---:|
@@ -250,13 +267,16 @@ Nota: valores deflacionados para reais do último trimestre da série.
 | Estrato (7 dígitos) | < 0,001 | < 0,001 | sim |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Rendimento médio habitual por recorte geográfico](./output/figuras/comp_geo_Rendimento_Medio_Habitual.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 4** — Rendimento médio real habitual por recorte geográfico —
 2º trimestre de 2026
 
-Ressalta-se que a média de rendimento  é sensível a valores muito altos e, em territórios pequenos, um punhado de rendimentos
-elevados desloca o resultado inteiro. A distribuição completa dos rendimentos
+![](./output/figuras/comp_geo_Rendimento_Medio_Habitual.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+Ressalta-se que a média de rendimento  é sensível a valores muito altos e, em territórios pequenos, um punhado de rendimentos elevados desloca o resultado inteiro. A distribuição completa dos rendimentos
 por estrato está no anexo metodológico, e é ela que revela se a média
 representa a maioria ou é puxada pela cauda.
 
@@ -273,7 +293,7 @@ estrato 2252021 e
 17,7% em
 estrato 2210012.
 
-**Tabela 6** — Sub-remuneração por hora trabalhada, por recorte geográfico —
+**Tabela 10** — Sub-remuneração por hora trabalhada, por recorte geográfico —
 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
@@ -297,7 +317,8 @@ estrato 2210012.
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 11** — Sub-remuneração por hora trabalhada, diferença entre as categorias de cada recorte —
+2º trimestre de 2026
 
 | Recorte | p-valor | p ajustado | Significativo a 5%? |
 |---|---:|---:|:---:|
@@ -307,10 +328,14 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | 0,089 | 0,098 | não |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Sub-remuneração por recorte geográfico](./output/figuras/comp_geo_Percentual_Subremuneracao.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 5** — Percentual de ocupados com rendimento-hora abaixo do salário
 mínimo horário — 2º trimestre de 2026
+
+![](./output/figuras/comp_geo_Percentual_Subremuneracao.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 > **A REDIGIR** — o que a distância entre esses dois extremos sugere sobre a estrutura produtiva dos territórios envolvidos.
 
@@ -325,7 +350,7 @@ Entre os estratos, a razão foi mais alta em estrato 2253020
 (3,63) e mais baixa em estrato 2253022
 (1,35).
 
-**Tabela 7** — Rendimento médio por situação de formalidade e razão
+**Tabela 12** — Rendimento médio por situação de formalidade e razão
 formal/informal, por recorte geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Formais (R$) | Informais (R$) | Razão | IC 95% da razão | CV (%) | Precisão |
@@ -354,13 +379,17 @@ razão não pode ser negativa, e o intervalo é construído na escala logarítmi
 antes de voltar à escala da razão. O anexo metodológico (§4.4) detalha o
 procedimento.
 
-![Rendimento no setor formal](./output/figuras/comp_geo_Rendimento_Formal.png)
-
 **Figura 6** — Rendimento médio dos ocupados formais — 2º trimestre de 2026
 
-![Rendimento no setor informal](./output/figuras/comp_geo_Rendimento_Informal.png)
+![](./output/figuras/comp_geo_Rendimento_Formal.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 7** — Rendimento médio dos ocupados informais — 2º trimestre de 2026
+
+![](./output/figuras/comp_geo_Rendimento_Informal.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 Vale contrastar com a capital: em Teresina a razão foi de
 2,12, a mais baixa entre os recortes agregados — não
@@ -390,7 +419,7 @@ estrato 2210012 a
 77,1% em
 estrato 2252021.
 
-**Tabela 8** — Taxa de informalidade, por recorte geográfico — 2º trimestre de 2026
+**Tabela 13** — Taxa de informalidade, por recorte geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
 |---|---|---:|:---:|---:|---|
@@ -413,7 +442,7 @@ estrato 2252021.
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 14** — Taxa de informalidade, diferença entre as categorias de cada recorte — 2º trimestre de 2026
 
 | Recorte | p-valor | p ajustado | Significativo a 5%? |
 |---|---:|---:|:---:|
@@ -423,9 +452,13 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | 0,145 | 0,155 | não |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Taxa de informalidade por recorte geográfico](./output/figuras/comp_geo_Taxa_Informalidade.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 8** — Taxa de informalidade por recorte geográfico — 2º trimestre de 2026
+
+![](./output/figuras/comp_geo_Taxa_Informalidade.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 O contraste entre zona urbana e rural tende a ser o mais acentuado deste
 indicador, e por razão estrutural: a produção agrícola familiar e o trabalho
@@ -442,7 +475,7 @@ atividade, não por escolha do trabalhador. Neste trimestre a diferença foi de
 27,5% em estrato 2251020
 e 7,8% em estrato 2253012.
 
-**Tabela 9** — Sub-ocupação por insuficiência de horas, por recorte geográfico
+**Tabela 15** — Sub-ocupação por insuficiência de horas, por recorte geográfico
 — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
@@ -466,7 +499,8 @@ e 7,8% em estrato 2253012.
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 16** — Sub-ocupação por insuficiência de horas, diferença entre as categorias de cada recorteo
+— 2º trimestre de 2026
 
 | Recorte | p-valor | p ajustado | Significativo a 5%? |
 |---|---:|---:|:---:|
@@ -476,11 +510,14 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | 0,108 | 0,118 | não |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Sub-ocupação por recorte geográfico](./output/figuras/comp_geo_Taxa_Subocupacao.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 9** — Percentual de ocupados subocupados por insuficiência de horas —
 2º trimestre de 2026
 
+![](./output/figuras/comp_geo_Taxa_Subocupacao.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 > **A REDIGIR** — relacionar a subocupação com a informalidade do mesmo território — jornada insuficiente e vínculo precário costumam andar juntos, mas nem sempre.
 
@@ -494,7 +531,8 @@ estrato 2254020 — uma diferença de
 escolaridade de quem *está ocupado*, não a da população. Um estrato pode
 aparecer com escolaridade alta simplesmente porque os menos escolarizados não
 encontraram trabalho, e não porque a população seja mais escolarizada.
-**Tabela 10** — Ocupados com ensino médio completo ou mais, por recorte
+
+**Tabela 17** — Ocupados com ensino médio completo ou mais, por recorte
 geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
@@ -518,7 +556,7 @@ geográfico — 2º trimestre de 2026
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 18** — Ocupados com ensino médio completo ou mais, diferença entre as categorias de cada recorte — 2º trimestre de 2026
 
 | Recorte | p-valor | p ajustado | Significativo a 5%? |
 |---|---:|---:|:---:|
@@ -528,10 +566,16 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | 0,036 | 0,044 | sim |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Ocupados com médio completo ou mais](./output/figuras/comp_geo_Proporcao_Ocupados_Escolarizados.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
 
 **Figura 10** — Percentual de ocupados com ensino médio completo ou mais —
 2º trimestre de 2026
+
+![](./output/figuras/comp_geo_Proporcao_Ocupados_Escolarizados.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
 
 ### 3.5 Desalento
 
@@ -545,7 +589,7 @@ força de trabalho, os desalentados foram
 
 #### 3.5.1 Percentual de desalentados
 
-**Tabela 11** — Desalentados na força de trabalho ampliada, por recorte
+**Tabela 19** — Desalentados na força de trabalho ampliada, por recorte
 geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
@@ -569,7 +613,8 @@ geográfico — 2º trimestre de 2026
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+
+**Tabela 20** — Desalentados na força de trabalho ampliada, diferença entre as categorias de cada recorte — 2º trimestre de 2026
 
 | Recorte | p-valor | p ajustado | Significativo a 5%? |
 |---|---:|---:|:---:|
@@ -579,17 +624,21 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | 0,662 | 0,671 | não |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Desalentados na força ampliada](./output/figuras/comp_geo_Desalentados_Forca_Ampliada.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 11** — Percentual de desalentados na força de trabalho ampliada —
 2º trimestre de 2026
 
-![Desalentados fora da força de trabalho](./output/figuras/comp_geo_Desalentados_Fora_Forca.png)
+![](./output/figuras/comp_geo_Desalentados_Forca_Ampliada.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+![](./output/figuras/comp_geo_Desalentados_Fora_Forca.png)
 
 **Figura 12** — Desalentados como percentual das pessoas fora da força de
 trabalho — 2º trimestre de 2026
 
-
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 A leitura conjunta com a taxa de desocupação é o que dá sentido ao indicador.
 
@@ -602,7 +651,7 @@ trabalhavam nem estudavam. A incidência variou de
 13,5% em estrato 2210012 a
 49,8% em estrato 2251022.
 
-**Tabela 12** — Jovens de 14 a 29 anos que não trabalham nem estudam, por
+**Tabela 21** — Jovens de 14 a 29 anos que não trabalham nem estudam, por
 recorte geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
@@ -626,7 +675,7 @@ recorte geográfico — 2º trimestre de 2026
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Diferença entre as categorias de cada recorte**
+**Tabela 22** — Jovens de 14 a 29 anos que não trabalham nem estudam, diferença entre as categorias de cada recorte — 2º trimestre de 2026
 
 | Recorte | p-valor | p ajustado | Significativo a 5%? |
 |---|---:|---:|:---:|
@@ -636,10 +685,14 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 | Estrato (7 dígitos) | 0,540 | 0,555 | não |
 | Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
 
-![Taxa de jovens nem-nem](./output/figuras/comp_geo_Taxa_Nem_Nem.png)
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 13** — Percentual de jovens de 14 a 29 anos que não trabalham nem
 estudam — 2º trimestre de 2026
+
+![](./output/figuras/comp_geo_Taxa_Nem_Nem.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 > **A REDIGIR** — o que a amplitude entre os estratos extremos significa para a próxima década de oferta de trabalho no estado.
 
@@ -654,74 +707,80 @@ normal que a maioria das células apareça com CV alto nos estratos mais finos, 
 elas devem ser lidas como indicativas, não conclusivas. Incluimos elas pois são importantissimos
 para distinguir quem desistiu de procurar emprego por baixar perspectivas de emprego na região, por obrigações domésticas ou por apenas desinteresse.
 
-![Motivo da desistência entre os desalentados](./output/figuras/comp_geo_Motivo_Desistencia_Desalentado.png)
-
 **Figura 14** — Motivo declarado da desistência, entre os desalentados —
 2º trimestre de 2026
 
-![Motivo de não procurar trabalho entre os nem-nem](./output/figuras/comp_geo_Motivo_Nao_Procura_NemNem.png)
+![](./output/figuras/comp_geo_Motivo_Desistencia_Desalentado.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 15** — Motivo de não ter procurado trabalho, entre os jovens nem-nem —
 2º trimestre de 2026
 
-![Motivo de não iniciar trabalho entre os nem-nem](./output/figuras/comp_geo_Motivo_Nao_Inicio_NemNem.png)
+![](./output/figuras/comp_geo_Motivo_Nao_Procura_NemNem.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Figura 16** — Motivo de não ter iniciado trabalho, entre os jovens nem-nem —
 2º trimestre de 2026
 
-**Tabela 13** — Motivo da desistência entre os desalentados, por recorte
+![](./output/figuras/comp_geo_Motivo_Nao_Inicio_NemNem.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela 23** — Motivo da desistência entre os desalentados, por recorte
 geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Motivo | Estimativa (%) | IC 95% | CV (%) | Precisão |
 |---|---|---|---:|:---:|---:|---|
-| Agregados | Brasil | Não havia trabalho na localidade | 55,8 | [53,8; 57,8] | 1,8 | excelente |
-| Agregados | Nordeste | Não havia trabalho na localidade | 67,5 | [65,2; 69,7] | 1,7 | excelente |
-| Agregados | Piauí | Não havia trabalho na localidade | 73,1 | [64,8; 81,5] | 5,8 | boa |
-| Agregados | Teresina | Não havia trabalho na localidade | 42,1 | [21,9; 62,3] | 24,5 | regular |
-| Zona | Urbana | Não havia trabalho na localidade | 54,9 | [36,9; 72,9] | 16,7 | regular |
-| Zona | Rural | Não havia trabalho na localidade | 84,6 | [78,2; 90,9] | 3,8 | excelente |
-| Administrativo | Capital | Não havia trabalho na localidade | 42,1 | [21,9; 62,3] | 24,5 | regular |
-| Administrativo | Resto da RIDE | Não havia trabalho na localidade | 57,4 | [0,9; 113,8] | 50,2 | baixa |
-| Administrativo | Resto da UF | Não havia trabalho na localidade | 74,6 | [66,1; 83,0] | 5,8 | boa |
-| Estrato agregado | Teresina | Não havia trabalho na localidade | 42,1 | [21,9; 62,3] | 24,5 | regular |
-| Estrato agregado | Entorno metropolitano | Não havia trabalho na localidade | 57,4 | [0,9; 113,8] | 50,2 | baixa |
-| Estrato agregado | Centro-Leste | Não havia trabalho na localidade | 79,7 | [70,5; 88,9] | 5,9 | boa |
-| Estrato agregado | Baixo Parnaíba | Não havia trabalho na localidade | 56,2 | [37,0; 75,4] | 17,5 | regular |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | Não havia trabalho na localidade | 85,7 | [72,4; 98,9] | 7,9 | boa |
-| Estrato (7 dígitos) | maior: 2220020 | Não havia trabalho na localidade | 100,0 | [100,0; 100,0] | 0,0 | excelente |
-| Estrato (7 dígitos) | menor: 2252022 | Não havia trabalho na localidade | 32,2 | [31,5; 32,9] | 1,2 | excelente |
-| Agregados | Brasil | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Agregados | Nordeste | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Agregados | Piauí | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Agregados | Teresina | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Zona | Urbana | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Zona | Rural | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Administrativo | Capital | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Administrativo | Resto da RIDE | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Administrativo | Resto da UF | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Estrato agregado | Teresina | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Estrato agregado | Entorno metropolitano | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Estrato agregado | Centro-Leste | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Estrato agregado | Baixo Parnaíba | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Estrato (7 dígitos) | maior: 2210011 | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Estrato (7 dígitos) | menor: 2254020 | Tinha que cuidar dos afazeres domésticos | 0,0 | [0,0; 0,0] | — | — |
-| Agregados | Brasil | Não conseguia trabalho adequado | 28,2 | [26,4; 30,0] | 3,2 | excelente |
-| Agregados | Nordeste | Não conseguia trabalho adequado | 23,2 | [21,1; 25,2] | 4,5 | excelente |
-| Agregados | Piauí | Não conseguia trabalho adequado | 21,8 | [13,5; 30,1] | 19,4 | regular |
-| Agregados | Teresina | Não conseguia trabalho adequado | 29,2 | [9,3; 49,1] | 34,7 | baixa |
-| Zona | Urbana | Não conseguia trabalho adequado | 37,1 | [19,0; 55,2] | 24,9 | regular |
-| Zona | Rural | Não conseguia trabalho adequado | 12,2 | [6,2; 18,2] | 25,1 | regular |
-| Administrativo | Capital | Não conseguia trabalho adequado | 29,2 | [9,3; 49,1] | 34,7 | baixa |
-| Administrativo | Resto da RIDE | Não conseguia trabalho adequado | 42,6 | [0,0; 99,1] | 67,6 | baixa |
-| Administrativo | Resto da UF | Não conseguia trabalho adequado | 20,9 | [12,6; 29,2] | 20,3 | regular |
-| Estrato agregado | Teresina | Não conseguia trabalho adequado | 29,2 | [9,3; 49,1] | 34,7 | baixa |
-| Estrato agregado | Entorno metropolitano | Não conseguia trabalho adequado | 42,6 | [0,0; 99,1] | 67,6 | baixa |
-| Estrato agregado | Centro-Leste | Não conseguia trabalho adequado | 18,3 | [9,4; 27,2] | 24,7 | regular |
-| Estrato agregado | Baixo Parnaíba | Não conseguia trabalho adequado | 34,5 | [13,8; 55,3] | 30,6 | baixa |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | Não conseguia trabalho adequado | 10,3 | [0,0; 21,2] | 53,5 | baixa |
-| Estrato (7 dígitos) | maior: 2252011 | Não conseguia trabalho adequado | 72,3 | [31,0; 113,7] | 29,1 | regular |
-| Estrato (7 dígitos) | menor: 2210020 | Não conseguia trabalho adequado | 65,9 | [31,2; 100,6] | 26,9 | regular |
+| Agregados | Brasil | Não havia trabalho na localidade | 55,8 | ( 53,8, 57,8 ) | 1,8 | excelente |
+| Agregados | Nordeste | Não havia trabalho na localidade | 67,5 | ( 65,2, 69,7 ) | 1,7 | excelente |
+| Agregados | Piauí | Não havia trabalho na localidade | 73,1 | ( 64,8, 81,5 ) | 5,8 | boa |
+| Agregados | Teresina | Não havia trabalho na localidade | 42,1 | ( 21,9, 62,3 ) | 24,5 | regular |
+| Zona | Urbana | Não havia trabalho na localidade | 54,9 | ( 36,9, 72,9 ) | 16,7 | regular |
+| Zona | Rural | Não havia trabalho na localidade | 84,6 | ( 78,2, 90,9 ) | 3,8 | excelente |
+| Administrativo | Capital | Não havia trabalho na localidade | 42,1 | ( 21,9, 62,3 ) | 24,5 | regular |
+| Administrativo | Resto da RIDE | Não havia trabalho na localidade | 57,4 | ( 0,9, 113,8 ) | 50,2 | baixa |
+| Administrativo | Resto da UF | Não havia trabalho na localidade | 74,6 | ( 66,1, 83,0 ) | 5,8 | boa |
+| Estrato agregado | Teresina | Não havia trabalho na localidade | 42,1 | ( 21,9, 62,3 ) | 24,5 | regular |
+| Estrato agregado | Entorno metropolitano | Não havia trabalho na localidade | 57,4 | ( 0,9, 113,8 ) | 50,2 | baixa |
+| Estrato agregado | Centro-Leste | Não havia trabalho na localidade | 79,7 | ( 70,5, 88,9 ) | 5,9 | boa |
+| Estrato agregado | Baixo Parnaíba | Não havia trabalho na localidade | 56,2 | ( 37,0, 75,4 ) | 17,5 | regular |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | Não havia trabalho na localidade | 85,7 | ( 72,4, 98,9 ) | 7,9 | boa |
+| Estrato (7 dígitos) | maior: 2220020 | Não havia trabalho na localidade | 100,0 | ( 100,0, 100,0 ) | 0,0 | excelente |
+| Estrato (7 dígitos) | menor: 2252022 | Não havia trabalho na localidade | 32,2 | ( 31,5, 32,9 ) | 1,2 | excelente |
+| Agregados | Brasil | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Agregados | Nordeste | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Agregados | Piauí | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Agregados | Teresina | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Zona | Urbana | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Zona | Rural | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Administrativo | Capital | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Administrativo | Resto da RIDE | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Administrativo | Resto da UF | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Estrato agregado | Teresina | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Estrato agregado | Entorno metropolitano | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Estrato agregado | Centro-Leste | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Estrato agregado | Baixo Parnaíba | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Estrato (7 dígitos) | maior: 2210011 | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Estrato (7 dígitos) | menor: 2254020 | Tinha que cuidar dos afazeres domésticos | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Agregados | Brasil | Não conseguia trabalho adequado | 28,2 | ( 26,4, 30,0 ) | 3,2 | excelente |
+| Agregados | Nordeste | Não conseguia trabalho adequado | 23,2 | ( 21,1, 25,2 ) | 4,5 | excelente |
+| Agregados | Piauí | Não conseguia trabalho adequado | 21,8 | ( 13,5, 30,1 ) | 19,4 | regular |
+| Agregados | Teresina | Não conseguia trabalho adequado | 29,2 | ( 9,3, 49,1 ) | 34,7 | baixa |
+| Zona | Urbana | Não conseguia trabalho adequado | 37,1 | ( 19,0, 55,2 ) | 24,9 | regular |
+| Zona | Rural | Não conseguia trabalho adequado | 12,2 | ( 6,2, 18,2 ) | 25,1 | regular |
+| Administrativo | Capital | Não conseguia trabalho adequado | 29,2 | ( 9,3, 49,1 ) | 34,7 | baixa |
+| Administrativo | Resto da RIDE | Não conseguia trabalho adequado | 42,6 | ( 0,0, 99,1 ) | 67,6 | baixa |
+| Administrativo | Resto da UF | Não conseguia trabalho adequado | 20,9 | ( 12,6, 29,2 ) | 20,3 | regular |
+| Estrato agregado | Teresina | Não conseguia trabalho adequado | 29,2 | ( 9,3, 49,1 ) | 34,7 | baixa |
+| Estrato agregado | Entorno metropolitano | Não conseguia trabalho adequado | 42,6 | ( 0,0, 99,1 ) | 67,6 | baixa |
+| Estrato agregado | Centro-Leste | Não conseguia trabalho adequado | 18,3 | ( 9,4, 27,2 ) | 24,7 | regular |
+| Estrato agregado | Baixo Parnaíba | Não conseguia trabalho adequado | 34,5 | ( 13,8, 55,3 ) | 30,6 | baixa |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | Não conseguia trabalho adequado | 10,3 | ( 0,0, 21,2 ) | 53,5 | baixa |
+| Estrato (7 dígitos) | maior: 2252011 | Não conseguia trabalho adequado | 72,3 | ( 31,0, 113,7 ) | 29,1 | regular |
+| Estrato (7 dígitos) | menor: 2210020 | Não conseguia trabalho adequado | 65,9 | ( 31,2, 100,6 ) | 26,9 | regular |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 Nota: mostra apenas as categorias "Não havia trabalho na localidade", "Tinha
@@ -731,72 +790,72 @@ categorias de V4074A não entram nesta tabela.
 
 > **A REDIGIR** — comparar o peso das três categorias entre os territórios — "não havia trabalho na localidade" e "não conseguia trabalho adequado" são causas do lado da oferta (falta de vaga, ou vaga incompatível), enquanto "tinha que cuidar dos afazeres domésticos" é do lado da demanda por cuidado; são diagnósticos que pedem políticas diferentes.
 
-**Tabela 14** — Distribuição dos motivos declarados, jovens que não procuraram
+**Tabela 24** — Distribuição dos motivos declarados, jovens que não procuraram
 trabalho — 2º trimestre de 2026
 
 | Motivo declarado | Participação (%) | IC 95% | CV (%) | Precisão |
 |---|---:|:---:|---:|---|
-| Tinha que cuidar dos afazeres domésticos, do(s) filho(s) ou de outro(s) parente(s) | 43,2 | [37,6; 48,9] | 6,7 | boa |
-| Por problema de saúde ou gravidez | 18,5 | [14,7; 22,3] | 10,5 | boa |
-| Estava estudando | 6,9 | [4,7; 9,0] | 16,0 | regular |
+| Tinha que cuidar dos afazeres domésticos, do(s) filho(s) ou de outro(s) parente(s) | 43,2 | [ 37,6, 48,9 ) | 6,7 | boa |
+| Por problema de saúde ou gravidez | 18,5 | [ 14,7, 22,3 ) | 10,5 | boa |
+| Estava estudando | 6,9 | [ 4,7, 9,0 ) | 16,0 | regular |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 > **A REDIGIR** — nomear o motivo mais frequente da tabela acima e dizer que política pública ele aponta — falta de vaga pede uma coisa, incompatibilidade de qualificação pede outra.
 
-**Tabela 15** — Motivo de não ter iniciado trabalho entre os jovens nem-nem,
+**Tabela 25** — Motivo de não ter iniciado trabalho entre os jovens nem-nem,
 por recorte geográfico — 2º trimestre de 2026
 
 | Recorte | Categoria | Motivo | Estimativa (%) | IC 95% | CV (%) | Precisão |
 |---|---|---|---:|:---:|---:|---|
-| Agregados | Brasil | Por não querer trabalhar | 13,7 | [12,8; 14,6] | 3,3 | excelente |
-| Agregados | Nordeste | Por não querer trabalhar | 12,3 | [10,9; 13,7] | 5,7 | boa |
-| Agregados | Piauí | Por não querer trabalhar | 7,6 | [4,2; 11,0] | 22,8 | regular |
-| Agregados | Teresina | Por não querer trabalhar | 4,7 | [0,0; 11,8] | 77,7 | baixa |
-| Zona | Urbana | Por não querer trabalhar | 8,0 | [3,4; 12,5] | 29,1 | regular |
-| Zona | Rural | Por não querer trabalhar | 6,9 | [2,5; 11,4] | 32,7 | baixa |
-| Administrativo | Capital | Por não querer trabalhar | 4,7 | [0,0; 11,8] | 77,7 | baixa |
-| Administrativo | Resto da RIDE | Por não querer trabalhar | 11,4 | [0,5; 22,2] | 48,8 | baixa |
-| Administrativo | Resto da UF | Por não querer trabalhar | 8,1 | [4,2; 12,1] | 24,9 | regular |
-| Estrato agregado | Teresina | Por não querer trabalhar | 4,7 | [0,0; 11,8] | 77,7 | baixa |
-| Estrato agregado | Entorno metropolitano | Por não querer trabalhar | 11,4 | [0,5; 22,2] | 48,8 | baixa |
-| Estrato agregado | Centro-Leste | Por não querer trabalhar | 10,0 | [2,1; 17,9] | 40,3 | baixa |
-| Estrato agregado | Baixo Parnaíba | Por não querer trabalhar | 6,6 | [1,4; 11,7] | 40,2 | baixa |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | Por não querer trabalhar | 8,7 | [0,0; 19,9] | 66,1 | baixa |
-| Estrato (7 dígitos) | maior: 2210013 | Por não querer trabalhar | 60,6 | [0,0; 136,1] | 63,5 | baixa |
-| Estrato (7 dígitos) | menor: 2254020 | Por não querer trabalhar | 0,0 | [0,0; 0,0] | — | — |
-| Agregados | Brasil | Tinha que cuidar dos afazeres domésticos | 47,3 | [46,1; 48,4] | 1,2 | excelente |
-| Agregados | Nordeste | Tinha que cuidar dos afazeres domésticos | 51,4 | [49,7; 53,2] | 1,8 | excelente |
-| Agregados | Piauí | Tinha que cuidar dos afazeres domésticos | 56,5 | [49,9; 63,1] | 6,0 | boa |
-| Agregados | Teresina | Tinha que cuidar dos afazeres domésticos | 49,6 | [39,2; 60,0] | 10,7 | boa |
-| Zona | Urbana | Tinha que cuidar dos afazeres domésticos | 52,2 | [44,2; 60,2] | 7,8 | boa |
-| Zona | Rural | Tinha que cuidar dos afazeres domésticos | 63,5 | [52,2; 74,8] | 9,1 | boa |
-| Administrativo | Capital | Tinha que cuidar dos afazeres domésticos | 49,6 | [39,2; 60,0] | 10,7 | boa |
-| Administrativo | Resto da RIDE | Tinha que cuidar dos afazeres domésticos | 60,3 | [39,4; 81,2] | 17,7 | regular |
-| Administrativo | Resto da UF | Tinha que cuidar dos afazeres domésticos | 58,4 | [49,8; 66,9] | 7,5 | boa |
-| Estrato agregado | Teresina | Tinha que cuidar dos afazeres domésticos | 49,6 | [39,2; 60,0] | 10,7 | boa |
-| Estrato agregado | Entorno metropolitano | Tinha que cuidar dos afazeres domésticos | 60,3 | [39,4; 81,2] | 17,7 | regular |
-| Estrato agregado | Centro-Leste | Tinha que cuidar dos afazeres domésticos | 51,6 | [36,8; 66,4] | 14,6 | boa |
-| Estrato agregado | Baixo Parnaíba | Tinha que cuidar dos afazeres domésticos | 57,0 | [43,8; 70,2] | 11,8 | boa |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | Tinha que cuidar dos afazeres domésticos | 69,8 | [55,3; 84,3] | 10,6 | boa |
-| Estrato (7 dígitos) | maior: 2251022 | Tinha que cuidar dos afazeres domésticos | 100,0 | [100,0; 100,0] | 0,0 | excelente |
-| Estrato (7 dígitos) | menor: 2252011 | Tinha que cuidar dos afazeres domésticos | 50,5 | [26,1; 74,8] | 24,6 | regular |
-| Agregados | Brasil | Por problema de saúde ou gravidez | 20,5 | [19,4; 21,5] | 2,7 | excelente |
-| Agregados | Nordeste | Por problema de saúde ou gravidez | 20,1 | [18,9; 21,4] | 3,1 | excelente |
-| Agregados | Piauí | Por problema de saúde ou gravidez | 26,3 | [21,1; 31,4] | 10,0 | boa |
-| Agregados | Teresina | Por problema de saúde ou gravidez | 20,6 | [13,1; 28,1] | 18,6 | regular |
-| Zona | Urbana | Por problema de saúde ou gravidez | 26,5 | [20,0; 33,0] | 12,5 | boa |
-| Zona | Rural | Por problema de saúde ou gravidez | 25,8 | [17,1; 34,6] | 17,3 | regular |
-| Administrativo | Capital | Por problema de saúde ou gravidez | 20,6 | [13,1; 28,1] | 18,6 | regular |
-| Administrativo | Resto da RIDE | Por problema de saúde ou gravidez | 20,1 | [4,9; 35,2] | 38,5 | baixa |
-| Administrativo | Resto da UF | Por problema de saúde ou gravidez | 28,6 | [22,0; 35,2] | 11,8 | boa |
-| Estrato agregado | Teresina | Por problema de saúde ou gravidez | 20,6 | [13,1; 28,1] | 18,6 | regular |
-| Estrato agregado | Entorno metropolitano | Por problema de saúde ou gravidez | 20,1 | [4,9; 35,2] | 38,5 | baixa |
-| Estrato agregado | Centro-Leste | Por problema de saúde ou gravidez | 34,7 | [22,8; 46,6] | 17,5 | regular |
-| Estrato agregado | Baixo Parnaíba | Por problema de saúde ou gravidez | 30,9 | [19,4; 42,3] | 19,0 | regular |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | Por problema de saúde ou gravidez | 16,4 | [4,8; 28,0] | 36,0 | baixa |
-| Estrato (7 dígitos) | maior: 2252011 | Por problema de saúde ou gravidez | 46,4 | [22,0; 70,8] | 26,8 | regular |
-| Estrato (7 dígitos) | menor: 2210011 | Por problema de saúde ou gravidez | 20,9 | [10,7; 31,2] | 25,0 | regular |
+| Agregados | Brasil | Por não querer trabalhar | 13,7 | ( 12,8, 14,6 ) | 3,3 | excelente |
+| Agregados | Nordeste | Por não querer trabalhar | 12,3 | ( 10,9, 13,7 ) | 5,7 | boa |
+| Agregados | Piauí | Por não querer trabalhar | 7,6 | ( 4,2, 11,0 ) | 22,8 | regular |
+| Agregados | Teresina | Por não querer trabalhar | 4,7 | ( 0,0, 11,8 ) | 77,7 | baixa |
+| Zona | Urbana | Por não querer trabalhar | 8,0 | ( 3,4, 12,5 ) | 29,1 | regular |
+| Zona | Rural | Por não querer trabalhar | 6,9 | ( 2,5, 11,4 ) | 32,7 | baixa |
+| Administrativo | Capital | Por não querer trabalhar | 4,7 | ( 0,0, 11,8 ) | 77,7 | baixa |
+| Administrativo | Resto da RIDE | Por não querer trabalhar | 11,4 | ( 0,5, 22,2 ) | 48,8 | baixa |
+| Administrativo | Resto da UF | Por não querer trabalhar | 8,1 | ( 4,2, 12,1 ) | 24,9 | regular |
+| Estrato agregado | Teresina | Por não querer trabalhar | 4,7 | ( 0,0, 11,8 ) | 77,7 | baixa |
+| Estrato agregado | Entorno metropolitano | Por não querer trabalhar | 11,4 | ( 0,5, 22,2 ) | 48,8 | baixa |
+| Estrato agregado | Centro-Leste | Por não querer trabalhar | 10,0 | ( 2,1, 17,9 ) | 40,3 | baixa |
+| Estrato agregado | Baixo Parnaíba | Por não querer trabalhar | 6,6 | ( 1,4, 11,7 ) | 40,2 | baixa |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | Por não querer trabalhar | 8,7 | ( 0,0, 19,9 ) | 66,1 | baixa |
+| Estrato (7 dígitos) | maior: 2210013 | Por não querer trabalhar | 60,6 | ( 0,0, 136,1 ) | 63,5 | baixa |
+| Estrato (7 dígitos) | menor: 2254020 | Por não querer trabalhar | 0,0 | ( 0,0, 0,0 ) | — | — |
+| Agregados | Brasil | Tinha que cuidar dos afazeres domésticos | 47,3 | ( 46,1, 48,4 ) | 1,2 | excelente |
+| Agregados | Nordeste | Tinha que cuidar dos afazeres domésticos | 51,4 | ( 49,7, 53,2 ) | 1,8 | excelente |
+| Agregados | Piauí | Tinha que cuidar dos afazeres domésticos | 56,5 | ( 49,9, 63,1 ) | 6,0 | boa |
+| Agregados | Teresina | Tinha que cuidar dos afazeres domésticos | 49,6 | ( 39,2, 60,0 ) | 10,7 | boa |
+| Zona | Urbana | Tinha que cuidar dos afazeres domésticos | 52,2 | ( 44,2, 60,2 ) | 7,8 | boa |
+| Zona | Rural | Tinha que cuidar dos afazeres domésticos | 63,5 | ( 52,2, 74,8 ) | 9,1 | boa |
+| Administrativo | Capital | Tinha que cuidar dos afazeres domésticos | 49,6 | ( 39,2, 60,0 ) | 10,7 | boa |
+| Administrativo | Resto da RIDE | Tinha que cuidar dos afazeres domésticos | 60,3 | ( 39,4, 81,2 ) | 17,7 | regular |
+| Administrativo | Resto da UF | Tinha que cuidar dos afazeres domésticos | 58,4 | ( 49,8, 66,9 ) | 7,5 | boa |
+| Estrato agregado | Teresina | Tinha que cuidar dos afazeres domésticos | 49,6 | ( 39,2, 60,0 ) | 10,7 | boa |
+| Estrato agregado | Entorno metropolitano | Tinha que cuidar dos afazeres domésticos | 60,3 | ( 39,4, 81,2 ) | 17,7 | regular |
+| Estrato agregado | Centro-Leste | Tinha que cuidar dos afazeres domésticos | 51,6 | ( 36,8, 66,4 ) | 14,6 | boa |
+| Estrato agregado | Baixo Parnaíba | Tinha que cuidar dos afazeres domésticos | 57,0 | ( 43,8, 70,2 ) | 11,8 | boa |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | Tinha que cuidar dos afazeres domésticos | 69,8 | ( 55,3, 84,3 ) | 10,6 | boa |
+| Estrato (7 dígitos) | maior: 2251022 | Tinha que cuidar dos afazeres domésticos | 100,0 | ( 100,0, 100,0 ) | 0,0 | excelente |
+| Estrato (7 dígitos) | menor: 2252011 | Tinha que cuidar dos afazeres domésticos | 50,5 | ( 26,1, 74,8 ) | 24,6 | regular |
+| Agregados | Brasil | Por problema de saúde ou gravidez | 20,5 | ( 19,4, 21,5 ) | 2,7 | excelente |
+| Agregados | Nordeste | Por problema de saúde ou gravidez | 20,1 | ( 18,9, 21,4 ) | 3,1 | excelente |
+| Agregados | Piauí | Por problema de saúde ou gravidez | 26,3 | ( 21,1, 31,4 ) | 10,0 | boa |
+| Agregados | Teresina | Por problema de saúde ou gravidez | 20,6 | ( 13,1, 28,1 ) | 18,6 | regular |
+| Zona | Urbana | Por problema de saúde ou gravidez | 26,5 | ( 20,0, 33,0 ) | 12,5 | boa |
+| Zona | Rural | Por problema de saúde ou gravidez | 25,8 | ( 17,1, 34,6 ) | 17,3 | regular |
+| Administrativo | Capital | Por problema de saúde ou gravidez | 20,6 | ( 13,1, 28,1 ) | 18,6 | regular |
+| Administrativo | Resto da RIDE | Por problema de saúde ou gravidez | 20,1 | ( 4,9, 35,2 ) | 38,5 | baixa |
+| Administrativo | Resto da UF | Por problema de saúde ou gravidez | 28,6 | ( 22,0, 35,2 ) | 11,8 | boa |
+| Estrato agregado | Teresina | Por problema de saúde ou gravidez | 20,6 | ( 13,1, 28,1 ) | 18,6 | regular |
+| Estrato agregado | Entorno metropolitano | Por problema de saúde ou gravidez | 20,1 | ( 4,9, 35,2 ) | 38,5 | baixa |
+| Estrato agregado | Centro-Leste | Por problema de saúde ou gravidez | 34,7 | ( 22,8, 46,6 ) | 17,5 | regular |
+| Estrato agregado | Baixo Parnaíba | Por problema de saúde ou gravidez | 30,9 | ( 19,4, 42,3 ) | 19,0 | regular |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | Por problema de saúde ou gravidez | 16,4 | ( 4,8, 28,0 ) | 36,0 | baixa |
+| Estrato (7 dígitos) | maior: 2252011 | Por problema de saúde ou gravidez | 46,4 | ( 22,0, 70,8 ) | 26,8 | regular |
+| Estrato (7 dígitos) | menor: 2210011 | Por problema de saúde ou gravidez | 20,9 | ( 10,7, 31,2 ) | 25,0 | regular |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 Nota: mostra apenas as categorias "Por não querer trabalhar", "Tinha que
@@ -813,7 +872,7 @@ longo da seção. A pergunta que ela responde é: para cada indicador, quais
 recortes territoriais produzem diferenças que não se explicam por acaso
 amostral?
 
-**Tabela 16** — Testes de diferença entre categorias, por indicador e recorte
+**Tabela 26** — Testes de diferença entre categorias, por indicador e recorte
 geográfico — 2º trimestre de 2026
 
 | Indicador | Zona | Estrato administrativo | Estrato agregado | Estrato (7 díg.) | Teresina × resto |
@@ -860,12 +919,14 @@ deve se apoiar nos intervalos de confiança das tabelas anteriores, não em
 teste de hipótese. Onde o teste se sustenta no recorte fino, ele é conservador:
 apenas rendimento médio e escolaridade dos ocupados discriminam entre os 26
 estratos.
-Fonte: `output/tabelas/anova_regional_2026T2.csv`. Elaboração própria.
-
-![ANOVA regional](./output/figuras/anova_regional_2026T2.png)
 
 **Figura 17** — p-valores dos testes de diferença entre categorias, por
 indicador e recorte regional — 2º trimestre de 2026
+
+![](./output/figuras/anova_regional_2026T2.png)
+
+Fonte: `output/tabelas/anova_regional_2026T2.csv`. Elaboração própria.
+
 
 > **A REDIGIR** — dizer quantos testes regionais foram realizados, quantos deram significativos pelo p-valor bruto e quantos sobreviveram ao ajuste (os três números saem no console ao rodar o pipeline), e indicar quais recortes discriminam mais e quais indicadores são mais homogêneos no território.
 
