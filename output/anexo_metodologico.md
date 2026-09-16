@@ -341,6 +341,73 @@ ordem (razão de razões) que o arranjo atual não produz. As diferenças de
 desigualdade entre territórios devem, por ora, ser lidas pela sobreposição dos
 intervalos de confiança, e não por teste formal.
 
+### 4.5 Mercado de trabalho, composição da população em idade de trabalhar e desigualdade
+
+Acrescentados em set/2026 para a triagem de confiabilidade. As definições
+seguem o IBGE (Notas metodológicas da PNAD Contínua) e foram **conferidas
+contra os valores publicados no SIDRA** para o Piauí de 3ºT/2022 a 2ºT/2026:
+592 de 592 comparações dentro do arredondamento oficial (1 mil pessoas;
+0,1 p.p.). Script: `scripts_teste/validacao_sidra.R`; resultado:
+`output/tabelas/validacao_sidra.csv`. Código: `R/derivar_variaveis.R` e
+`R/indicadores.R`.
+
+Cada condição vira um indicador $\{0,1\}$ ao nível da pessoa, com ausência
+tratada como 0 e universo explícito, e é estimada pelo desenho replicado:
+contagens por $\hat{Y} = \sum_i w_i y_i$ (equação 1), taxas pela razão de
+totais (seção 4.2).
+
+**Quadro 4.5 — Definições operacionais**
+
+| Indicador | Definição (variáveis da PNADC) | Referência SIDRA |
+|---|---|---|
+| Pessoas em idade de trabalhar (PIT) | $\text{pit}_i = \mathbb{1}[V2009_i \ge 14]$ | 4093, v1641 |
+| Pessoas na força de trabalho | $\text{ft}_i = \mathbb{1}[VD4001_i = \text{na força}]$ | 4093, v4088 |
+| Pessoas fora da força de trabalho | $\mathbb{1}[VD4001_i = \text{fora da força}]$ | 4093, v4094 |
+| Pessoas ocupadas | $\text{ocup}_i = \mathbb{1}[VD4002_i = \text{ocupadas}]$ | 4093, v4090 |
+| Pessoas desocupadas | $\text{desocup}_i = \mathbb{1}[VD4002_i = \text{desocupadas}]$ | 4093, v4092 |
+| Empregados no setor privado | $VD4009 \in$ {privado com carteira, privado sem carteira} — exclusive trabalhador doméstico | 4097, cat. 31721 |
+| Empregados no setor público | $VD4009 \in$ {público com carteira, público sem carteira, militar e servidor estatutário} | 4097, cat. 31727 |
+| Ocupados na agropecuária | $\text{ocup}_i = 1$ e $VD4010$ = agricultura, pecuária, produção florestal, pesca e aquicultura (todas as posições na ocupação) | 5434, cat. 47947 |
+| Pessoas subutilizadas | $\text{subutil}_i = \text{desocup}_i + \text{subocup}_i + \text{ftp}_i$, com subocupação por insuficiência de horas ($VD4004A$) e força de trabalho potencial ($VD4003$) | 4100, cat. 40286 |
+| Nível da ocupação | $\hat{Y}_{\text{ocup}} / \hat{Y}_{\text{pit}}$ | 4093, v4097 |
+| Taxa de participação | $\hat{Y}_{\text{ft}} / \hat{Y}_{\text{pit}}$ | 4093, v4096 |
+| Taxa de desocupação | $\hat{Y}_{\text{desocup}} / \hat{Y}_{\text{ft}}$ | 4093, v4099 |
+| Taxa composta de subutilização | $\hat{Y}_{\text{subutil}} / (\hat{Y}_{\text{ft}} + \hat{Y}_{\text{ftp}})$ | 4099, v4118 |
+| PIT por sexo, cor ou raça, idade e instrução | total e distribuição da PIT por $V2007$; $V2010$ (sem "Ignorado"); grupos de idade 14–17, 18–24, 25–39, 40–59, 60+ **e** 14–29, 30–64, 65+; $VD3004$ em 7 níveis **e** agregado em 2 | 4093, 6402, 4094, 4095 (só as versões SIDRA têm referência oficial) |
+
+As três parcelas da subutilização são disjuntas por construção — o
+subocupado é ocupado, o desocupado está na força de trabalho sem ocupação e a
+força de trabalho potencial está fora dela —, de modo que a soma não conta
+ninguém duas vezes. As identidades $\text{ft} + \text{fora} = \text{pit}$ e
+$\text{ocup} + \text{desocup} = \text{ft}$ são verificadas a cada trimestre
+(`output/tabelas/validacao_checagens_internas.csv`).
+
+**Índice de Gini do rendimento habitual do trabalho.** Calculado entre os
+ocupados com rendimento habitual de todos os trabalhos positivo
+($VD4019 > 0$), pela função `svygini` do pacote `convey` (PESSOA et al., 2024),
+que usa o estimador ponderado
+
+$$
+\hat{G} \;=\; \frac{\sum_i (2C_i - 1)\, w_i x_i}{\hat{N}\,\hat{T}} - 1,
+$$
+
+com as observações em ordem crescente de $x$, $C_i$ o peso acumulado,
+$\hat{N} = \sum w_i$ e $\hat{T} = \sum w_i x_i$; a variância vem das réplicas
+bootstrap, como para os demais indicadores. Usa-se o rendimento nominal: o
+Gini é invariante à escala, e o deflator é uma constante dentro do trimestre.
+O SIDRA não publica Gini trimestral do rendimento do trabalho; a conferência
+foi feita contra uma implementação independente pela diferença média absoluta
+ponderada, $\sum_i\sum_j w_i w_j |x_i - x_j| / (2\hat{N}^2\bar{x})$, que
+difere do estimador acima exatamente por
+$\sum_i w_i(w_i - 1)x_i / (\hat{N}\hat{T})$ (cerca de $4\times10^{-4}$ no
+Piauí, duas ordens de grandeza abaixo do erro padrão). Somado esse termo, os
+dois cálculos coincidem nos 16 trimestres (`output/tabelas/validacao_gini.csv`).
+
+Totais, distribuições da PIT e o Gini ficam **fora das baterias de teste de
+significância** (seção 6): não há hipótese de igualdade de totais que faça
+sentido entre recortes de tamanhos diferentes, e o Gini não se ajusta por
+`svyglm`.
+
 ---
 
 ## 5 PRECISÃO DAS ESTIMATIVAS
@@ -1213,6 +1280,10 @@ John Wiley & Sons, 2010.
 
 NEYMAN, Jerzy. On the two different aspects of the representative method.
 **Journal of the Royal Statistical Society**, v. 97, n. 4, p. 558-625, 1934.
+
+PESSOA, Djalma; JACOB, Guilherme; DAMICO, Anthony. **convey**: income
+concentration analysis with complex survey samples. R package version 1.0.1.
+[S. l.]: CRAN, 2024. Disponível em: https://CRAN.R-project.org/package=convey.
 
 PESSOA, Djalma G. C.; SILVA, Pedro L. N. **Análise de dados amostrais
 complexos**. São Paulo: Associação Brasileira de Estatística, 1998.

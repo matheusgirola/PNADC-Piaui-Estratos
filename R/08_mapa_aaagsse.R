@@ -195,13 +195,18 @@ figura <- (p_admin | p_geo | p_sit) / (p_est | p_full | p_ter) +
       "(mínimo de 60 domicílios rurais / 90 urbanos por UPA; estratificação ótima da renda ",
       "do responsável com no mínimo 150 UPAs por estrato).\n",
       "O número de estratos por célula confere com o crosswalk oficial da PNADC em 13 de 13 casos."),
-    theme = theme(plot.title = element_text(face = "bold", size = 14),
-                  plot.subtitle = element_text(size = 8.5, colour = "grey30"),
-                  plot.margin = margin(10, 10, 10, 10))
+    theme = theme(plot.title = element_text(face = "bold", size = 14, hjust = 0.5),
+                  plot.subtitle = element_text(size = 8.5, colour = "grey30", hjust = 0.5),
+                  plot.margin = margin(20, 10, 20, 10))
   )
 
 ggsave("output/figuras/mapa_aaagsse_piaui.png", figura,
        width = 16, height = 12, dpi = 150, bg = "white")
+
+figura <- (p_admin | p_geo | p_sit) / (p_est | p_full | p_ter) 
+
+ggsave("output/figuras/mapa_aaagsse_piaui_semtitulo.png", figura,
+       width = 10, height = 12, dpi = 300, bg = "white")
 
 for (nm in c("admin", "geo", "sit", "est", "full", "ter")) {
   ggsave(sprintf("output/figuras/mapa_aaagsse_%s.png", nm),

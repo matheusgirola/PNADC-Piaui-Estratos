@@ -29,93 +29,16 @@ library(ggplot2)
 # R/00_config.R — e SÓ nele; o 03_comparacoes_indicadores.R lê o mesmo arquivo.
 
 source("R/00_config.R")
+source("R/derivar_variaveis.R", encoding = "UTF-8")
 
 # ---- 2. Download e variáveis derivadas --------------------------------------
 
 message("Baixando PNADC ", sufixo, "...")
 dados_brutos <- get_pnadc(year = ANO_REF, quarter = TRIMESTRE_REF, deflator = TRUE)
 
-dados_brutos[["variables"]] <- dados_brutos[["variables"]] %>%
-  mutate(
-    Regiao = ifelse(
-      UF %in% c("Piauí", "Maranhão", "Ceará", "Rio Grande do Norte", "Paraíba",
-                "Pernambuco", "Bahia", "Alagoas", "Sergipe"),
-      "Nordeste", "Resto do Brasil"
-    ),
-    
-    Estrato_agregado = factor(case_match(as.integer(Estrato),
-                                         2210011:2210030 ~ "Teresina",
-                                         2220010:2220020 ~ "Entorno metropolitano de Teresina (PI)",
-                                         2251011:2251022 ~ "Centro-Leste do Piauí",
-                                         2252011:2252022 ~ "Baixo Parnaíba do Piauí",
-                                         2253010:2254020 ~ "Alto Parnaíba e Chapadas Sul do Piauí",
-                                         .default = NA_character_
-    )),
-    
-    Zona          = factor(V1022, labels = c("Urbana", "Rural")),
-    Estrato_Admin = V1023,
-    
-    Sexo                   = factor(V2007, labels = c("Masculino", "Feminino")),
-    Raca                   = V2010,
-    Faixa_Etaria_trabalho  = case_match(V2009,
-                                        14:29   ~ "Jovens",
-                                        30:64   ~ "Adulto",
-                                        65:130  ~ "Idoso",
-                                        .default = NA_character_
-    ),
-    Instrucao = factor(case_when(
-      VD3004 %in% c("Sem instrução e menos de 1 ano de estudo",
-                    "Fundamental incompleto ou equivalente",
-                    "Fundamental completo ou equivalente") ~ "Até fundamental completo",
-      !is.na(VD3004) ~ "Acima de fundamental completo",
-      TRUE ~ NA_character_
-    )),
-    
-    formal_setor_privado = factor(case_match(VD4009,
-                                             "Empregado no setor privado com carteira de trabalho assinada" ~ "Com carteira",
-                                             "Empregado no setor privado sem carteira de trabalho assinada" ~ "Sem carteira"
-    )),
-    
-    medio_completo_ou_mais = factor(case_match(VD3004,
-                                               c("Médio completo ou equivalente", "Superior incompleto ou equivalente",
-                                                 "Superior completo") ~ 1,
-                                               .default = 0
-    )),
-    
-    ft_ou_desalentada = as.numeric(
-      (!is.na(VD4001) & VD4001 == "Pessoas na força de trabalho") |
-        (!is.na(VD4005) & VD4005 == "Pessoas desalentadas")
-    ),
-    
-    valor_hora      = VD4019 / (5 * VD4031),
-    subremuneracao  = as.numeric(valor_hora < sm_hora_corrente),
-    VD4019_real     = VD4019 * Habitual,
-    
-    informal = as.numeric(
-      (!is.na(VD4009) & VD4009 == "Empregado no setor privado sem carteira de trabalho assinada") |
-        (!is.na(VD4009) & VD4009 == "Trabalhador doméstico sem carteira de trabalho assinada") |
-        (!is.na(VD4009) & VD4009 == "Trabalhador familiar auxiliar") |
-        ((!is.na(VD4009) & VD4009 == "Empregador") & (!is.na(V4019) & V4019 == "Não")) |
-        ((!is.na(VD4009) & VD4009 == "Conta-própria") & (!is.na(V4019) & V4019 == "Não"))
-    ),
-    
-    nem_nem = as.numeric(
-      (V2009 >= 14 & V2009 <= 29) &
-        (!is.na(V3002) & V3002 == "Não") &
-        (is.na(VD4002) | VD4002 != "Pessoas ocupadas")
-    ),
-    
-    Setor_AdminPublica = factor(case_when(
-      is.na(VD4010) ~ NA_character_,
-      VD4010 == "Administração pública, defesa e seguridade social" ~ "Administração pública",
-      TRUE ~ "Exceto administração pública"
-    )),
-    
-    contribuinte_renda_domicilio =  as.numeric(
-      (!is.na(VD2002) & VD2002 == "Pessoa responsável") |
-        (!is.na(VD2002) & VD2002 == "Cônjuge ou companheiro(a)")
-    )
-  )
+# Variáveis derivadas: R/derivar_variaveis.R (fonte única, também usada na
+# validação contra o SIDRA). Já devolve o desenho com convey_prep() aplicado.
+dados_brutos <- derivar_variaveis(dados_brutos, sm_hora = sm_hora_corrente)
 
 design_trimestre <- dados_brutos
 design_pi <- design_trimestre[design_trimestre$variables$UF == "Piauí", ]
@@ -142,83 +65,10 @@ write_csv(crosswalk_trimestre, sprintf("output/crosswalk_estratos_%s.csv", sufix
 message("Crosswalk: ", nrow(crosswalk_trimestre), " estratos distintos no Piauí em ", sufixo, ".")
 
 # ---- 3. Catálogo de indicadores ---------------------------------------------
+# catalogo_indicadores e recortes_demograficos ficam em R/indicadores.R — o
+# mesmo arquivo usado pela validação contra o SIDRA (scripts_teste/validacao_sidra.R).
 
-catalogo_indicadores <- list(
-  list(id = "Taxa_Desocupacao",
-       formula = ~VD4002 == "Pessoas desocupadas",
-       denominador = ~VD4001 == "Pessoas na força de trabalho",
-       fun = svyratio, subset = NULL),
-  
-  list(id = "Chefes_Familia_Desocupados",
-       formula = ~VD2002 == "Pessoa responsável",
-       denominador = ~VD4002 == "Pessoas desocupadas",
-       fun = svyratio, subset = ~VD4002 == "Pessoas desocupadas"),
-  
-  list(id = "Conribuintes_Desocupados",
-       formula = ~contribuinte_renda_domicilio,
-       denominador = ~VD4002 == "Pessoas desocupadas",
-       fun = svyratio, subset = ~VD4002 == "Pessoas desocupadas"),
-  
-  
-  list(id = "Rendimento_Medio_Habitual",
-       formula = ~VD4019_real, denominador = NULL, fun = svymean, subset = NULL),
-  
-  list(id = "Percentual_Subremuneracao",
-       formula = ~subremuneracao, denominador = NULL, fun = svymean, subset = NULL),
-  
-  list(id = "Rendimento_Formal",
-       formula = ~VD4019_real, denominador = NULL, fun = svymean,
-       subset = ~!is.na(informal) & informal == 0,
-       so_recorte_total = TRUE),
-  
-  list(id = "Rendimento_Informal",
-       formula = ~VD4019_real, denominador = NULL, fun = svymean,
-       subset = ~!is.na(informal) & informal == 1,
-       so_recorte_total = TRUE),
-  
-  list(id = "Taxa_Informalidade",
-       formula = ~informal, denominador = ~VD4002 == "Pessoas ocupadas",
-       fun = svyratio, subset = NULL),
-  
-  list(id = "Taxa_Subocupacao",
-       formula = ~(!is.na(VD4004A) & VD4004A == "Pessoas subocupadas"),
-       denominador = ~VD4002 == "Pessoas ocupadas", fun = svyratio, subset = NULL),
-  
-  list(id = "Proporcao_Ocupados_Escolarizados",
-       formula = ~(!is.na(medio_completo_ou_mais) & medio_completo_ou_mais == 1),
-       denominador = ~VD4002 == "Pessoas ocupadas", fun = svyratio, subset = NULL),
-  
-  list(id = "Desalentados_Forca_Ampliada",
-       formula = ~(!is.na(VD4005) & VD4005 == "Pessoas desalentadas"),
-       denominador = ~ft_ou_desalentada, fun = svyratio, subset = NULL),
-  
-  list(id = "Desalentados_Fora_Forca",
-       formula = ~(!is.na(VD4005) & VD4005 == "Pessoas desalentadas"),
-       denominador = ~VD4003, fun = svyratio, subset = NULL),
-  
-  list(id = "Motivo_Desistencia_Desalentado",
-       formula = ~V4074A, denominador = NULL, fun = svymean,
-       subset = ~VD4005 == "Pessoas desalentadas"),
-  
-  list(id = "Taxa_Nem_Nem",
-       formula = ~nem_nem, denominador = ~(V2009 >= 14 & V2009 <= 29),
-       fun = svyratio, subset = NULL),
-  
-  list(id = "Motivo_Nao_Procura_NemNem",
-       formula = ~VD4030, denominador = NULL, fun = svymean, subset = ~nem_nem == 1),
-  
-  list(id = "Motivo_Nao_Inicio_NemNem",
-       formula = ~V4078A, denominador = NULL, fun = svymean, subset = ~nem_nem == 1)
-)
-
-recortes_demograficos <- list(
-  Total                  = NULL,
-  Sexo                   = ~Sexo,
-  Raca                   = ~Raca,
-  Faixa_Etaria_trabalho  = ~Faixa_Etaria_trabalho,
-  Instrucao_agregado     = ~Instrucao,
-  Instrucao              = ~VD3004
-)
+source("R/indicadores.R", encoding = "UTF-8")
 
 # geografias_agregadas vem do R/00_config.R
 
@@ -255,71 +105,8 @@ for (em in estratos_micro) {
 geografias_finas <- setdiff(names(lista_geografias), geografias_agregadas)
 
 # ---- 5. Funções de cálculo e extração ---------------------------------------
-
-aplicar_subset <- function(design, condicao) {
-  if (is.null(condicao)) return(design)
-  idx <- as.logical(eval(condicao[[2]], envir = design$variables))
-  idx[is.na(idx)] <- FALSE
-  design[idx, ]
-}
-
-aplicar_subset_denominador <- function(design, condicao) {
-  if (is.null(condicao)) return(design)
-  valor <- eval(condicao[[2]], envir = design$variables)
-  idx <- if (is.logical(valor)) valor else !is.na(valor)
-  idx[is.na(idx)] <- FALSE
-  design[idx, ]
-}
-
-computar_estimativa <- function(design, spec, by_formula) {
-  design_usar <- aplicar_subset(design, spec$subset)
-  if (nrow(design_usar) == 0) return(NULL)
-  
-  argumentos <- list(spec$formula, design = design_usar, na.rm = TRUE)
-  if (identical(spec$fun, svyratio)) argumentos$denominator <- spec$denominador
-  
-  if (is.null(by_formula)) {
-    do.call(spec$fun, argumentos)
-  } else {
-    argumentos <- c(list(formula = spec$formula), argumentos[-1], list(by = by_formula, FUN = spec$fun))
-    do.call(svyby, argumentos)
-  }
-}
-
-extrair_resultados <- function(resultado, ind_nome, tem_by) {
-  
-  if (!tem_by) {
-    est <- coef(resultado)
-    se  <- SE(resultado)
-    nomes <- names(est)
-    if (is.null(nomes) || all(nomes == "")) nomes <- ind_nome
-    return(tibble(
-      Indicador = ind_nome, Subcategoria_Indicador = nomes,
-      Estimativa = as.numeric(est), SE = as.numeric(se),
-      Categoria_Demografica = "Total"
-    ))
-  }
-  
-  df <- as.data.frame(resultado)
-  rownames(df) <- NULL
-  df <- df %>% rename(Categoria_Demografica = 1)
-  df$Categoria_Demografica <- as.character(df$Categoria_Demografica)
-  
-  resto <- df %>% select(-Categoria_Demografica)
-  k <- ncol(resto) / 2
-  stopifnot(k == floor(k))
-  est_cols <- names(resto)[seq_len(k)]
-  se_cols  <- names(resto)[(k + 1):(2 * k)]
-  
-  map_dfr(seq_len(k), function(j) {
-    df %>%
-      transmute(
-        Indicador = ind_nome, Subcategoria_Indicador = est_cols[j],
-        Estimativa = .data[[est_cols[j]]], SE = .data[[se_cols[j]]],
-        Categoria_Demografica
-      )
-  })
-}
+# aplicar_subset(), aplicar_subset_denominador(), computar_estimativa() e
+# extrair_resultados() vêm do R/indicadores.R (carregado na §3).
 
 # ---- 6. Rodar os indicadores --------------------------------------------------
 
@@ -714,6 +501,8 @@ for (geo_nome in geografias_finas) {
   if (nrow(design_geo) == 0) next
   
   for (spec in catalogo_indicadores) {
+    # Totais, composição da PIT e Gini ficam fora dos testes (ver R/indicadores.R).
+    if (isFALSE(spec$testar)) next
     recortes_a_testar <- if (!is.null(spec$by_override)) all.vars(spec$by_override) else names(recortes_demograficos)[-1]
     
     for (nome_recorte in recortes_a_testar) {
@@ -853,6 +642,7 @@ linhas_regional <- list()
 falhas_regional <- list()
 
 for (spec in catalogo_indicadores) {
+  if (isFALSE(spec$testar)) next
   for (rotulo_recorte in names(recortes_regionais)) {
     var_recorte <- recortes_regionais[[rotulo_recorte]]
     

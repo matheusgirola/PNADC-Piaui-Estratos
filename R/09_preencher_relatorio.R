@@ -143,7 +143,7 @@ exp_ic <- function(ind, geo, ...) {
   # de sua região de validade — exibir "-2,1%" seria pior que truncar.
   inf <- max(0, (r$Estimativa - 1.96 * r$SE) * f)
   sup <- (r$Estimativa + 1.96 * r$SE) * f
-  sprintf("[%s; %s]", formatar_valor(inf, ind), formatar_valor(sup, ind))
+  sprintf("(%s, %s)", formatar_valor(inf, ind), formatar_valor(sup, ind))
 }
 
 exp_cv <- function(ind, geo, ...) {
@@ -250,7 +250,7 @@ exp_desig <- function(geo, campo) {
          razao    = num(r$razao, 2),
          formal   = paste0("R$ ", num(r$rendimento_formal, 0)),
          informal = paste0("R$ ", num(r$rendimento_informal, 0)),
-         ic       = sprintf("[%s; %s]", num(r$ic_inf, 2), num(r$ic_sup, 2)),
+         ic       = sprintf("(%s, %s)", num(r$ic_inf, 2), num(r$ic_sup, 2)),
          cv       = num(r$cv, 1),
          prec     = classe_cv(r$cv),
          stop("campo desconhecido em {{desigualdade}}: ", campo))
@@ -497,7 +497,7 @@ tabela_motivos <- function(ind, geo) {
   linhas <- pmap_chr(list(d$rotulo, d$Estimativa, d$SE, d$cv),
     function(rotulo, est, se, cv) {
       linha_md(rotulo, num(est * 100, 1),
-               sprintf("[ %s, %s )", num(max(0, est - 1.96*se) * 100, 1), num((est + 1.96*se) * 100, 1)),
+               sprintf("(%s, %s)", num(max(0, est - 1.96*se) * 100, 1), num((est + 1.96*se) * 100, 1)),
                num(cv, 1), classe_cv(cv))
     })
   c(linha_md("Motivo declarado", "Participação (%)", "IC 95%", "CV (%)", "Precisão"),
@@ -569,7 +569,7 @@ linha_percentual_ic <- function(recorte, categoria, motivo, r) {
   }
   linha_md(recorte, categoria, motivo,
            num(r$Estimativa * 100, 1),
-           sprintf("( %s, %s )", num(max(0, r$Estimativa - 1.96 * r$SE) * 100, 1),
+           sprintf("(%s, %s)", num(max(0, r$Estimativa - 1.96 * r$SE) * 100, 1),
                    num((r$Estimativa + 1.96 * r$SE) * 100, 1)),
            num(r$cv, 1), classe_cv(r$cv))
 }
@@ -661,7 +661,7 @@ resolver_condicionais <- function(txt) {
       "se-existe" = !is.null(teste_reg(args[1], args[2]))
     )
 
-    txt <- str_replace(txt, padrao, if (manter) str_replace_all(corpo, "\\$", "\\\\$") else "")
+    txt <- str_replace(txt, padrao, if (manter) corpo else "")
   }
   txt
 }
@@ -704,10 +704,7 @@ resolver_expressoes <- function(txt) {
     args <- args[nzchar(args)]
     fn <- VOCABULARIO[[nome]]
     if (is.null(fn)) stop("Expressão desconhecida no modelo: {{", nome, " ...}}")
-    valor <- do.call(fn, as.list(args))
-    # $ é metacaractere de substituição no stringr; escapar evita corromper
-    # valores em reais.
-    str_replace_all(valor, "\\$", "\\\\$")
+    do.call(fn, as.list(args))
   }
   str_replace_all(txt, "\\{\\{([a-z_]+)([^\\}]*)\\}\\}",
                   function(inteiros) vapply(inteiros, resolver_uma, character(1), USE.NAMES = FALSE))
@@ -814,6 +811,20 @@ if (length(sobraram) > 0) {
 # o modelo escreveu logo depois fica órfão ("—%"). Limpar aqui é mais simples
 # que condicionar cada unidade no modelo.
 texto <- str_replace_all(texto, "—%", "—")
+
+# O pandoc lê "$" como delimitador de fórmula matemática (extensão
+# tex_math_dollars, ligada por padrão no formato markdown dele). Um "R$" sem
+# escape abre um bloco de matemática que só fecha no próximo "$" do
+# documento — o que devora tudo entre os dois, tabelas inteiras inclusive, e
+# é o motivo de tabelas com valores em reais saírem quebradas tanto no PDF
+# (vira fórmula) quanto no docx (perde a estrutura de tabela). O escape
+# precisa ser feito aqui, sobre o texto já montado: os valores em reais
+# chegam tanto por {{est}}/{{ic}} no texto corrido quanto direto dentro das
+# tabelas geradas por tabela_geografica()/tabela_formalidade() (que chamam
+# formatar_valor()/exp_ic()/exp_desig() sem passar pelo interpretador), então
+# escapar só dentro do interpretador — como era feito antes — deixava as
+# tabelas de fora.
+texto <- str_replace_all(texto, "\\$", "\\\\$")
 
 # Só agora os literais escapados voltam a ser chaves: se voltassem antes, a
 # verificação acima os acusaria como marcadores esquecidos.
