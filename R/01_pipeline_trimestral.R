@@ -33,8 +33,11 @@ source("R/derivar_variaveis.R", encoding = "UTF-8")
 
 # ---- 2. Download e variáveis derivadas --------------------------------------
 
-message("Baixando PNADC ", sufixo, "...")
-dados_brutos <- get_pnadc(year = ANO_REF, quarter = TRIMESTRE_REF, deflator = TRUE)
+# Cache em data/raw/pnadc_br_<ano>_<tri>.rds (R/01a_cache_pnadc.R): só baixa
+# do FTP do IBGE se o arquivo do trimestre ainda não existir.
+source("R/01a_cache_pnadc.R", encoding = "UTF-8")
+message("Carregando PNADC ", sufixo, "...")
+dados_brutos <- carregar_pnadc(ANO_REF, TRIMESTRE_REF)
 
 # Variáveis derivadas: R/derivar_variaveis.R (fonte única, também usada na
 # validação contra o SIDRA). Já devolve o desenho com convey_prep() aplicado.

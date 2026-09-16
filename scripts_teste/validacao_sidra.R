@@ -20,8 +20,11 @@
 # em mil pessoas inteiras (tolerância 0,5 mil), percentuais com uma casa
 # (tolerância 0,05 p.p.). Uma folga de 1e-6 cobre erro de ponto flutuante.
 #
-# Hoje roda sobre os data/raw/pi_<ano>_<tri>.rds (só Piauí). Quando o cache
-# nacional existir (Etapa 2), passa a cobrir Brasil e Nordeste também.
+# Roda sobre o cache nacional data/raw/pnadc_br_<ano>_<tri>.rds
+# (R/01a_cache_pnadc.R) e valida Brasil (N1), Nordeste (N2[2]) e Piauí (N3[22]).
+# Retomável: o resultado de cada trimestre fica em dados_saida/validacao/ e só
+# é recalculado se o arquivo for apagado. Para um trimestre só:
+#   Rscript scripts_teste/validacao_sidra.R 2026 2
 #
 # O Gini não tem série trimestral no SIDRA: é conferido contra uma
 # implementação independente (diferença média absoluta ponderada).
@@ -167,7 +170,11 @@ checagens_internas <- function(d) {
 
 # Gini por diferença média absoluta ponderada (fórmula de Gini original):
 #   G_pares = sum_i sum_j w_i w_j |x_i - x_j| / (2 W^2 mu)
-# O(n^2), mas n de ocupados com rendimento no Piauí é ~5 mil.
+# A soma dupla é O(n^2) — inviável para o Brasil (~200 mil ocupados com
+# rendimento). Com x ordenado, sum_j w_j |x_i - x_j| = x_i L_i - S_i^L +
+# S_i^R - x_i R_i, onde L/R são o peso abaixo/acima de i e S^L/S^R as somas
+# de w x abaixo/acima; empates contribuem |x_i - x_j| = 0 de qualquer lado,
+# então a ordem entre eles não importa. Mesma soma, O(n log n).
 #
 # O convey::svygini (CalcGini) usa  sum_i (2 C_i - 1) w_i x_i / (W T) - 1,
 # enquanto G_pares equivale a     sum_i (2 C_i - w_i) w_i x_i / (W T) - 1
@@ -176,59 +183,112 @@ checagens_internas <- function(d) {
 # Piauí, duas ordens de grandeza abaixo do erro padrão. A conferência soma esse
 # termo, pra que a igualdade testada seja exata e não "parecida".
 gini_mad <- function(x, w) {
-  mu <- sum(w * x) / sum(w)
-  sum(outer(w, w) * abs(outer(x, x, "-"))) / (2 * sum(w)^2 * mu)
+  o <- order(x); x <- x[o]; w <- w[o]
+  W <- sum(w); T <- sum(w * x)
+  C <- cumsum(w); S <- cumsum(w * x)
+  L  <- C - w;  SL <- S - w * x      # estritamente antes de i na ordem
+  R  <- W - C;  SR <- T - S          # estritamente depois
+  soma_dupla <- sum(w * (x * L - SL + SR - x * R))
+  soma_dupla / (2 * W^2 * (T / W))
 }
 
 ajuste_convencao_convey <- function(x, w) sum(w * (w - 1) * x) / (sum(w) * sum(w * x))
 
 # ---- 4. Execução ---------------------------------------------------------------
 
-arquivos <- list.files("data/raw", pattern = "^pi_\\d{4}_\\d\\.rds$", full.names = TRUE)
+# Territórios validados: filtro sobre as derivadas + localidade na API v3.
+territorios <- tribble(
+  ~territorio, ~localidade, ~id_localidade,
+  "Brasil",    "N1[all]",   "1",
+  "Nordeste",  "N2[2]",     "2",
+  "Piauí",     "N3[22]",    "22"
+)
+recortar <- function(d, territorio) {
+  switch(territorio,
+         "Brasil"   = d,
+         "Nordeste" = d[d$variables$Regiao == "Nordeste", ],
+         "Piauí"    = d[d$variables$UF == "Piauí", ])
+}
+
+arquivos <- list.files("data/raw", pattern = "^pnadc_br_\\d{4}_\\d\\.rds$", full.names = TRUE)
 trimestres <- tibble(arquivo = arquivos) %>%
-  mutate(ano = as.integer(sub(".*pi_(\\d{4})_\\d\\.rds", "\\1", arquivo)),
-         tri = as.integer(sub(".*pi_\\d{4}_(\\d)\\.rds", "\\1", arquivo)),
+  mutate(ano = as.integer(sub(".*pnadc_br_(\\d{4})_\\d\\.rds", "\\1", arquivo)),
+         tri = as.integer(sub(".*pnadc_br_\\d{4}_(\\d)\\.rds", "\\1", arquivo)),
          periodo = periodo_sidra(ano, tri)) %>%
   arrange(ano, tri)
 
-localidade <- "N3[22]"  # Piauí
+# Valores oficiais da série inteira (2016T2 até o trimestre de R/00_config.R),
+# buscados ANTES do laço pesado: um problema na API ou uma categoria que não
+# existe nos trimestres antigos aparece em segundos, não depois de horas.
+# Chave de cache fixa (série inteira), independente de quais .rds já existem.
+grade <- expand.grid(tri = 1:4, ano = 2016:ANO_REF)
+grade <- subset(grade, !(ano == 2016 & tri < 2) & !(ano == ANO_REF & tri > TRIMESTRE_REF))
+periodos <- periodo_sidra(grade$ano, grade$tri)
+oficiais <- pmap_dfr(territorios, function(territorio, localidade, id_localidade) {
+  mapa %>%
+    distinct(tabela, classificacao) %>%
+    pmap_dfr(function(tabela, classificacao) {
+      vars <- mapa$variavel[mapa$tabela == tabela]
+      buscar_sidra(tabela, vars, classificacao, periodos, localidade)
+    }) %>%
+    mutate(territorio = territorio)
+})
+message(sprintf("SIDRA: %d valores oficiais (%d NA) para %d períodos.",
+                nrow(oficiais), sum(is.na(oficiais$oficial)), length(periodos)))
 
-oficiais <- mapa %>%
-  distinct(tabela, classificacao) %>%
-  pmap_dfr(function(tabela, classificacao) {
-    vars <- mapa$variavel[mapa$tabela == tabela]
-    buscar_sidra(tabela, vars, classificacao, trimestres$periodo, localidade)
-  })
+args <- commandArgs(trailingOnly = TRUE)
+if (identical(args, "sidra")) quit(save = "no")  # só pré-busca do SIDRA
+if (length(args) == 2) {
+  trimestres <- filter(trimestres, ano == as.integer(args[1]), tri == as.integer(args[2]))
+}
+if (nrow(trimestres) == 0) stop("Nenhum data/raw/pnadc_br_*.rds encontrado para validar.")
+
+dir_parcial <- "dados_saida/validacao"
+dir.create(dir_parcial, recursive = TRUE, showWarnings = FALSE)
+dir.create("output/tabelas", recursive = TRUE, showWarnings = FALSE)
 
 ids <- unique(mapa$Indicador)
-comparacoes <- list(); internas <- list(); ginis <- list()
+spec_gini <- Filter(function(s) s$id == "Gini_Rendimento_Habitual_Trabalho",
+                    catalogo_indicadores)[[1]]
 
 for (i in seq_len(nrow(trimestres))) {
   t <- trimestres[i, ]
-  message(sprintf("Validando %dT%d...", t$ano, t$tri))
+  parcial <- file.path(dir_parcial, sprintf("validacao_%d_%d.rds", t$ano, t$tri))
+  if (file.exists(parcial)) next
+  message(sprintf("[%s] Validando %dT%d...", format(Sys.time(), "%H:%M:%S"), t$ano, t$tri))
   sm <- tabela_salario_minimo$sm_hora[tabela_salario_minimo$ano == t$ano]
-  d  <- derivar_variaveis(readRDS(t$arquivo), sm_hora = sm)
+  d_br <- derivar_variaveis(readRDS(t$arquivo), sm_hora = sm)
 
-  comparacoes[[i]] <- estimar_catalogo(d, ids) %>%
-    mutate(periodo = t$periodo, ano = t$ano, tri = t$tri)
-
-  internas[[i]] <- checagens_internas(d) %>% mutate(ano = t$ano, tri = t$tri)
-
-  spec_gini <- Filter(function(s) s$id == "Gini_Rendimento_Habitual_Trabalho",
-                      catalogo_indicadores)[[1]]
-  g  <- computar_estimativa(d, spec_gini, NULL)
-  dg <- aplicar_subset(d, spec_gini$subset)
-  ginis[[i]] <- tibble(ano = t$ano, tri = t$tri,
-                       gini_catalogo = as.numeric(coef(g)),
-                       cv = 100 * as.numeric(SE(g)) / as.numeric(coef(g)),
-                       gini_pares = gini_mad(dg$variables$VD4019, dg$pweights),
-                       ajuste_convencao = ajuste_convencao_convey(dg$variables$VD4019, dg$pweights))
+  res <- list(comparacoes = list(), internas = list(), ginis = list())
+  for (terr in territorios$territorio) {
+    d <- recortar(d_br, terr)
+    res$comparacoes[[terr]] <- estimar_catalogo(d, ids) %>%
+      mutate(territorio = terr, periodo = t$periodo, ano = t$ano, tri = t$tri)
+    res$internas[[terr]] <- checagens_internas(d) %>%
+      mutate(territorio = terr, ano = t$ano, tri = t$tri)
+    g  <- computar_estimativa(d, spec_gini, NULL)
+    dg <- aplicar_subset(d, spec_gini$subset)
+    res$ginis[[terr]] <- tibble(territorio = terr, ano = t$ano, tri = t$tri,
+                                gini_catalogo = as.numeric(coef(g)),
+                                cv = 100 * as.numeric(SE(g)) / as.numeric(coef(g)),
+                                gini_pares = gini_mad(dg$variables$VD4019, dg$pweights),
+                                ajuste_convencao = ajuste_convencao_convey(dg$variables$VD4019, dg$pweights))
+  }
+  saveRDS(lapply(res, bind_rows), parcial)
+  rm(d_br, d, dg); gc()
 }
 
-resultado <- bind_rows(comparacoes) %>%
+# Junta todos os trimestres já validados (não só os desta execução)
+parciais <- lapply(list.files(dir_parcial, pattern = "^validacao_\\d{4}_\\d\\.rds$",
+                              full.names = TRUE), readRDS)
+comparacoes <- bind_rows(lapply(parciais, `[[`, "comparacoes"))
+internas    <- bind_rows(lapply(parciais, `[[`, "internas"))
+ginis       <- bind_rows(lapply(parciais, `[[`, "ginis"))
+
+resultado <- comparacoes %>%
   inner_join(mapa, by = c("Indicador", "Subcategoria_Indicador")) %>%
-  left_join(oficiais %>% mutate(categoria = as.numeric(categoria)),
-            by = c("tabela", "variavel", "categoria", "periodo")) %>%
+  left_join(oficiais %>% mutate(categoria = as.numeric(categoria)) %>% select(-localidade),
+            by = c("territorio", "tabela", "variavel", "categoria", "periodo")) %>%
   mutate(
     estimado  = Estimativa * escala,
     diferenca = estimado - oficial,
@@ -236,11 +296,11 @@ resultado <- bind_rows(comparacoes) %>%
     ok = abs(diferenca) <= tolerancia,
     CV = 100 * SE / Estimativa
   ) %>%
-  select(ano, tri, Indicador, Subcategoria_Indicador, tabela, variavel, categoria,
-         estimado, oficial, diferenca, ok, CV)
+  select(territorio, ano, tri, Indicador, Subcategoria_Indicador, tabela, variavel, categoria,
+         estimado, oficial, diferenca, ok, CV) %>%
+  arrange(territorio, ano, tri)
 
-internas <- bind_rows(internas)
-ginis <- bind_rows(ginis) %>%
+ginis <- ginis %>%
   mutate(ok = abs(gini_catalogo - (gini_pares + ajuste_convencao)) < 1e-9)
 
 write_csv(resultado, "output/tabelas/validacao_sidra.csv")

@@ -1,97 +1,19 @@
-checagem,ok,ano,tri
-ft + fora_ft == pit,TRUE,2022,3
-ocup + desocup == ft,TRUE,2022,3
-sexo: soma == pit,TRUE,2022,3
-faixa SIDRA: soma == pit,TRUE,2022,3
-subutil <= ft_ampliada,TRUE,2022,3
-taxa desocupação antiga == nova,TRUE,2022,3
-ft + fora_ft == pit,TRUE,2022,4
-ocup + desocup == ft,TRUE,2022,4
-sexo: soma == pit,TRUE,2022,4
-faixa SIDRA: soma == pit,TRUE,2022,4
-subutil <= ft_ampliada,TRUE,2022,4
-taxa desocupação antiga == nova,TRUE,2022,4
-ft + fora_ft == pit,TRUE,2023,1
-ocup + desocup == ft,TRUE,2023,1
-sexo: soma == pit,TRUE,2023,1
-faixa SIDRA: soma == pit,TRUE,2023,1
-subutil <= ft_ampliada,TRUE,2023,1
-taxa desocupação antiga == nova,TRUE,2023,1
-ft + fora_ft == pit,TRUE,2023,2
-ocup + desocup == ft,TRUE,2023,2
-sexo: soma == pit,TRUE,2023,2
-faixa SIDRA: soma == pit,TRUE,2023,2
-subutil <= ft_ampliada,TRUE,2023,2
-taxa desocupação antiga == nova,TRUE,2023,2
-ft + fora_ft == pit,TRUE,2023,3
-ocup + desocup == ft,TRUE,2023,3
-sexo: soma == pit,TRUE,2023,3
-faixa SIDRA: soma == pit,TRUE,2023,3
-subutil <= ft_ampliada,TRUE,2023,3
-taxa desocupação antiga == nova,TRUE,2023,3
-ft + fora_ft == pit,TRUE,2023,4
-ocup + desocup == ft,TRUE,2023,4
-sexo: soma == pit,TRUE,2023,4
-faixa SIDRA: soma == pit,TRUE,2023,4
-subutil <= ft_ampliada,TRUE,2023,4
-taxa desocupação antiga == nova,TRUE,2023,4
-ft + fora_ft == pit,TRUE,2024,1
-ocup + desocup == ft,TRUE,2024,1
-sexo: soma == pit,TRUE,2024,1
-faixa SIDRA: soma == pit,TRUE,2024,1
-subutil <= ft_ampliada,TRUE,2024,1
-taxa desocupação antiga == nova,TRUE,2024,1
-ft + fora_ft == pit,TRUE,2024,2
-ocup + desocup == ft,TRUE,2024,2
-sexo: soma == pit,TRUE,2024,2
-faixa SIDRA: soma == pit,TRUE,2024,2
-subutil <= ft_ampliada,TRUE,2024,2
-taxa desocupação antiga == nova,TRUE,2024,2
-ft + fora_ft == pit,TRUE,2024,3
-ocup + desocup == ft,TRUE,2024,3
-sexo: soma == pit,TRUE,2024,3
-faixa SIDRA: soma == pit,TRUE,2024,3
-subutil <= ft_ampliada,TRUE,2024,3
-taxa desocupação antiga == nova,TRUE,2024,3
-ft + fora_ft == pit,TRUE,2024,4
-ocup + desocup == ft,TRUE,2024,4
-sexo: soma == pit,TRUE,2024,4
-faixa SIDRA: soma == pit,TRUE,2024,4
-subutil <= ft_ampliada,TRUE,2024,4
-taxa desocupação antiga == nova,TRUE,2024,4
-ft + fora_ft == pit,TRUE,2025,1
-ocup + desocup == ft,TRUE,2025,1
-sexo: soma == pit,TRUE,2025,1
-faixa SIDRA: soma == pit,TRUE,2025,1
-subutil <= ft_ampliada,TRUE,2025,1
-taxa desocupação antiga == nova,TRUE,2025,1
-ft + fora_ft == pit,TRUE,2025,2
-ocup + desocup == ft,TRUE,2025,2
-sexo: soma == pit,TRUE,2025,2
-faixa SIDRA: soma == pit,TRUE,2025,2
-subutil <= ft_ampliada,TRUE,2025,2
-taxa desocupação antiga == nova,TRUE,2025,2
-ft + fora_ft == pit,TRUE,2025,3
-ocup + desocup == ft,TRUE,2025,3
-sexo: soma == pit,TRUE,2025,3
-faixa SIDRA: soma == pit,TRUE,2025,3
-subutil <= ft_ampliada,TRUE,2025,3
-taxa desocupação antiga == nova,TRUE,2025,3
-ft + fora_ft == pit,TRUE,2025,4
-ocup + desocup == ft,TRUE,2025,4
-sexo: soma == pit,TRUE,2025,4
-faixa SIDRA: soma == pit,TRUE,2025,4
-subutil <= ft_ampliada,TRUE,2025,4
-taxa desocupação antiga == nova,TRUE,2025,4
-ft + fora_ft == pit,TRUE,2026,1
-ocup + desocup == ft,TRUE,2026,1
-sexo: soma == pit,TRUE,2026,1
-faixa SIDRA: soma == pit,TRUE,2026,1
-subutil <= ft_ampliada,TRUE,2026,1
-taxa desocupação antiga == nova,TRUE,2026,1
-ft + fora_ft == pit,TRUE,2026,2
-ocup + desocup == ft,TRUE,2026,2
-sexo: soma == pit,TRUE,2026,2
-faixa SIDRA: soma == pit,TRUE,2026,2
-subutil <= ft_ampliada,TRUE,2026,2
-taxa desocupação antiga == nova,TRUE,2026,2
+checagem,ok,territorio,ano,tri
+ft + fora_ft == pit,TRUE,Brasil,2026,2
+ocup + desocup == ft,TRUE,Brasil,2026,2
+sexo: soma == pit,TRUE,Brasil,2026,2
+faixa SIDRA: soma == pit,TRUE,Brasil,2026,2
+subutil <= ft_ampliada,TRUE,Brasil,2026,2
+taxa desocupação antiga == nova,TRUE,Brasil,2026,2
+ft + fora_ft == pit,TRUE,Nordeste,2026,2
+ocup + desocup == ft,TRUE,Nordeste,2026,2
+sexo: soma == pit,TRUE,Nordeste,2026,2
+faixa SIDRA: soma == pit,TRUE,Nordeste,2026,2
+subutil <= ft_ampliada,TRUE,Nordeste,2026,2
+taxa desocupação antiga == nova,TRUE,Nordeste,2026,2
+ft + fora_ft == pit,TRUE,Piauí,2026,2
+ocup + desocup == ft,TRUE,Piauí,2026,2
+sexo: soma == pit,TRUE,Piauí,2026,2
+faixa SIDRA: soma == pit,TRUE,Piauí,2026,2
+subutil <= ft_ampliada,TRUE,Piauí,2026,2
+taxa desocupação antiga == nova,TRUE,Piauí,2026,2

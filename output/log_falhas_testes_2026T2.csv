@@ -4,7 +4,7 @@ Zona_Urbana,Raca,Rendimento_Formal,RECUSADO pela guarda de variância: matriz de
 Zona_Urbana,Raca,Rendimento_Informal,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Zona_Urbana,Raca,Taxa_Subocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Zona_Urbana,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Zona_Urbana,Raca,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 6 (não há recorte agregado equivalente nesta dimensão)
+Zona_Urbana,Raca,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Zona_Urbana,Raca,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Zona_Urbana,Instrucao,Motivo_Desistencia_Desalentado,"RECUSADO pela guarda de variância: tabela 4x7 com 32% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Zona_Urbana,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
@@ -14,10 +14,10 @@ Zona_Urbana,Raca,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: ta
 Zona_Urbana,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Zona_Urbana,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: tabela 6x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Zona_Urbana,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 6x7 com 48% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Zona_Urbana,Raca,Taxa_Composta_Subutilizacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Zona_Rural,Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Zona_Rural,Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Zona_Rural,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Zona_Rural,Raca,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Zona_Rural,Raca,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Zona_Rural,Instrucao_agregado,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 4x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Zona_Rural,Instrucao,Motivo_Desistencia_Desalentado,"RECUSADO pela guarda de variância: tabela 4x7 com 39% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
@@ -26,6 +26,8 @@ Zona_Rural,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Faixa
 Zona_Rural,Instrucao,Motivo_Nao_Procura_NemNem,"RECUSADO pela guarda de variância: tabela 6x7 com 48% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Zona_Rural,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Zona_Rural,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 6x7 com 57% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Zona_Rural,Raca,Nivel_Ocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
+Zona_Rural,Raca,Taxa_Participacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Admin_Capital,Raca,Taxa_Desocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Admin_Capital,Raca,Rendimento_Medio_Habitual,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Admin_Capital,Raca,Rendimento_Formal,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 3 de 4 (não há recorte agregado equivalente nesta dimensão)
@@ -40,13 +42,15 @@ Admin_Capital,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte Fa
 Admin_Capital,Instrucao,Motivo_Nao_Procura_NemNem,"RECUSADO pela guarda de variância: tabela 5x7 com 43% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Admin_Capital,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Admin_Capital,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 5x7 com 46% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Admin_Capital,Raca,Nivel_Ocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
+Admin_Capital,Raca,Taxa_Participacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
+Admin_Capital,Raca,Taxa_Composta_Subutilizacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao,Percentual_Subremuneracao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao,Taxa_Informalidade,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Raca,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Sexo,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 2x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
@@ -62,7 +66,6 @@ Admin_Capital,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variâ
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 5x5 com 48% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Raca,Rendimento_Formal,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 3 de 4 (não há recorte agregado equivalente nesta dimensão)
 "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Raca,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Raca,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Instrucao,Motivo_Desistencia_Desalentado,"RECUSADO pela guarda de variância: tabela 4x7 com 32% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
@@ -86,13 +89,15 @@ Agreg_Teresina,Faixa_Etaria_trabalho,Motivo_Nao_Procura_NemNem,PULADO: recorte F
 Agreg_Teresina,Instrucao,Motivo_Nao_Procura_NemNem,"RECUSADO pela guarda de variância: tabela 5x7 com 43% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Agreg_Teresina,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Agreg_Teresina,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 5x7 com 46% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Agreg_Teresina,Raca,Nivel_Ocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
+Agreg_Teresina,Raca,Taxa_Participacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
+Agreg_Teresina,Raca,Taxa_Composta_Subutilizacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Agreg_Entorno metropolitano de Teresina (PI),Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Agreg_Entorno metropolitano de Teresina (PI),Instrucao,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Agreg_Entorno metropolitano de Teresina (PI),Instrucao,Percentual_Subremuneracao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Agreg_Entorno metropolitano de Teresina (PI),Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Agreg_Entorno metropolitano de Teresina (PI),Instrucao,Taxa_Informalidade,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Agreg_Entorno metropolitano de Teresina (PI),Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Agreg_Entorno metropolitano de Teresina (PI),Raca,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Agreg_Entorno metropolitano de Teresina (PI),Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Agreg_Entorno metropolitano de Teresina (PI),Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Agreg_Entorno metropolitano de Teresina (PI),Sexo,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 2x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
@@ -108,7 +113,6 @@ Agreg_Entorno metropolitano de Teresina (PI),Faixa_Etaria_trabalho,Motivo_Nao_In
 Agreg_Entorno metropolitano de Teresina (PI),Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 5x5 com 48% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Agreg_Centro-Leste do Piauí,Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Agreg_Centro-Leste do Piauí,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Agreg_Centro-Leste do Piauí,Raca,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Agreg_Centro-Leste do Piauí,Raca,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Agreg_Centro-Leste do Piauí,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Agreg_Centro-Leste do Piauí,Sexo,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 4x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
@@ -138,7 +142,6 @@ Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Rendimento_Medio_Habitual,REC
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Rendimento_Informal,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 3 de 4 (não há recorte agregado equivalente nesta dimensão)
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 4x3 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 4x3 com 33% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
@@ -151,6 +154,8 @@ Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Sexo,Motivo_Nao_Inicio_NemNem,RECU
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: tabela 6x3 com 39% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 6x7 com 57% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Nivel_Ocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 5 (não há recorte agregado equivalente nesta dimensão)
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Taxa_Participacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 5 (não há recorte agregado equivalente nesta dimensão)
 Micro_2210011,Raca,Taxa_Desocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Micro_2210011,Raca,Rendimento_Medio_Habitual,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 3 de 5 (não há recorte agregado equivalente nesta dimensão)
 Micro_2210011,Raca,Percentual_Subremuneracao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
@@ -162,7 +167,7 @@ Micro_2210011,Raca,Taxa_Subocupacao,RECUSADO pela guarda de variância: matriz d
 Micro_2210011,Raca,Proporcao_Ocupados_Escolarizados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Micro_2210011,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2210011,Raca,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
-Micro_2210011,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2210011,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2210011,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2210011,Sexo,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 4x2 com 38% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2210011,Raca,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 4x3 com 58% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
@@ -179,6 +184,9 @@ Micro_2210011,Raca,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: 
 Micro_2210011,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2210011,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: tabela 4x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2210011,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 4x7 com 50% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2210011,Raca,Nivel_Ocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
+Micro_2210011,Raca,Taxa_Participacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
+Micro_2210011,Raca,Taxa_Composta_Subutilizacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Micro_2210012,Instrucao,Taxa_Desocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2210012,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2210012,Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 4 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
@@ -214,13 +222,14 @@ Micro_2210012,Raca,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: 
 Micro_2210012,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2210012,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: tabela 3x2 com 50% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2210012,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 3x5 com 60% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2210012,Instrucao,Taxa_Composta_Subutilizacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2210013,Raca,Taxa_Desocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2210013,Instrucao,Taxa_Desocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 6 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2210013,Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 6 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2210013,Faixa_Etaria_trabalho,Taxa_Subocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2210013,Instrucao,Taxa_Subocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 6 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2210013,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 6 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2210013,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2210013,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 6 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2210013,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2210013,Sexo,Motivo_Desistencia_Desalentado,PULADO: recorte Sexo tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2210013,Raca,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 2x2 com 50% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
@@ -239,6 +248,8 @@ Micro_2210013,Raca,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: 
 Micro_2210013,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2210013,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2210013,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 3x3 com 56% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2210013,Raca,Taxa_Composta_Subutilizacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
+Micro_2210013,Instrucao,Taxa_Composta_Subutilizacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 6 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2210020,Instrucao,Taxa_Desocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2210020,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2210020,Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 4 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
@@ -296,7 +307,7 @@ Micro_2210030,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda d
 Micro_2210030,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 4x6 com 50% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2220010,Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2220010,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2220010,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2220010,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2220010,Raca,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2220010,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2220010,Sexo,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 2x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
@@ -323,7 +334,6 @@ Micro_2220020,Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: m
 Micro_2220020,Faixa_Etaria_trabalho,Rendimento_Informal,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2220020,Instrucao,Taxa_Subocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2220020,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2220020,Raca,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 3 de 4 (não há recorte agregado equivalente nesta dimensão)
 Micro_2220020,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2220020,Raca,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 3 de 4 (não há recorte agregado equivalente nesta dimensão)
 Micro_2220020,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
@@ -343,6 +353,7 @@ Micro_2220020,Raca,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: 
 Micro_2220020,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2220020,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: tabela 4x2 com 38% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2220020,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 4x5 com 65% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2220020,Instrucao,Taxa_Composta_Subutilizacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251011,Instrucao,Taxa_Desocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251011,Sexo,Chefes_Familia_Desocupados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
 Micro_2251011,Instrucao_agregado,Chefes_Familia_Desocupados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
@@ -354,7 +365,7 @@ Micro_2251011,Instrucao,Percentual_Subremuneracao,"RECUSADO pela guarda de vari�
 Micro_2251011,Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251011,Instrucao,Taxa_Subocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251011,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2251011,Raca,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
+Micro_2251011,Faixa_Etaria_trabalho,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2251011,Raca,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Micro_2251011,Instrucao,Motivo_Desistencia_Desalentado,"RECUSADO pela guarda de variância: tabela 2x6 com 33% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251011,Faixa_Etaria_trabalho,Taxa_Nem_Nem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
@@ -366,6 +377,9 @@ Micro_2251011,Sexo,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: 
 Micro_2251011,Raca,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: tabela 4x3 com 42% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2251011,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2251011,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 4x3 com 42% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2251011,Raca,Nivel_Ocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
+Micro_2251011,Raca,Taxa_Participacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
+Micro_2251011,Faixa_Etaria_trabalho,Taxa_Composta_Subutilizacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2251012,Instrucao,Taxa_Desocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251012,Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 6 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251012,Raca,Conribuintes_Desocupados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
@@ -392,7 +406,7 @@ Micro_2251013,Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de vari
 Micro_2251013,Instrucao,Percentual_Subremuneracao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251013,Instrucao,Taxa_Subocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251013,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2251013,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2251013,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251013,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251013,Raca,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 3x3 com 33% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2251013,Instrucao,Motivo_Desistencia_Desalentado,"RECUSADO pela guarda de variância: tabela 3x3 com 22% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
@@ -414,6 +428,7 @@ Micro_2251020,Faixa_Etaria_trabalho,Rendimento_Formal,RECUSADO pela guarda de va
 Micro_2251020,Faixa_Etaria_trabalho,Taxa_Informalidade,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2251020,Faixa_Etaria_trabalho,Proporcao_Ocupados_Escolarizados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2251020,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2251020,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251020,Sexo,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 4x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2251020,Raca,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 4x3 com 42% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2251020,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 4x3 com 42% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
@@ -428,23 +443,22 @@ Micro_2251020,Raca,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: 
 Micro_2251020,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2251020,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 3x6 com 44% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251021,Instrucao,Taxa_Desocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2251021,Sexo,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2251021,Raca,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2251021,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2251021,Instrucao_agregado,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2251021,Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2251021,Sexo,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2251021,Raca,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2251021,Faixa_Etaria_trabalho,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2251021,Instrucao_agregado,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2251021,Instrucao,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2251021,Sexo,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2251021,Raca,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2251021,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2251021,Instrucao_agregado,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2251021,Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2251021,Sexo,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2251021,Raca,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2251021,Faixa_Etaria_trabalho,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2251021,Instrucao_agregado,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2251021,Instrucao,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251021,Faixa_Etaria_trabalho,Rendimento_Medio_Habitual,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2251021,Raca,Rendimento_Formal,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2251021,Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251021,Faixa_Etaria_trabalho,Rendimento_Informal,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2251021,Instrucao,Taxa_Informalidade,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251021,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2251021,Instrucao_agregado,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
 Micro_2251021,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251021,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251021,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 2x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
@@ -472,11 +486,11 @@ Micro_2251022,Instrucao,Conribuintes_Desocupados,"RECUSADO pela guarda de variâ
 Micro_2251022,Instrucao,Rendimento_Medio_Habitual,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251022,Raca,Percentual_Subremuneracao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2251022,Instrucao,Percentual_Subremuneracao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2251022,Sexo,Rendimento_Formal,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2251022,Sexo,Rendimento_Formal,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
 Micro_2251022,Raca,Rendimento_Formal,RECUSADO pela guarda de variância: contrastes podem ser aplicados apenas a fatores com 2 ou mais níveis (não há recorte agregado equivalente nesta dimensão)
-Micro_2251022,Faixa_Etaria_trabalho,Rendimento_Formal,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2251022,Instrucao_agregado,Rendimento_Formal,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2251022,Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2251022,Faixa_Etaria_trabalho,Rendimento_Formal,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2251022,Instrucao_agregado,Rendimento_Formal,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2251022,Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251022,Raca,Taxa_Informalidade,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2251022,Instrucao,Taxa_Informalidade,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2251022,Sexo,Taxa_Subocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
@@ -495,6 +509,7 @@ Micro_2251022,Raca,Motivo_Nao_Inicio_NemNem,PULADO: resposta categórica com men
 Micro_2251022,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2251022,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2251022,Instrucao,Motivo_Nao_Inicio_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
+Micro_2251022,Instrucao,Taxa_Composta_Subutilizacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252011,Sexo,Chefes_Familia_Desocupados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
 Micro_2252011,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
 Micro_2252011,Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 3 de 5 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
@@ -506,7 +521,8 @@ Micro_2252011,Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: m
 Micro_2252011,Instrucao,Rendimento_Informal,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252011,Instrucao,Taxa_Subocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252011,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2252011,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2252011,Raca,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 4 (não há recorte agregado equivalente nesta dimensão)
+Micro_2252011,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252011,Raca,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2252011,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252011,Raca,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 3x3 com 44% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
@@ -528,7 +544,7 @@ Micro_2252012,Faixa_Etaria_trabalho,Conribuintes_Desocupados,RECUSADO pela guard
 Micro_2252012,Instrucao,Rendimento_Medio_Habitual,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252012,Instrucao,Rendimento_Informal,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252012,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2252012,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2252012,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252012,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252012,Sexo,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 2x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2252012,Raca,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 2x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
@@ -553,7 +569,7 @@ Micro_2252013,Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: m
 Micro_2252013,Faixa_Etaria_trabalho,Taxa_Subocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2252013,Instrucao,Taxa_Subocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252013,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2252013,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2252013,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252013,Raca,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2252013,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252013,Sexo,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 4x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
@@ -569,6 +585,7 @@ Micro_2252013,Instrucao,Motivo_Nao_Procura_NemNem,"RECUSADO pela guarda de vari�
 Micro_2252013,Raca,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: tabela 3x2 com 50% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2252013,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2252013,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 3x4 com 42% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2252013,Instrucao,Taxa_Composta_Subutilizacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252020,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2252020,Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 5 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252020,Faixa_Etaria_trabalho,Conribuintes_Desocupados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 (não há recorte agregado equivalente nesta dimensão)
@@ -612,7 +629,7 @@ Micro_2252021,Instrucao,Taxa_Informalidade,"RECUSADO pela guarda de variância: 
 Micro_2252021,Instrucao,Taxa_Subocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252021,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252021,Raca,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 (não há recorte agregado equivalente nesta dimensão)
-Micro_2252021,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2252021,Instrucao_agregado,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
 Micro_2252021,Raca,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2252021,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252021,Sexo,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
@@ -651,17 +668,18 @@ Micro_2252022,Raca,Rendimento_Formal,RECUSADO pela guarda de variância: matriz 
 Micro_2252022,Faixa_Etaria_trabalho,Rendimento_Formal,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
 Micro_2252022,Instrucao_agregado,Rendimento_Formal,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
 Micro_2252022,Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 4 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2252022,Sexo,Rendimento_Informal,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2252022,Raca,Rendimento_Informal,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2252022,Faixa_Etaria_trabalho,Rendimento_Informal,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2252022,Instrucao_agregado,Rendimento_Informal,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2252022,Instrucao,Rendimento_Informal,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2252022,Sexo,Rendimento_Informal,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2252022,Raca,Rendimento_Informal,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2252022,Faixa_Etaria_trabalho,Rendimento_Informal,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2252022,Instrucao_agregado,Rendimento_Informal,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2252022,Instrucao,Rendimento_Informal,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252022,Instrucao,Taxa_Informalidade,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 3 de 5 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252022,Raca,Taxa_Subocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2252022,Instrucao,Taxa_Subocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 5 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252022,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
 Micro_2252022,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 5 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2252022,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2252022,Faixa_Etaria_trabalho,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
+Micro_2252022,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 3 de 5 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252022,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 6 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2252022,Sexo,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 2x2 com 50% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2252022,Raca,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 2x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
@@ -678,6 +696,9 @@ Micro_2252022,Sexo,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: 
 Micro_2252022,Raca,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: tabela 2x3 com 33% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2252022,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2252022,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 2x3 com 33% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2252022,Instrucao,Nivel_Ocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2252022,Instrucao,Taxa_Participacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2252022,Faixa_Etaria_trabalho,Taxa_Composta_Subutilizacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
 Micro_2253010,Instrucao_agregado,Taxa_Desocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
 Micro_2253010,Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253010,Instrucao,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
@@ -689,7 +710,7 @@ Micro_2253010,Instrucao,Rendimento_Informal,"RECUSADO pela guarda de variância:
 Micro_2253010,Instrucao,Taxa_Informalidade,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253010,Instrucao,Taxa_Subocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253010,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2253010,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2253010,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253010,Sexo,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
 Micro_2253010,Faixa_Etaria_trabalho,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2253010,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
@@ -710,12 +731,14 @@ Micro_2253010,Raca,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: 
 Micro_2253010,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2253010,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: tabela 2x2 com 50% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2253010,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 2x3 com 67% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2253010,Instrucao,Nivel_Ocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2253010,Instrucao,Taxa_Participacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253011,Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 6 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253011,Instrucao,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 6 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253011,Instrucao,Rendimento_Formal,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 6 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253011,Instrucao,Rendimento_Informal,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253011,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2253011,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2253011,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253011,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253011,Sexo,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 2x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2253011,Instrucao_agregado,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 2x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
@@ -770,7 +793,6 @@ Micro_2253020,Instrucao,Taxa_Informalidade,"RECUSADO pela guarda de variância: 
 Micro_2253020,Raca,Taxa_Subocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2253020,Instrucao,Taxa_Subocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253020,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2253020,Raca,Desalentados_Forca_Ampliada,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Micro_2253020,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253020,Raca,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
 Micro_2253020,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
@@ -788,6 +810,10 @@ Micro_2253020,Sexo,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: 
 Micro_2253020,Raca,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: tabela 5x3 com 47% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2253020,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2253020,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 5x5 com 60% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2253020,Raca,Nivel_Ocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
+Micro_2253020,Instrucao,Nivel_Ocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2253020,Raca,Taxa_Participacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 5 (não há recorte agregado equivalente nesta dimensão)
+Micro_2253020,Instrucao,Taxa_Participacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253021,Instrucao,Taxa_Desocupacao,"RECUSADO pela guarda de variância: All replicates contained NAs — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253021,Sexo,Chefes_Familia_Desocupados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
 Micro_2253021,Instrucao,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
@@ -806,7 +832,7 @@ Micro_2253021,Faixa_Etaria_trabalho,Taxa_Subocupacao,RECUSADO pela guarda de var
 Micro_2253021,Instrucao,Taxa_Subocupacao,"RECUSADO pela guarda de variância: All replicates contained NAs — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253021,Instrucao_agregado,Proporcao_Ocupados_Escolarizados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
 Micro_2253021,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: All replicates contained NAs — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2253021,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2253021,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: All replicates contained NAs — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253021,Sexo,Desalentados_Fora_Forca,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
 Micro_2253021,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 3 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253021,Sexo,Motivo_Desistencia_Desalentado,PULADO: resposta categórica com menos de 2 níveis presentes
@@ -823,17 +849,19 @@ Micro_2253021,Sexo,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: 
 Micro_2253021,Raca,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: tabela 2x2 com 25% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2253021,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2253021,Instrucao,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 2x5 com 60% de células vazias (limite 20%) — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2253021,Instrucao,Nivel_Ocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2253021,Instrucao,Taxa_Composta_Subutilizacao,"RECUSADO pela guarda de variância: All replicates contained NAs — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253022,Instrucao,Taxa_Desocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 3 de 6 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253022,Sexo,Chefes_Familia_Desocupados,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE"
 Micro_2253022,Raca,Chefes_Familia_Desocupados,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE"
 Micro_2253022,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE"
 Micro_2253022,Instrucao_agregado,Chefes_Familia_Desocupados,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2253022,Instrucao,Chefes_Familia_Desocupados,"PULADO: resposta numérica (classe original: logical) com 1 valor(es) distinto(s) não-NA — precisa de pelo menos 2. Ex. de valores brutos: FALSE, FALSE, FALSE"
-Micro_2253022,Sexo,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2253022,Raca,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
-Micro_2253022,Faixa_Etaria_trabalho,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2253022,Sexo,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2253022,Raca,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
+Micro_2253022,Faixa_Etaria_trabalho,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" (não há recorte agregado equivalente nesta dimensão)"
 Micro_2253022,Instrucao_agregado,Conribuintes_Desocupados,PULADO: recorte Instrucao tem só 1 nível(is) presente(s) nesse subconjunto
-Micro_2253022,Instrucao,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: no applicable method for 'vcov' applied to an object of class ""c('double', 'numeric')"" — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2253022,Instrucao,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: método não aplicável para 'vcov' aplicado a um objeto de classe ""c('double', 'numeric')"" — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253022,Instrucao,Rendimento_Medio_Habitual,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 6 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253022,Instrucao,Percentual_Subremuneracao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 4 de 6 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2253022,Sexo,Rendimento_Formal,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 2 (não há recorte agregado equivalente nesta dimensão)
@@ -860,6 +888,7 @@ Micro_2253022,Raca,Motivo_Nao_Inicio_NemNem,PULADO: resposta categórica com men
 Micro_2253022,Faixa_Etaria_trabalho,Motivo_Nao_Inicio_NemNem,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
 Micro_2253022,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
 Micro_2253022,Instrucao,Motivo_Nao_Inicio_NemNem,PULADO: resposta categórica com menos de 2 níveis presentes
+Micro_2253022,Instrucao,Taxa_Composta_Subutilizacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 5 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2254020,Faixa_Etaria_trabalho,Taxa_Desocupacao,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2254020,Instrucao,Taxa_Desocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2254020,Faixa_Etaria_trabalho,Chefes_Familia_Desocupados,PULADO: recorte Faixa_Etaria_trabalho tem só 1 nível(is) presente(s) nesse subconjunto
@@ -871,7 +900,7 @@ Micro_2254020,Instrucao,Rendimento_Informal,"RECUSADO pela guarda de variância:
 Micro_2254020,Instrucao,Taxa_Subocupacao,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2254020,Raca,Proporcao_Ocupados_Escolarizados,RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 3 (não há recorte agregado equivalente nesta dimensão)
 Micro_2254020,Instrucao,Proporcao_Ocupados_Escolarizados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 1 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
-Micro_2254020,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
+Micro_2254020,Instrucao,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2254020,Instrucao,Desalentados_Fora_Forca,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 6 de 7 — ver o recorte Instrucao_agregado, que responde à mesma pergunta em resolução menor"
 Micro_2254020,Sexo,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 3x2 com 33% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)
 Micro_2254020,Faixa_Etaria_trabalho,Motivo_Desistencia_Desalentado,RECUSADO pela guarda de variância: tabela 3x3 com 44% de células vazias (limite 20%) (não há recorte agregado equivalente nesta dimensão)

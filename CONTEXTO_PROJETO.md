@@ -134,7 +134,23 @@ Ampliar o catálogo com 18 indicadores pedidos (PIT, FT, fora da FT, ocupados, e
 - Correção lateral: `aplicar_subset_denominador()` tratava denominador numérico 0/1 como "todo não-NA" → o teste de `Desalentados_Forca_Ampliada` rodava sobre a amostra inteira. Corrigido; **o p-valor desse teste vai mudar** na próxima rodada do `01` (a estimativa não).
 - O `01` completo **não** foi rodado depois da refatoração (ele baixa o Brasil) — rodar na Etapa 2.
 
-### 8.4 Etapa 2 — cache nacional: PRÓXIMA (aguardando o OK do usuário para começar o download)
+### 8.4 Etapa 2 — cache nacional: EM ANDAMENTO (iniciada em 16/09/2026)
+
+**Andamento:**
+- Passo 1 feito: `R/01a_cache_pnadc.R` (gravação atômica via `.tmp`; rodado como script faz a pré-carga do mais recente para o mais antigo). Primeiro arquivo: `pnadc_br_2026_2.rds`, 521.730 linhas, **430 MB** → série inteira ≈ 18 GB.
+- Passo 2 em curso: em 16/09 ~12h30, 25 de 41 trimestres em cache (do 2026T2 para trás), ~5 min por trimestre, ~380–430 MB cada. **Para retomar** (pula o que já existe; um `.tmp` que sobrar de interrupção pode ser apagado):
+  `Rscript R/01a_cache_pnadc.R` (com o R 4.5.2, pela PowerShell, log em arquivo). Checar no fim a linha `PRÉ-CARGA FIM. Falhas: ...`.
+- Passo 3: **CONCLUÍDO (16/09).** `01` usa `carregar_pnadc()` e rodou completo para 2026T2 a partir do cache. Regressão contra as saídas anteriores (guardadas em `dados_saida/regressao_01/antes_01/`, scripts `comparar_chave.R` e `conferir_resto.R` na mesma pasta):
+  - `base_2026T2.csv`: as 16.033 linhas antigas iguais (inclusive `Taxa_Desocupacao`, cuja subcategoria passou a se chamar `desocup/ft`; dif ≤ 1e-16); +10.687 linhas dos indicadores novos.
+  - Testes (`testes_significancia`, `testes_regionais`): fora de `Desalentados_Forca_Ampliada`, estatística, GL, p-valor e N idênticos. `Desalentados_Forca_Ampliada` mudou (N caiu, ex. 8.516 → 4.117) — é a correção do denominador (§8.3). `n_testes_familia`/`p_ajustado` mudaram porque as famílias de testes ganharam os indicadores novos.
+  - Logs de falha: iguais, exceto o texto do erro do R, que agora sai em português (idioma da sessão), e as falhas do `Desalentados`.
+- **Validação 2026T2 (nacional): 111/111 SIDRA, 18/18 checagens internas, Gini 3/3** — Brasil, Nordeste e Piauí.
+- Passo 4: `validacao_sidra.R` reescrita para Brasil/Nordeste/Piauí sobre o cache nacional; resultado parcial por trimestre em `dados_saida/validacao/` (retomável); `Rscript scripts_teste/validacao_sidra.R 2026 2` valida um trimestre só; `... sidra` só pré-busca os oficiais. O Gini independente passou a usar a forma ordenada O(n log n) da diferença média absoluta (a O(n²) não cabe para o Brasil); conferida contra a soma dupla em exemplo pequeno.
+- **Achado do SIDRA (série 2016T2–2026T2 já baixada em `data/raw/sidra/`):** Brasil completo. Para **Nordeste e Piauí, 2020T2–2022T1 (8 trimestres)**, as tabelas 4093, 4094, 4095 e 6402 vêm sem valor (`...`) — nesse intervalo PIT/FT/ocupados/taxas por sexo, idade, instrução e raça não têm referência oficial regional. As tabelas 4097, 4099, 4100 e 5434 têm valor nesse período. Na validação essas linhas aparecem como "sem valor oficial", não como falha. Causa não investigada.
+
+**Próximos passos ao retomar:** (a) concluir a pré-carga; (b) rodar `Rscript scripts_teste/validacao_sidra.R` sem argumentos (série toda, retomável; ~horas; o 2026T2 já está em `dados_saida/validacao/`) e tratar falhas de rótulo em trimestres antigos via `ROTULOS`; (c) só então avisar sobre a limpeza dos `pi_*.rds` e atualizar `CLAUDE.md` §1.1.
+
+**Plano original:**
 1. Criar `R/01a_cache_pnadc.R` com `carregar_pnadc(ano, tri)`: se `data/raw/pnadc_br_<ano>_<tri>.rds` existir, lê o arquivo; senão, `get_pnadc(year, quarter, deflator = TRUE)` com até 3 tentativas e grava o `.rds` **bruto** (sem derivadas — elas sempre vêm de `derivar_variaveis()`). Gravar junto um `.json` com a data do download (o deflator `Habitual` é referenciado ao último trimestre disponível na data do download).
 2. Laço de pré-carga retomável, de 2016T2 ao último trimestre (~41 trimestres; estimativa de 200–400 MB cada, ~15 GB; havia 104 GB livres). Rodar em segundo plano com log em arquivo — são horas.
 3. `01_pipeline_trimestral.R` §2: trocar o `get_pnadc()` direto por `carregar_pnadc()`, e rodar o `01` completo para 2026T2 como teste de regressão.

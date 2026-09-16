@@ -8,6 +8,9 @@ Zona_Urbana,Raca,Proporcao_Ocupados_Escolarizados,All replicates contained NAs
 Zona_Urbana,Raca,Desalentados_Forca_Ampliada,All replicates contained NAs
 Zona_Urbana,Raca,Desalentados_Fora_Forca,All replicates contained NAs
 Zona_Urbana,Raca,Taxa_Nem_Nem,All replicates contained NAs
+Zona_Urbana,Raca,Nivel_Ocupacao,All replicates contained NAs
+Zona_Urbana,Raca,Taxa_Participacao,All replicates contained NAs
+Zona_Urbana,Raca,Taxa_Composta_Subutilizacao,All replicates contained NAs
 Zona_Urbana,Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
 Zona_Rural,Raca,Taxa_Desocupacao,All replicates contained NAs
 Zona_Rural,Raca,Rendimento_Medio_Habitual,All replicates contained NAs
@@ -18,6 +21,7 @@ Zona_Rural,Raca,Proporcao_Ocupados_Escolarizados,All replicates contained NAs
 Zona_Rural,Raca,Desalentados_Forca_Ampliada,All replicates contained NAs
 Zona_Rural,Raca,Desalentados_Fora_Forca,All replicates contained NAs
 Zona_Rural,Raca,Taxa_Nem_Nem,All replicates contained NAs
+Zona_Rural,Raca,Taxa_Composta_Subutilizacao,All replicates contained NAs
 Zona_Rural,Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
 Zona_Rural,Instrucao,Motivo_Nao_Inicio_NemNem,All replicates contained NAs
 Admin_Capital,Raca,Desalentados_Fora_Forca,All replicates contained NAs
@@ -33,6 +37,9 @@ Admin_Capital,Instrucao,Desalentados_Fora_Forca,All replicates contained NAs
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Raca,Desalentados_Forca_Ampliada,All replicates contained NAs
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Raca,Desalentados_Fora_Forca,All replicates contained NAs
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Raca,Taxa_Nem_Nem,All replicates contained NAs
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Raca,Nivel_Ocupacao,All replicates contained NAs
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Raca,Taxa_Participacao,All replicates contained NAs
+"Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Raca,Taxa_Composta_Subutilizacao,All replicates contained NAs
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Faixa_Etaria_trabalho,Desalentados_Fora_Forca,All replicates contained NAs
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
 "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",Instrucao,Desalentados_Fora_Forca,All replicates contained NAs
@@ -46,6 +53,7 @@ Admin_Capital,Instrucao,Desalentados_Fora_Forca,All replicates contained NAs
 "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Raca,Desalentados_Forca_Ampliada,All replicates contained NAs
 "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Raca,Desalentados_Fora_Forca,All replicates contained NAs
 "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Raca,Taxa_Nem_Nem,All replicates contained NAs
+"Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Raca,Taxa_Composta_Subutilizacao,All replicates contained NAs
 "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
 Agreg_Teresina,Raca,Desalentados_Fora_Forca,All replicates contained NAs
 Agreg_Teresina,Raca,Taxa_Nem_Nem,All replicates contained NAs
@@ -60,6 +68,9 @@ Agreg_Entorno metropolitano de Teresina (PI),Raca,Proporcao_Ocupados_Escolarizad
 Agreg_Entorno metropolitano de Teresina (PI),Raca,Desalentados_Forca_Ampliada,All replicates contained NAs
 Agreg_Entorno metropolitano de Teresina (PI),Raca,Desalentados_Fora_Forca,All replicates contained NAs
 Agreg_Entorno metropolitano de Teresina (PI),Raca,Taxa_Nem_Nem,All replicates contained NAs
+Agreg_Entorno metropolitano de Teresina (PI),Raca,Nivel_Ocupacao,All replicates contained NAs
+Agreg_Entorno metropolitano de Teresina (PI),Raca,Taxa_Participacao,All replicates contained NAs
+Agreg_Entorno metropolitano de Teresina (PI),Raca,Taxa_Composta_Subutilizacao,All replicates contained NAs
 Agreg_Entorno metropolitano de Teresina (PI),Faixa_Etaria_trabalho,Desalentados_Fora_Forca,All replicates contained NAs
 Agreg_Entorno metropolitano de Teresina (PI),Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
 Agreg_Entorno metropolitano de Teresina (PI),Instrucao,Desalentados_Fora_Forca,All replicates contained NAs
@@ -73,6 +84,7 @@ Agreg_Centro-Leste do Piauí,Raca,Proporcao_Ocupados_Escolarizados,All replicate
 Agreg_Centro-Leste do Piauí,Raca,Desalentados_Forca_Ampliada,All replicates contained NAs
 Agreg_Centro-Leste do Piauí,Raca,Desalentados_Fora_Forca,All replicates contained NAs
 Agreg_Centro-Leste do Piauí,Raca,Taxa_Nem_Nem,All replicates contained NAs
+Agreg_Centro-Leste do Piauí,Raca,Taxa_Composta_Subutilizacao,All replicates contained NAs
 Agreg_Centro-Leste do Piauí,Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
 Agreg_Centro-Leste do Piauí,Instrucao,Motivo_Nao_Inicio_NemNem,All replicates contained NAs
 Agreg_Baixo Parnaíba do Piauí,Raca,Taxa_Nem_Nem,All replicates contained NAs
@@ -87,6 +99,7 @@ Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Proporcao_Ocupados_Escolariza
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Desalentados_Forca_Ampliada,All replicates contained NAs
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Desalentados_Fora_Forca,All replicates contained NAs
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Taxa_Nem_Nem,All replicates contained NAs
+Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Raca,Taxa_Composta_Subutilizacao,All replicates contained NAs
 Agreg_Alto Parnaíba e Chapadas Sul do Piauí,Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
 Micro_2210011,Raca,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2210011,Raca,Taxa_Nem_Nem,All replicates contained NAs
@@ -119,6 +132,7 @@ Micro_2210013,Instrucao,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2210013,Instrucao,Taxa_Nem_Nem,All replicates contained NAs
 Micro_2210013,Instrucao,Motivo_Nao_Procura_NemNem,All replicates contained NAs
 Micro_2210013,Instrucao,Motivo_Nao_Inicio_NemNem,All replicates contained NAs
+Micro_2210013,Instrucao,Taxa_Composta_Subutilizacao,All replicates contained NAs
 Micro_2210020,Faixa_Etaria_trabalho,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2210020,Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
 Micro_2210020,Instrucao,Desalentados_Fora_Forca,All replicates contained NAs
@@ -138,6 +152,9 @@ Micro_2220010,Raca,Proporcao_Ocupados_Escolarizados,All replicates contained NAs
 Micro_2220010,Raca,Desalentados_Forca_Ampliada,All replicates contained NAs
 Micro_2220010,Raca,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2220010,Raca,Taxa_Nem_Nem,All replicates contained NAs
+Micro_2220010,Raca,Nivel_Ocupacao,All replicates contained NAs
+Micro_2220010,Raca,Taxa_Participacao,All replicates contained NAs
+Micro_2220010,Raca,Taxa_Composta_Subutilizacao,All replicates contained NAs
 Micro_2220010,Faixa_Etaria_trabalho,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2220010,Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
 Micro_2220010,Instrucao,Desalentados_Fora_Forca,All replicates contained NAs
@@ -153,6 +170,7 @@ Micro_2220020,Raca,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2220020,Raca,Taxa_Nem_Nem,All replicates contained NAs
 Micro_2220020,Raca,Motivo_Nao_Procura_NemNem,All replicates contained NAs
 Micro_2220020,Raca,Motivo_Nao_Inicio_NemNem,All replicates contained NAs
+Micro_2220020,Raca,Taxa_Composta_Subutilizacao,All replicates contained NAs
 Micro_2220020,Faixa_Etaria_trabalho,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2220020,Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
 Micro_2220020,Instrucao,Desalentados_Fora_Forca,All replicates contained NAs
@@ -168,6 +186,7 @@ Micro_2251011,Raca,Proporcao_Ocupados_Escolarizados,All replicates contained NAs
 Micro_2251011,Raca,Desalentados_Forca_Ampliada,All replicates contained NAs
 Micro_2251011,Raca,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2251011,Raca,Taxa_Nem_Nem,All replicates contained NAs
+Micro_2251011,Raca,Taxa_Composta_Subutilizacao,All replicates contained NAs
 Micro_2251011,Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
 Micro_2251011,Instrucao,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2251011,Instrucao,Taxa_Nem_Nem,All replicates contained NAs
@@ -193,6 +212,9 @@ Micro_2251020,Raca,Proporcao_Ocupados_Escolarizados,All replicates contained NAs
 Micro_2251020,Raca,Desalentados_Forca_Ampliada,All replicates contained NAs
 Micro_2251020,Raca,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2251020,Raca,Taxa_Nem_Nem,All replicates contained NAs
+Micro_2251020,Raca,Nivel_Ocupacao,All replicates contained NAs
+Micro_2251020,Raca,Taxa_Participacao,All replicates contained NAs
+Micro_2251020,Raca,Taxa_Composta_Subutilizacao,All replicates contained NAs
 Micro_2251020,Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
 Micro_2251021,Faixa_Etaria_trabalho,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2251021,Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
@@ -246,6 +268,7 @@ Micro_2252022,Faixa_Etaria_trabalho,Proporcao_Ocupados_Escolarizados,All replica
 Micro_2252022,Faixa_Etaria_trabalho,Desalentados_Forca_Ampliada,All replicates contained NAs
 Micro_2252022,Faixa_Etaria_trabalho,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2252022,Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
+Micro_2252022,Faixa_Etaria_trabalho,Taxa_Composta_Subutilizacao,All replicates contained NAs
 Micro_2252022,Instrucao,Taxa_Desocupacao,All replicates contained NAs
 Micro_2252022,Instrucao,Rendimento_Medio_Habitual,All replicates contained NAs
 Micro_2252022,Instrucao,Percentual_Subremuneracao,All replicates contained NAs
@@ -255,6 +278,7 @@ Micro_2252022,Instrucao,Proporcao_Ocupados_Escolarizados,All replicates containe
 Micro_2252022,Instrucao,Desalentados_Forca_Ampliada,All replicates contained NAs
 Micro_2252022,Instrucao,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2252022,Instrucao,Taxa_Nem_Nem,All replicates contained NAs
+Micro_2252022,Instrucao,Taxa_Composta_Subutilizacao,All replicates contained NAs
 Micro_2253010,Raca,Motivo_Nao_Inicio_NemNem,All replicates contained NAs
 Micro_2253010,Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
 Micro_2253010,Instrucao_agregado,Motivo_Nao_Inicio_NemNem,All replicates contained NAs
@@ -284,6 +308,7 @@ Micro_2253020,Raca,Proporcao_Ocupados_Escolarizados,All replicates contained NAs
 Micro_2253020,Raca,Desalentados_Forca_Ampliada,All replicates contained NAs
 Micro_2253020,Raca,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2253020,Raca,Taxa_Nem_Nem,All replicates contained NAs
+Micro_2253020,Raca,Taxa_Composta_Subutilizacao,All replicates contained NAs
 Micro_2253020,Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
 Micro_2253020,Instrucao,Taxa_Nem_Nem,All replicates contained NAs
 Micro_2253020,Instrucao,Motivo_Nao_Inicio_NemNem,All replicates contained NAs
@@ -312,6 +337,7 @@ Micro_2253022,Faixa_Etaria_trabalho,Proporcao_Ocupados_Escolarizados,All replica
 Micro_2253022,Faixa_Etaria_trabalho,Desalentados_Forca_Ampliada,All replicates contained NAs
 Micro_2253022,Faixa_Etaria_trabalho,Desalentados_Fora_Forca,All replicates contained NAs
 Micro_2253022,Faixa_Etaria_trabalho,Taxa_Nem_Nem,All replicates contained NAs
+Micro_2253022,Faixa_Etaria_trabalho,Taxa_Composta_Subutilizacao,All replicates contained NAs
 Micro_2253022,Instrucao,Taxa_Desocupacao,All replicates contained NAs
 Micro_2253022,Instrucao,Rendimento_Medio_Habitual,All replicates contained NAs
 Micro_2253022,Instrucao,Percentual_Subremuneracao,All replicates contained NAs
