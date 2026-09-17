@@ -45,11 +45,13 @@ do pipeline, e converte pra `.docx` chamando `pandoc_run()` do pacote
 `pandoc` (usando `custom-reference.docx` e o filtro Lua
 `remover-figuras.lua`). **Não usa Quarto.**
 
-**Sem cache automático entre execuções.** `get_pnadc()` é chamado direto em
-`01_pipeline_trimestral.R`, sem `saveRDS()`/checagem de arquivo já baixado —
-cada execução rebaixa o trimestre do zero (o FTP do IBGE é lento/instável).
-Sem mitigação automática hoje; se cachear manualmente, documente em
-`CONTEXTO_PROJETO.md`.
+**Cache em `.rds` por trimestre (Brasil inteiro, 2016T2+).** `R/01a_cache_pnadc.R`
+(módulo) define `carregar_pnadc(ano, tri)`: lê `data/raw/pnadc_br_<ano>_<tri>.rds`
+se existir, senão baixa com `get_pnadc(deflator = TRUE)` e grava o desenho
+bruto (sem derivadas). Rodado como script, pré-carrega os trimestres que
+faltam. O `01` usa `carregar_pnadc()`. ~400 MB por arquivo; ler um custa
+~2,3 GB de RAM — use `enxugar_pnadc()` e recorte o território antes de
+derivar/estimar (estimar sobre o Brasil inteiro chega a ~9 GB).
 
 **Sem suíte de testes automatizada.** Validações são manuais e pontuais,
 registradas como decisão em `CONTEXTO_PROJETO.md` (ex.: campo de p-valor do
@@ -103,9 +105,9 @@ bem-vindo antes da migração da seção 2, mas não pressuponha que já existe.
   trimestres de desenhos diferentes sem isolar a quebra.
 - **Dicionário de variáveis muda entre rodadas.** Não assuma que um nome
   válido num trimestre continua válido no próximo sem checar.
-- **Download grande, FTP do IBGE instável, sem cache hoje** — rebaixar a cada
-  teste do pipeline é caro; considere isolar `get_pnadc()` numa função fácil
-  de cachear manualmente enquanto a seção 2 não existe.
+- **Download grande, FTP do IBGE instável** — use sempre `carregar_pnadc()`
+  (cache), nunca `get_pnadc()` direto. O deflator é referenciado à data do
+  download (gravada no `.json` ao lado do `.rds`).
 
 ---
 

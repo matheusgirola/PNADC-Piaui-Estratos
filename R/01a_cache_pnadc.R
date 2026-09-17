@@ -64,6 +64,34 @@ carregar_pnadc <- function(ano, tri, tentativas = 3) {
   d
 }
 
+# ---- Enxugar colunas (memória) -------------------------------------------------
+# O microdado tem ~440 colunas; derivar_variaveis() e o catálogo usam ~25.
+# No Brasil (~520 mil linhas) as colunas ocupam ~1,5 GB e são copiadas a cada
+# recorte (Nordeste, Piauí). Os pesos replicados ficam em design$repweights,
+# fora de $variables, e não são afetados.
+# Ao incluir uma variável bruta nova em R/derivar_variaveis.R ou
+# R/indicadores.R, acrescentá-la aqui — senão o R para com "objeto não
+# encontrado" (falha ruidosa, não silenciosa).
+COLUNAS_PNADC_USADAS <- c(
+  "UF", "Estrato", "V1022", "V1023",                           # geografia
+  "V2007", "V2009", "V2010", "VD2002", "V3002", "VD3004",      # demografia
+  "V4019", "V4074A", "V4078A", "VD4001", "VD4002", "VD4003", "VD4004A",
+  "VD4005", "VD4009", "VD4010", "VD4019", "VD4030", "VD4031"   # trabalho
+)
+# identificação, desenho e deflatores: mantidas se existirem na rodada
+COLUNAS_PNADC_APOIO <- c("Ano", "Trimestre", "Capital", "RM_RIDE", "UPA", "V1008", "V1014",
+                         "V1016", "V1027", "V1028", "V1029", "V1033", "posest", "posest_sxi",
+                         "Habitual", "Efetivo")
+
+enxugar_pnadc <- function(design, extras = character()) {
+  nomes <- names(design$variables)
+  faltam <- setdiff(c(COLUNAS_PNADC_USADAS, extras), nomes)
+  if (length(faltam)) stop("Colunas ausentes no microdado: ", paste(faltam, collapse = ", "))
+  manter <- intersect(nomes, c(COLUNAS_PNADC_USADAS, COLUNAS_PNADC_APOIO, extras))
+  design$variables <- design$variables[, manter, drop = FALSE]
+  design
+}
+
 # ---- Pré-carga retomável (só quando rodado como script) ----------------------
 if (sys.nframe() == 0L) {
   source("R/00_config.R", encoding = "UTF-8")

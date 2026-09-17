@@ -5,6 +5,9 @@
 # validação contra o SIDRA (scripts_teste/validacao_sidra.R) usem exatamente as
 # mesmas fórmulas. Depende das colunas criadas por R/derivar_variaveis.R.
 #
+# estimar_trimestre() (fim do arquivo) é o laço geografias x recortes x
+# catálogo, compartilhado pelo 01 e pela série de confiabilidade.
+#
 # Campos de cada spec:
 #   id               nome do indicador
 #   formula          variável (ou expressão) estimada
@@ -226,4 +229,212 @@ extrair_resultados <- function(resultado, ind_nome, tem_by) {
         Categoria_Demografica
       )
   })
+}
+
+# ---- Desigualdade formal/informal ----------------------------------------------
+# A razão entre o rendimento médio dos ocupados formais e o dos informais.
+#
+# POR QUE NÃO ESTÁ NO catalogo_indicadores: aquele framework calcula UM
+# estimador por vez (svymean ou svyratio). Esta métrica é a razão entre DOIS
+# estimadores, e o problema não é obter o ponto — é obter o erro padrão.
+#
+# Rendimento_Formal e Rendimento_Informal são estimados sobre a MESMA amostra:
+# compartilham UPAs e estratos, logo são correlacionados. Combinar os dois
+# erros padrão como se fossem independentes ignora a covariância e produz um
+# intervalo errado — em desenho sintético com a estrutura da PNADC, o erro
+# padrão ingênuo saiu 34% maior que o correto (a covariância é positiva, então
+# o ingênuo é largo demais; com covariância negativa seria estreito demais, o
+# que é pior).
+#
+# O tratamento correto: estimar as duas médias em UM objeto (svyby com
+# covmat = TRUE, que guarda a matriz de covariância) e aplicar svycontrast()
+# sobre a diferença de logaritmos. O svycontrast lineariza pelo método delta
+# usando a covariância de verdade. Exponenciando, volta-se à razão.
+#
+# Trabalhar em log tem duas vantagens: o intervalo resultante é assimétrico na
+# escala da razão (como deve ser, já que razão é positiva e não pode ter limite
+# inferior negativo), e o erro padrão do log é, ele próprio, o CV da razão.
+#
+# Os indicadores Rendimento_Formal e Rendimento_Informal continuam sendo
+# calculados separadamente pelo catálogo — esta seção acrescenta, não substitui.
+
+calcular_desigualdade <- function(design_geo) {
+
+  d <- aplicar_subset(
+    design_geo,
+    ~ VD4002 == "Pessoas ocupadas" & !is.na(informal) & !is.na(VD4019_real)
+  )
+  if (nrow(d) < 2) return(NULL)
+
+  d$variables$.formalidade <- factor(
+    ifelse(d$variables$informal == 1, "informal", "formal"),
+    levels = c("formal", "informal")
+  )
+  # Estrato com só um dos dois grupos não tem razão a estimar.
+  if (nlevels(droplevels(d$variables$.formalidade)) < 2) return(NULL)
+
+  medias <- svyby(~VD4019_real, ~.formalidade, d, svymean,
+                  na.rm = TRUE, covmat = TRUE)
+
+  m <- coef(medias)
+  if (length(m) < 2 || any(!is.finite(m)) || any(m <= 0)) return(NULL)
+
+  contraste <- svycontrast(medias, quote(log(formal) - log(informal)))
+  log_razao <- as.numeric(coef(contraste))
+  ep_log    <- as.numeric(SE(contraste))
+  if (!is.finite(log_razao) || !is.finite(ep_log)) return(NULL)
+
+  razao <- exp(log_razao)
+
+  tibble(
+    rendimento_formal   = unname(m[["formal"]]),
+    rendimento_informal = unname(m[["informal"]]),
+    razao               = razao,
+    ep_log              = ep_log,
+    # método delta na escala natural, para a base_ manter o mesmo esquema
+    ep_razao            = razao * ep_log,
+    # intervalo construído no log e exponenciado: assimétrico e sempre positivo
+    ic_inf              = exp(log_razao - 1.96 * ep_log),
+    ic_sup              = exp(log_razao + 1.96 * ep_log),
+    # CV de uma razão é, por construção, o erro padrão do seu log
+    cv                  = 100 * ep_log
+  )
+}
+
+# ---- Geografias ------------------------------------------------------------------
+# Lista nomeada de desenhos, na ordem de saída da base_. `design` é o desenho
+# derivado (derivar_variaveis()); `design_pi`, o recorte do Piauí.
+#   incluir_brasil_nordeste = FALSE quando `design` já veio recortado no Piauí
+#     (série de confiabilidade: recortar antes de derivar poupa ~6 GB de RAM).
+#   incluir_micro = FALSE tira os estratos de 7 dígitos (fora do escopo da
+#     triagem, CONTEXTO_PROJETO.md §1).
+montar_geografias <- function(design,
+                              design_pi = design[design$variables$UF == "Piauí", ],
+                              incluir_brasil_nordeste = TRUE,
+                              incluir_micro = TRUE) {
+  lista <- list()
+  if (incluir_brasil_nordeste) {
+    lista[["Brasil"]]   <- design
+    lista[["Nordeste"]] <- subset(design, Regiao == "Nordeste")
+  }
+  lista[["Piauí"]]       <- design_pi
+  lista[["Teresina"]]    <- subset(design_pi, Estrato_agregado == "Teresina")
+  lista[["Zona_Urbana"]] <- subset(design_pi, Zona == "Urbana")
+  lista[["Zona_Rural"]]  <- subset(design_pi, Zona == "Rural")
+
+  niveis <- function(v) { u <- unique(design_pi$variables[[v]]); u[!is.na(u)] }
+  for (e in niveis("Estrato_Admin")) {
+    lista[[paste0("Admin_", e)]] <- subset(design_pi, Estrato_Admin == e)
+  }
+  for (ea in niveis("Estrato_agregado")) {
+    lista[[paste0("Agreg_", ea)]] <- subset(design_pi, Estrato_agregado == ea)
+  }
+  if (incluir_micro) {
+    for (em in niveis("Estrato")) {
+      lista[[paste0("Micro_", em)]] <- subset(design_pi, Estrato == em)
+    }
+  }
+  lista
+}
+
+# ---- Estimação de um trimestre -----------------------------------------------------
+# Catálogo x geografias x recortes demográficos (as geografias agregadas só no
+# recorte Total), mais a razão formal/informal. Sem testes de significância —
+# esses ficam no 01. Devolve list(base, desigualdade, falhas); `falhas` é uma
+# lista de tibbles (Regiao_Geografica, Recorte_Demografico, Indicador, Erro).
+estimar_trimestre <- function(lista_geografias, geografias_agregadas, ano, tri,
+                              catalogo = catalogo_indicadores,
+                              recortes = recortes_demograficos,
+                              incluir_desigualdade = TRUE) {
+  linhas <- list()
+  falhas <- list()
+  registrar_falha <- function(geo, recorte, ind, erro) {
+    falhas[[length(falhas) + 1]] <<- tibble(
+      Regiao_Geografica = geo, Recorte_Demografico = recorte,
+      Indicador = ind, Erro = erro
+    )
+  }
+
+  for (geo_nome in names(lista_geografias)) {
+    design_geo <- lista_geografias[[geo_nome]]
+    if (nrow(design_geo) == 0) next
+
+    recortes_desta_geo <- if (geo_nome %in% geografias_agregadas) "Total" else names(recortes)
+
+    for (recorte_nome in recortes_desta_geo) {
+      by_formula <- recortes[[recorte_nome]]
+
+      for (spec in catalogo) {
+        if (isTRUE(spec$so_recorte_total) && recorte_nome != "Total") next
+
+        by_usar       <- if (!is.null(spec$by_override)) spec$by_override else by_formula
+        recorte_saida <- if (!is.null(spec$by_override)) "Formalidade" else recorte_nome
+
+        resultado <- tryCatch(
+          computar_estimativa(design_geo, spec, by_usar),
+          error = function(e) {
+            registrar_falha(geo_nome, recorte_saida, spec$id, conditionMessage(e))
+            NULL
+          }
+        )
+        if (is.null(resultado)) next
+
+        linha <- tryCatch(
+          extrair_resultados(resultado, spec$id, tem_by = !is.null(by_usar)) %>%
+            mutate(Regiao_Geografica = geo_nome, Recorte_Demografico = recorte_saida),
+          error = function(e) {
+            registrar_falha(geo_nome, recorte_saida, spec$id,
+                            paste("Falha ao extrair:", conditionMessage(e)))
+            NULL
+          }
+        )
+        if (!is.null(linha)) linhas[[length(linhas) + 1]] <- linha
+      }
+    }
+  }
+
+  base <- bind_rows(linhas) %>%
+    mutate(Ano = ano, Trimestre = tri) %>%
+    select(Indicador, Subcategoria_Indicador, Estimativa, SE, Ano, Trimestre,
+           Regiao_Geografica, Recorte_Demografico, Categoria_Demografica)
+
+  desigualdade <- tibble()
+  if (incluir_desigualdade) {
+    linhas_desig <- list()
+    for (geo_nome in names(lista_geografias)) {
+      design_geo <- lista_geografias[[geo_nome]]
+      if (nrow(design_geo) == 0) next
+
+      res <- tryCatch(
+        calcular_desigualdade(design_geo),
+        error = function(e) {
+          registrar_falha(geo_nome, "Total", "Desigualdade_Formal_Informal", conditionMessage(e))
+          NULL
+        }
+      )
+      if (!is.null(res)) {
+        linhas_desig[[length(linhas_desig) + 1]] <- res %>%
+          mutate(Regiao_Geografica = geo_nome, .before = 1)
+      }
+    }
+    desigualdade <- bind_rows(linhas_desig)
+
+    # Entra também na base_ para herdar a maquinaria de CV e confiabilidade do 03.
+    if (nrow(desigualdade) > 0) {
+      base <- bind_rows(
+        base,
+        desigualdade %>%
+          transmute(
+            Indicador = "Desigualdade_Formal_Informal",
+            Subcategoria_Indicador = "Desigualdade_Formal_Informal",
+            Estimativa = razao, SE = ep_razao,
+            Ano = ano, Trimestre = tri,
+            Regiao_Geografica, Recorte_Demografico = "Total",
+            Categoria_Demografica = "Total"
+          )
+      )
+    }
+  }
+
+  list(base = base, desigualdade = desigualdade, falhas = falhas)
 }

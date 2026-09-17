@@ -76,208 +76,24 @@ source("R/indicadores.R", encoding = "UTF-8")
 # geografias_agregadas vem do R/00_config.R
 
 # ---- 4. Geografias -----------------------------------------------------------
+# montar_geografias() e estimar_trimestre() vêm do R/indicadores.R — o mesmo
+# motor usado pela série de confiabilidade (R/10_serie_confiabilidade.R).
 
-lista_geografias <- list(
-  "Brasil"      = design_trimestre,
-  "Nordeste"    = subset(design_trimestre, Regiao == "Nordeste"),
-  "Piauí"       = design_pi,
-  "Teresina"    = subset(design_pi, Estrato_agregado == "Teresina"),
-  "Zona_Urbana" = subset(design_pi, Zona == "Urbana"),
-  "Zona_Rural"  = subset(design_pi, Zona == "Rural")
-)
-
-estratos_admin <- unique(design_pi$variables$Estrato_Admin)
-estratos_admin <- estratos_admin[!is.na(estratos_admin)]
-for (e in estratos_admin) {
-  lista_geografias[[paste0("Admin_", e)]] <- subset(design_pi, Estrato_Admin == e)
-}
-
-estratos_agreg <- unique(design_pi$variables$Estrato_agregado)
-estratos_agreg <- estratos_agreg[!is.na(estratos_agreg)]
-for (ea in estratos_agreg) {
-  lista_geografias[[paste0("Agreg_", ea)]] <- subset(design_pi, Estrato_agregado == ea)
-}
-
-estratos_micro <- unique(design_pi$variables$Estrato)
-estratos_micro <- estratos_micro[!is.na(estratos_micro)]
-
-for (em in estratos_micro) {
-  lista_geografias[[paste0("Micro_", em)]] <- subset(design_pi, Estrato == em)
-}
-
+lista_geografias <- montar_geografias(design_trimestre, design_pi)
 geografias_finas <- setdiff(names(lista_geografias), geografias_agregadas)
 
-# ---- 5. Funções de cálculo e extração ---------------------------------------
-# aplicar_subset(), aplicar_subset_denominador(), computar_estimativa() e
-# extrair_resultados() vêm do R/indicadores.R (carregado na §3).
+# ---- 5/6. Indicadores e desigualdade formal/informal ---------------------------
 
-# ---- 6. Rodar os indicadores --------------------------------------------------
-
-message("Calculando indicadores...")
-linhas <- list()
-falhas <- list()
-
-for (geo_nome in names(lista_geografias)) {
-  design_geo <- lista_geografias[[geo_nome]]
-  if (nrow(design_geo) == 0) next
-  
-  recortes_desta_geo <- if (geo_nome %in% geografias_agregadas) "Total" else names(recortes_demograficos)
-  
-  for (recorte_nome in recortes_desta_geo) {
-    by_formula <- recortes_demograficos[[recorte_nome]]
-    
-    for (spec in catalogo_indicadores) {
-      if (isTRUE(spec$so_recorte_total) && recorte_nome != "Total") next
-      
-      by_usar       <- if (!is.null(spec$by_override)) spec$by_override else by_formula
-      recorte_saida <- if (!is.null(spec$by_override)) "Formalidade" else recorte_nome
-      
-      resultado <- tryCatch(
-        computar_estimativa(design_geo, spec, by_usar),
-        error = function(e) {
-          falhas[[length(falhas) + 1]] <<- tibble(
-            Regiao_Geografica = geo_nome, Recorte_Demografico = recorte_saida,
-            Indicador = spec$id, Erro = conditionMessage(e)
-          )
-          NULL
-        }
-      )
-      if (is.null(resultado)) next
-      
-      linha <- tryCatch(
-        extrair_resultados(resultado, spec$id, tem_by = !is.null(by_usar)) %>%
-          mutate(Regiao_Geografica = geo_nome, Recorte_Demografico = recorte_saida),
-        error = function(e) {
-          falhas[[length(falhas) + 1]] <<- tibble(
-            Regiao_Geografica = geo_nome, Recorte_Demografico = recorte_saida,
-            Indicador = spec$id, Erro = paste("Falha ao extrair:", conditionMessage(e))
-          )
-          NULL
-        }
-      )
-      if (!is.null(linha)) linhas[[length(linhas) + 1]] <- linha
-    }
-  }
-}
-
-base_trimestre <- bind_rows(linhas) %>%
-  mutate(Ano = ANO_REF, Trimestre = TRIMESTRE_REF) %>%
-  select(Indicador, Subcategoria_Indicador, Estimativa, SE, Ano, Trimestre,
-         Regiao_Geografica, Recorte_Demografico, Categoria_Demografica)
-
-# ---- 6b. Desigualdade formal/informal ---------------------------------------
-# A razão entre o rendimento médio dos ocupados formais e o dos informais.
-#
-# POR QUE NÃO ESTÁ NO catalogo_indicadores: aquele framework calcula UM
-# estimador por vez (svymean ou svyratio). Esta métrica é a razão entre DOIS
-# estimadores, e o problema não é obter o ponto — é obter o erro padrão.
-#
-# Rendimento_Formal e Rendimento_Informal são estimados sobre a MESMA amostra:
-# compartilham UPAs e estratos, logo são correlacionados. Combinar os dois
-# erros padrão como se fossem independentes ignora a covariância e produz um
-# intervalo errado — em desenho sintético com a estrutura da PNADC, o erro
-# padrão ingênuo saiu 34% maior que o correto (a covariância é positiva, então
-# o ingênuo é largo demais; com covariância negativa seria estreito demais, o
-# que é pior).
-#
-# O tratamento correto: estimar as duas médias em UM objeto (svyby com
-# covmat = TRUE, que guarda a matriz de covariância) e aplicar svycontrast()
-# sobre a diferença de logaritmos. O svycontrast lineariza pelo método delta
-# usando a covariância de verdade. Exponenciando, volta-se à razão.
-#
-# Trabalhar em log tem duas vantagens: o intervalo resultante é assimétrico na
-# escala da razão (como deve ser, já que razão é positiva e não pode ter limite
-# inferior negativo), e o erro padrão do log é, ele próprio, o CV da razão.
-#
-# Os indicadores Rendimento_Formal e Rendimento_Informal continuam sendo
-# calculados separadamente pelo catálogo — esta seção acrescenta, não substitui.
-
-calcular_desigualdade <- function(design_geo) {
-
-  d <- aplicar_subset(
-    design_geo,
-    ~ VD4002 == "Pessoas ocupadas" & !is.na(informal) & !is.na(VD4019_real)
-  )
-  if (nrow(d) < 2) return(NULL)
-
-  d$variables$.formalidade <- factor(
-    ifelse(d$variables$informal == 1, "informal", "formal"),
-    levels = c("formal", "informal")
-  )
-  # Estrato com só um dos dois grupos não tem razão a estimar.
-  if (nlevels(droplevels(d$variables$.formalidade)) < 2) return(NULL)
-
-  medias <- svyby(~VD4019_real, ~.formalidade, d, svymean,
-                  na.rm = TRUE, covmat = TRUE)
-
-  m <- coef(medias)
-  if (length(m) < 2 || any(!is.finite(m)) || any(m <= 0)) return(NULL)
-
-  contraste <- svycontrast(medias, quote(log(formal) - log(informal)))
-  log_razao <- as.numeric(coef(contraste))
-  ep_log    <- as.numeric(SE(contraste))
-  if (!is.finite(log_razao) || !is.finite(ep_log)) return(NULL)
-
-  razao <- exp(log_razao)
-
-  tibble(
-    rendimento_formal   = unname(m[["formal"]]),
-    rendimento_informal = unname(m[["informal"]]),
-    razao               = razao,
-    ep_log              = ep_log,
-    # método delta na escala natural, para a base_ manter o mesmo esquema
-    ep_razao            = razao * ep_log,
-    # intervalo construído no log e exponenciado: assimétrico e sempre positivo
-    ic_inf              = exp(log_razao - 1.96 * ep_log),
-    ic_sup              = exp(log_razao + 1.96 * ep_log),
-    # CV de uma razão é, por construção, o erro padrão do seu log
-    cv                  = 100 * ep_log
-  )
-}
-
-message("Calculando a desigualdade formal/informal...")
-linhas_desig <- list()
-
-for (geo_nome in names(lista_geografias)) {
-  design_geo <- lista_geografias[[geo_nome]]
-  if (nrow(design_geo) == 0) next
-
-  res <- tryCatch(
-    calcular_desigualdade(design_geo),
-    error = function(e) {
-      falhas[[length(falhas) + 1]] <<- tibble(
-        Regiao_Geografica = geo_nome, Recorte_Demografico = "Total",
-        Indicador = "Desigualdade_Formal_Informal", Erro = conditionMessage(e)
-      )
-      NULL
-    }
-  )
-  if (!is.null(res)) {
-    linhas_desig[[length(linhas_desig) + 1]] <- res %>%
-      mutate(Regiao_Geografica = geo_nome, .before = 1)
-  }
-}
-
-desigualdade <- bind_rows(linhas_desig)
+res_trimestre  <- estimar_trimestre(lista_geografias, geografias_agregadas,
+                                    ANO_REF, TRIMESTRE_REF)
+base_trimestre <- res_trimestre$base
+desigualdade   <- res_trimestre$desigualdade
+falhas         <- res_trimestre$falhas
 
 if (nrow(desigualdade) > 0) {
   write_csv(desigualdade,
             sprintf("output/desigualdade_formal_informal_%s.csv", sufixo))
   message("  -> ", nrow(desigualdade), " geografia(s) com razão formal/informal")
-
-  # Entra também na base_ para herdar a maquinaria de CV e confiabilidade do 03.
-  base_trimestre <- bind_rows(
-    base_trimestre,
-    desigualdade %>%
-      transmute(
-        Indicador = "Desigualdade_Formal_Informal",
-        Subcategoria_Indicador = "Desigualdade_Formal_Informal",
-        Estimativa = razao, SE = ep_razao,
-        Ano = ANO_REF, Trimestre = TRIMESTRE_REF,
-        Regiao_Geografica, Recorte_Demografico = "Total",
-        Categoria_Demografica = "Total"
-      )
-  )
 } else {
   message("  -> nenhuma geografia produziu razão formal/informal (ver log de falhas)")
 }

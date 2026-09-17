@@ -37,6 +37,7 @@ library(tidyr)
 source("R/derivar_variaveis.R", encoding = "UTF-8")
 source("R/indicadores.R", encoding = "UTF-8")
 source("R/00_config.R", encoding = "UTF-8")  # tabela_salario_minimo
+source("R/01a_cache_pnadc.R", encoding = "UTF-8")  # enxugar_pnadc()
 
 dir.create("data/raw/sidra", recursive = TRUE, showWarnings = FALSE)
 
@@ -96,8 +97,9 @@ mapa <- bind_rows(
 periodo_sidra <- function(ano, tri) sprintf("%d%02d", ano, tri)
 
 # Uma chamada por tabela: todas as variáveis, categorias e períodos de uma vez.
-buscar_sidra <- function(tabela, variaveis, classificacao, periodos, localidade) {
-  arquivo <- sprintf("data/raw/sidra/t%d_%s_%s.rds", tabela,
+# prefixo: nome do cache local ("t" = valores; a calibração do CV usa "cv_t").
+buscar_sidra <- function(tabela, variaveis, classificacao, periodos, localidade, prefixo = "t") {
+  arquivo <- sprintf("data/raw/sidra/%s%d_%s_%s.rds", prefixo, tabela,
                      gsub("[^0-9A-Za-z]", "", localidade), digest_periodos(periodos))
   if (file.exists(arquivo)) return(readRDS(arquivo))
 
@@ -251,16 +253,29 @@ ids <- unique(mapa$Indicador)
 spec_gini <- Filter(function(s) s$id == "Gini_Rendimento_Habitual_Trabalho",
                     catalogo_indicadores)[[1]]
 
+# Territórios recalculados por trimestre; os oficiais acima continuam os três,
+# para o resumo final ler também os parciais antigos (Brasil/Nordeste).
+TERRITORIOS_SERIE <- "Piauí"
+
 for (i in seq_len(nrow(trimestres))) {
   t <- trimestres[i, ]
   parcial <- file.path(dir_parcial, sprintf("validacao_%d_%d.rds", t$ano, t$tri))
   if (file.exists(parcial)) next
   message(sprintf("[%s] Validando %dT%d...", format(Sys.time(), "%H:%M:%S"), t$ano, t$tri))
   sm <- tabela_salario_minimo$sm_hora[tabela_salario_minimo$ano == t$ano]
-  d_br <- derivar_variaveis(readRDS(t$arquivo), sm_hora = sm)
+  # Decisão de 17/09/2026: a série valida só o Piauí (Brasil e Nordeste já
+  # passaram em 2016T2 e 2026T2; os parciais com os três territórios ficam).
+  # Recorta ANTES de derivar e estimar: o cálculo com os 200 pesos replicados
+  # sobre as ~520 mil linhas do Brasil é o que levava a RAM a ~9 GB. Resultado
+  # do Piauí idêntico ao do recorte feito depois (conferido em 2016T4).
+  bruto <- enxugar_pnadc(readRDS(t$arquivo))  # só as colunas usadas (R/01a_cache_pnadc.R)
+  if (identical(TERRITORIOS_SERIE, "Piauí")) bruto <- bruto[bruto$variables$UF == "Piauí", ]
+  gc()
+  d_br <- derivar_variaveis(bruto, sm_hora = sm)
+  rm(bruto)
 
   res <- list(comparacoes = list(), internas = list(), ginis = list())
-  for (terr in territorios$territorio) {
+  for (terr in TERRITORIOS_SERIE) {
     d <- recortar(d_br, terr)
     res$comparacoes[[terr]] <- estimar_catalogo(d, ids) %>%
       mutate(territorio = terr, periodo = t$periodo, ano = t$ano, tri = t$tri)

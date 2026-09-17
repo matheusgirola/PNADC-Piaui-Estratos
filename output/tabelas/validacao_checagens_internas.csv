@@ -1,4 +1,268 @@
 checagem,ok,territorio,ano,tri
+ft + fora_ft == pit,TRUE,Brasil,2016,2
+ocup + desocup == ft,TRUE,Brasil,2016,2
+sexo: soma == pit,TRUE,Brasil,2016,2
+faixa SIDRA: soma == pit,TRUE,Brasil,2016,2
+subutil <= ft_ampliada,TRUE,Brasil,2016,2
+taxa desocupação antiga == nova,TRUE,Brasil,2016,2
+ft + fora_ft == pit,TRUE,Nordeste,2016,2
+ocup + desocup == ft,TRUE,Nordeste,2016,2
+sexo: soma == pit,TRUE,Nordeste,2016,2
+faixa SIDRA: soma == pit,TRUE,Nordeste,2016,2
+subutil <= ft_ampliada,TRUE,Nordeste,2016,2
+taxa desocupação antiga == nova,TRUE,Nordeste,2016,2
+ft + fora_ft == pit,TRUE,Piauí,2016,2
+ocup + desocup == ft,TRUE,Piauí,2016,2
+sexo: soma == pit,TRUE,Piauí,2016,2
+faixa SIDRA: soma == pit,TRUE,Piauí,2016,2
+subutil <= ft_ampliada,TRUE,Piauí,2016,2
+taxa desocupação antiga == nova,TRUE,Piauí,2016,2
+ft + fora_ft == pit,TRUE,Brasil,2016,3
+ocup + desocup == ft,TRUE,Brasil,2016,3
+sexo: soma == pit,TRUE,Brasil,2016,3
+faixa SIDRA: soma == pit,TRUE,Brasil,2016,3
+subutil <= ft_ampliada,TRUE,Brasil,2016,3
+taxa desocupação antiga == nova,TRUE,Brasil,2016,3
+ft + fora_ft == pit,TRUE,Nordeste,2016,3
+ocup + desocup == ft,TRUE,Nordeste,2016,3
+sexo: soma == pit,TRUE,Nordeste,2016,3
+faixa SIDRA: soma == pit,TRUE,Nordeste,2016,3
+subutil <= ft_ampliada,TRUE,Nordeste,2016,3
+taxa desocupação antiga == nova,TRUE,Nordeste,2016,3
+ft + fora_ft == pit,TRUE,Piauí,2016,3
+ocup + desocup == ft,TRUE,Piauí,2016,3
+sexo: soma == pit,TRUE,Piauí,2016,3
+faixa SIDRA: soma == pit,TRUE,Piauí,2016,3
+subutil <= ft_ampliada,TRUE,Piauí,2016,3
+taxa desocupação antiga == nova,TRUE,Piauí,2016,3
+ft + fora_ft == pit,TRUE,Piauí,2016,4
+ocup + desocup == ft,TRUE,Piauí,2016,4
+sexo: soma == pit,TRUE,Piauí,2016,4
+faixa SIDRA: soma == pit,TRUE,Piauí,2016,4
+subutil <= ft_ampliada,TRUE,Piauí,2016,4
+taxa desocupação antiga == nova,TRUE,Piauí,2016,4
+ft + fora_ft == pit,TRUE,Piauí,2017,1
+ocup + desocup == ft,TRUE,Piauí,2017,1
+sexo: soma == pit,TRUE,Piauí,2017,1
+faixa SIDRA: soma == pit,TRUE,Piauí,2017,1
+subutil <= ft_ampliada,TRUE,Piauí,2017,1
+taxa desocupação antiga == nova,TRUE,Piauí,2017,1
+ft + fora_ft == pit,TRUE,Piauí,2017,2
+ocup + desocup == ft,TRUE,Piauí,2017,2
+sexo: soma == pit,TRUE,Piauí,2017,2
+faixa SIDRA: soma == pit,TRUE,Piauí,2017,2
+subutil <= ft_ampliada,TRUE,Piauí,2017,2
+taxa desocupação antiga == nova,TRUE,Piauí,2017,2
+ft + fora_ft == pit,TRUE,Piauí,2017,3
+ocup + desocup == ft,TRUE,Piauí,2017,3
+sexo: soma == pit,TRUE,Piauí,2017,3
+faixa SIDRA: soma == pit,TRUE,Piauí,2017,3
+subutil <= ft_ampliada,TRUE,Piauí,2017,3
+taxa desocupação antiga == nova,TRUE,Piauí,2017,3
+ft + fora_ft == pit,TRUE,Piauí,2017,4
+ocup + desocup == ft,TRUE,Piauí,2017,4
+sexo: soma == pit,TRUE,Piauí,2017,4
+faixa SIDRA: soma == pit,TRUE,Piauí,2017,4
+subutil <= ft_ampliada,TRUE,Piauí,2017,4
+taxa desocupação antiga == nova,TRUE,Piauí,2017,4
+ft + fora_ft == pit,TRUE,Piauí,2018,1
+ocup + desocup == ft,TRUE,Piauí,2018,1
+sexo: soma == pit,TRUE,Piauí,2018,1
+faixa SIDRA: soma == pit,TRUE,Piauí,2018,1
+subutil <= ft_ampliada,TRUE,Piauí,2018,1
+taxa desocupação antiga == nova,TRUE,Piauí,2018,1
+ft + fora_ft == pit,TRUE,Piauí,2018,2
+ocup + desocup == ft,TRUE,Piauí,2018,2
+sexo: soma == pit,TRUE,Piauí,2018,2
+faixa SIDRA: soma == pit,TRUE,Piauí,2018,2
+subutil <= ft_ampliada,TRUE,Piauí,2018,2
+taxa desocupação antiga == nova,TRUE,Piauí,2018,2
+ft + fora_ft == pit,TRUE,Piauí,2018,3
+ocup + desocup == ft,TRUE,Piauí,2018,3
+sexo: soma == pit,TRUE,Piauí,2018,3
+faixa SIDRA: soma == pit,TRUE,Piauí,2018,3
+subutil <= ft_ampliada,TRUE,Piauí,2018,3
+taxa desocupação antiga == nova,TRUE,Piauí,2018,3
+ft + fora_ft == pit,TRUE,Piauí,2018,4
+ocup + desocup == ft,TRUE,Piauí,2018,4
+sexo: soma == pit,TRUE,Piauí,2018,4
+faixa SIDRA: soma == pit,TRUE,Piauí,2018,4
+subutil <= ft_ampliada,TRUE,Piauí,2018,4
+taxa desocupação antiga == nova,TRUE,Piauí,2018,4
+ft + fora_ft == pit,TRUE,Piauí,2019,1
+ocup + desocup == ft,TRUE,Piauí,2019,1
+sexo: soma == pit,TRUE,Piauí,2019,1
+faixa SIDRA: soma == pit,TRUE,Piauí,2019,1
+subutil <= ft_ampliada,TRUE,Piauí,2019,1
+taxa desocupação antiga == nova,TRUE,Piauí,2019,1
+ft + fora_ft == pit,TRUE,Piauí,2019,2
+ocup + desocup == ft,TRUE,Piauí,2019,2
+sexo: soma == pit,TRUE,Piauí,2019,2
+faixa SIDRA: soma == pit,TRUE,Piauí,2019,2
+subutil <= ft_ampliada,TRUE,Piauí,2019,2
+taxa desocupação antiga == nova,TRUE,Piauí,2019,2
+ft + fora_ft == pit,TRUE,Piauí,2019,3
+ocup + desocup == ft,TRUE,Piauí,2019,3
+sexo: soma == pit,TRUE,Piauí,2019,3
+faixa SIDRA: soma == pit,TRUE,Piauí,2019,3
+subutil <= ft_ampliada,TRUE,Piauí,2019,3
+taxa desocupação antiga == nova,TRUE,Piauí,2019,3
+ft + fora_ft == pit,TRUE,Piauí,2019,4
+ocup + desocup == ft,TRUE,Piauí,2019,4
+sexo: soma == pit,TRUE,Piauí,2019,4
+faixa SIDRA: soma == pit,TRUE,Piauí,2019,4
+subutil <= ft_ampliada,TRUE,Piauí,2019,4
+taxa desocupação antiga == nova,TRUE,Piauí,2019,4
+ft + fora_ft == pit,TRUE,Piauí,2020,1
+ocup + desocup == ft,TRUE,Piauí,2020,1
+sexo: soma == pit,TRUE,Piauí,2020,1
+faixa SIDRA: soma == pit,TRUE,Piauí,2020,1
+subutil <= ft_ampliada,TRUE,Piauí,2020,1
+taxa desocupação antiga == nova,TRUE,Piauí,2020,1
+ft + fora_ft == pit,TRUE,Piauí,2020,2
+ocup + desocup == ft,TRUE,Piauí,2020,2
+sexo: soma == pit,TRUE,Piauí,2020,2
+faixa SIDRA: soma == pit,TRUE,Piauí,2020,2
+subutil <= ft_ampliada,TRUE,Piauí,2020,2
+taxa desocupação antiga == nova,TRUE,Piauí,2020,2
+ft + fora_ft == pit,TRUE,Piauí,2020,3
+ocup + desocup == ft,TRUE,Piauí,2020,3
+sexo: soma == pit,TRUE,Piauí,2020,3
+faixa SIDRA: soma == pit,TRUE,Piauí,2020,3
+subutil <= ft_ampliada,TRUE,Piauí,2020,3
+taxa desocupação antiga == nova,TRUE,Piauí,2020,3
+ft + fora_ft == pit,TRUE,Piauí,2020,4
+ocup + desocup == ft,TRUE,Piauí,2020,4
+sexo: soma == pit,TRUE,Piauí,2020,4
+faixa SIDRA: soma == pit,TRUE,Piauí,2020,4
+subutil <= ft_ampliada,TRUE,Piauí,2020,4
+taxa desocupação antiga == nova,TRUE,Piauí,2020,4
+ft + fora_ft == pit,TRUE,Piauí,2021,1
+ocup + desocup == ft,TRUE,Piauí,2021,1
+sexo: soma == pit,TRUE,Piauí,2021,1
+faixa SIDRA: soma == pit,TRUE,Piauí,2021,1
+subutil <= ft_ampliada,TRUE,Piauí,2021,1
+taxa desocupação antiga == nova,TRUE,Piauí,2021,1
+ft + fora_ft == pit,TRUE,Piauí,2021,2
+ocup + desocup == ft,TRUE,Piauí,2021,2
+sexo: soma == pit,TRUE,Piauí,2021,2
+faixa SIDRA: soma == pit,TRUE,Piauí,2021,2
+subutil <= ft_ampliada,TRUE,Piauí,2021,2
+taxa desocupação antiga == nova,TRUE,Piauí,2021,2
+ft + fora_ft == pit,TRUE,Piauí,2021,3
+ocup + desocup == ft,TRUE,Piauí,2021,3
+sexo: soma == pit,TRUE,Piauí,2021,3
+faixa SIDRA: soma == pit,TRUE,Piauí,2021,3
+subutil <= ft_ampliada,TRUE,Piauí,2021,3
+taxa desocupação antiga == nova,TRUE,Piauí,2021,3
+ft + fora_ft == pit,TRUE,Piauí,2021,4
+ocup + desocup == ft,TRUE,Piauí,2021,4
+sexo: soma == pit,TRUE,Piauí,2021,4
+faixa SIDRA: soma == pit,TRUE,Piauí,2021,4
+subutil <= ft_ampliada,TRUE,Piauí,2021,4
+taxa desocupação antiga == nova,TRUE,Piauí,2021,4
+ft + fora_ft == pit,TRUE,Piauí,2022,1
+ocup + desocup == ft,TRUE,Piauí,2022,1
+sexo: soma == pit,TRUE,Piauí,2022,1
+faixa SIDRA: soma == pit,TRUE,Piauí,2022,1
+subutil <= ft_ampliada,TRUE,Piauí,2022,1
+taxa desocupação antiga == nova,TRUE,Piauí,2022,1
+ft + fora_ft == pit,TRUE,Piauí,2022,2
+ocup + desocup == ft,TRUE,Piauí,2022,2
+sexo: soma == pit,TRUE,Piauí,2022,2
+faixa SIDRA: soma == pit,TRUE,Piauí,2022,2
+subutil <= ft_ampliada,TRUE,Piauí,2022,2
+taxa desocupação antiga == nova,TRUE,Piauí,2022,2
+ft + fora_ft == pit,TRUE,Piauí,2022,3
+ocup + desocup == ft,TRUE,Piauí,2022,3
+sexo: soma == pit,TRUE,Piauí,2022,3
+faixa SIDRA: soma == pit,TRUE,Piauí,2022,3
+subutil <= ft_ampliada,TRUE,Piauí,2022,3
+taxa desocupação antiga == nova,TRUE,Piauí,2022,3
+ft + fora_ft == pit,TRUE,Piauí,2022,4
+ocup + desocup == ft,TRUE,Piauí,2022,4
+sexo: soma == pit,TRUE,Piauí,2022,4
+faixa SIDRA: soma == pit,TRUE,Piauí,2022,4
+subutil <= ft_ampliada,TRUE,Piauí,2022,4
+taxa desocupação antiga == nova,TRUE,Piauí,2022,4
+ft + fora_ft == pit,TRUE,Piauí,2023,1
+ocup + desocup == ft,TRUE,Piauí,2023,1
+sexo: soma == pit,TRUE,Piauí,2023,1
+faixa SIDRA: soma == pit,TRUE,Piauí,2023,1
+subutil <= ft_ampliada,TRUE,Piauí,2023,1
+taxa desocupação antiga == nova,TRUE,Piauí,2023,1
+ft + fora_ft == pit,TRUE,Piauí,2023,2
+ocup + desocup == ft,TRUE,Piauí,2023,2
+sexo: soma == pit,TRUE,Piauí,2023,2
+faixa SIDRA: soma == pit,TRUE,Piauí,2023,2
+subutil <= ft_ampliada,TRUE,Piauí,2023,2
+taxa desocupação antiga == nova,TRUE,Piauí,2023,2
+ft + fora_ft == pit,TRUE,Piauí,2023,3
+ocup + desocup == ft,TRUE,Piauí,2023,3
+sexo: soma == pit,TRUE,Piauí,2023,3
+faixa SIDRA: soma == pit,TRUE,Piauí,2023,3
+subutil <= ft_ampliada,TRUE,Piauí,2023,3
+taxa desocupação antiga == nova,TRUE,Piauí,2023,3
+ft + fora_ft == pit,TRUE,Piauí,2023,4
+ocup + desocup == ft,TRUE,Piauí,2023,4
+sexo: soma == pit,TRUE,Piauí,2023,4
+faixa SIDRA: soma == pit,TRUE,Piauí,2023,4
+subutil <= ft_ampliada,TRUE,Piauí,2023,4
+taxa desocupação antiga == nova,TRUE,Piauí,2023,4
+ft + fora_ft == pit,TRUE,Piauí,2024,1
+ocup + desocup == ft,TRUE,Piauí,2024,1
+sexo: soma == pit,TRUE,Piauí,2024,1
+faixa SIDRA: soma == pit,TRUE,Piauí,2024,1
+subutil <= ft_ampliada,TRUE,Piauí,2024,1
+taxa desocupação antiga == nova,TRUE,Piauí,2024,1
+ft + fora_ft == pit,TRUE,Piauí,2024,2
+ocup + desocup == ft,TRUE,Piauí,2024,2
+sexo: soma == pit,TRUE,Piauí,2024,2
+faixa SIDRA: soma == pit,TRUE,Piauí,2024,2
+subutil <= ft_ampliada,TRUE,Piauí,2024,2
+taxa desocupação antiga == nova,TRUE,Piauí,2024,2
+ft + fora_ft == pit,TRUE,Piauí,2024,3
+ocup + desocup == ft,TRUE,Piauí,2024,3
+sexo: soma == pit,TRUE,Piauí,2024,3
+faixa SIDRA: soma == pit,TRUE,Piauí,2024,3
+subutil <= ft_ampliada,TRUE,Piauí,2024,3
+taxa desocupação antiga == nova,TRUE,Piauí,2024,3
+ft + fora_ft == pit,TRUE,Piauí,2024,4
+ocup + desocup == ft,TRUE,Piauí,2024,4
+sexo: soma == pit,TRUE,Piauí,2024,4
+faixa SIDRA: soma == pit,TRUE,Piauí,2024,4
+subutil <= ft_ampliada,TRUE,Piauí,2024,4
+taxa desocupação antiga == nova,TRUE,Piauí,2024,4
+ft + fora_ft == pit,TRUE,Piauí,2025,1
+ocup + desocup == ft,TRUE,Piauí,2025,1
+sexo: soma == pit,TRUE,Piauí,2025,1
+faixa SIDRA: soma == pit,TRUE,Piauí,2025,1
+subutil <= ft_ampliada,TRUE,Piauí,2025,1
+taxa desocupação antiga == nova,TRUE,Piauí,2025,1
+ft + fora_ft == pit,TRUE,Piauí,2025,2
+ocup + desocup == ft,TRUE,Piauí,2025,2
+sexo: soma == pit,TRUE,Piauí,2025,2
+faixa SIDRA: soma == pit,TRUE,Piauí,2025,2
+subutil <= ft_ampliada,TRUE,Piauí,2025,2
+taxa desocupação antiga == nova,TRUE,Piauí,2025,2
+ft + fora_ft == pit,TRUE,Piauí,2025,3
+ocup + desocup == ft,TRUE,Piauí,2025,3
+sexo: soma == pit,TRUE,Piauí,2025,3
+faixa SIDRA: soma == pit,TRUE,Piauí,2025,3
+subutil <= ft_ampliada,TRUE,Piauí,2025,3
+taxa desocupação antiga == nova,TRUE,Piauí,2025,3
+ft + fora_ft == pit,TRUE,Piauí,2025,4
+ocup + desocup == ft,TRUE,Piauí,2025,4
+sexo: soma == pit,TRUE,Piauí,2025,4
+faixa SIDRA: soma == pit,TRUE,Piauí,2025,4
+subutil <= ft_ampliada,TRUE,Piauí,2025,4
+taxa desocupação antiga == nova,TRUE,Piauí,2025,4
+ft + fora_ft == pit,TRUE,Piauí,2026,1
+ocup + desocup == ft,TRUE,Piauí,2026,1
+sexo: soma == pit,TRUE,Piauí,2026,1
+faixa SIDRA: soma == pit,TRUE,Piauí,2026,1
+subutil <= ft_ampliada,TRUE,Piauí,2026,1
+taxa desocupação antiga == nova,TRUE,Piauí,2026,1
 ft + fora_ft == pit,TRUE,Brasil,2026,2
 ocup + desocup == ft,TRUE,Brasil,2026,2
 sexo: soma == pit,TRUE,Brasil,2026,2
