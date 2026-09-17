@@ -31,10 +31,18 @@ carregar_pnadc <- function(ano, tri, tentativas = 3) {
   arquivo <- arquivo_cache_pnadc(ano, tri)
   if (file.exists(arquivo)) return(readRDS(arquivo))
 
+  # get_pnadc() deixa o .zip e o .txt extraído (~2 GB por trimestre) em
+  # savedir e não apaga; com o tempdir() padrão isso acumulou 72 GB na
+  # pré-carga, e se o processo for morto o R nem limpa o tempdir na saída.
+  # Uma pasta por trimestre, apagada assim que o .rds é gravado.
+  dir_download <- file.path(tempdir(), sprintf("pnadc_%d_%d", ano, tri))
+  dir.create(dir_download, showWarnings = FALSE)
+  on.exit(unlink(dir_download, recursive = TRUE), add = TRUE)
+
   for (i in seq_len(tentativas)) {
     message(sprintf("[%s] Baixando %dT%d (tentativa %d/%d)...",
                     format(Sys.time(), "%H:%M:%S"), ano, tri, i, tentativas))
-    d <- tryCatch(get_pnadc(year = ano, quarter = tri, deflator = TRUE),
+    d <- tryCatch(get_pnadc(year = ano, quarter = tri, deflator = TRUE, savedir = dir_download),
                   error = function(e) { message("  erro: ", conditionMessage(e)); NULL })
     # get_pnadc() às vezes só emite message() e devolve NULL quando o FTP falha
     if (inherits(d, "svyrep.design")) break

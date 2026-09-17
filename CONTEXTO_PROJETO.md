@@ -138,7 +138,8 @@ Ampliar o catálogo com 18 indicadores pedidos (PIT, FT, fora da FT, ocupados, e
 
 **Andamento:**
 - Passo 1 feito: `R/01a_cache_pnadc.R` (gravação atômica via `.tmp`; rodado como script faz a pré-carga do mais recente para o mais antigo). Primeiro arquivo: `pnadc_br_2026_2.rds`, 521.730 linhas, **430 MB** → série inteira ≈ 18 GB.
-- Passo 2 em curso: em 16/09 ~12h30, 25 de 41 trimestres em cache (do 2026T2 para trás), ~5 min por trimestre, ~380–430 MB cada. **Para retomar** (pula o que já existe; um `.tmp` que sobrar de interrupção pode ser apagado):
+- Passo 2: **CONCLUÍDO (17/09)** — 41/41 trimestres (2016T2–2026T2) em `data/raw/pnadc_br_*.rds`, ~15 GB, sem falhas; ~5 min por trimestre, ~380–430 MB cada.
+- Passo 4 em curso (17/09, início 08:14): validação da série toda, ~11,5 min por trimestre (~8 h no total). 2016T2 já passou: 111/111 SIDRA, 18/18 internas, Gini 3/3 — os rótulos do dicionário valem desde 2016T2. Para ver os trimestres já concluídos sem esperar o fim: `Rscript dados_saida/validacao/espiar_parcial.R`. Se interrompida, rodar de novo (retoma). **Para retomar** (pula o que já existe; um `.tmp` que sobrar de interrupção pode ser apagado):
   `Rscript R/01a_cache_pnadc.R` (com o R 4.5.2, pela PowerShell, log em arquivo). Checar no fim a linha `PRÉ-CARGA FIM. Falhas: ...`.
 - Passo 3: **CONCLUÍDO (16/09).** `01` usa `carregar_pnadc()` e rodou completo para 2026T2 a partir do cache. Regressão contra as saídas anteriores (guardadas em `dados_saida/regressao_01/antes_01/`, scripts `comparar_chave.R` e `conferir_resto.R` na mesma pasta):
   - `base_2026T2.csv`: as 16.033 linhas antigas iguais (inclusive `Taxa_Desocupacao`, cuja subcategoria passou a se chamar `desocup/ft`; dif ≤ 1e-16); +10.687 linhas dos indicadores novos.
@@ -161,6 +162,7 @@ Ampliar o catálogo com 18 indicadores pedidos (PIT, FT, fora da FT, ocupados, e
 Rodar a série histórica com o catálogo ampliado → triagem de confiabilidade indicador × recorte (§6), tratando a quebra de desenho Censo 2010 → 2022 e o painel rotativo. A API v3 também publica o **CV oficial** (ex.: v4103 para a taxa de desocupação), que pode ser usado para calibrar a triagem.
 
 ### 8.6 Lições práticas do ambiente
+- **`get_pnadc()` não apaga o que baixa**: zip + `.txt` extraído (~2 GB por trimestre) ficam em `savedir` (padrão `tempdir()`). A primeira pré-carga acumulou 72 GB num `Rtmp*` e, morta pelo fim da sessão, não limpou na saída (apagada com OK do usuário em 17/09). `carregar_pnadc()` agora usa uma subpasta por trimestre, apagada após gravar o `.rds`. Sessões antigas do RStudio também deixaram `Rtmp*` com `PNADC_*.txt` em `%TEMP%` (341 pastas, ~59 GB) — apagadas com OK do usuário em 17/09. Vale limpar `%TEMP%\Rtmp*` de vez em quando, com nenhum R aberto.
 - **Usar o R 4.5.2** (`C:\Users\matheus.barbosa\AppData\Local\Programs\R\R-4.5.2\bin\Rscript.exe`). O R 4.1.2 em `C:\Program Files\R` tem `survey` 4.1 e não instala o `convey`.
 - Chamar o `Rscript` pela **ferramenta PowerShell**: pelo Git Bash o `R_LIBS` não é o mesmo e os pacotes "não existem".
 - **SIDRA:** o `apisidra.ibge.gov.br` (pacote `sidrar`) devolve 403 do Cloudflare. Usar `https://servicodados.ibge.gov.br/api/v3/agregados/<tabela>/periodos/<AAAATT>/variaveis/<v>?localidades=N3[22]&classificacao=<c>[all]`. As respostas ficam em `data/raw/sidra/` (apagar para forçar nova busca).
