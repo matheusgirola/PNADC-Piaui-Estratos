@@ -2,16 +2,30 @@
 # 09_preencher_relatorio.R — preenche o modelo do relatório com os números do
 # trimestre.
 #
+# Estrutura do relatório (decisões de 17/09/2026, CONTEXTO_PROJETO.md §8.7):
+# público gestor, corpo curto, organizado por pergunta e não por indicador.
+# O território fica numa MATRIZ por dimensão (linhas = indicadores, colunas =
+# Piauí, 5 estratos agregados e zona urbana/rural). Tudo o mais vai para o anexo.
+#
+# Marca de cada célula — vem da SÉRIE (triagem de confiabilidade, R/11), não do
+# CV do trimestre corrente:
+#   valor         p80 do CV < 15% na janela principal (critério c)
+#   valor †       15% <= p80 < 30%
+#   –             p80 >= 30%, instável, ou sem série para a combinação
+# Brasil e Nordeste não entram na série (só Piauí); para eles vale o CV do
+# trimestre, com os mesmos cortes.
+#
+# Significância: o teste global que o 01 já produz (svyglm + regTermTest LRT /
+# svychisq, p ajustado por BH). Como cada linha da matriz é um indicador com o
+# seu teste, os asteriscos ficam numa coluna logo depois do grupo testado.
+#
 # AVISO: o script FALHA se sobrar qualquer marcador não resolvido.
-# Um relatório meio preenchido publicado por engano é pior que nenhum.
 #
-# USO:
-#   source("R/00_config.R")   
-#   Rscript R/09_preencher_relatorio.R
-#
-# ENTRADA : output/relatorio_trimestral.md          (o modelo, versionado)
-# SAÍDA    : output/relatorio_trimestral_<AAAAT#>.md (a edição do trimestre)
-# SAIDA OPCIONAL: output/relatorio_trimestral_<AAAAT#>.docx (CONVERTER_DOCX = TRUE)
+# USO:   Rscript R/09_preencher_relatorio.R   (trimestre de R/00_config.R)
+# ENTRADA: output/relatorio_trimestral.md (modelo), output/base_<sufixo>.csv,
+#          output/testes_regionais_<sufixo>.csv, output/testes_significancia_<sufixo>.csv,
+#          output/tabelas/triagem_confiabilidade.csv, dados_saida/serie/base_*.rds
+# SAÍDA:   output/relatorio_trimestral_<sufixo>.md (+ .docx se CONVERTER_DOCX)
 # ==============================================================================
 
 library(dplyr)
@@ -25,209 +39,250 @@ source("R/00_config.R")
 
 MODELO <- "./output/relatorio_trimestral.md"
 SAIDA  <- sprintf("./output/relatorio_trimestral_%s.md", sufixo)
-CONVERTER_DOCX = TRUE
+CONVERTER_DOCX <- TRUE
 
-# ---- 1. Leitura das saídas do pipeline ---------------------------------------
+# ---- 1. Leitura ----------------------------------------------------------------
 
 ler <- function(caminho, obrigatorio = TRUE) {
   if (!file.exists(caminho)) {
-    if (obrigatorio) {
-      stop("Não encontrei ", caminho, ".\nRode R/01_pipeline_trimestral.R antes deste script.")
-    }
+    if (obrigatorio) stop("Não encontrei ", caminho, ".\nRode o 01 (e o R/11 para a triagem) antes deste script.")
     return(NULL)
   }
   read_csv(caminho, show_col_types = FALSE)
 }
 
-base        <- ler(sprintf("output/base_%s.csv", sufixo))
+base        <- ler(sprintf("output/base_%s.csv", sufixo)) %>% mutate(cv = 100 * SE / Estimativa)
 testes_reg  <- ler(sprintf("output/testes_regionais_%s.csv", sufixo))
 testes_demo <- ler(sprintf("output/testes_significancia_%s.csv", sufixo))
-desig       <- ler(sprintf("output/desigualdade_formal_informal_%s.csv", sufixo), obrigatorio = FALSE)
+triagem     <- ler("output/tabelas/triagem_confiabilidade.csv") %>%
+  filter(janela == "principal", amostragem == "todos")
 
-# ---- 2. Unidades e formatação ------------------------------------------------
-# A escala de exibição depende do indicador: proporção vira porcentagem,
-# rendimento fica em reais, razão fica adimensional. O CV não depende disso —
-# é invariante a fator de escala —, mas a estimativa e o IC dependem.
+CHAVE <- c("Indicador", "Subcategoria_Indicador", "Regiao_Geografica",
+           "Recorte_Demografico", "Categoria_Demografica")
 
-UNIDADE <- c(
-  Taxa_Desocupacao                 = "pct",
-  Chefes_Familia_Desocupados       = "pct",
-  Conribuintes_Desocupados         = "pct",
-  Percentual_Subremuneracao        = "pct",
-  Taxa_Informalidade               = "pct",
-  Taxa_Subocupacao                 = "pct",
-  Proporcao_Ocupados_Escolarizados = "pct",
-  Desalentados_Forca_Ampliada      = "pct",
-  Desalentados_Fora_Forca          = "pct",
-  Taxa_Nem_Nem                     = "pct",
-  Motivo_Desistencia_Desalentado   = "pct",
-  Motivo_Nao_Procura_NemNem        = "pct",
-  Motivo_Nao_Inicio_NemNem         = "pct",
-  Rendimento_Medio_Habitual        = "reais",
-  Rendimento_Formal                = "reais",
-  Rendimento_Informal              = "reais",
-  Desigualdade_Formal_Informal     = "razao"
+# Trimestres de comparação, da série do Piauí (R/10).
+ler_serie <- function(ano, tri) {
+  f <- sprintf("dados_saida/serie/base_%dT%d.rds", ano, tri)
+  if (!file.exists(f)) return(NULL)
+  readRDS(f)$base %>% mutate(cv = 100 * SE / Estimativa)
+}
+ano_ant <- if (TRIMESTRE_REF == 1) ANO_REF - 1 else ANO_REF
+tri_ant <- if (TRIMESTRE_REF == 1) 4 else TRIMESTRE_REF - 1
+serie_tri_ant <- ler_serie(ano_ant, tri_ant)
+serie_ano_ant <- ler_serie(ANO_REF - 1, TRIMESTRE_REF)
+
+ausentes <- new.env(parent = emptyenv())
+ausentes$itens <- character(0)
+registrar_ausente <- function(msg) { ausentes$itens <- c(ausentes$itens, msg); invisible(NULL) }
+
+# ---- 2. Catálogo do relatório -----------------------------------------------------
+# Ordem, rótulo, unidade e dimensão de cada indicador — num lugar só. `destaque`
+# marca o núcleo que vai para a tabela de destaques. Indicadores com várias
+# categorias (composição da PIT, motivos) têm `multiplo = TRUE`: cada categoria
+# vira uma linha.
+
+CATALOGO <- tribble(
+  ~id,                                   ~rotulo,                                                  ~unidade, ~dimensao,       ~destaque, ~multiplo,
+  "Taxa_Participacao",                   "Taxa de participação na força de trabalho",              "pct",    "ocupacao",      TRUE,      FALSE,
+  "Nivel_Ocupacao",                      "Nível da ocupação",                                      "pct",    "ocupacao",      TRUE,      FALSE,
+  "Taxa_Desocupacao",                    "Taxa de desocupação",                                    "pct",    "ocupacao",      TRUE,      FALSE,
+  "Taxa_Composta_Subutilizacao",         "Taxa composta de subutilização",                         "pct",    "ocupacao",      TRUE,      FALSE,
+  "Chefes_Familia_Desocupados",          "Responsáveis pelo domicílio entre os desocupados",       "pct",    "ocupacao",      FALSE,     FALSE,
+  "Conribuintes_Desocupados",            "Responsáveis ou cônjuges entre os desocupados",          "pct",    "ocupacao",      FALSE,     FALSE,
+  "Pessoas_Idade_Trabalhar",             "Pessoas em idade de trabalhar",                          "mil",    "ocupacao",      FALSE,     FALSE,
+  "Pessoas_Forca_Trabalho",              "Pessoas na força de trabalho",                           "mil",    "ocupacao",      FALSE,     FALSE,
+  "Pessoas_Fora_Forca",                  "Pessoas fora da força de trabalho",                      "mil",    "ocupacao",      FALSE,     FALSE,
+  "Pessoas_Ocupadas",                    "Pessoas ocupadas",                                       "mil",    "ocupacao",      FALSE,     FALSE,
+  "Pessoas_Desocupadas",                 "Pessoas desocupadas",                                    "mil",    "ocupacao",      FALSE,     FALSE,
+  "Pessoas_Subutilizadas",               "Pessoas subutilizadas",                                  "mil",    "ocupacao",      FALSE,     FALSE,
+  "Taxa_Informalidade",                  "Taxa de informalidade",                                  "pct",    "qualidade",     TRUE,      FALSE,
+  "Taxa_Subocupacao",                    "Subocupação por insuficiência de horas",                 "pct",    "qualidade",     FALSE,     FALSE,
+  "Percentual_Subremuneracao",           "Sub-remuneração (rendimento-hora abaixo do mínimo)",     "pct",    "qualidade",     FALSE,     FALSE,
+  "Proporcao_Ocupados_Escolarizados",    "Ocupados com ensino médio completo ou mais",             "pct",    "qualidade",     FALSE,     FALSE,
+  "Empregados_Setor_Privado",            "Empregados no setor privado",                            "mil",    "qualidade",     FALSE,     FALSE,
+  "Empregados_Setor_Publico",            "Empregados no setor público",                            "mil",    "qualidade",     FALSE,     FALSE,
+  "Ocupados_Agropecuaria",               "Ocupados na agropecuária",                               "mil",    "qualidade",     FALSE,     FALSE,
+  "Rendimento_Medio_Habitual",           "Rendimento médio real habitual",                         "reais",  "rendimento",    TRUE,      FALSE,
+  "Rendimento_Formal",                   "Rendimento médio dos formais",                           "reais",  "rendimento",    FALSE,     FALSE,
+  "Rendimento_Informal",                 "Rendimento médio dos informais",                         "reais",  "rendimento",    FALSE,     FALSE,
+  "Desigualdade_Formal_Informal",        "Razão entre rendimento formal e informal",               "razao",  "rendimento",    FALSE,     FALSE,
+  "Gini_Rendimento_Habitual_Trabalho",   "Índice de Gini do rendimento do trabalho",               "gini",   "rendimento",    TRUE,      FALSE,
+  "Desalentados_Forca_Ampliada",         "Desalentados na força de trabalho ampliada",             "pct",    "vulnerabilidade", FALSE,   FALSE,
+  "Desalentados_Fora_Forca",             "Desalentados na força de trabalho potencial",            "pct",    "vulnerabilidade", FALSE,   FALSE,
+  "Taxa_Nem_Nem",                        "Jovens de 14 a 29 anos que não estudam nem trabalham",   "pct",    "vulnerabilidade", TRUE,    FALSE,
+  "Distribuicao_PIT_por_Sexo",           "Sexo",                                                   "pct",    "populacao",     FALSE,     TRUE,
+  "Distribuicao_PIT_por_Raca",           "Cor ou raça",                                            "pct",    "populacao",     FALSE,     TRUE,
+  "Distribuicao_PIT_por_Faixa_Etaria_SIDRA", "Faixa etária",                                       "pct",    "populacao",     FALSE,     TRUE,
+  "Distribuicao_PIT_por_Instrucao_SIDRA", "Nível de instrução",                                    "pct",    "populacao",     FALSE,     TRUE,
+  "Motivo_Desistencia_Desalentado",      "Por que o desalentado desistiu de procurar",             "pct",    "motivos",       FALSE,     TRUE,
+  "Motivo_Nao_Procura_NemNem",           "Por que o jovem nem-nem não procurou trabalho",          "pct",    "motivos",       FALSE,     TRUE
 )
 
-unidade_de <- function(ind) if (ind %in% names(UNIDADE)) UNIDADE[[ind]] else "pct"
-fator_de   <- function(ind) if (unidade_de(ind) == "pct") 100 else 1
+info <- function(id) {
+  r <- CATALOGO[CATALOGO$id == id, ]
+  if (nrow(r) != 1) stop("Indicador fora do CATALOGO do 09: ", id)
+  r
+}
 
-# Números em português: vírgula decimal, ponto de milhar.
+# Colunas da matriz territorial. Estrato administrativo e "Teresina × resto"
+# ficam fora do corpo: Capital = Agreg_Teresina, Resto da RIDE = Entorno, Resto
+# da UF = soma dos outros três agregados (§8.7).
+GEO_AGREG <- c(
+  "Teresina"                   = "Agreg_Teresina",
+  "Entorno metropolitano"      = "Agreg_Entorno metropolitano de Teresina (PI)",
+  "Centro-Leste"               = "Agreg_Centro-Leste do Piauí",
+  "Baixo Parnaíba"             = "Agreg_Baixo Parnaíba do Piauí",
+  "Alto Parnaíba e Chapadas"   = "Agreg_Alto Parnaíba e Chapadas Sul do Piauí"
+)
+GEO_ZONA <- c("Urbana" = "Zona_Urbana", "Rural" = "Zona_Rural")
+
+# Geografias do anexo (tabela completa por indicador).
+GEO_ANEXO <- tribble(
+  ~recorte,           ~categoria,              ~geografia,
+  "Agregados",        "Brasil",                "Brasil",
+  "Agregados",        "Nordeste",              "Nordeste",
+  "Agregados",        "Piauí",                 "Piauí",
+  "Agregados",        "Teresina",              "Teresina",
+  "Zona",             "Urbana",                "Zona_Urbana",
+  "Zona",             "Rural",                 "Zona_Rural",
+  "Administrativo",   "Capital",               "Admin_Capital",
+  "Administrativo",   "Resto da RIDE",         "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",
+  "Administrativo",   "Resto da UF",           "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",
+  "Estrato agregado", "Teresina",              "Agreg_Teresina",
+  "Estrato agregado", "Entorno metropolitano", "Agreg_Entorno metropolitano de Teresina (PI)",
+  "Estrato agregado", "Centro-Leste",          "Agreg_Centro-Leste do Piauí",
+  "Estrato agregado", "Baixo Parnaíba",        "Agreg_Baixo Parnaíba do Piauí",
+  "Estrato agregado", "Alto Parnaíba e Chapadas Sul", "Agreg_Alto Parnaíba e Chapadas Sul do Piauí"
+)
+
+RECORTES_TESTE <- tribble(
+  ~rotulo,                     ~recorte,
+  "Zona (urbana × rural)",     "Zona",
+  "Estrato administrativo",    "Estrato_Administrativo",
+  "Estrato agregado",          "Estrato_Agregado",
+  "Teresina × resto do Piauí", "Teresina_x_Resto_Piaui"
+)
+
+RECORTES_DEMO <- c(Sexo = "Sexo", Raca = "Cor ou raça", Faixa_Etaria_trabalho = "Faixa etária",
+                   Instrucao_agregado = "Instrução (2 grupos)", Instrucao = "Instrução (7 níveis)")
+
+# ---- 3. Formatação ------------------------------------------------------------------
+
 num <- function(x, casas = 1) {
-  ifelse(is.na(x), "—",
-         formatC(x, format = "f", digits = casas, big.mark = ".", decimal.mark = ","))
+  ifelse(is.na(x), "—", formatC(x, format = "f", digits = casas, big.mark = ".", decimal.mark = ","))
 }
 
-formatar_valor <- function(x, ind) {
-  u <- unidade_de(ind)
-  if (u == "reais") paste0("R$ ", num(x, 0)) else num(x, if (u == "razao") 2 else 1)
+# Valor na unidade de exibição (sem símbolo) e com símbolo.
+escala <- function(x, u) switch(u, pct = 100 * x, mil = x / 1000, x)
+casas_de <- function(u) switch(u, pct = 1, mil = 0, reais = 0, razao = 2, gini = 3)
+formatar <- function(x, u) {
+  v <- num(escala(x, u), casas_de(u))
+  if (u == "reais") paste0("R$ ", v) else v
 }
+unidade_rotulo <- function(u) switch(u, pct = "%", mil = "mil pessoas", reais = "R$", razao = "razão", gini = "índice")
+unidade_delta  <- function(u) switch(u, pct = "p.p.", mil = "mil", reais = "R$", razao = "", gini = "")
+com_unidade    <- function(rotulo, u) if (u %in% c("razao", "gini")) rotulo else paste0(rotulo, " (", unidade_rotulo(u), ")")
+sinal          <- function(v) if (v > 0) "+" else if (v < 0) "−" else ""
 
-# Classificação de precisão pelo CV — os cortes são os do IBGE (anexo, §5.3).
 classe_cv <- function(cv) {
-  case_when(is.na(cv)  ~ "—",
-            cv <  5    ~ "excelente",
-            cv < 15    ~ "boa",
-            cv < 30    ~ "regular",
-            TRUE       ~ "baixa")
+  case_when(is.na(cv) ~ "—", cv < 5 ~ "excelente", cv < 15 ~ "boa", cv < 30 ~ "regular", TRUE ~ "baixa")
 }
 
 estrelas <- function(p) {
-  case_when(is.na(p)   ~ "—",
-            p < 0.001  ~ "\\*\\*\\*",
-            p < 0.01   ~ "\\*\\*",
-            p < 0.05   ~ "\\*",
-            TRUE       ~ "ns")
+  case_when(is.na(p) ~ "—", p < 0.001 ~ "\\*\\*\\*", p < 0.01 ~ "\\*\\*", p < 0.05 ~ "\\*", TRUE ~ "ns")
 }
 
-# ---- 3. Consulta à base ------------------------------------------------------
-# Um único ponto de acesso, para que toda expressão do modelo resolva pelo
-# mesmo caminho e as inconsistências apareçam num lugar só.
+linha_md <- function(...) paste0("| ", paste(c(...), collapse = " | "), " |")
 
-linha_de <- function(ind, geo, recorte = "Total", categoria = "Total") {
-  r <- base %>%
-    filter(Indicador == ind, Regiao_Geografica == geo,
-           Recorte_Demografico == recorte, Categoria_Demografica == categoria)
+# Rótulo legível de uma categoria: tira o nome da variável colado na frente.
+PREFIXOS_CATEGORIA <- "^(Sexo_pit|Raca_pit|Faixa_Etaria_sidra|Faixa_Etaria_projeto|Instrucao_sidra|Instrucao_projeto|motivo_[a-z_]+?_grupo)"
+rotulo_categoria <- function(sub) str_remove(sub, PREFIXOS_CATEGORIA)
+
+# ---- 4. Consulta -----------------------------------------------------------------------
+
+linhas_base <- function(ind, geo, recorte = "Total", categoria = "Total", dados = base) {
+  dados %>% filter(Indicador == ind, Regiao_Geografica == geo,
+                   Recorte_Demografico == recorte, Categoria_Demografica == categoria)
+}
+
+linha_de <- function(ind, geo, recorte = "Total", categoria = "Total", sub = NULL, dados = base) {
+  r <- linhas_base(ind, geo, recorte, categoria, dados)
+  if (!is.null(sub)) r <- filter(r, Subcategoria_Indicador == sub)
   if (nrow(r) == 0) return(NULL)
-  if (nrow(r) > 1) {
-    stop("Consulta ambígua: ", ind, " / ", geo, " / ", recorte, " / ", categoria,
-         " devolveu ", nrow(r), " linhas. Se o indicador tem subcategorias ",
-         "(os de motivo têm), use tipo=motivos na diretiva de tabela.")
+  if (nrow(r) > 1) stop("Consulta ambígua: ", ind, " / ", geo, " devolveu ", nrow(r), " linhas (indicador com categorias?).")
+  r
+}
+
+# Marca da célula pela série: "ok", "adaga" ou "traco".
+marca_de <- function(ind, sub, geo, recorte = "Total", categoria = "Total", cv_atual = NA_real_) {
+  t <- triagem %>% filter(Indicador == ind, Subcategoria_Indicador == sub, Regiao_Geografica == geo,
+                          Recorte_Demografico == recorte, Categoria_Demografica == categoria)
+  if (nrow(t) == 0) {
+    # Brasil/Nordeste (fora da série): CV do trimestre.
+    if (geo %in% c("Brasil", "Nordeste") && !is.na(cv_atual)) {
+      return(if (cv_atual < 15) "ok" else if (cv_atual < 30) "adaga" else "traco")
+    }
+    return("traco")
   }
-  mutate(r, cv = 100 * SE / Estimativa)
+  if (nrow(t) > 1) stop("Triagem ambígua para ", ind, " / ", geo)
+  if (isTRUE(t$instavel) || is.na(t$cv_p80) || t$cv_p80 >= 30) "traco"
+  else if (t$cv_p80 >= 15) "adaga" else "ok"
 }
 
-# Registro do que não foi encontrado — vira relatório no fim da execução em vez
-# de erro solto no meio.
-ausentes <- new.env(parent = emptyenv())
-ausentes$itens <- character(0)
-registrar_ausente <- function(msg) {
-  ausentes$itens <- c(ausentes$itens, msg)
-  invisible(NULL)
+celula <- function(ind, geo, sub = NULL, recorte = "Total", categoria = "Total") {
+  u <- info(ind)$unidade
+  r <- linha_de(ind, geo, recorte, categoria, sub)
+  if (is.null(r)) { registrar_ausente(paste(ind, sub %||% "", "em", geo)); return("—") }
+  m <- marca_de(ind, r$Subcategoria_Indicador, geo, recorte, categoria, r$cv)
+  switch(m, ok = formatar(r$Estimativa, u), adaga = paste0(formatar(r$Estimativa, u), " †"), traco = "–")
 }
 
-# ---- 4. Vocabulário das expressões {{ }} -------------------------------------
-
-exp_est <- function(ind, geo, ...) {
-  r <- linha_de(ind, geo, ...)
-  if (is.null(r)) { registrar_ausente(paste("estimativa", ind, "em", geo)); return("—") }
-  formatar_valor(r$Estimativa * fator_de(ind), ind)
+subcategorias <- function(ind, geo = "Piauí") {
+  subs <- unique(linhas_base(ind, geo)$Subcategoria_Indicador)
+  if (isTRUE(info(ind)$multiplo)) {
+    # Categoria sem o prefixo esperado vem de uma base gravada antes da
+    # mudança no catálogo (ex.: motivos antes do agrupamento de 17/09/2026).
+    velhas <- subs[!str_detect(subs, PREFIXOS_CATEGORIA)]
+    if (length(velhas) > 0) {
+      registrar_ausente(sprintf("%s: %d categoria(s) fora do catálogo atual na base (base antiga? rode o 01 de novo)",
+                                ind, length(velhas)))
+    }
+    subs <- setdiff(subs, velhas)
+  }
+  subs
 }
 
-exp_ic <- function(ind, geo, ...) {
-  r <- linha_de(ind, geo, ...)
-  if (is.null(r)) { registrar_ausente(paste("IC", ind, "em", geo)); return("—") }
-  f <- fator_de(ind)
-  # Truncado em zero: proporção não tem limite inferior negativo. O anexo
-  # (§5.2) registra que o limite negativo é sinal de aproximação normal fora
-  # de sua região de validade — exibir "-2,1%" seria pior que truncar.
-  inf <- max(0, (r$Estimativa - 1.96 * r$SE) * f)
-  sup <- (r$Estimativa + 1.96 * r$SE) * f
-  sprintf("(%s, %s)", formatar_valor(inf, ind), formatar_valor(sup, ind))
-}
 
-exp_cv <- function(ind, geo, ...) {
-  r <- linha_de(ind, geo, ...)
-  if (is.null(r)) { registrar_ausente(paste("CV", ind, "em", geo)); return("—") }
-  num(r$cv, 1)
-}
-
-exp_prec <- function(ind, geo, ...) {
-  r <- linha_de(ind, geo, ...)
-  if (is.null(r)) return("—")
-  classe_cv(r$cv)
-}
-
-# Extremos entre os estratos de 7 dígitos.
-#
-# POR QUE HÁ UM TETO DE CV AQUI
-# -----------------------------
-# Tomar o mínimo e o máximo pelo valor pontual, sem olhar a precisão, produz
-# frases erradas. No 2026T2 o menor valor da taxa de desocupação caía no
-# estrato 2252022: estimativa de 3,7%, intervalo [0,0; 35,7], CV de 444,8%.
-# Não é uma taxa baixa — é uma estimativa que não distingue 3,7% de 35%. Usá-la
-# como extremo faria o relatório anunciar uma amplitude de 15,7 pontos que é
-# inteiramente ruído amostral.
-#
-# O corte de 30% é o limite da classe "regular" do IBGE (anexo §5.3): acima
-# disso a estimativa não sustenta leitura, e o extremo é buscado entre as que
-# sustentam. Se nenhuma passar no corte, o filtro é abandonado — melhor um
-# extremo impreciso, com o CV visível ao lado na tabela, do que nenhum.
-CV_MAXIMO_EXTREMO <- 30
-
-extremos_micro <- function(ind) {
-  todos <- base %>%
-    filter(Indicador == ind, Recorte_Demografico == "Total",
-           str_starts(Regiao_Geografica, "Micro_")) %>%
-    mutate(cv = 100 * SE / Estimativa,
-           codigo = str_remove(Regiao_Geografica, "^Micro_")) %>%
-    arrange(desc(Estimativa))
-
-  utilizaveis <- filter(todos, is.finite(cv), cv < CV_MAXIMO_EXTREMO)
-  if (nrow(utilizaveis) >= 2) utilizaveis else todos
-}
-
-exp_extremo <- function(ind, qual, campo) {
-  e <- extremos_micro(ind)
-  if (nrow(e) == 0) { registrar_ausente(paste("extremos de", ind)); return("—") }
-  r <- if (qual == "max") slice_head(e, n = 1) else slice_tail(e, n = 1)
-  switch(campo,
-         rotulo = paste("estrato", r$codigo),
-         codigo = r$codigo,
-         valor  = formatar_valor(r$Estimativa * fator_de(ind), ind),
-         cv     = num(r$cv, 1),
-         stop("campo desconhecido em {{extremo}}: ", campo))
-}
-
-exp_amplitude <- function(ind) {
-  e <- extremos_micro(ind)
-  if (nrow(e) < 2) { registrar_ausente(paste("amplitude de", ind)); return("—") }
-  formatar_valor((max(e$Estimativa) - min(e$Estimativa)) * fator_de(ind), ind)
-}
-
-exp_n_estratos <- function() {
-  as.character(n_distinct(extremos_micro("Taxa_Desocupacao")$codigo))
-}
-
-# Testes regionais.
 teste_reg <- function(ind, recorte) {
   r <- testes_reg %>% filter(Indicador == ind, Recorte_Regional == recorte)
   if (nrow(r) == 0) NULL else r
 }
 
-exp_p <- function(ind, recorte, qual = "ajustado") {
-  r <- teste_reg(ind, recorte)
-  # Ausência aqui não é falta de dado: é a guarda de variância tendo recusado
-  # o teste (anexo §6.5). O travessão é a informação correta.
-  if (is.null(r)) return("—")
-  p <- if (qual == "bruto") r$p_valor else r$p_ajustado
-  if (p < 0.001) "< 0,001" else num(p, 3)
+# ---- 5. Vocabulário das expressões {{ }} --------------------------------------------
+
+exp_est <- function(ind, geo) {
+  r <- linha_de(ind, geo)
+  if (is.null(r)) { registrar_ausente(paste("estimativa", ind, "em", geo)); return("—") }
+  formatar(r$Estimativa, info(ind)$unidade)
 }
 
-exp_sig <- function(ind, recorte) {
+exp_ic <- function(ind, geo) {
+  r <- linha_de(ind, geo)
+  if (is.null(r)) { registrar_ausente(paste("IC", ind, "em", geo)); return("—") }
+  u <- info(ind)$unidade
+  sprintf("(%s, %s)", formatar(max(0, r$Estimativa - 1.96 * r$SE), u), formatar(r$Estimativa + 1.96 * r$SE, u))
+}
+
+exp_cv <- function(ind, geo) {
+  r <- linha_de(ind, geo)
+  if (is.null(r)) return("—")
+  num(r$cv, 1)
+}
+
+exp_p <- function(ind, recorte) {
   r <- teste_reg(ind, recorte)
   if (is.null(r)) return("—")
-  if (r$p_ajustado < 0.05) "sim" else "não"
+  if (r$p_ajustado < 0.001) "< 0,001" else num(r$p_ajustado, 3)
 }
 
 exp_estrelas <- function(ind, recorte) {
@@ -236,489 +291,332 @@ exp_estrelas <- function(ind, recorte) {
   estrelas(r$p_ajustado)
 }
 
-# Desigualdade formal/informal.
-linha_desig <- function(geo) {
-  if (is.null(desig)) return(NULL)
-  r <- desig %>% filter(Regiao_Geografica == geo)
-  if (nrow(r) == 0) NULL else r
-}
-
-exp_desig <- function(geo, campo) {
-  r <- linha_desig(geo)
-  if (is.null(r)) { registrar_ausente(paste("desigualdade em", geo)); return("—") }
-  switch(campo,
-         razao    = num(r$razao, 2),
-         formal   = paste0("R$ ", num(r$rendimento_formal, 0)),
-         informal = paste0("R$ ", num(r$rendimento_informal, 0)),
-         ic       = sprintf("(%s, %s)", num(r$ic_inf, 2), num(r$ic_sup, 2)),
-         cv       = num(r$cv, 1),
-         prec     = classe_cv(r$cv),
-         stop("campo desconhecido em {{desigualdade}}: ", campo))
-}
-
-exp_trimestre <- function() {
-  sprintf("%dº trimestre de %d", TRIMESTRE_REF, ANO_REF)
-}
-
-
-# Diferença entre duas geografias, na unidade do indicador. Serve às frases do
-# tipo "a diferença entre urbana e rural foi de X pontos".
 exp_dif <- function(ind, geo_a, geo_b) {
   a <- linha_de(ind, geo_a); b <- linha_de(ind, geo_b)
-  if (is.null(a) || is.null(b)) {
-    registrar_ausente(paste("diferença", ind, "entre", geo_a, "e", geo_b)); return("—")
-  }
-  formatar_valor(abs(a$Estimativa - b$Estimativa) * fator_de(ind), ind)
+  if (is.null(a) || is.null(b)) { registrar_ausente(paste("diferença", ind, geo_a, geo_b)); return("—") }
+  formatar(abs(a$Estimativa - b$Estimativa), info(ind)$unidade)
 }
 
-# Uma geografia como porcentagem de outra ("o Piauí equivale a X% do Brasil").
 exp_pct_de <- function(ind, geo, referencia) {
   a <- linha_de(ind, geo); r <- linha_de(ind, referencia)
-  if (is.null(a) || is.null(r)) {
-    registrar_ausente(paste(ind, "de", geo, "como % de", referencia)); return("—")
-  }
+  if (is.null(a) || is.null(r)) { registrar_ausente(paste(ind, geo, "como % de", referencia)); return("—") }
   num(100 * a$Estimativa / r$Estimativa, 1)
 }
 
-exp_razao_extremos <- function(ind) {
-  e <- extremos_micro(ind)
-  if (nrow(e) < 2) return("—")
-  num(max(e$Estimativa) / min(e$Estimativa), 2)
-}
-
-# Extremos da tabela de desigualdade, que vive num CSV próprio.
-exp_desig_extremo <- function(qual, campo) {
-  if (is.null(desig)) return("—")
-  d <- desig %>% filter(str_starts(Regiao_Geografica, "Micro_")) %>% arrange(desc(razao))
-  if (nrow(d) == 0) return("—")
-  r <- if (qual == "max") slice_head(d, n = 1) else slice_tail(d, n = 1)
-  switch(campo,
-         rotulo = paste("estrato", str_remove(r$Regiao_Geografica, "^Micro_")),
-         valor  = num(r$razao, 2),
-         stop("campo desconhecido em {{desig_extremo}}: ", campo))
-}
-
-# Quanto o formal ganha a mais que o informal, em pontos percentuais.
-exp_pct_a_mais <- function(geo) {
-  r <- linha_desig(geo)
-  if (is.null(r)) return("—")
-  num(100 * (r$razao - 1), 0)
-}
-
-exp_sm_hora <- function() num(sm_hora_corrente, 2)
-
 VOCABULARIO <- list(
-  est        = exp_est,
-  ic         = exp_ic,
-  cv         = exp_cv,
-  prec       = exp_prec,
-  extremo    = exp_extremo,
-  amplitude  = exp_amplitude,
-  n_estratos = exp_n_estratos,
-  p          = exp_p,
-  sig        = exp_sig,
-  estrelas   = exp_estrelas,
-  desigualdade = exp_desig,
-  trimestre  = exp_trimestre,
-  sufixo     = function() sufixo,
-  dif        = exp_dif,
-  pct_de     = exp_pct_de,
-  razao_extremos = exp_razao_extremos,
-  desig_extremo  = exp_desig_extremo,
-  pct_a_mais = exp_pct_a_mais,
-  sm_hora    = exp_sm_hora
+  est       = exp_est,
+  ic        = exp_ic,
+  cv        = exp_cv,
+  p         = exp_p,
+  estrelas  = exp_estrelas,
+  dif       = exp_dif,
+  pct_de    = exp_pct_de,
+  trimestre = function() sprintf("%dº trimestre de %d", TRIMESTRE_REF, ANO_REF),
+  trimestre_anterior = function() sprintf("%dº trimestre de %d", tri_ant, ano_ant),
+  trimestre_ano_anterior = function() sprintf("%dº trimestre de %d", TRIMESTRE_REF, ANO_REF - 1),
+  sufixo    = function() sufixo,
+  sm_hora   = function() num(sm_hora_corrente, 2)
 )
 
-# ---- 5. Tabelas geradas por diretiva -----------------------------------------
-# A ordem e os rótulos das linhas ficam AQUI, num lugar só, e não repetidos em
-# dez tabelas do modelo. Mudar a lista muda todas as tabelas de uma vez.
+# ---- 6. Tabelas geradas por diretiva ------------------------------------------------
 
-LINHAS_GEOGRAFICAS <- tribble(
-  ~recorte,               ~categoria,                     ~geografia,
-  "Agregados",            "Brasil",                       "Brasil",
-  "Agregados",            "Nordeste",                     "Nordeste",
-  "Agregados",            "Piauí",                        "Piauí",
-  "Agregados",            "Teresina",                     "Teresina",
-  "Zona",                 "Urbana",                       "Zona_Urbana",
-  "Zona",                 "Rural",                        "Zona_Rural",
-  "Administrativo",       "Capital",                      "Admin_Capital",
-  "Administrativo",       "Resto da RIDE",                "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",
-  "Administrativo",       "Resto da UF",                  "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",
-  "Estrato agregado",     "Teresina",                     "Agreg_Teresina",
-  "Estrato agregado",     "Entorno metropolitano",        "Agreg_Entorno metropolitano de Teresina (PI)",
-  "Estrato agregado",     "Centro-Leste",                 "Agreg_Centro-Leste do Piauí",
-  "Estrato agregado",     "Baixo Parnaíba",               "Agreg_Baixo Parnaíba do Piauí",
-  "Estrato agregado",     "Alto Parnaíba e Chapadas Sul", "Agreg_Alto Parnaíba e Chapadas Sul do Piauí"
-)
+# 6a. Destaques: Brasil × Nordeste × Piauí e a variação do Piauí contra o
+# trimestre anterior e o mesmo trimestre do ano anterior.
+#
+# Os trimestres são tratados como amostras independentes: SE da diferença =
+# sqrt(SE1² + SE2²). O painel rotativo faz trimestres próximos compartilharem
+# domicílios, o que dá covariância positiva — a variância verdadeira da
+# diferença é MENOR, então o teste é conservador (acha menos variação do que
+# existe, nunca mais). p ajustado por BH dentro da tabela, como no 01.
+comparacoes_temporais <- function() {
+  ids <- CATALOGO$id[CATALOGO$destaque]
+  map_dfr(ids, function(id) {
+    atual <- linha_de(id, "Piauí")
+    map_dfr(list(trimestre = serie_tri_ant, ano = serie_ano_ant), function(s) {
+      anterior <- if (is.null(s)) NULL else linha_de(id, "Piauí", dados = s)
+      if (is.null(atual) || is.null(anterior)) {
+        return(tibble(dif = NA_real_, p = NA_real_))
+      }
+      dif <- atual$Estimativa - anterior$Estimativa
+      z <- dif / sqrt(atual$SE^2 + anterior$SE^2)
+      tibble(dif = dif, p = 2 * pnorm(-abs(z)))
+    }, .id = "contra") %>% mutate(id = id, .before = 1)
+  }) %>%
+    mutate(p_ajustado = p.adjust(p, method = "BH"))
+}
+COMP_TEMPORAIS <- comparacoes_temporais()
 
-# Os recortes regionais da tabela de testes, na ordem em que aparecem.
-LINHAS_TESTES <- tribble(
-  ~rotulo,                        ~recorte,
-  "Zona (urbana × rural)",        "Zona",
-  "Estrato administrativo",       "Estrato_Administrativo",
-  "Estrato agregado",             "Estrato_Agregado",
-  "Estrato (7 dígitos)",          "Estrato_Micro",
-  "Teresina × resto do Piauí",    "Teresina_x_Resto_Piaui"
-)
-
-linha_md <- function(...) paste0("| ", paste(c(...), collapse = " | "), " |")
-
-tabela_geografica <- function(ind) {
-  u <- unidade_de(ind)
-  col_est <- if (u == "reais") "Estimativa (R$)" else if (u == "razao") "Razão" else "Estimativa (%)"
-
-  linhas <- LINHAS_GEOGRAFICAS %>%
-    # Brasil e Nordeste só entram se tiverem sido estimados: quando o pipeline
-    # roda sobre um desenho já recortado no Piauí, essas linhas não existem, e
-    # exibi-las vazias sugeriria dado faltante em vez de escopo diferente.
-    filter(geografia %in% base$Regiao_Geografica) %>%
-    pmap_chr(function(recorte, categoria, geografia) {
-      linha_md(recorte, categoria,
-               exp_est(ind, geografia), exp_ic(ind, geografia),
-               exp_cv(ind, geografia), exp_prec(ind, geografia))
-    })
-
-  e <- extremos_micro(ind)
-  linhas_micro <- character(0)
-  if (nrow(e) >= 2) {
-    topo <- slice_head(e, n = 1); base_ <- slice_tail(e, n = 1)
-    linhas_micro <- c(
-      linha_md("Estrato (7 dígitos)", paste0("maior: ", topo$codigo),
-               formatar_valor(topo$Estimativa * fator_de(ind), ind),
-               exp_ic(ind, topo$Regiao_Geografica), num(topo$cv, 1), classe_cv(topo$cv)),
-      linha_md("Estrato (7 dígitos)", paste0("menor: ", base_$codigo),
-               formatar_valor(base_$Estimativa * fator_de(ind), ind),
-               exp_ic(ind, base_$Regiao_Geografica), num(base_$cv, 1), classe_cv(base_$cv))
-    )
-  }
-
-  c(linha_md("Recorte", "Categoria", col_est, "IC 95%", "CV (%)", "Precisão"),
-    "|---|---|---:|:---:|---:|---|",
-    linhas, linhas_micro)
+formatar_delta <- function(dif, p, u) {
+  if (is.na(dif)) return("—")
+  v <- escala(dif, u)
+  s <- paste0(sinal(v), if (u == "reais") "R$ " else "", num(abs(v), casas_de(u)))
+  paste0(s, " ", estrelas(p))
 }
 
-tabela_testes <- function(ind) {
-  linhas <- LINHAS_TESTES %>% pmap_chr(function(rotulo, recorte) {
-    linha_md(rotulo, exp_p(ind, recorte, "bruto"), exp_p(ind, recorte), exp_sig(ind, recorte))
+tabela_destaques <- function() {
+  if (is.null(serie_tri_ant)) registrar_ausente(sprintf("série de %dT%d (trimestre anterior)", ano_ant, tri_ant))
+  if (is.null(serie_ano_ant)) registrar_ausente(sprintf("série de %dT%d (ano anterior)", ANO_REF - 1, TRIMESTRE_REF))
+  linhas <- CATALOGO %>% filter(destaque) %>% pmap_chr(function(id, rotulo, unidade, ...) {
+    ct <- COMP_TEMPORAIS %>% filter(id == !!id)
+    tri <- ct[ct$contra == "trimestre", ]; ano <- ct[ct$contra == "ano", ]
+    linha_md(com_unidade(rotulo, unidade),
+             celula(id, "Brasil"), celula(id, "Nordeste"), paste0("**", celula(id, "Piauí"), "**"),
+             formatar_delta(tri$dif, tri$p_ajustado, unidade),
+             formatar_delta(ano$dif, ano$p_ajustado, unidade))
   })
-  c(linha_md("Recorte", "p-valor", "p ajustado", "Significativo a 5%?"),
-    "|---|---:|---:|:---:|", linhas)
+  c(linha_md("Indicador", "Brasil", "Nordeste", "Piauí",
+             sprintf("Piauí: variação sobre %dT%d", ano_ant, tri_ant),
+             sprintf("Piauí: variação sobre %dT%d", ANO_REF - 1, TRIMESTRE_REF)),
+    "|---|---:|---:|---:|---:|---:|", linhas)
 }
 
-tabela_formalidade <- function() {
-  if (is.null(desig)) return("*(desigualdade formal/informal não disponível neste trimestre)*")
-  linhas <- LINHAS_GEOGRAFICAS %>%
-    filter(geografia %in% desig$Regiao_Geografica) %>%
-    pmap_chr(function(recorte, categoria, geografia) {
-      linha_md(recorte, categoria,
-               exp_desig(geografia, "formal"),   exp_desig(geografia, "informal"),
-               exp_desig(geografia, "razao"),    exp_desig(geografia, "ic"),
-               exp_desig(geografia, "cv"),       exp_desig(geografia, "prec"))
+# 6b. Matriz territorial de uma dimensão. Linha só entra no corpo se o Piauí
+# passar na triagem (marca "ok" ou "†"); as demais ficam no anexo.
+linhas_da_dimensao <- function(dim) {
+  CATALOGO %>% filter(dimensao == dim) %>%
+    pmap_dfr(function(id, rotulo, unidade, multiplo, ...) {
+      subs <- subcategorias(id)
+      if (length(subs) == 0) { registrar_ausente(paste(id, "sem linhas no Piauí")); return(tibble()) }
+      tibble(id = id, sub = subs,
+             rotulo = if (multiplo) paste0(rotulo, ": ", rotulo_categoria(subs))
+                      else com_unidade(rotulo, unidade))
     })
-  c(linha_md("Recorte", "Categoria", "Formais (R$)", "Informais (R$)",
-             "Razão", "IC 95% da razão", "CV (%)", "Precisão"),
-    "|---|---|---:|---:|---:|:---:|---:|---|", linhas)
 }
 
-# O svymean nomeia cada célula com a VARIÁVEL colada na categoria
-# ("VD4030Estava estudando"), não com o id do indicador. É o prefixo da
-# variável que precisa sair. O sufixo de letra da variável (V4074A, VD4004A)
-# só é consumido quando NÃO for a inicial do rótulo: "VD4030Tinha que cuidar"
-# tem o T do rótulo colado no nome da variável, e um [A-Z]? ganancioso comeria
-# essa letra.
-rotulo_motivo <- function(cat) {
-  r <- str_remove(cat, "^~?V[D]?[0-9]{4}[A-Z](?![:lower:])|^~?V[D]?[0-9]{4}")
-  str_trim(str_remove_all(r, '^[~"]+|"$'))
+tabela_matriz <- function(dim) {
+  L <- linhas_da_dimensao(dim)
+  linhas <- pmap_chr(L, function(id, sub, rotulo) {
+    pi <- celula(id, "Piauí", sub)
+    if (pi == "–") return(NA_character_)
+    agreg <- map_chr(GEO_AGREG, ~ celula(id, .x, sub))
+    zona  <- map_chr(GEO_ZONA,  ~ celula(id, .x, sub))
+    linha_md(rotulo, pi, agreg, exp_estrelas(id, "Estrato_Agregado"), zona, exp_estrelas(id, "Zona"))
+  })
+  linhas <- linhas[!is.na(linhas)]
+  if (length(linhas) == 0) return("*(nenhum indicador desta dimensão passou na triagem no nível do Piauí)*")
+  c(linha_md("Indicador", "Piauí", names(GEO_AGREG), "Teste estratos", names(GEO_ZONA), "Teste zona"),
+    paste0("|---|", strrep("---:|", 1 + length(GEO_AGREG)), ":---:|", strrep("---:|", length(GEO_ZONA)), ":---:|"),
+    linhas)
 }
 
-# RESTRIÇÃO A UM SUBCONJUNTO DE CATEGORIAS
-# -----------------------------------------
-# Pedido explícito: a Tabela 13 (motivo de não ter procurado trabalho, VD4030,
-# indicador Motivo_Nao_Procura_NemNem) mostra só as seis categorias abaixo —
-# os códigos IBGE 03, 04, 05, 06, 07 e 09 do dicionário de VD4030 — mesmo que
-# alguma delas tenha CV alto. As demais categorias de VD4030 ("Por outro
-# motivo", "Por não querer trabalhar", "Por ser muito jovem ou muito idoso
-# para trabalhar" etc., códigos 01, 02, 08 e outros) ficam de fora.
-#
-# O casamento é por PREFIXO do rótulo, não por igualdade exata: o rótulo que
-# sai do svymean (via pnadc_labeller) pode ser uma versão abreviada da
-# descrição oficial do dicionário — "Estava estudando" em vez de "Estava
-# estudando (curso de qualquer tipo ou por conta própria)" — e casar pelo
-# início evita que uma pontuação diferente derrube o filtro inteiro.
-#
-# Chave por INDICADOR, não por dimensão: só Motivo_Nao_Procura_NemNem é
-# restrito. Motivo_Desistencia_Desalentado e Motivo_Nao_Inicio_NemNem (que no
-# modelo aparecem só como figura, sem tabela) continuam completos caso um dia
-# ganhem uma diretiva @tabela.
-MOTIVOS_INCLUIR <- list(
-  Motivo_Nao_Procura_NemNem = c(
-    "Não conseguia trabalho adequado",
-    "Não tinha experiência profissional ou qualificação",
-    "Não havia trabalho na localidade",
-    "Tinha que cuidar dos afazeres domésticos",
-    "Estava estudando",
-    "Por problema de saúde ou gravidez"
-  )
-)
+# 6c. Composição da PIT e motivos: Brasil × Nordeste × Piauí, uma linha por
+# categoria.
+tabela_categorias <- function(dim) {
+  L <- linhas_da_dimensao(dim)
+  if (nrow(L) == 0) return("*(sem dados desta tabela na base do trimestre)*")
+  linhas <- pmap_chr(L, function(id, sub, rotulo) {
+    linha_md(rotulo, celula(id, "Brasil", sub), celula(id, "Nordeste", sub), celula(id, "Piauí", sub))
+  })
+  c(linha_md("Categoria", "Brasil (%)", "Nordeste (%)", "Piauí (%)"), "|---|---:|---:|---:|", linhas)
+}
 
-# Indicadores de motivo: a resposta é categórica, então a "tabela geográfica"
-# não se aplica — o que interessa é a distribuição das categorias.
-tabela_motivos <- function(ind, geo) {
-  d <- base %>%
-    filter(Indicador == ind, Regiao_Geografica == geo, Recorte_Demografico == "Total") %>%
-    mutate(cv = 100 * SE / Estimativa, rotulo = map_chr(Subcategoria_Indicador, rotulo_motivo)) %>%
-    arrange(desc(Estimativa))
-  if (nrow(d) == 0) {
-    registrar_ausente(paste("motivos de", ind, "em", geo))
-    return("*(sem dados para este indicador neste trimestre)*")
-  }
+# 6d. Pontos de atenção — gerados só a partir do que é significativo E passa
+# na triagem (regra de redação, §8.7). Tudo em tópicos.
+pontos_temporais <- function() {
+  sig <- COMP_TEMPORAIS %>% filter(!is.na(p_ajustado), p_ajustado < 0.05)
+  if (nrow(sig) == 0) return("- Nenhum dos indicadores de destaque teve variação estatisticamente significativa no Piauí em relação aos trimestres de comparação.")
+  pmap_chr(sig, function(id, contra, dif, p, p_ajustado) {
+    i <- info(id)
+    ref <- if (contra == "trimestre") sprintf("%dT%d", ano_ant, tri_ant) else sprintf("%dT%d", ANO_REF - 1, TRIMESTRE_REF)
+    sprintf("- **%s** no Piauí: %s %s em relação a %s (%s).", i$rotulo,
+            if (dif > 0) "alta de" else "queda de", paste(num(abs(escala(dif, i$unidade)), casas_de(i$unidade)), unidade_delta(i$unidade)),
+            ref, estrelas(p_ajustado))
+  })
+}
 
-  incluir <- MOTIVOS_INCLUIR[[ind]]
-  if (!is.null(incluir)) {
-    total_antes <- nrow(d)
-    d <- filter(d, map_lgl(rotulo, ~ any(str_starts(.x, fixed(incluir)))))
-    # Independente do CV, por pedido — mas se NENHUMA das categorias-alvo
-    # aparecer (rótulo mudou, indicador mudou de variável), é bug silencioso
-    # esperando para acontecer. Aqui vira aviso, não silêncio.
-    if (nrow(d) == 0) {
-      registrar_ausente(paste0(
-        "nenhuma das categorias de MOTIVOS_INCLUIR bateu com os rótulos de ",
-        ind, " em ", geo, " (", total_antes, " categorias disponíveis — ",
-        "confira se o rótulo do IBGE mudou de texto)"))
-      return("*(nenhuma das categorias selecionadas está disponível para este indicador/geografia)*")
+pontos_territoriais <- function() {
+  L <- map_dfr(c("ocupacao", "qualidade", "rendimento", "vulnerabilidade"), linhas_da_dimensao) %>%
+    filter(!str_detect(id, "^(Distribuicao|Motivo)"))
+  out <- pmap_chr(L, function(id, sub, rotulo) {
+    u <- info(id)$unidade
+    partes <- character(0)
+    t_est <- teste_reg(id, "Estrato_Agregado")
+    if (!is.null(t_est) && t_est$p_ajustado < 0.05) {
+      # Células "–" ficam de fora; as com † entram, com a marca — excluí-las
+      # faria apontar como maior um estrato que não é (ex.: rendimento de
+      # Teresina, † na série).
+      v <- map_dfr(names(GEO_AGREG), function(nm) {
+        tibble(nome = nm, txt = celula(id, GEO_AGREG[[nm]], sub),
+               est = linha_de(id, GEO_AGREG[[nm]], sub = sub)$Estimativa %||% NA_real_)
+      }) %>% filter(txt != "–", txt != "—")
+      if (nrow(v) >= 2) {
+        mx <- v[which.max(v$est), ]; mn <- v[which.min(v$est), ]
+        partes <- c(partes, sprintf("entre os estratos, maior em %s (%s) e menor em %s (%s) %s",
+                                    mx$nome, mx$txt, mn$nome, mn$txt, estrelas(t_est$p_ajustado)))
+      }
     }
-    if (nrow(d) < length(incluir)) {
-      registrar_ausente(sprintf(
-        "%s em %s: só %d de %d categorias solicitadas apareceram na amostra",
-        ind, geo, nrow(d), length(incluir)))
+    t_z <- teste_reg(id, "Zona")
+    if (!is.null(t_z) && t_z$p_ajustado < 0.05) {
+      ur <- linha_de(id, "Zona_Urbana", sub = sub); ru <- linha_de(id, "Zona_Rural", sub = sub)
+      cu <- celula(id, "Zona_Urbana", sub); cr <- celula(id, "Zona_Rural", sub)
+      if (!is.null(ur) && !is.null(ru) && !cu %in% c("–", "—") && !cr %in% c("–", "—")) {
+        partes <- c(partes, sprintf("urbana %s × rural %s %s", cu, cr, estrelas(t_z$p_ajustado)))
+      }
     }
-  }
+    if (length(partes) == 0) NA_character_ else sprintf("- **%s**: %s.", rotulo, paste(partes, collapse = "; "))
+  })
+  out <- out[!is.na(out)]
+  if (length(out) == 0) "- Nenhuma diferença territorial significativa com precisão suficiente neste trimestre." else out
+}
 
-  linhas <- pmap_chr(list(d$rotulo, d$Estimativa, d$SE, d$cv),
-    function(rotulo, est, se, cv) {
-      linha_md(rotulo, num(est * 100, 1),
-               sprintf("(%s, %s)", num(max(0, est - 1.96*se) * 100, 1), num((est + 1.96*se) * 100, 1)),
-               num(cv, 1), classe_cv(cv))
+# Recortes demográficos: entram só se a diferença é significativa naquele
+# território (p ajustado) E todas as categorias do recorte, naquele território,
+# passam na triagem.
+pontos_demograficos <- function() {
+  geos <- c(setNames(GEO_AGREG, names(GEO_AGREG)), setNames(GEO_ZONA, paste("Zona", tolower(names(GEO_ZONA)))))
+  cand <- testes_demo %>%
+    filter(Regiao_Geografica %in% geos, Recorte_Demografico %in% names(RECORTES_DEMO),
+           Indicador %in% CATALOGO$id, !is.na(p_ajustado), p_ajustado < 0.05)
+  if (nrow(cand) == 0) return("*(nenhum recorte demográfico passou na regra neste trimestre)*")
+  ok <- pmap_lgl(cand %>% select(Indicador, Regiao_Geografica, Recorte_Demografico),
+    function(Indicador, Regiao_Geografica, Recorte_Demografico) {
+      cel <- base %>% filter(Indicador == !!Indicador, Regiao_Geografica == !!Regiao_Geografica,
+                             Recorte_Demografico == !!Recorte_Demografico)
+      nrow(cel) >= 2 && all(pmap_chr(cel %>% select(Subcategoria_Indicador, Categoria_Demografica),
+        function(Subcategoria_Indicador, Categoria_Demografica)
+          marca_de(Indicador, Subcategoria_Indicador, Regiao_Geografica, Recorte_Demografico, Categoria_Demografica)) == "ok")
     })
-  c(linha_md("Motivo declarado", "Participação (%)", "IC 95%", "CV (%)", "Precisão"),
-    "|---|---:|:---:|---:|---|", linhas)
+  sel <- cand[ok, ] %>%
+    mutate(territorio = names(geos)[match(Regiao_Geografica, geos)],
+           rotulo = map_chr(Indicador, ~ info(.x)$rotulo),
+           recorte = RECORTES_DEMO[Recorte_Demografico]) %>%
+    group_by(rotulo, recorte, ordem = match(Indicador, CATALOGO$id)) %>%
+    summarise(territorios = paste(territorio, collapse = ", "), .groups = "drop") %>%
+    arrange(ordem, recorte)
+  if (nrow(sel) == 0) return("*(nenhum recorte demográfico passou na regra neste trimestre)*")
+  c(linha_md("Indicador", "Recorte", "Territórios onde a diferença é significativa e confiável"),
+    "|---|---|---|", pmap_chr(sel, function(rotulo, recorte, ordem, territorios) linha_md(rotulo, recorte, territorios)))
 }
 
-# TABELA GEOGRÁFICA DE UM SUBCONJUNTO DE MOTIVOS
-# -----------------------------------------------
-# Pedido explícito: além da Tabela de motivos por categoria (Piauí sozinho,
-# acima), duas tabelas com a mesma estrutura geográfica das seções 3.2 a 3.4
-# (Agregados, Zona, Administrativo, Estrato agregado, extremos do estrato de 7
-# dígitos) — só que para indicadores de MOTIVO, que são categóricos. Como cada
-# indicador de motivo tem várias categorias por geografia, a tabela empilha um
-# bloco de linhas geográficas por motivo selecionado, com uma coluna "Motivo"
-# identificando qual bloco é qual.
-#
-# Chave por indicador: cada indicador de motivo pode pedir um subconjunto
-# diferente de categorias.
-MOTIVOS_TABELA_GEOGRAFICA <- list(
-  Motivo_Desistencia_Desalentado = c(
-    "Não havia trabalho na localidade",
-    "Tinha que cuidar dos afazeres domésticos",
-    "Não conseguia trabalho adequado"
-  ),
-  Motivo_Nao_Inicio_NemNem = c(
-    "Por não querer trabalhar",
-    "Tinha que cuidar dos afazeres domésticos",
-    "Por problema de saúde ou gravidez"
-  )
-)
-
-# Busca UMA linha (indicador x geografia x motivo). Diferente de linha_de(): lá
-# a consulta é ambígua de propósito quando há mais de uma categoria (indicador
-# não é de motivo); aqui a categoria é parte da chave de busca.
-linha_motivo_geografico <- function(ind, geo, motivo_prefixo) {
-  r <- base %>%
-    filter(Indicador == ind, Regiao_Geografica == geo, Recorte_Demografico == "Total") %>%
-    mutate(rotulo = map_chr(Subcategoria_Indicador, rotulo_motivo)) %>%
-    filter(str_starts(rotulo, fixed(motivo_prefixo)))
-  if (nrow(r) == 0) return(NULL)
-  if (nrow(r) > 1) {
-    # Dois rótulos batendo no mesmo prefixo seria coincidência rara demais
-    # para ignorar em silêncio, mas não impede a tabela de sair.
-    registrar_ausente(sprintf(
-      "%s em %s: %d categorias casaram com o prefixo \"%s\" — usando a primeira",
-      ind, geo, nrow(r), motivo_prefixo))
-    r <- slice(r, 1)
-  }
-  mutate(r, cv = 100 * SE / Estimativa)
-}
-
-# Extremos entre estratos de 7 dígitos, restritos a UM motivo — análogo a
-# extremos_micro(), mas filtrando a categoria antes de ordenar por tamanho.
-extremos_micro_motivo <- function(ind, motivo_prefixo) {
-  todos <- base %>%
-    filter(Indicador == ind, Recorte_Demografico == "Total",
-           str_starts(Regiao_Geografica, "Micro_")) %>%
-    mutate(rotulo = map_chr(Subcategoria_Indicador, rotulo_motivo)) %>%
-    filter(str_starts(rotulo, fixed(motivo_prefixo))) %>%
-    mutate(cv = 100 * SE / Estimativa, codigo = str_remove(Regiao_Geografica, "^Micro_")) %>%
-    arrange(desc(Estimativa))
-  utilizaveis <- filter(todos, is.finite(cv), cv < CV_MAXIMO_EXTREMO)
-  if (nrow(utilizaveis) >= 2) utilizaveis else todos
-}
-
-linha_percentual_ic <- function(recorte, categoria, motivo, r) {
-  if (is.null(r)) {
-    return(linha_md(recorte, categoria, motivo, "—", "—", "—", "—"))
-  }
-  linha_md(recorte, categoria, motivo,
-           num(r$Estimativa * 100, 1),
-           sprintf("(%s, %s)", num(max(0, r$Estimativa - 1.96 * r$SE) * 100, 1),
-                   num((r$Estimativa + 1.96 * r$SE) * 100, 1)),
-           num(r$cv, 1), classe_cv(r$cv))
-}
-
-tabela_motivos_geografico <- function(ind) {
-  motivos <- MOTIVOS_TABELA_GEOGRAFICA[[ind]]
-  if (is.null(motivos)) {
-    stop("Nenhum motivo configurado em MOTIVOS_TABELA_GEOGRAFICA para ", ind,
-         " — adicione uma entrada antes de usar tipo=motivos-geografico.")
-  }
-
-  linhas <- character(0)
-  for (motivo in motivos) {
-    bloco <- LINHAS_GEOGRAFICAS %>%
-      filter(geografia %in% base$Regiao_Geografica) %>%
-      pmap_chr(function(recorte, categoria, geografia) {
-        r <- linha_motivo_geografico(ind, geografia, motivo)
-        if (is.null(r)) registrar_ausente(paste(ind, "-", motivo, "- ausente em", geografia))
-        linha_percentual_ic(recorte, categoria, motivo, r)
-      })
-
-    ex <- extremos_micro_motivo(ind, motivo)
-    linhas_micro <- character(0)
-    if (nrow(ex) >= 2) {
-      topo <- slice_head(ex, n = 1); fundo <- slice_tail(ex, n = 1)
-      linhas_micro <- c(
-        linha_percentual_ic("Estrato (7 dígitos)", paste0("maior: ", topo$codigo), motivo, topo),
-        linha_percentual_ic("Estrato (7 dígitos)", paste0("menor: ", fundo$codigo), motivo, fundo)
-      )
-    } else {
-      registrar_ausente(paste(ind, "-", motivo, "- sem estratos finos suficientes para extremos"))
+# 6e. Anexos.
+tabela_anexo_indicadores <- function() {
+  out <- character(0); n <- 0
+  for (k in seq_len(nrow(CATALOGO))) {
+    i <- CATALOGO[k, ]
+    subs <- if (i$multiplo) subcategorias(i$id) else
+      unique(base$Subcategoria_Indicador[base$Indicador == i$id & base$Recorte_Demografico == "Total"])
+    if (length(subs) == 0) { registrar_ausente(paste("anexo:", i$id, "sem linhas")); next }
+    for (sub in subs) {
+      n <- n + 1
+      titulo <- if (i$multiplo) paste0(i$rotulo, ": ", rotulo_categoria(sub)) else i$rotulo
+      linhas <- GEO_ANEXO %>% filter(geografia %in% base$Regiao_Geografica) %>%
+        pmap_chr(function(recorte, categoria, geografia) {
+          r <- linha_de(i$id, geografia, sub = sub)
+          if (is.null(r)) return(linha_md(recorte, categoria, "—", "—", "—", "—", "—", "—"))
+          t <- triagem %>% filter(Indicador == i$id, Subcategoria_Indicador == sub, Regiao_Geografica == geografia,
+                                  Recorte_Demografico == "Total")
+          p80 <- if (nrow(t) == 1) num(t$cv_p80, 1) else "—"
+          marca <- switch(marca_de(i$id, sub, geografia, cv_atual = r$cv), ok = "", adaga = "†", traco = "–")
+          linha_md(recorte, categoria, formatar(r$Estimativa, i$unidade),
+                   sprintf("(%s, %s)", formatar(max(0, r$Estimativa - 1.96 * r$SE), i$unidade),
+                           formatar(r$Estimativa + 1.96 * r$SE, i$unidade)),
+                   num(r$cv, 1), classe_cv(r$cv), p80, marca)
+        })
+      out <- c(out, "",
+               sprintf("**Tabela D.%d** — %s, por recorte geográfico — %s", n,
+                       com_unidade(titulo, i$unidade), VOCABULARIO$trimestre()),
+               "",
+               linha_md("Recorte", "Categoria", "Estimativa", "IC 95%", "CV (%)", "Precisão", "p80 do CV na série (%)", "Marca"),
+               "|---|---|---:|:---:|---:|---|---:|:---:|", linhas, "",
+               "Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.")
     }
-
-    linhas <- c(linhas, bloco, linhas_micro)
   }
-
-  c(linha_md("Recorte", "Categoria", "Motivo", "Estimativa (%)", "IC 95%", "CV (%)", "Precisão"),
-    "|---|---|---|---:|:---:|---:|---|", linhas)
+  out
 }
 
-# A tabela-síntese da subseção 3.6: indicadores nas linhas, recortes nas colunas.
-INDICADORES_SINTESE <- tribble(
-  ~id,                                ~rotulo,
-  "Taxa_Desocupacao",                 "Taxa de desocupação",
-  "Chefes_Familia_Desocupados",       "Responsáveis desocupados",
-  "Conribuintes_Desocupados",         "Responsáveis ou cônjuges desocupados",
-  "Rendimento_Medio_Habitual",        "Rendimento médio habitual",
-  "Percentual_Subremuneracao",        "Sub-remuneração",
-  "Taxa_Informalidade",               "Taxa de informalidade",
-  "Taxa_Subocupacao",                 "Sub-ocupação",
-  "Proporcao_Ocupados_Escolarizados", "Ocupados com médio completo ou mais",
-  "Desalentados_Forca_Ampliada",      "Desalentados (força ampliada)",
-  "Desalentados_Fora_Forca",          "Desalentados (fora da força)",
-  "Taxa_Nem_Nem",                     "Jovens nem-nem"
-)
-
-tabela_sintese <- function() {
-  linhas <- pmap_chr(list(INDICADORES_SINTESE$id, INDICADORES_SINTESE$rotulo),
-    function(id, rotulo) {
-      celulas <- map_chr(LINHAS_TESTES$recorte, function(rec) exp_estrelas(id, rec))
-      paste0("| ", rotulo, " | ", paste(celulas, collapse = " | "), " |")
+tabela_anexo_testes <- function() {
+  ids <- CATALOGO$id[CATALOGO$id %in% testes_reg$Indicador & !CATALOGO$multiplo]
+  linhas <- map_chr(ids, function(id) {
+    cel <- map_chr(RECORTES_TESTE$recorte, function(rec) {
+      r <- teste_reg(id, rec)
+      if (is.null(r)) "—" else sprintf("%s / %s %s", if (r$p_valor < 0.001) "< 0,001" else num(r$p_valor, 3),
+                                        if (r$p_ajustado < 0.001) "< 0,001" else num(r$p_ajustado, 3), estrelas(r$p_ajustado))
     })
-  c(linha_md("Indicador", "Zona", "Estrato administrativo", "Estrato agregado",
-             "Estrato (7 díg.)", "Teresina × resto"),
-    "|---|:---:|:---:|:---:|:---:|:---:|", linhas)
+    linha_md(info(id)$rotulo, cel)
+  })
+  c(linha_md("Indicador", RECORTES_TESTE$rotulo), paste0("|---|", strrep(":---:|", nrow(RECORTES_TESTE))), linhas)
 }
 
-# ---- 6. O interpretador ------------------------------------------------------
+tabela_anexo_triagem <- function() {
+  niveis <- c(Agregado = "Piauí e Teresina", Zona = "Zona", Estrato_Admin = "Estrato administrativo",
+              Estrato_Agregado = "Estrato agregado")
+  resumo <- triagem %>%
+    filter(Recorte_Demografico == "Total", Indicador %in% CATALOGO$id) %>%
+    group_by(Indicador, Nivel_Geografico) %>%
+    summarise(aprov = mean(crit_c & !instavel, na.rm = TRUE), .groups = "drop")
+  linhas <- map_chr(CATALOGO$id[CATALOGO$id %in% resumo$Indicador], function(id) {
+    r <- resumo %>% filter(Indicador == id)
+    cel <- map_chr(names(niveis), function(nv) {
+      v <- r$aprov[r$Nivel_Geografico == nv]
+      if (length(v) == 0) "—" else paste0(num(100 * v, 0), "%")
+    })
+    linha_md(info(id)$rotulo, cel)
+  })
+  c(linha_md("Indicador", niveis), paste0("|---|", strrep("---:|", length(niveis))), linhas)
+}
 
-# 6a. Blocos condicionais. Precisam vir ANTES das expressões: um bloco
-# descartado não deve ter suas expressões internas resolvidas (resolver o que
-# vai ser jogado fora produziria falsos "ausentes" no relatório final).
+resolver_tabelas <- function(linhas) {
+  saida <- character(0)
+  for (l in linhas) {
+    d <- str_match(l, "^\\s*<!--\\s*@tabela\\s+(.*?)\\s*-->\\s*$")
+    if (is.na(d[1])) { saida <- c(saida, l); next }
+    pares <- str_match_all(d[2], "([a-z]+)=(\\S+)")[[1]]
+    arg <- setNames(pares[, 3], pares[, 2])
+    tabela <- switch(arg[["tipo"]],
+      destaques            = tabela_destaques(),
+      matriz               = tabela_matriz(arg[["dimensao"]]),
+      categorias           = tabela_categorias(arg[["dimensao"]]),
+      "pontos-temporais"   = pontos_temporais(),
+      "pontos-territoriais" = pontos_territoriais(),
+      "pontos-demograficos" = pontos_demograficos(),
+      "anexo-indicadores"  = tabela_anexo_indicadores(),
+      "anexo-testes"       = tabela_anexo_testes(),
+      "anexo-triagem"      = tabela_anexo_triagem(),
+      stop("Tipo de tabela desconhecido: ", arg[["tipo"]])
+    )
+    saida <- c(saida, tabela)
+  }
+  saida
+}
+
+# ---- 7. Interpretador ----------------------------------------------------------------
+
 resolver_condicionais <- function(txt) {
   padrao <- regex("\\{\\{#(se-significativo|se-nao-significativo|se-existe)\\s+([^\\}]+?)\\}\\}(.*?)\\{\\{/se\\}\\}",
                   dotall = TRUE)
   while (str_detect(txt, padrao)) {
     m <- str_match(txt, padrao)
     tipo <- m[2]; args <- str_split(str_trim(m[3]), "\\s+")[[1]]; corpo <- m[4]
-
     manter <- switch(tipo,
-      "se-significativo" = {
-        r <- teste_reg(args[1], args[2]); !is.null(r) && r$p_ajustado < 0.05
-      },
-      "se-nao-significativo" = {
-        r <- teste_reg(args[1], args[2]); !is.null(r) && r$p_ajustado >= 0.05
-      },
-      # se-existe cobre o caso da guarda: o teste pode simplesmente não existir,
-      # e aí NENHUM dos dois textos acima serve — é preciso um terceiro.
-      "se-existe" = !is.null(teste_reg(args[1], args[2]))
-    )
-
+      "se-significativo"     = { r <- teste_reg(args[1], args[2]); !is.null(r) && r$p_ajustado < 0.05 },
+      "se-nao-significativo" = { r <- teste_reg(args[1], args[2]); !is.null(r) && r$p_ajustado >= 0.05 },
+      "se-existe"            = !is.null(teste_reg(args[1], args[2])))
     txt <- str_replace(txt, padrao, if (manter) corpo else "")
   }
   txt
 }
 
-# 6b. Expressões {{funcao arg arg}}.
-#
-# O modelo precisa poder FALAR sobre a própria sintaxe — o cabeçalho explica ao
-# leitor como escrever uma expressão, e essa explicação não pode ser executada.
-# A escapatória é a barra invertida: \{\{est ...\}\} atravessa o interpretador
-# e sai como texto literal.
-proteger_literais <- function(txt) str_replace_all(txt, "\\\\\\{\\\\\\{", "\u0001LIT\u0001")
-restaurar_literais <- function(txt) str_replace_all(txt, "\u0001LIT\u0001", "{{")
+# \{\{ no modelo atravessa o interpretador como texto literal.
+proteger_literais  <- function(txt) str_replace_all(txt, "\\\\\\{\\\\\\{", "LIT")
+restaurar_literais <- function(txt) str_replace_all(txt, "LIT", "{{")
 
-# POR QUE vapply() AQUI E NÃO A FUNÇÃO DIRETO EM str_replace_all()
-# -----------------------------------------------------------------
-# str_replace_all(string, pattern, function) não tem contrato fixo de
-# chamada entre versões do stringr: em 1.5.1 (o que roda aqui) a função é
-# chamada UMA VEZ POR OCORRÊNCIA, com um vetor escalar — foi assim que este
-# código foi escrito e testado. Em versões mais novas (confirmado com R
-# 4.5.2/stringr atual), ela é chamada UMA VEZ PARA TODAS as ocorrências do
-# texto inteiro, passando um vetor com todas de uma vez.
-#
-# O código original indexava o resultado de str_match() com m[2]/m[3], que só
-# está correto quando m é uma matriz de UMA linha. Com várias ocorrências, m
-# vira uma matriz de N linhas, e m[2] deixa de ser "grupo 2 da linha 1" — vira
-# o segundo elemento em ordem de coluna, ou seja, o TEXTO INTEIRO da segunda
-# ocorrência. Foi exatamente esse deslocamento que produziu o
-# "{{{{trimestre}} ...}}" do erro: o nome da expressão virou o texto bruto de
-# outra expressão do documento.
-#
-# vapply() torna a função explicitamente elemento-a-elemento e devolve sempre
-# um vetor do mesmo tamanho da entrada — o contrato que str_replace_all()
-# exige — então funciona da mesma forma em qualquer versão do stringr,
-# chamada a função uma vez por ocorrência ou todas de uma vez.
+# vapply(): str_replace_all() com função chama uma vez por ocorrência em
+# versões antigas do stringr e uma vez para todas nas novas; assim funciona nas duas.
 resolver_expressoes <- function(txt) {
   resolver_uma <- function(inteiro) {
     m <- str_match(inteiro, "\\{\\{([a-z_]+)([^\\}]*)\\}\\}")
-    nome <- m[1, 2]
     args <- str_split(str_trim(m[1, 3]), "\\s+")[[1]]
     args <- args[nzchar(args)]
-    fn <- VOCABULARIO[[nome]]
-    if (is.null(fn)) stop("Expressão desconhecida no modelo: {{", nome, " ...}}")
+    fn <- VOCABULARIO[[m[1, 2]]]
+    if (is.null(fn)) stop("Expressão desconhecida no modelo: {{", m[1, 2], " ...}}")
     do.call(fn, as.list(args))
   }
   str_replace_all(txt, "\\{\\{([a-z_]+)([^\\}]*)\\}\\}",
                   function(inteiros) vapply(inteiros, resolver_uma, character(1), USE.NAMES = FALSE))
 }
 
-# 6c. Trechos que dependem de leitura humana.
-# Nem todo vazio do modelo é preenchível por máquina: a interpretação de um
-# resultado, a leitura conjunta de dois indicadores, a decisão de incluir um
-# bloco demográfico. Marcá-los como erro faria o script falhar sempre; deixá-los
-# invisíveis faria o relatório sair com buracos silenciosos. A saída é gerar um
-# marcador impossível de não ver, e contá-los no fim.
 redacoes <- new.env(parent = emptyenv())
 redacoes$itens <- character(0)
-
 resolver_redigir <- function(linhas) {
   map_chr(linhas, function(l) {
     d <- str_match(l, "^\\s*<!--\\s*@redigir:\\s*(.*?)\\s*-->\\s*$")
@@ -728,66 +626,21 @@ resolver_redigir <- function(linhas) {
   })
 }
 
-# 6d. Diretivas de tabela: a linha inteira é trocada pela tabela gerada.
-resolver_tabelas <- function(linhas) {
-  saida <- character(0)
-  for (l in linhas) {
-    d <- str_match(l, "^\\s*<!--\\s*@tabela\\s+(.*?)\\s*-->\\s*$")
-    if (is.na(d[1])) { saida <- c(saida, l); next }
-
-    pares <- str_match_all(d[2], "([a-z]+)=(\\S+)")[[1]]
-    arg <- setNames(pares[, 3], pares[, 2])
-    tipo <- arg[["tipo"]]
-
-    tabela <- switch(tipo,
-      geografica  = tabela_geografica(arg[["indicador"]]),
-      testes      = tabela_testes(arg[["indicador"]]),
-      formalidade = tabela_formalidade(),
-      motivos     = tabela_motivos(arg[["indicador"]],
-                                   if ("geografia" %in% names(arg)) arg[["geografia"]] else "Piauí"),
-      "motivos-geografico" = tabela_motivos_geografico(arg[["indicador"]]),
-      sintese     = tabela_sintese(),
-      stop("Tipo de tabela desconhecido: ", tipo)
-    )
-    saida <- c(saida, tabela)
-  }
-  saida
-}
-
-# ---- 7. Execução -------------------------------------------------------------
-
-if (!file.exists(MODELO)) stop("Não encontrei o modelo em ", MODELO)
-
-message("Preenchendo ", MODELO, " para ", sufixo, "...")
-
-linhas <- read_lines(MODELO)
-
-# As "Notas de revisão do texto atual" são andaime de trabalho, não parte da
-# publicação: ficam no modelo e saem da edição gerada.
-corte <- which(str_detect(linhas, "^## Notas de revisão do texto atual"))
-if (length(corte) == 1) {
-  message("  -> removendo as notas de revisão (linha ", corte, " em diante)")
-  linhas <- linhas[seq_len(corte - 1)]
-  while (length(linhas) && str_trim(tail(linhas, 1)) %in% c("", "---")) {
-    linhas <- head(linhas, -1)
-  }
-}
-
-# O banner "isto é o modelo, não o relatório" só faz sentido para quem abre
-# output/relatorio_trimestral.md. Na edição gerada ele é ruído — e pior,
-# ficaria mentindo, já que o próprio arquivo deixaria de ser o modelo.
 remover_somente_modelo <- function(linhas) {
   ini <- which(str_detect(linhas, fixed("<!-- @somente-modelo -->")))
   fim <- which(str_detect(linhas, fixed("<!-- /@somente-modelo -->")))
   if (length(ini) == 0) return(linhas)
-  if (length(ini) != 1 || length(fim) != 1 || fim < ini) {
-    stop("Marcadores @somente-modelo malformados no modelo (abertura e ",
-         "fechamento devem aparecer uma vez cada, na ordem certa).")
-  }
+  if (length(ini) != 1 || length(fim) != 1 || fim < ini) stop("Marcadores @somente-modelo malformados no modelo.")
   linhas[-(ini:fim)]
 }
-linhas <- remover_somente_modelo(linhas)
 
+# ---- 8. Execução ---------------------------------------------------------------------
+
+if (!file.exists(MODELO)) stop("Não encontrei o modelo em ", MODELO)
+message("Preenchendo ", MODELO, " para ", sufixo, "...")
+
+linhas <- read_lines(MODELO)
+linhas <- remover_somente_modelo(linhas)
 linhas <- resolver_redigir(linhas)
 linhas <- resolver_tabelas(linhas)
 texto  <- paste(linhas, collapse = "\n")
@@ -795,100 +648,51 @@ texto  <- proteger_literais(texto)
 texto  <- resolver_condicionais(texto)
 texto  <- resolver_expressoes(texto)
 
-# ---- 8. Verificação ----------------------------------------------------------
-# Nada sai daqui pela metade. Um marcador esquecido é erro, não aviso.
+# ---- 9. Verificação --------------------------------------------------------------------
 
 sobraram <- str_extract_all(texto, "\\{\\{[^\\}]*\\}\\}|\\{[A-Z_]{2,}[^\\}]*\\}")[[1]]
 if (length(sobraram) > 0) {
   message("\nMARCADORES NÃO RESOLVIDOS (", length(sobraram), "):")
-  for (s in unique(sobraram)) {
-    message("  ", str_trunc(s, 100), "   (", sum(sobraram == s), "x)")
-  }
+  for (s in unique(sobraram)) message("  ", str_trunc(s, 100), "   (", sum(sobraram == s), "x)")
   stop("O relatório não foi gravado. Corrija o modelo ou o vocabulário e rode de novo.")
 }
 
-# Quando um valor não existe na base, a expressão vira travessão — e o "%" que
-# o modelo escreveu logo depois fica órfão ("—%"). Limpar aqui é mais simples
-# que condicionar cada unidade no modelo.
 texto <- str_replace_all(texto, "—%", "—")
-
-# O pandoc lê "$" como delimitador de fórmula matemática (extensão
-# tex_math_dollars, ligada por padrão no formato markdown dele). Um "R$" sem
-# escape abre um bloco de matemática que só fecha no próximo "$" do
-# documento — o que devora tudo entre os dois, tabelas inteiras inclusive, e
-# é o motivo de tabelas com valores em reais saírem quebradas tanto no PDF
-# (vira fórmula) quanto no docx (perde a estrutura de tabela). O escape
-# precisa ser feito aqui, sobre o texto já montado: os valores em reais
-# chegam tanto por {{est}}/{{ic}} no texto corrido quanto direto dentro das
-# tabelas geradas por tabela_geografica()/tabela_formalidade() (que chamam
-# formatar_valor()/exp_ic()/exp_desig() sem passar pelo interpretador), então
-# escapar só dentro do interpretador — como era feito antes — deixava as
-# tabelas de fora.
+# O pandoc lê "$" como início de fórmula; "R$" sem escape engole tabelas inteiras.
 texto <- str_replace_all(texto, "\\$", "\\\\$")
-
-# Só agora os literais escapados voltam a ser chaves: se voltassem antes, a
-# verificação acima os acusaria como marcadores esquecidos.
 texto <- restaurar_literais(texto)
 texto <- str_replace_all(texto, "\\\\\\}\\\\\\}", "}}")
 
-# Cabeçalho invisível na renderização (comentário HTML), visível em qualquer
-# listagem de arquivo, diff ou "raw view". Existe para que ninguém confunda
-# esta edição com o modelo — ou uma edição velha com a mais recente — só de
-# olhar o arquivo errado no navegador do repositório.
 cabecalho <- sprintf(
   "<!-- GERADO AUTOMATICAMENTE por R/09_preencher_relatorio.R a partir de %s. Trimestre: %s. Não editar à mão — a próxima rodada sobrescreve sem aviso. -->\n\n",
-  MODELO, sufixo
-)
+  MODELO, sufixo)
 texto <- paste0(cabecalho, texto)
-
 write_lines(texto, SAIDA)
-
-message("  -> ", SAIDA, " (", format(nchar(texto), big.mark = "."), " caracteres)")
+message("  -> ", SAIDA, " (", formatC(nchar(texto), big.mark = ".", format = "d"), " caracteres)")
 
 if (length(ausentes$itens) > 0) {
-  message("\nValores ausentes na base, exibidos como travessão (", length(ausentes$itens), "):")
+  message("\nValores ausentes, exibidos como travessão (", length(unique(ausentes$itens)), "):")
   for (a in unique(ausentes$itens)) message("  ", a)
-  message("\nIsso é esperado quando o pipeline roda sobre um desenho recortado ",
-          "(sem Brasil/Nordeste) ou quando a guarda de variância recusou o teste.")
 }
-
 if (length(redacoes$itens) > 0) {
-  message("\nTRECHOS A REDIGIR (", length(redacoes$itens), ") — procure por ",
-          "\"A REDIGIR\" no arquivo gerado:")
-  for (i in seq_along(redacoes$itens)) {
-    message("  ", i, ". ", str_trunc(redacoes$itens[i], 90))
-  }
+  message("\nTRECHOS A REDIGIR (", length(redacoes$itens), ") — procure por \"A REDIGIR\" no arquivo gerado:")
+  for (i in seq_along(redacoes$itens)) message("  ", i, ". ", str_trunc(redacoes$itens[i], 90))
 }
 
-
-# Converte em docx seguindo o modelo na pasta: opcional
-if (CONVERTER_DOCX){
-  message("Convertendo arquivo markdown para documento word")
-  
-  # Isso garante que os caminhos dos arquivos estejam limpos e absolutos para o Windows
+if (CONVERTER_DOCX) {
+  message("Convertendo para .docx")
   arquivo_entrada <- normalizePath(SAIDA, mustWork = TRUE)
-  arquivo_saida <- str_replace(arquivo_entrada, "\\.md$", ".docx")
-  arquivo_estilo  <- normalizePath("custom-reference.docx", mustWork = TRUE)
-  arquivo_remover_figura <- normalizePath("remover-figuras.lua", mustWork = TRUE)
-  
-  # Usa um custom-refence.docx pra formatar mais bonitinho no word e publicar
-  # merda do pandoc_run precisa passar cada argumento separado da flag
+  arquivo_saida   <- str_replace(arquivo_entrada, "\\.md$", ".docx")
   result <- try(pandoc_run(args = c(
-    arquivo_entrada,
-    "-o", arquivo_saida,
-    paste0("--reference-doc=", arquivo_estilo),
-    paste0('--lua-filter=',arquivo_remover_figura),
-    "--toc",
-    "--toc-depth=2" #, --trace como flag caso você queira ver o que está dando errado
-  )))
-  
+    arquivo_entrada, "-o", arquivo_saida,
+    paste0("--reference-doc=", normalizePath("custom-reference.docx", mustWork = TRUE)),
+    paste0("--lua-filter=", normalizePath("remover-figuras.lua", mustWork = TRUE)),
+    "--toc", "--toc-depth=2")))
   if (inherits(result, "try-error")) {
-    message("Erro ao rodar o pandoc, verifique se o pacote está instalado, se o arquivo de destino",
-    "está em execução ou se existe o custom-reference.docx")
-  } else if (length(result) == 0){
-    message("Conversão rodada com sucesso")
+    message("Erro ao rodar o pandoc: confira o pacote, se o .docx de destino está aberto e o custom-reference.docx.")
+  } else {
+    message("  -> ", arquivo_saida)
   }
-  
 }
 
 message("\nConcluído: ", sufixo)

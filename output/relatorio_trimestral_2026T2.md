@@ -1,941 +1,1310 @@
 <!-- GERADO AUTOMATICAMENTE por R/09_preencher_relatorio.R a partir de ./output/relatorio_trimestral.md. Trimestre: 2026T2. Não editar à mão — a próxima rodada sobrescreve sem aviso. -->
 
 
-**VERSÃO AUTOMATÓTICA DO RELATÓRIO - REVER OS TEXTOS E REDIGIR AS ANÁLISES RESTANTE**
+**VERSÃO AUTOMÁTICA DO RELATÓRIO — REVER OS TEXTOS E REDIGIR AS ANÁLISES**
 
-<!-- TO-DO: Ver o que já deixo na 1 e 2 seção pré-preenchido pra próximas edições -->
-## 1 Introdução
-## 2 Metodologia
-### 2.1 Dimensões e indicadores analisados
-### 2.2 Recortes geográficos
-### 2.3 Recortes demográficos
-### 2.4 Robustez dos indicadores estimados
-### 2.5 Comparações entre os recortes
+## 1 Destaques do trimestre
 
+No 2º trimestre de 2026, a taxa de desocupação do Piauí foi de
+8,3%, ante 7,6% no
+Nordeste e 5,4% no Brasil. A taxa de participação
+na força de trabalho ficou em 52,9%
+(62,1% no Brasil) e a taxa composta de
+subutilização, em 26,6%. O rendimento
+médio real habitual do trabalho no estado, de
+R\$ 2.547, equivale a
+68,1% do nacional.
 
-## 3 Análise dos resultados
+**Tabela 1** — Indicadores de destaque: Brasil, Nordeste e Piauí, e variação do Piauí — 2º trimestre de 2026
 
-As quatro subseções a seguir seguem a mesma estrutura: um indicador principal,
-que responde à pergunta central da dimensão, e indicadores auxiliares, que
-qualificam a resposta. Cada uma traz as estimativas por recorte
-geográfico e um texto que aponta as diferenças relevantes.
-
-Três chaves de leitura ajudam a interpretar os números: Primeiro, o intervalo importa mais que o ponto. Toda estimativa aqui vem de uma amostra. Quando os intervalos de confiança das estimativas de dois estratos se
-sobrepõem, a diferença entre eles pode ser apenas ruído amostral, mesmo que os
-valores centrais pareçam distantes.
-
-Segundo, Nem toda estimativa tem o mesmo peso. A coluna de precisão classifica cada
-número pelo coeficiente de variação: quanto menor, mais confiável. Estimativas
-marcadas como *regular* devem ser lidas com cautela; as marcadas como *baixa*
-aparecem na tabela por completude, mas não sustentam conclusão. Isso é
-esperado — quanto mais fino o recorte territorial, menos pessoas da amostra
-caem dentro dele.
-
-Por fim, a  última linha de cada
-tabela traz o teste que responde se as diferenças entre as categorias daquele
-recorte são estatisticamente significativas - os testes descritos na seção 2.5. É esse teste, e não a inspeção
-visual da tabela, que autoriza afirmar que dois estratos são diferentes. O
-p-valor usado é o **ajustado**: como o relatório faz centenas de comparações
-por trimestre, algumas sairiam significativas por puro acaso, e a correção
-desconta esse efeito.
-
-### 3.2 Desocupação
-
-#### 3.2.1 Taxa de desocupação
-
-O Piauí registrou taxa de desocupação de 8,3%, ante
-7,6% no Nordeste e 5,4%
-no Brasil. Dentro do estado, a distância entre o estrato com maior e menor
-desocupação foi de 14,5 pontos percentuais, separando
-estrato 2220020 (19,3%)
-de estrato 2210013 (4,8%).
-
-**Tabela 2** — Taxa de desocupação, por recorte geográfico — 2º trimestre de 2026
-
-| Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
-|---|---|---:|:---:|---:|---|
-| Agregados | Brasil | 5,4 | (5,2, 5,5) | 1,4 | excelente |
-| Agregados | Nordeste | 7,6 | (7,3, 7,9) | 2,1 | excelente |
-| Agregados | Piauí | 8,3 | (7,1, 9,5) | 7,5 | boa |
-| Agregados | Teresina | 7,1 | (5,8, 8,5) | 9,5 | boa |
-| Zona | Urbana | 7,5 | (6,3, 8,7) | 8,2 | boa |
-| Zona | Rural | 10,9 | (8,2, 13,6) | 12,7 | boa |
-| Administrativo | Capital | 7,1 | (5,8, 8,5) | 9,5 | boa |
-| Administrativo | Resto da RIDE | 16,4 | (11,8, 20,9) | 14,3 | boa |
-| Administrativo | Resto da UF | 8,1 | (6,4, 9,7) | 10,3 | boa |
-| Estrato agregado | Teresina | 7,1 | (5,8, 8,5) | 9,5 | boa |
-| Estrato agregado | Entorno metropolitano | 16,4 | (11,8, 20,9) | 14,3 | boa |
-| Estrato agregado | Centro-Leste | 8,2 | (6,1, 10,3) | 13,2 | boa |
-| Estrato agregado | Baixo Parnaíba | 6,7 | (4,0, 9,3) | 20,4 | regular |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | 10,0 | (6,5, 13,4) | 17,7 | regular |
-| Estrato (7 dígitos) | maior: 2220020 | 19,3 | (12,3, 26,3) | 18,5 | regular |
-| Estrato (7 dígitos) | menor: 2210013 | 4,8 | (2,2, 7,4) | 27,3 | regular |
+| Indicador | Brasil | Nordeste | Piauí | Piauí: variação sobre 2026T1 | Piauí: variação sobre 2025T2 |
+|---|---:|---:|---:|---:|---:|
+| Taxa de participação na força de trabalho (%) | 62,1 | 54,2 | **52,9** | −0,6 ns | −0,6 ns |
+| Nível da ocupação (%) | 58,8 | 50,1 | **48,5** | −0,2 ns | −0,5 ns |
+| Taxa de desocupação (%) | 5,4 | 7,6 | **8,3** | −0,6 ns | −0,2 ns |
+| Taxa composta de subutilização (%) | 12,9 | 21,4 | **26,6** | −3,8 ns | −3,5 ns |
+| Taxa de informalidade (%) | 37,4 | 48,7 | **49,5** | −0,8 ns | −2,3 ns |
+| Rendimento médio real habitual (R\$) | R\$ 3.738 | R\$ 2.645 | **R\$ 2.547** | −R\$ 143 ns | +R\$ 10 ns |
+| Índice de Gini do rendimento do trabalho | 0,484 | 0,499 | **0,507** | −0,023 ns | −0,027 ns |
+| Jovens de 14 a 29 anos que não estudam nem trabalham (%) | 17,9 | 24,5 | **24,3** | −0,8 ns | −0,1 ns |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-Nota: os 13 estratos de 7 dígitos aparecem na íntegra no anexo
-metodológico; aqui são exibidos apenas os extremos.
+Nota: variação em pontos percentuais (taxas), reais (rendimento) ou unidades
+do índice (Gini). \*\*\* p < 0,001; \*\* p < 0,01; \* p < 0,05; ns = não
+significativo (p ajustado). † = precisão regular na série; – = não sustenta
+leitura. Ver seção 2.
 
-**Tabela 3** — Taxa de desocupação, diferença entre as categorias de cada recorte - 2º trimestre de 2026
+> **A REDIGIR** — dois ou três parágrafos com a leitura dos destaques — só o que a Tabela 1 marca como significativo; variação "ns" não é aumento nem queda.
 
-| Recorte | p-valor | p ajustado | Significativo a 5%? |
-|---|---:|---:|:---:|
-| Zona (urbana × rural) | 0,010 | 0,012 | sim |
-| Estrato administrativo | < 0,001 | < 0,001 | sim |
-| Estrato agregado | 0,007 | 0,010 | sim |
-| Estrato (7 dígitos) | — | — | — |
-| Teresina × resto do Piauí | 0,057 | 0,064 | não |
+## 2 Como ler as tabelas
+
+Todas as estimativas vêm de uma amostra, e por isso cada número tem uma
+margem de erro. Três marcas orientam a leitura:
+
+- **Valor sem marca**: o indicador, naquele território, teve coeficiente de
+  variação abaixo de 15% em pelo menos 80% dos trimestres desde 2022. É um
+  número confiável para acompanhamento trimestral.
+- **Valor com †**: precisão regular (coeficiente de variação entre 15% e 30%
+  na maior parte da série). Serve como indicação, não como base para decisão.
+- **–**: a amostra não sustenta a estimativa naquele território.
+
+Os **asteriscos** dizem se as diferenças são estatisticamente significativas,
+isto é, se não se explicam por acaso amostral: \*\*\* p < 0,001; \*\* p < 0,01;
+\* p < 0,05; ns = não significativo. Nas matrizes territoriais, a coluna
+"Teste estratos" diz se os cinco estratos diferem entre si, e "Teste zona", se
+urbano e rural diferem. Os testes não apontam *qual* território difere — para
+isso, compare os valores. Detalhes na nota metodológica (Anexo A).
+
+## 3 Ocupação e desocupação
+
+**Tabela 2** — Ocupação e desocupação, por território — 2º trimestre de 2026
+
+| Indicador | Piauí | Teresina | Entorno metropolitano | Centro-Leste | Baixo Parnaíba | Alto Parnaíba e Chapadas | Teste estratos | Urbana | Rural | Teste zona |
+|---|---:|---:|---:|---:|---:|---:|:---:|---:|---:|:---:|
+| Taxa de participação na força de trabalho (%) | 52,9 | 62,3 | 52,9 | 47,8 | 48,3 | 51,8 | \*\*\* | 58,3 | 40,6 | \*\*\* |
+| Nível da ocupação (%) | 48,5 | 57,9 | 44,3 | 43,9 | 45,1 | 46,6 | \*\*\* | 53,9 | 36,2 | \*\*\* |
+| Taxa de desocupação (%) | 8,3 | 7,1 | 16,4 † | 8,2 † | 6,7 † | 10,0 † | \*\* | 7,5 | 10,9 | \* |
+| Taxa composta de subutilização (%) | 26,6 | 9,4 | 25,4 | 40,0 | 30,3 | 33,3 | \*\*\* | 20,6 | 43,3 | \*\*\* |
+| Responsáveis pelo domicílio entre os desocupados (%) | 37,9 | 27,7 † | 38,4 † | 47,0 † | 28,5 † | 51,1 † | \* | 36,6 | 40,9 | ns |
+| Responsáveis ou cônjuges entre os desocupados (%) | 55,6 | 41,4 † | 54,4 † | 66,4 | 54,9 | 65,8 † | ns | 53,5 | 60,6 | ns |
+| Pessoas em idade de trabalhar (mil pessoas) | 2.743 | 747 | 178 | 648 | 713 | 458 | — | 1.907 | 836 | — |
+| Pessoas na força de trabalho (mil pessoas) | 1.451 | 465 | 94 | 310 | 344 | 237 | — | 1.111 | 340 | — |
+| Pessoas fora da força de trabalho (mil pessoas) | 1.293 | 281 | 84 | 338 | 368 | 221 | — | 796 | 496 | — |
+| Pessoas ocupadas (mil pessoas) | 1.330 | 432 | 79 | 284 | 322 | 214 | — | 1.028 | 303 | — |
+| Pessoas desocupadas (mil pessoas) | 121 | 33 | 15 † | 25 † | 23 † | 24 † | — | 84 | 37 | — |
+| Pessoas subutilizadas (mil pessoas) | 429 | 44 | 25 | 149 | 120 | 90 | — | 243 | 186 | — |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Figura 1** — Taxa de desocupação por recorte geográfico, com intervalo de
-confiança de 95% — 2º trimestre de 2026
+> **A REDIGIR** — leitura da Tabela 2 — um parágrafo curto, apoiado nos pontos de atenção (seção 8).
 
-![](./output/figuras/comp_geo_Taxa_Desocupacao.png)
+## 4 Qualidade da ocupação
 
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+**Tabela 3** — Qualidade da ocupação, por território — 2º trimestre de 2026
 
-
-A diferença
-entre Teresina e o restante do estado não alcançou significância estatística
-neste trimestre (p ajustado = 0,064), o
-que recomenda cautela antes de tratá-la como um padrão consolidado.
-
-A comparação entre zona urbana e rural merece atenção específica, porque a
-desocupação rural costuma ser estruturalmente mais baixa: parte da população ocupada na agricultura familiar não procura, e muitas vezes se ocupam mais com produção por subsistência (verificar esse mecanismo)
-trabalho no sentido que a pesquisa capta, e por isso não é contada como
-desocupada. Neste trimestre a diferença foi de 3,4
-pontos (\*).
-
-> **A REDIGIR** — bloco demográfico da desocupação — incluir só se o recorte for significativo E o CV ficar abaixo de 15% em TODAS as subdivisões de cada corte geográfico (ver anexo §5.3). Consultar output/tabelas/comparacao_demografica_<sufixo>.csv.
-
-#### 3.2.2 Desocupação da pessoa responsável pelo domicílio
-
-Este indicador mede quanto dos desocupados são pessoas responsáveis pelo
-domicílio. Uma taxa de desocupação alta concentrada em jovens que moram com os
-pais tem um significado social muito diferente da mesma taxa concentrada em
-quem sustenta a casa.
-
-Em estrato 2251012,
-58,6% dos desocupados eram
-responsáveis pelo domicílio, contra 26,1%
-em estrato 2210030.
-
-**Tabela 4** — Pessoas responsáveis pelo domicílio entre os desocupados, por
-recorte geográfico — 2º trimestre de 2026
-
-| Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
-|---|---|---:|:---:|---:|---|
-| Agregados | Brasil | 36,4 | (35,2, 37,5) | 1,7 | excelente |
-| Agregados | Nordeste | 37,9 | (36,1, 39,7) | 2,4 | excelente |
-| Agregados | Piauí | 37,9 | (31,8, 44,0) | 8,2 | boa |
-| Agregados | Teresina | 27,7 | (20,4, 35,1) | 13,5 | boa |
-| Zona | Urbana | 36,6 | (29,1, 44,0) | 10,4 | boa |
-| Zona | Rural | 40,9 | (31,8, 50,0) | 11,4 | boa |
-| Administrativo | Capital | 27,7 | (20,4, 35,1) | 13,5 | boa |
-| Administrativo | Resto da RIDE | 38,4 | (23,3, 53,5) | 20,0 | regular |
-| Administrativo | Resto da UF | 42,5 | (34,0, 50,9) | 10,2 | boa |
-| Estrato agregado | Teresina | 27,7 | (20,4, 35,1) | 13,5 | boa |
-| Estrato agregado | Entorno metropolitano | 38,4 | (23,3, 53,5) | 20,0 | regular |
-| Estrato agregado | Centro-Leste | 47,0 | (34,2, 59,9) | 13,9 | boa |
-| Estrato agregado | Baixo Parnaíba | 28,5 | (13,9, 43,1) | 26,1 | regular |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | 51,1 | (35,3, 66,9) | 15,8 | regular |
-| Estrato (7 dígitos) | maior: 2251012 | 58,6 | (29,3, 88,0) | 25,6 | regular |
-| Estrato (7 dígitos) | menor: 2210030 | 26,1 | (10,9, 41,2) | 29,7 | regular |
+| Indicador | Piauí | Teresina | Entorno metropolitano | Centro-Leste | Baixo Parnaíba | Alto Parnaíba e Chapadas | Teste estratos | Urbana | Rural | Teste zona |
+|---|---:|---:|---:|---:|---:|---:|:---:|---:|---:|:---:|
+| Taxa de informalidade (%) | 49,5 | 35,7 | 55,9 | 56,9 | 60,8 | 48,0 | \*\*\* | 44,0 | 68,1 | \*\*\* |
+| Subocupação por insuficiência de horas (%) | 11,2 | – | 6,4 † | 21,3 | 13,8 | 15,3 † | \*\*\* | 8,7 | 19,4 | \*\*\* |
+| Sub-remuneração (rendimento-hora abaixo do mínimo) (%) | 38,2 | 25,7 | 41,0 | 42,9 | 53,0 | 34,4 | \*\*\* | 32,9 | 56,5 | \*\*\* |
+| Ocupados com ensino médio completo ou mais (%) | 67,0 | 84,1 | 72,0 | 58,7 | 54,2 | 60,9 | \*\*\* | 74,6 | 41,2 | \*\*\* |
+| Empregados no setor privado (mil pessoas) | 541 | 203 | 33 | 108 | 126 | 71 † | — | 423 | 117 | — |
+| Empregados no setor público (mil pessoas) | 273 | 73 | 13 † | 69 | 62 † | 57 † | — | 221 | 52 | — |
+| Ocupados na agropecuária (mil pessoas) | 143 | – | 8 † | 46 | 46 | 41 † | — | 44 † | 100 | — |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Tabela 5** — Pessoas responsáveis pelo domicílio entre os desocupados, 
-diferença entre as categorias de cada recorte — 2º trimestre de 2026
+> **A REDIGIR** — leitura da Tabela 3 — um parágrafo curto.
 
-| Recorte | p-valor | p ajustado | Significativo a 5%? |
-|---|---:|---:|:---:|
-| Zona (urbana × rural) | 0,460 | 0,480 | não |
-| Estrato administrativo | 0,044 | 0,051 | não |
-| Estrato agregado | 0,037 | 0,045 | sim |
-| Estrato (7 dígitos) | — | — | — |
-| Teresina × resto do Piauí | 0,011 | 0,014 | sim |
+## 5 Rendimento e desigualdade
+
+**Tabela 4** — Rendimento e desigualdade, por território — 2º trimestre de 2026
+
+| Indicador | Piauí | Teresina | Entorno metropolitano | Centro-Leste | Baixo Parnaíba | Alto Parnaíba e Chapadas | Teste estratos | Urbana | Rural | Teste zona |
+|---|---:|---:|---:|---:|---:|---:|:---:|---:|---:|:---:|
+| Rendimento médio real habitual (R\$) | R\$ 2.547 | R\$ 3.690 † | R\$ 1.900 | R\$ 1.991 | R\$ 1.678 † | R\$ 2.463 | \*\*\* | R\$ 2.902 | R\$ 1.310 | \*\*\* |
+| Rendimento médio dos formais (R\$) | R\$ 3.675 | R\$ 4.548 † | R\$ 2.675 | R\$ 3.050 | R\$ 2.781 † | R\$ 3.509 | \*\*\* | R\$ 3.917 | R\$ 2.226 | \*\*\* |
+| Rendimento médio dos informais (R\$) | R\$ 1.353 | R\$ 2.142 † | R\$ 1.276 | R\$ 1.142 | R\$ 932 | R\$ 1.277 | \*\*\* | R\$ 1.573 | R\$ 855 | \*\*\* |
+| Razão entre rendimento formal e informal | 2,72 | 2,12 | 2,10 | 2,67 | 2,98 † | 2,75 | — | 2,49 | 2,60 | — |
+| Índice de Gini do rendimento do trabalho | 0,507 | 0,495 | 0,395 | 0,514 | 0,470 | 0,477 | — | 0,495 | 0,461 | — |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+Nota: rendimento médio real habitual de todos os trabalhos, deflacionado pelo
+IBGE. O índice de Gini vai de 0 (igualdade total) a 1 (desigualdade máxima).
+
+> **A REDIGIR** — leitura da Tabela 4 — um parágrafo curto.
+
+## 6 Vulnerabilidade
+
+**Tabela 5** — Desalento e jovens que não estudam nem trabalham, por território — 2º trimestre de 2026
+
+| Indicador | Piauí | Teresina | Entorno metropolitano | Centro-Leste | Baixo Parnaíba | Alto Parnaíba e Chapadas | Teste estratos | Urbana | Rural | Teste zona |
+|---|---:|---:|---:|---:|---:|---:|:---:|---:|---:|:---:|
+| Desalentados na força de trabalho ampliada (%) | 7,0 | 0,7 † | 3,3 † | 13,5 | 7,8 † | 9,8 † | \*\*\* | 3,7 | 16,6 | \*\*\* |
+| Desalentados na força de trabalho potencial (%) | 68,4 | 58,4 † | 69,5 † | 76,0 | 55,1 | 76,4 | \*\*\* | 60,8 | 74,2 | \*\*\* |
+| Jovens de 14 a 29 anos que não estudam nem trabalham (%) | 24,3 | 17,7 | 31,5 | 25,6 | 24,5 | 30,2 | \*\* | 20,6 | 33,4 | \*\*\* |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Figura 2** — Pessoas responsáveis pelo domicílio entre os desocupados —
-2º trimestre de 2026
+Os motivos declarados só têm amostra suficiente no nível do estado, e por isso
+aparecem agrupados e sem recorte territorial.
 
-![](./output/figuras/comp_geo_Chefes_Familia_Desocupados.png)
+**Tabela 6** — Motivos declarados por desalentados e jovens nem-nem (distribuição, %) — 2º trimestre de 2026
 
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-
-> **A REDIGIR** — uma ou duas frases interpretando o contraste acima — o que significa, para o orçamento das famílias daquele estrato, essa concentração.
-
-#### 3.2.3 Desocupação de quem contribui para a renda do domicílio
-
-Amplia o indicador anterior para incluir o cônjuge ou companheiro(a), captando
-não apenas quem é formalmente o responsável pelo domicílio mas o conjunto de
-adultos de quem a renda da casa depende diretamente.
-
-No Piauí, 55,6% dos desocupados eram
-responsáveis pelo domicílio ou cônjuges, contra
-37,9% apenas de responsáveis — a diferença
-corresponde aos cônjuges desocupados.
-
-**Tabela 6** — Responsáveis ou cônjuges entre os desocupados, por recorte
-geográfico — 2º trimestre de 2026
-
-| Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
-|---|---|---:|:---:|---:|---|
-| Agregados | Brasil | 52,8 | (51,4, 54,1) | 1,3 | excelente |
-| Agregados | Nordeste | 54,6 | (52,7, 56,4) | 1,7 | excelente |
-| Agregados | Piauí | 55,6 | (49,2, 62,1) | 5,9 | boa |
-| Agregados | Teresina | 41,4 | (33,3, 49,5) | 10,0 | boa |
-| Zona | Urbana | 53,5 | (46,3, 60,6) | 6,8 | boa |
-| Zona | Rural | 60,6 | (49,4, 71,7) | 9,4 | boa |
-| Administrativo | Capital | 41,4 | (33,3, 49,5) | 10,0 | boa |
-| Administrativo | Resto da RIDE | 54,4 | (42,8, 65,9) | 10,8 | boa |
-| Administrativo | Resto da UF | 62,5 | (53,5, 71,5) | 7,3 | boa |
-| Estrato agregado | Teresina | 41,4 | (33,3, 49,5) | 10,0 | boa |
-| Estrato agregado | Entorno metropolitano | 54,4 | (42,8, 65,9) | 10,8 | boa |
-| Estrato agregado | Centro-Leste | 66,4 | (55,2, 77,5) | 8,6 | boa |
-| Estrato agregado | Baixo Parnaíba | 54,9 | (33,0, 76,8) | 20,3 | regular |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | 65,8 | (53,7, 77,8) | 9,4 | boa |
-| Estrato (7 dígitos) | maior: 2253011 | 72,7 | (42,6, 102,8) | 21,1 | regular |
-| Estrato (7 dígitos) | menor: 2210011 | 44,5 | (33,4, 55,5) | 12,7 | boa |
+*(sem dados desta tabela na base do trimestre)*
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Tabela 7** — Responsáveis ou cônjuges entre os desocupados, diferença entre as categorias de cada recorte — 2º trimestre de 2026
+> **A REDIGIR** — leitura das Tabelas 5 e 6 — um parágrafo curto.
 
-| Recorte | p-valor | p ajustado | Significativo a 5%? |
-|---|---:|---:|:---:|
-| Zona (urbana × rural) | 0,268 | 0,283 | não |
-| Estrato administrativo | 0,002 | 0,003 | sim |
-| Estrato agregado | 0,056 | 0,064 | não |
-| Estrato (7 dígitos) | — | — | — |
-| Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
+## 7 Perfil da população em idade de trabalhar
+
+**Tabela 7** — Composição da população de 14 anos ou mais (%) — 2º trimestre de 2026
+
+| Categoria | Brasil (%) | Nordeste (%) | Piauí (%) |
+|---|---:|---:|---:|
+| Sexo: Masculino | 48,2 | 47,5 | 47,8 |
+| Sexo: Feminino | 51,8 | 52,5 | 52,2 |
+| Cor ou raça: Branca | 42,4 | 24,6 | 19,4 |
+| Cor ou raça: Preta | 11,0 | 14,1 | 13,7 |
+| Cor ou raça: Amarela | 0,6 | 0,3 | – |
+| Cor ou raça: Parda | 45,6 | 60,5 | 66,7 |
+| Cor ou raça: Indígena | 0,4 | 0,4 | – |
+| Faixa etária: 14 a 17 anos | 6,7 | 7,4 | 7,1 |
+| Faixa etária: 18 a 24 anos | 12,0 | 12,6 | 13,0 |
+| Faixa etária: 25 a 39 anos | 27,7 | 27,4 | 26,6 |
+| Faixa etária: 40 a 59 anos | 32,9 | 32,8 | 33,4 |
+| Faixa etária: 60 anos ou mais | 20,7 | 19,8 | 20,0 |
+| Nível de instrução: Sem instrução e menos de 1 ano de estudo | 4,0 | 7,3 | 8,1 |
+| Nível de instrução: Fundamental incompleto ou equivalente | 23,5 | 28,1 | 30,9 |
+| Nível de instrução: Fundamental completo ou equivalente | 8,0 | 7,3 | 7,6 |
+| Nível de instrução: Médio incompleto ou equivalente | 8,1 | 8,5 | 8,4 |
+| Nível de instrução: Médio completo ou equivalente | 32,2 | 31,2 | 26,3 |
+| Nível de instrução: Superior incompleto ou equivalente | 5,9 | 4,9 | 5,0 |
+| Nível de instrução: Superior completo | 18,4 | 12,6 | 13,6 |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+Nota: a composição por território está no Anexo D.
+
+## 8 Pontos de atenção
+
+Esta seção reúne apenas os resultados estatisticamente significativos e com
+precisão suficiente.
+
+**Variações no tempo (Piauí)**
+
+- Nenhum dos indicadores de destaque teve variação estatisticamente significativa no Piauí em relação aos trimestres de comparação.
+
+**Diferenças entre territórios**
+
+- **Taxa de participação na força de trabalho (%)**: entre os estratos, maior em Teresina (62,3) e menor em Centro-Leste (47,8) \*\*\*; urbana 58,3 × rural 40,6 \*\*\*.
+- **Nível da ocupação (%)**: entre os estratos, maior em Teresina (57,9) e menor em Centro-Leste (43,9) \*\*\*; urbana 53,9 × rural 36,2 \*\*\*.
+- **Taxa de desocupação (%)**: entre os estratos, maior em Entorno metropolitano (16,4 †) e menor em Baixo Parnaíba (6,7 †) \*\*; urbana 7,5 × rural 10,9 \*.
+- **Taxa composta de subutilização (%)**: entre os estratos, maior em Centro-Leste (40,0) e menor em Teresina (9,4) \*\*\*; urbana 20,6 × rural 43,3 \*\*\*.
+- **Responsáveis pelo domicílio entre os desocupados (%)**: entre os estratos, maior em Alto Parnaíba e Chapadas (51,1 †) e menor em Teresina (27,7 †) \*.
+- **Taxa de informalidade (%)**: entre os estratos, maior em Baixo Parnaíba (60,8) e menor em Teresina (35,7) \*\*\*; urbana 44,0 × rural 68,1 \*\*\*.
+- **Subocupação por insuficiência de horas (%)**: entre os estratos, maior em Centro-Leste (21,3) e menor em Entorno metropolitano (6,4 †) \*\*\*; urbana 8,7 × rural 19,4 \*\*\*.
+- **Sub-remuneração (rendimento-hora abaixo do mínimo) (%)**: entre os estratos, maior em Baixo Parnaíba (53,0) e menor em Teresina (25,7) \*\*\*; urbana 32,9 × rural 56,5 \*\*\*.
+- **Ocupados com ensino médio completo ou mais (%)**: entre os estratos, maior em Teresina (84,1) e menor em Baixo Parnaíba (54,2) \*\*\*; urbana 74,6 × rural 41,2 \*\*\*.
+- **Rendimento médio real habitual (R\$)**: entre os estratos, maior em Teresina (R\$ 3.690 †) e menor em Baixo Parnaíba (R\$ 1.678 †) \*\*\*; urbana R\$ 2.902 × rural R\$ 1.310 \*\*\*.
+- **Rendimento médio dos formais (R\$)**: entre os estratos, maior em Teresina (R\$ 4.548 †) e menor em Entorno metropolitano (R\$ 2.675) \*\*\*; urbana R\$ 3.917 × rural R\$ 2.226 \*\*\*.
+- **Rendimento médio dos informais (R\$)**: entre os estratos, maior em Teresina (R\$ 2.142 †) e menor em Baixo Parnaíba (R\$ 932) \*\*\*; urbana R\$ 1.573 × rural R\$ 855 \*\*\*.
+- **Desalentados na força de trabalho ampliada (%)**: entre os estratos, maior em Centro-Leste (13,5) e menor em Teresina (0,7 †) \*\*\*; urbana 3,7 × rural 16,6 \*\*\*.
+- **Desalentados na força de trabalho potencial (%)**: entre os estratos, maior em Alto Parnaíba e Chapadas (76,4) e menor em Baixo Parnaíba (55,1) \*\*\*; urbana 60,8 × rural 74,2 \*\*\*.
+- **Jovens de 14 a 29 anos que não estudam nem trabalham (%)**: entre os estratos, maior em Entorno metropolitano (31,5) e menor em Teresina (17,7) \*\*; urbana 20,6 × rural 33,4 \*\*\*.
+
+**Diferenças por sexo, cor ou raça, idade e instrução**
+
+Um recorte demográfico só aparece aqui se, naquele território, a diferença
+entre os grupos for significativa e todos os grupos tiverem precisão boa na série.
+
+| Indicador | Recorte | Territórios onde a diferença é significativa e confiável |
+|---|---|---|
+| Taxa de participação na força de trabalho | Faixa etária | Zona urbana, Teresina |
+| Taxa de participação na força de trabalho | Instrução (2 grupos) | Zona urbana, Zona rural, Teresina, Entorno metropolitano, Centro-Leste, Baixo Parnaíba, Alto Parnaíba e Chapadas |
+| Taxa de participação na força de trabalho | Instrução (7 níveis) | Centro-Leste |
+| Taxa de participação na força de trabalho | Sexo | Zona urbana, Zona rural, Teresina, Entorno metropolitano, Centro-Leste, Baixo Parnaíba, Alto Parnaíba e Chapadas |
+| Nível da ocupação | Faixa etária | Zona urbana, Teresina |
+| Nível da ocupação | Instrução (2 grupos) | Zona urbana, Zona rural, Teresina, Entorno metropolitano, Centro-Leste, Baixo Parnaíba, Alto Parnaíba e Chapadas |
+| Nível da ocupação | Sexo | Zona urbana, Zona rural, Teresina, Entorno metropolitano, Centro-Leste, Baixo Parnaíba, Alto Parnaíba e Chapadas |
+| Taxa composta de subutilização | Instrução (2 grupos) | Zona urbana, Centro-Leste, Alto Parnaíba e Chapadas |
+| Taxa composta de subutilização | Sexo | Zona urbana, Zona rural, Teresina |
+| Responsáveis ou cônjuges entre os desocupados | Instrução (2 grupos) | Zona urbana |
+| Responsáveis ou cônjuges entre os desocupados | Sexo | Zona urbana |
+| Taxa de informalidade | Faixa etária | Zona urbana, Baixo Parnaíba |
+| Taxa de informalidade | Instrução (2 grupos) | Zona urbana, Zona rural, Teresina, Entorno metropolitano, Centro-Leste, Baixo Parnaíba, Alto Parnaíba e Chapadas |
+| Taxa de informalidade | Instrução (7 níveis) | Zona urbana |
+| Taxa de informalidade | Sexo | Zona urbana, Zona rural, Baixo Parnaíba, Alto Parnaíba e Chapadas |
+| Subocupação por insuficiência de horas | Instrução (2 grupos) | Zona urbana |
+| Sub-remuneração (rendimento-hora abaixo do mínimo) | Instrução (2 grupos) | Zona urbana, Zona rural, Teresina, Centro-Leste, Baixo Parnaíba |
+| Sub-remuneração (rendimento-hora abaixo do mínimo) | Sexo | Teresina |
+| Ocupados com ensino médio completo ou mais | Faixa etária | Zona urbana, Teresina |
+| Ocupados com ensino médio completo ou mais | Sexo | Zona urbana, Zona rural, Teresina, Entorno metropolitano, Centro-Leste, Baixo Parnaíba, Alto Parnaíba e Chapadas |
+| Rendimento médio real habitual | Instrução (2 grupos) | Zona urbana, Zona rural, Entorno metropolitano, Centro-Leste, Alto Parnaíba e Chapadas |
+| Rendimento médio real habitual | Sexo | Zona urbana |
+| Desalentados na força de trabalho ampliada | Instrução (2 grupos) | Centro-Leste |
+| Desalentados na força de trabalho ampliada | Sexo | Zona rural, Centro-Leste |
+| Desalentados na força de trabalho potencial | Instrução (2 grupos) | Zona rural, Baixo Parnaíba |
+| Desalentados na força de trabalho potencial | Sexo | Zona rural, Baixo Parnaíba |
+| Jovens de 14 a 29 anos que não estudam nem trabalham | Sexo | Zona urbana, Zona rural |
+
+## 9 Considerações finais
+
+> **A REDIGIR** — síntese em dois ou três parágrafos — Piauí frente a Brasil e Nordeste; Teresina e interior; urbano e rural; o que mudou no tempo.
+
+## Anexo A — Nota metodológica
+
+**Fonte e desenho amostral.** Microdados da PNAD Contínua trimestral (IBGE),
+com o desenho amostral completo: pesos calibrados e 200 réplicas de bootstrap
+fornecidas pelo IBGE. Todas as estimativas, erros-padrão, intervalos de
+confiança de 95% e coeficientes de variação (CV = erro-padrão / estimativa)
+são calculados sobre esse desenho. Rendimentos em valores reais, deflacionados
+pelo deflator do IBGE que acompanha os microdados. As definições dos
+indicadores seguem as notas metodológicas da PNAD Contínua e estão validadas
+contra as tabelas oficiais do SIDRA para o Piauí.
+
+**Territórios.** Brasil, Nordeste e Piauí; dentro do Piauí, os cinco estratos
+agregados da amostra (Teresina, entorno metropolitano, Centro-Leste, Baixo
+Parnaíba e Alto Parnaíba e Chapadas do Sul) e a situação do domicílio (urbana
+ou rural). O estrato administrativo aparece só nos anexos, porque repete
+informação dos estratos agregados.
+
+**Confiabilidade (marcas † e –).** A marca de cada número não vem do CV do
+trimestre isolado, que é ele próprio sujeito a ruído, mas do comportamento do
+mesmo indicador, no mesmo território, de 2022T1 até o trimestre atual. Sem
+marca: CV abaixo de 15% em pelo menos 80% dos trimestres. †: nesse mesmo
+patamar da série, CV entre 15% e 30%. –: acima de 30% ou instável (CV acima de
+30% em algum dos quatro últimos trimestres). Os cortes de 15% e 30% seguem as
+faixas de precisão usadas pelo IBGE. Brasil e Nordeste não fazem parte dessa
+série e usam o CV do próprio trimestre.
+
+**Diferenças entre territórios e grupos.** Testes de razão de verossimilhança
+sobre o desenho amostral (`svyglm` com `regTermTest`, método LRT, e
+`svychisq` para respostas categóricas). Os p-valores são ajustados para
+comparações múltiplas pelo método de Benjamini-Hochberg.
+
+**Variações no tempo.** A diferença entre dois trimestres é testada tratando
+as amostras como independentes. Como o painel rotativo da PNAD Contínua faz
+trimestres próximos compartilharem domicílios, a variância verdadeira da
+diferença é menor que a usada no teste: o resultado é conservador, ou seja,
+pode deixar de apontar uma variação real, mas não aponta variações que não
+existem. Os p-valores são ajustados por Benjamini-Hochberg dentro da Tabela 1.
+
+## Anexo B — Resolução territorial de cada indicador
+
+Percentual de categorias do indicador que passam no critério de confiabilidade
+(sem marca), por nível territorial, de 2022T1 a 2026T2.
+
+**Tabela B.1** — Aprovação na triagem de confiabilidade, por indicador e nível territorial
+
+| Indicador | Piauí e Teresina | Zona | Estrato administrativo | Estrato agregado |
+|---|---:|---:|---:|---:|
+| Taxa de participação na força de trabalho | 100% | 100% | 100% | 100% |
+| Nível da ocupação | 100% | 100% | 100% | 100% |
+| Taxa de desocupação | 100% | 100% | 67% | 20% |
+| Taxa composta de subutilização | 100% | 100% | 100% | 100% |
+| Responsáveis pelo domicílio entre os desocupados | 50% | 100% | 33% | 0% |
+| Responsáveis ou cônjuges entre os desocupados | 50% | 100% | 33% | 40% |
+| Pessoas em idade de trabalhar | 100% | 100% | 100% | 100% |
+| Pessoas na força de trabalho | 100% | 100% | 100% | 100% |
+| Pessoas fora da força de trabalho | 100% | 100% | 100% | 100% |
+| Pessoas ocupadas | 100% | 100% | 100% | 100% |
+| Pessoas desocupadas | 100% | 100% | 67% | 20% |
+| Pessoas subutilizadas | 100% | 100% | 100% | 100% |
+| Taxa de informalidade | 100% | 100% | 100% | 100% |
+| Subocupação por insuficiência de horas | 50% | 100% | 33% | 40% |
+| Sub-remuneração (rendimento-hora abaixo do mínimo) | 100% | 100% | 100% | 100% |
+| Ocupados com ensino médio completo ou mais | 100% | 100% | 100% | 100% |
+| Empregados no setor privado | 100% | 100% | 100% | 80% |
+| Empregados no setor público | 100% | 100% | 67% | 40% |
+| Ocupados na agropecuária | 50% | 50% | 33% | 40% |
+| Rendimento médio real habitual | 50% | 100% | 67% | 60% |
+| Rendimento médio dos formais | 50% | 100% | 67% | 60% |
+| Rendimento médio dos informais | 50% | 100% | 67% | 80% |
+| Razão entre rendimento formal e informal | 100% | 100% | 100% | 80% |
+| Índice de Gini do rendimento do trabalho | 100% | 100% | 100% | 100% |
+| Desalentados na força de trabalho ampliada | 50% | 100% | 33% | 20% |
+| Desalentados na força de trabalho potencial | 50% | 100% | 33% | 60% |
+| Jovens de 14 a 29 anos que não estudam nem trabalham | 100% | 100% | 100% | 100% |
+| Sexo | 100% | 100% | 100% | 100% |
+| Cor ou raça | 60% | 60% | 53% | 48% |
+| Faixa etária | 100% | 100% | 100% | 100% |
+| Nível de instrução | 100% | 93% | 90% | 80% |
+| Por que o desalentado desistiu de procurar | 100% | — | — | — |
+| Por que o jovem nem-nem não procurou trabalho | 100% | — | — | — |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Figura 3** — Responsáveis ou cônjuges entre os desocupados — 2º trimestre de 2026
+## Anexo C — Testes de diferença entre territórios
 
-![](./output/figuras/comp_geo_Conribuintes_Desocupados.png)
+**Tabela C.1** — p-valor bruto / p-valor ajustado, por indicador e recorte — 2º trimestre de 2026
 
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-> **A REDIGIR** — o que essa diferença diz sobre o arranjo de sustento das famílias do estado.
-
-### 3.3 Rendimento
-
-#### 3.3.1 Rendimento médio real habitual
-
-No Piauí, 55,6% dos desocupados eram
-responsáveis pelo domicílio ou cônjuges, contra
-37,9% apenas de responsáveis — a diferença
-corresponde aos cônjuges desocupados.
-
-
-**Tabela 8** — Rendimento médio real habitualmente recebido em todos os
-trabalhos, por recorte geográfico — 2º trimestre de 2026
-
-| Recorte | Categoria | Estimativa (R\$) | IC 95% | CV (%) | Precisão |
-|---|---|---:|:---:|---:|---|
-| Agregados | Brasil | R\$ 3.738 | (R\$ 3.679, R\$ 3.798) | 0,8 | excelente |
-| Agregados | Nordeste | R\$ 2.645 | (R\$ 2.564, R\$ 2.725) | 1,6 | excelente |
-| Agregados | Piauí | R\$ 2.547 | (R\$ 2.356, R\$ 2.738) | 3,8 | excelente |
-| Agregados | Teresina | R\$ 3.690 | (R\$ 3.207, R\$ 4.173) | 6,7 | boa |
-| Zona | Urbana | R\$ 2.902 | (R\$ 2.658, R\$ 3.146) | 4,3 | excelente |
-| Zona | Rural | R\$ 1.310 | (R\$ 1.194, R\$ 1.425) | 4,5 | excelente |
-| Administrativo | Capital | R\$ 3.690 | (R\$ 3.207, R\$ 4.173) | 6,7 | boa |
-| Administrativo | Resto da RIDE | R\$ 1.900 | (R\$ 1.645, R\$ 2.156) | 6,9 | boa |
-| Administrativo | Resto da UF | R\$ 1.992 | (R\$ 1.817, R\$ 2.167) | 4,5 | excelente |
-| Estrato agregado | Teresina | R\$ 3.690 | (R\$ 3.207, R\$ 4.173) | 6,7 | boa |
-| Estrato agregado | Entorno metropolitano | R\$ 1.900 | (R\$ 1.645, R\$ 2.156) | 6,9 | boa |
-| Estrato agregado | Centro-Leste | R\$ 1.991 | (R\$ 1.569, R\$ 2.412) | 10,8 | boa |
-| Estrato agregado | Baixo Parnaíba | R\$ 1.678 | (R\$ 1.505, R\$ 1.850) | 5,3 | boa |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | R\$ 2.463 | (R\$ 2.152, R\$ 2.774) | 6,4 | boa |
-| Estrato (7 dígitos) | maior: 2210013 | R\$ 6.034 | (R\$ 4.434, R\$ 7.635) | 13,5 | boa |
-| Estrato (7 dígitos) | menor: 2252020 | R\$ 1.113 | (R\$ 986, R\$ 1.239) | 5,8 | boa |
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria. Nota: valores deflacionados para reais do último trimestre da série.
-
-**Tabela 9** — Rendimento médio real habitualmente recebido em todos os
-trabalhos, diferença entre as categorias de cada recorte — 2º trimestre de 2026
-
-| Recorte | p-valor | p ajustado | Significativo a 5%? |
-|---|---:|---:|:---:|
-| Zona (urbana × rural) | < 0,001 | < 0,001 | sim |
-| Estrato administrativo | < 0,001 | < 0,001 | sim |
-| Estrato agregado | < 0,001 | < 0,001 | sim |
-| Estrato (7 dígitos) | < 0,001 | < 0,001 | sim |
-| Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
+| Indicador | Zona (urbana × rural) | Estrato administrativo | Estrato agregado | Teresina × resto do Piauí |
+|---|:---:|:---:|:---:|:---:|
+| Taxa de participação na força de trabalho | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Nível da ocupação | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Taxa de desocupação | 0,010 / 0,012 \* | < 0,001 / < 0,001 \*\*\* | 0,007 / 0,009 \*\* | 0,057 / 0,062 ns |
+| Taxa composta de subutilização | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Responsáveis pelo domicílio entre os desocupados | 0,460 / 0,471 ns | 0,044 / 0,049 \* | 0,037 / 0,043 \* | 0,011 / 0,013 \* |
+| Responsáveis ou cônjuges entre os desocupados | 0,268 / 0,277 ns | 0,002 / 0,002 \*\* | 0,056 / 0,062 ns | < 0,001 / < 0,001 \*\*\* |
+| Taxa de informalidade | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Subocupação por insuficiência de horas | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Sub-remuneração (rendimento-hora abaixo do mínimo) | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Ocupados com ensino médio completo ou mais | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Rendimento médio real habitual | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Rendimento médio dos formais | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Rendimento médio dos informais | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Desalentados na força de trabalho ampliada | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Desalentados na força de trabalho potencial | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Jovens de 14 a 29 anos que não estudam nem trabalham | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / 0,001 \*\* | < 0,001 / < 0,001 \*\*\* |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Figura 4** — Rendimento médio real habitual por recorte geográfico —
-2º trimestre de 2026
+## Anexo D — Tabelas completas
 
-![](./output/figuras/comp_geo_Rendimento_Medio_Habitual.png)
 
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+**Tabela D.1** — Taxa de participação na força de trabalho (%), por recorte geográfico — 2º trimestre de 2026
 
-Ressalta-se que a média de rendimento  é sensível a valores muito altos e, em territórios pequenos, um punhado de rendimentos elevados desloca o resultado inteiro. A distribuição completa dos rendimentos
-por estrato está no anexo metodológico, e é ela que revela se a média
-representa a maioria ou é puxada pela cauda.
-
-> **A REDIGIR** — bloco demográfico do rendimento médio — incluir só se significativo E com CV abaixo de 15% em todas as subdivisões de cada corte geográfico.
-
-#### 3.3.2 Sub-remuneração
-
-Mede o percentual de ocupados que, dividido o que recebem pelas horas que
-trabalham, ganham menos que o salário mínimo por hora — hoje R\$ 7,37.
-38,2% dos ocupados do Piauí recebiam abaixo
-do mínimo por hora. A incidência foi de
-67,4% em
-estrato 2252021 e
-17,7% em
-estrato 2210012.
-
-**Tabela 10** — Sub-remuneração por hora trabalhada, por recorte geográfico —
-2º trimestre de 2026
-
-| Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
-|---|---|---:|:---:|---:|---|
-| Agregados | Brasil | 18,7 | (18,5, 19,0) | 0,7 | excelente |
-| Agregados | Nordeste | 35,7 | (35,1, 36,3) | 0,9 | excelente |
-| Agregados | Piauí | 38,2 | (35,8, 40,5) | 3,1 | excelente |
-| Agregados | Teresina | 25,7 | (22,2, 29,3) | 7,0 | boa |
-| Zona | Urbana | 32,9 | (30,1, 35,7) | 4,3 | excelente |
-| Zona | Rural | 56,5 | (52,1, 61,0) | 4,0 | excelente |
-| Administrativo | Capital | 25,7 | (22,2, 29,3) | 7,0 | boa |
-| Administrativo | Resto da RIDE | 41,0 | (34,5, 47,6) | 8,1 | boa |
-| Administrativo | Resto da UF | 44,6 | (41,4, 47,8) | 3,7 | excelente |
-| Estrato agregado | Teresina | 25,7 | (22,2, 29,3) | 7,0 | boa |
-| Estrato agregado | Entorno metropolitano | 41,0 | (34,5, 47,6) | 8,1 | boa |
-| Estrato agregado | Centro-Leste | 42,9 | (37,8, 47,9) | 6,0 | boa |
-| Estrato agregado | Baixo Parnaíba | 53,0 | (47,8, 58,3) | 5,1 | boa |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | 34,4 | (28,8, 39,9) | 8,3 | boa |
-| Estrato (7 dígitos) | maior: 2252021 | 67,4 | (50,0, 84,8) | 13,2 | boa |
-| Estrato (7 dígitos) | menor: 2210012 | 17,7 | (11,6, 23,9) | 17,7 | regular |
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 62,1 | (61,9, 62,3) | 0,2 | excelente | — |  |
+| Agregados | Nordeste | 54,2 | (53,7, 54,6) | 0,4 | excelente | — |  |
+| Agregados | Piauí | 52,9 | (51,4, 54,4) | 1,5 | excelente | 1,6 |  |
+| Agregados | Teresina | 62,3 | (60,0, 64,7) | 1,9 | excelente | 1,9 |  |
+| Zona | Urbana | 58,3 | (56,5, 60,0) | 1,5 | excelente | 1,7 |  |
+| Zona | Rural | 40,6 | (37,8, 43,5) | 3,6 | excelente | 3,8 |  |
+| Administrativo | Capital | 62,3 | (60,0, 64,7) | 1,9 | excelente | 1,9 |  |
+| Administrativo | Resto da RIDE | 52,9 | (48,4, 57,5) | 4,4 | excelente | 4,8 |  |
+| Administrativo | Resto da UF | 49,0 | (47,0, 51,0) | 2,0 | excelente | 2,4 |  |
+| Estrato agregado | Teresina | 62,3 | (60,0, 64,7) | 1,9 | excelente | 1,9 |  |
+| Estrato agregado | Entorno metropolitano | 52,9 | (48,4, 57,5) | 4,4 | excelente | 4,8 |  |
+| Estrato agregado | Centro-Leste | 47,8 | (44,2, 51,4) | 3,9 | excelente | 3,8 |  |
+| Estrato agregado | Baixo Parnaíba | 48,3 | (45,2, 51,5) | 3,3 | excelente | 3,6 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 51,8 | (47,6, 56,0) | 4,1 | excelente | 5,5 |  |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Tabela 11** — Sub-remuneração por hora trabalhada, diferença entre as categorias de cada recorte —
-2º trimestre de 2026
+**Tabela D.2** — Nível da ocupação (%), por recorte geográfico — 2º trimestre de 2026
 
-| Recorte | p-valor | p ajustado | Significativo a 5%? |
-|---|---:|---:|:---:|
-| Zona (urbana × rural) | < 0,001 | < 0,001 | sim |
-| Estrato administrativo | < 0,001 | < 0,001 | sim |
-| Estrato agregado | < 0,001 | < 0,001 | sim |
-| Estrato (7 dígitos) | 0,089 | 0,098 | não |
-| Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-**Figura 5** — Percentual de ocupados com rendimento-hora abaixo do salário
-mínimo horário — 2º trimestre de 2026
-
-![](./output/figuras/comp_geo_Percentual_Subremuneracao.png)
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-> **A REDIGIR** — o que a distância entre esses dois extremos sugere sobre a estrutura produtiva dos territórios envolvidos.
-
-#### 3.3.3 Desigualdade entre formais e informais
-
-O indicador é a razão entre o rendimento médio dos ocupados formais e o dos
-informais. Um valor de 2,0 significa que o trabalhador formal ganha, em média,
-o dobro do informal. A razão formal/informal no Piauí foi de 2,72 — ou seja,
-o trabalhador com carteira ganhou, em média, 172% a mais que o
-informal: R\$ 3.675 contra R\$ 1.353.
-Entre os estratos, a razão foi mais alta em estrato 2253020
-(3,63) e mais baixa em estrato 2253022
-(1,35).
-
-**Tabela 12** — Rendimento médio por situação de formalidade e razão
-formal/informal, por recorte geográfico — 2º trimestre de 2026
-
-| Recorte | Categoria | Formais (R\$) | Informais (R\$) | Razão | IC 95% da razão | CV (%) | Precisão |
-|---|---|---:|---:|---:|:---:|---:|---|
-| Agregados | Brasil | R\$ 4.513 | R\$ 2.399 | 1,88 | (1,85, 1,92) | 0,9 | excelente |
-| Agregados | Nordeste | R\$ 3.650 | R\$ 1.549 | 2,36 | (2,28, 2,44) | 1,8 | excelente |
-| Agregados | Piauí | R\$ 3.675 | R\$ 1.353 | 2,72 | (2,52, 2,93) | 3,8 | excelente |
-| Agregados | Teresina | R\$ 4.548 | R\$ 2.142 | 2,12 | (1,88, 2,39) | 6,2 | boa |
-| Zona | Urbana | R\$ 3.917 | R\$ 1.573 | 2,49 | (2,30, 2,70) | 4,0 | excelente |
-| Zona | Rural | R\$ 2.226 | R\$ 855 | 2,60 | (2,30, 2,94) | 6,3 | boa |
-| Administrativo | Capital | R\$ 4.548 | R\$ 2.142 | 2,12 | (1,88, 2,39) | 6,2 | boa |
-| Administrativo | Resto da RIDE | R\$ 2.675 | R\$ 1.276 | 2,10 | (1,60, 2,74) | 13,6 | boa |
-| Administrativo | Resto da UF | R\$ 3.097 | R\$ 1.083 | 2,86 | (2,60, 3,14) | 4,8 | excelente |
-| Estrato agregado | Teresina | R\$ 4.548 | R\$ 2.142 | 2,12 | (1,88, 2,39) | 6,2 | boa |
-| Estrato agregado | Entorno metropolitano | R\$ 2.675 | R\$ 1.276 | 2,10 | (1,60, 2,74) | 13,6 | boa |
-| Estrato agregado | Centro-Leste | R\$ 3.050 | R\$ 1.142 | 2,67 | (2,19, 3,25) | 10,1 | boa |
-| Estrato agregado | Baixo Parnaíba | R\$ 2.781 | R\$ 932 | 2,98 | (2,65, 3,36) | 6,0 | boa |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | R\$ 3.509 | R\$ 1.277 | 2,75 | (2,35, 3,22) | 8,1 | boa |
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-Dados: `output/desigualdade_formal_informal_2026T2.csv`.
-
-Nota de leitura sobre o intervalo desta tabela: ao contrário dos demais, ele é
-**assimétrico** em torno da estimativa. Isso é intencional e correto — uma
-razão não pode ser negativa, e o intervalo é construído na escala logarítmica
-antes de voltar à escala da razão. O anexo metodológico (§4.4) detalha o
-procedimento.
-
-**Figura 6** — Rendimento médio dos ocupados formais — 2º trimestre de 2026
-
-![](./output/figuras/comp_geo_Rendimento_Formal.png)
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 58,8 | (58,6, 59,0) | 0,2 | excelente | — |  |
+| Agregados | Nordeste | 50,1 | (49,6, 50,5) | 0,5 | excelente | — |  |
+| Agregados | Piauí | 48,5 | (46,9, 50,1) | 1,7 | excelente | 1,8 |  |
+| Agregados | Teresina | 57,9 | (55,3, 60,4) | 2,3 | excelente | 2,2 |  |
+| Zona | Urbana | 53,9 | (52,0, 55,7) | 1,7 | excelente | 1,9 |  |
+| Zona | Rural | 36,2 | (33,2, 39,2) | 4,2 | excelente | 4,3 |  |
+| Administrativo | Capital | 57,9 | (55,3, 60,4) | 2,3 | excelente | 2,2 |  |
+| Administrativo | Resto da RIDE | 44,3 | (41,5, 47,1) | 3,3 | excelente | 5,4 |  |
+| Administrativo | Resto da UF | 45,0 | (43,0, 47,1) | 2,4 | excelente | 2,6 |  |
+| Estrato agregado | Teresina | 57,9 | (55,3, 60,4) | 2,3 | excelente | 2,2 |  |
+| Estrato agregado | Entorno metropolitano | 44,3 | (41,5, 47,1) | 3,3 | excelente | 5,4 |  |
+| Estrato agregado | Centro-Leste | 43,9 | (40,5, 47,3) | 4,0 | excelente | 4,2 |  |
+| Estrato agregado | Baixo Parnaíba | 45,1 | (41,5, 48,7) | 4,1 | excelente | 4,2 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 46,6 | (42,1, 51,1) | 4,9 | excelente | 6,1 |  |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Figura 7** — Rendimento médio dos ocupados informais — 2º trimestre de 2026
+**Tabela D.3** — Taxa de desocupação (%), por recorte geográfico — 2º trimestre de 2026
 
-![](./output/figuras/comp_geo_Rendimento_Informal.png)
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-Vale contrastar com a capital: em Teresina a razão foi de
-2,12, a mais baixa entre os recortes agregados — não
-porque o formal pague pouco ali, mas porque o informal teresinense ganha
-R\$ 2.142, bem acima do informal do interior.
-
-Duas leituras opostas produzem o mesmo número baixo, e vale distingui-las. Uma
-razão próxima de 1 pode significar que o mercado formal daquele território não
-paga muito melhor que o informal — o que é má notícia, e costuma indicar que a
-formalização se concentra em ocupações de baixa remuneração. Mas pode também
-significar que o mercado informal ali é relativamente bem pago, o que muda o
-diagnóstico por completo. A comparação com os rendimentos absolutos das Figuras
-6 e 7 é o que separa os dois casos.
-
-> **A REDIGIR** — dizer qual dos dois casos se aplica aos estratos de razão mais baixa deste trimestre, olhando os rendimentos absolutos das Figuras 6 e 7.
-
-### 3.4 Inserção no mercado de trabalho
-
-#### 3.4.1 Taxa de informalidade
-
-A informalidade no Piauí atingiu 49,5% dos
-ocupados, contra 48,7% no Nordeste e
-37,4% no Brasil. A variação interna ao estado foi
-de 46,8 pontos, de
-30,3% em
-estrato 2210012 a
-77,1% em
-estrato 2252021.
-
-**Tabela 13** — Taxa de informalidade, por recorte geográfico — 2º trimestre de 2026
-
-| Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
-|---|---|---:|:---:|---:|---|
-| Agregados | Brasil | 37,4 | (37,1, 37,8) | 0,5 | excelente |
-| Agregados | Nordeste | 48,7 | (48,1, 49,4) | 0,7 | excelente |
-| Agregados | Piauí | 49,5 | (47,4, 51,6) | 2,2 | excelente |
-| Agregados | Teresina | 35,7 | (32,3, 39,2) | 4,9 | excelente |
-| Zona | Urbana | 44,0 | (41,5, 46,5) | 2,9 | excelente |
-| Zona | Rural | 68,1 | (64,1, 72,2) | 3,0 | excelente |
-| Administrativo | Capital | 35,7 | (32,3, 39,2) | 4,9 | excelente |
-| Administrativo | Resto da RIDE | 55,9 | (48,0, 63,7) | 7,2 | boa |
-| Administrativo | Resto da UF | 56,1 | (53,5, 58,7) | 2,4 | excelente |
-| Estrato agregado | Teresina | 35,7 | (32,3, 39,2) | 4,9 | excelente |
-| Estrato agregado | Entorno metropolitano | 55,9 | (48,0, 63,7) | 7,2 | boa |
-| Estrato agregado | Centro-Leste | 56,9 | (52,0, 61,7) | 4,4 | excelente |
-| Estrato agregado | Baixo Parnaíba | 60,8 | (56,4, 65,1) | 3,6 | excelente |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | 48,0 | (42,4, 53,7) | 6,0 | boa |
-| Estrato (7 dígitos) | maior: 2252021 | 77,1 | (57,9, 96,4) | 12,7 | boa |
-| Estrato (7 dígitos) | menor: 2210012 | 30,3 | (22,2, 38,4) | 13,6 | boa |
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 5,4 | (5,2, 5,5) | 1,4 | excelente | — |  |
+| Agregados | Nordeste | 7,6 | (7,3, 7,9) | 2,1 | excelente | — |  |
+| Agregados | Piauí | 8,3 | (7,1, 9,5) | 7,5 | boa | 7,4 |  |
+| Agregados | Teresina | 7,1 | (5,8, 8,5) | 9,5 | boa | 11,7 |  |
+| Zona | Urbana | 7,5 | (6,3, 8,7) | 8,2 | boa | 8,5 |  |
+| Zona | Rural | 10,9 | (8,2, 13,6) | 12,7 | boa | 12,4 |  |
+| Administrativo | Capital | 7,1 | (5,8, 8,5) | 9,5 | boa | 11,7 |  |
+| Administrativo | Resto da RIDE | 16,4 | (11,8, 20,9) | 14,3 | boa | 20,7 | † |
+| Administrativo | Resto da UF | 8,1 | (6,4, 9,7) | 10,3 | boa | 9,8 |  |
+| Estrato agregado | Teresina | 7,1 | (5,8, 8,5) | 9,5 | boa | 11,7 |  |
+| Estrato agregado | Entorno metropolitano | 16,4 | (11,8, 20,9) | 14,3 | boa | 20,7 | † |
+| Estrato agregado | Centro-Leste | 8,2 | (6,1, 10,3) | 13,2 | boa | 15,2 | † |
+| Estrato agregado | Baixo Parnaíba | 6,7 | (4,0, 9,3) | 20,4 | regular | 17,3 | † |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 10,0 | (6,5, 13,4) | 17,7 | regular | 19,9 | † |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Tabela 14** — Taxa de informalidade, diferença entre as categorias de cada recorte — 2º trimestre de 2026
+**Tabela D.4** — Taxa composta de subutilização (%), por recorte geográfico — 2º trimestre de 2026
 
-| Recorte | p-valor | p ajustado | Significativo a 5%? |
-|---|---:|---:|:---:|
-| Zona (urbana × rural) | < 0,001 | < 0,001 | sim |
-| Estrato administrativo | < 0,001 | < 0,001 | sim |
-| Estrato agregado | < 0,001 | < 0,001 | sim |
-| Estrato (7 dígitos) | 0,145 | 0,155 | não |
-| Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-**Figura 8** — Taxa de informalidade por recorte geográfico — 2º trimestre de 2026
-
-![](./output/figuras/comp_geo_Taxa_Informalidade.png)
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-O contraste entre zona urbana e rural tende a ser o mais acentuado deste
-indicador, e por razão estrutural: a produção agrícola familiar e o trabalho
-por conta própria no campo são majoritariamente informais por natureza da
-atividade, não por escolha do trabalhador. Neste trimestre a diferença foi de
-24,1 pontos
-(\*\*\*).
-
-> **A REDIGIR** — bloco demográfico da informalidade — incluir só se significativo E com CV abaixo de 15% em todas as subdivisões de cada corte geográfico.
-
-#### 3.4.2 Sub-ocupação por insuficiência de horas
-
-11,2% dos ocupados do Piauí estavam subocupados, com
-27,5% em estrato 2251020
-e 7,8% em estrato 2253012.
-
-**Tabela 15** — Sub-ocupação por insuficiência de horas, por recorte geográfico
-— 2º trimestre de 2026
-
-| Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
-|---|---|---:|:---:|---:|---|
-| Agregados | Brasil | 4,0 | (3,8, 4,1) | 1,7 | excelente |
-| Agregados | Nordeste | 7,3 | (7,0, 7,7) | 2,4 | excelente |
-| Agregados | Piauí | 11,2 | (9,8, 12,5) | 6,1 | boa |
-| Agregados | Teresina | 1,3 | (0,7, 1,9) | 22,3 | regular |
-| Zona | Urbana | 8,7 | (7,3, 10,2) | 8,3 | boa |
-| Zona | Rural | 19,4 | (16,0, 22,7) | 8,8 | boa |
-| Administrativo | Capital | 1,3 | (0,7, 1,9) | 22,3 | regular |
-| Administrativo | Resto da RIDE | 6,4 | (2,7, 10,1) | 29,1 | regular |
-| Administrativo | Resto da UF | 16,8 | (14,6, 19,0) | 6,6 | boa |
-| Estrato agregado | Teresina | 1,3 | (0,7, 1,9) | 22,3 | regular |
-| Estrato agregado | Entorno metropolitano | 6,4 | (2,7, 10,1) | 29,1 | regular |
-| Estrato agregado | Centro-Leste | 21,3 | (17,8, 24,9) | 8,6 | boa |
-| Estrato agregado | Baixo Parnaíba | 13,8 | (9,7, 17,9) | 15,1 | regular |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | 15,3 | (11,5, 19,1) | 12,7 | boa |
-| Estrato (7 dígitos) | maior: 2251020 | 27,5 | (20,0, 34,9) | 13,8 | boa |
-| Estrato (7 dígitos) | menor: 2253012 | 7,8 | (3,5, 12,0) | 27,7 | regular |
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 12,9 | (12,7, 13,1) | 0,9 | excelente | — |  |
+| Agregados | Nordeste | 21,4 | (20,8, 21,9) | 1,3 | excelente | — |  |
+| Agregados | Piauí | 26,6 | (24,3, 28,9) | 4,4 | excelente | 3,5 |  |
+| Agregados | Teresina | 9,4 | (7,7, 11,0) | 9,0 | boa | 8,9 |  |
+| Zona | Urbana | 20,6 | (18,0, 23,1) | 6,3 | boa | 4,7 |  |
+| Zona | Rural | 43,3 | (39,0, 47,6) | 5,1 | boa | 4,4 |  |
+| Administrativo | Capital | 9,4 | (7,7, 11,0) | 9,0 | boa | 8,9 |  |
+| Administrativo | Resto da RIDE | 25,4 | (20,8, 30,0) | 9,3 | boa | 10,4 |  |
+| Administrativo | Resto da UF | 34,6 | (31,3, 37,8) | 4,8 | excelente | 4,0 |  |
+| Estrato agregado | Teresina | 9,4 | (7,7, 11,0) | 9,0 | boa | 8,9 |  |
+| Estrato agregado | Entorno metropolitano | 25,4 | (20,8, 30,0) | 9,3 | boa | 10,4 |  |
+| Estrato agregado | Centro-Leste | 40,0 | (35,9, 44,2) | 5,3 | boa | 5,5 |  |
+| Estrato agregado | Baixo Parnaíba | 30,3 | (23,9, 36,7) | 10,8 | boa | 7,1 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 33,3 | (27,0, 39,5) | 9,6 | boa | 8,6 |  |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Tabela 16** — Sub-ocupação por insuficiência de horas, diferença entre as categorias de cada recorteo
-— 2º trimestre de 2026
+**Tabela D.5** — Responsáveis pelo domicílio entre os desocupados (%), por recorte geográfico — 2º trimestre de 2026
 
-| Recorte | p-valor | p ajustado | Significativo a 5%? |
-|---|---:|---:|:---:|
-| Zona (urbana × rural) | < 0,001 | < 0,001 | sim |
-| Estrato administrativo | < 0,001 | < 0,001 | sim |
-| Estrato agregado | < 0,001 | < 0,001 | sim |
-| Estrato (7 dígitos) | 0,108 | 0,118 | não |
-| Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-**Figura 9** — Percentual de ocupados subocupados por insuficiência de horas —
-2º trimestre de 2026
-
-![](./output/figuras/comp_geo_Taxa_Subocupacao.png)
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-> **A REDIGIR** — relacionar a subocupação com a informalidade do mesmo território — jornada insuficiente e vínculo precário costumam andar juntos, mas nem sempre.
-
-#### 3.4.3 Escolaridade dos ocupados
-
-91,4% em
-estrato 2210013 e
-32,2% em
-estrato 2254020 — uma diferença de
-59,2 pontos. Cabe uma cautela de leitura: este indicador mede a
-escolaridade de quem *está ocupado*, não a da população. Um estrato pode
-aparecer com escolaridade alta simplesmente porque os menos escolarizados não
-encontraram trabalho, e não porque a população seja mais escolarizada.
-
-**Tabela 17** — Ocupados com ensino médio completo ou mais, por recorte
-geográfico — 2º trimestre de 2026
-
-| Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
-|---|---|---:|:---:|---:|---|
-| Agregados | Brasil | 73,3 | (72,9, 73,6) | 0,2 | excelente |
-| Agregados | Nordeste | 69,4 | (68,7, 70,1) | 0,5 | excelente |
-| Agregados | Piauí | 67,0 | (65,0, 69,0) | 1,5 | excelente |
-| Agregados | Teresina | 84,1 | (81,5, 86,7) | 1,6 | excelente |
-| Zona | Urbana | 74,6 | (72,4, 76,8) | 1,5 | excelente |
-| Zona | Rural | 41,2 | (37,4, 45,1) | 4,8 | excelente |
-| Administrativo | Capital | 84,1 | (81,5, 86,7) | 1,6 | excelente |
-| Administrativo | Resto da RIDE | 72,0 | (67,1, 76,9) | 3,4 | excelente |
-| Administrativo | Resto da UF | 57,5 | (54,6, 60,4) | 2,6 | excelente |
-| Estrato agregado | Teresina | 84,1 | (81,5, 86,7) | 1,6 | excelente |
-| Estrato agregado | Entorno metropolitano | 72,0 | (67,1, 76,9) | 3,4 | excelente |
-| Estrato agregado | Centro-Leste | 58,7 | (54,1, 63,3) | 4,0 | excelente |
-| Estrato agregado | Baixo Parnaíba | 54,2 | (48,9, 59,4) | 4,9 | excelente |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | 60,9 | (55,9, 65,9) | 4,2 | excelente |
-| Estrato (7 dígitos) | maior: 2210013 | 91,4 | (86,7, 96,1) | 2,6 | excelente |
-| Estrato (7 dígitos) | menor: 2254020 | 32,2 | (21,6, 42,8) | 16,8 | regular |
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 36,4 | (35,2, 37,5) | 1,7 | excelente | — |  |
+| Agregados | Nordeste | 37,9 | (36,1, 39,7) | 2,4 | excelente | — |  |
+| Agregados | Piauí | 37,9 | (31,8, 44,0) | 8,2 | boa | 9,1 |  |
+| Agregados | Teresina | 27,7 | (20,4, 35,1) | 13,5 | boa | 18,9 | † |
+| Zona | Urbana | 36,6 | (29,1, 44,0) | 10,4 | boa | 11,8 |  |
+| Zona | Rural | 40,9 | (31,8, 50,0) | 11,4 | boa | 14,0 |  |
+| Administrativo | Capital | 27,7 | (20,4, 35,1) | 13,5 | boa | 18,9 | † |
+| Administrativo | Resto da RIDE | 38,4 | (23,3, 53,5) | 20,0 | regular | 29,9 | † |
+| Administrativo | Resto da UF | 42,5 | (34,0, 50,9) | 10,2 | boa | 11,3 |  |
+| Estrato agregado | Teresina | 27,7 | (20,4, 35,1) | 13,5 | boa | 18,9 | † |
+| Estrato agregado | Entorno metropolitano | 38,4 | (23,3, 53,5) | 20,0 | regular | 29,9 | † |
+| Estrato agregado | Centro-Leste | 47,0 | (34,2, 59,9) | 13,9 | boa | 17,5 | † |
+| Estrato agregado | Baixo Parnaíba | 28,5 | (13,9, 43,1) | 26,1 | regular | 22,0 | † |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 51,1 | (35,3, 66,9) | 15,8 | regular | 20,2 | † |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Tabela 18** — Ocupados com ensino médio completo ou mais, diferença entre as categorias de cada recorte — 2º trimestre de 2026
+**Tabela D.6** — Responsáveis ou cônjuges entre os desocupados (%), por recorte geográfico — 2º trimestre de 2026
 
-| Recorte | p-valor | p ajustado | Significativo a 5%? |
-|---|---:|---:|:---:|
-| Zona (urbana × rural) | < 0,001 | < 0,001 | sim |
-| Estrato administrativo | < 0,001 | < 0,001 | sim |
-| Estrato agregado | < 0,001 | < 0,001 | sim |
-| Estrato (7 dígitos) | 0,036 | 0,044 | sim |
-| Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-
-**Figura 10** — Percentual de ocupados com ensino médio completo ou mais —
-2º trimestre de 2026
-
-![](./output/figuras/comp_geo_Proporcao_Ocupados_Escolarizados.png)
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-
-### 3.5 Desalento
-
-O desalento atingiu 7,0% da força de
-trabalho ampliada do Piauí, com 23,2%
-em estrato 2251022 e
-7,2% em
-estrato 2251011. Entre as pessoas fora da
-força de trabalho, os desalentados foram
-68,4% no estado.
-
-#### 3.5.1 Percentual de desalentados
-
-**Tabela 19** — Desalentados na força de trabalho ampliada, por recorte
-geográfico — 2º trimestre de 2026
-
-| Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
-|---|---|---:|:---:|---:|---|
-| Agregados | Brasil | 2,1 | (2,0, 2,1) | 2,2 | excelente |
-| Agregados | Nordeste | 5,3 | (5,0, 5,6) | 2,7 | excelente |
-| Agregados | Piauí | 7,0 | (5,7, 8,3) | 9,4 | boa |
-| Agregados | Teresina | 0,7 | (0,3, 1,0) | 26,5 | regular |
-| Zona | Urbana | 3,7 | (2,4, 4,9) | 17,9 | regular |
-| Zona | Rural | 16,6 | (13,0, 20,1) | 10,9 | boa |
-| Administrativo | Capital | 0,7 | (0,3, 1,0) | 26,5 | regular |
-| Administrativo | Resto da RIDE | 3,3 | (1,2, 5,4) | 32,1 | baixa |
-| Administrativo | Resto da UF | 10,4 | (8,4, 12,4) | 9,8 | boa |
-| Estrato agregado | Teresina | 0,7 | (0,3, 1,0) | 26,5 | regular |
-| Estrato agregado | Entorno metropolitano | 3,3 | (1,2, 5,4) | 32,1 | baixa |
-| Estrato agregado | Centro-Leste | 13,5 | (10,0, 16,9) | 13,1 | boa |
-| Estrato agregado | Baixo Parnaíba | 7,8 | (4,7, 10,9) | 20,4 | regular |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | 9,8 | (5,0, 14,7) | 25,0 | regular |
-| Estrato (7 dígitos) | maior: 2251022 | 23,2 | (10,0, 36,5) | 29,1 | regular |
-| Estrato (7 dígitos) | menor: 2251011 | 7,2 | (4,3, 10,2) | 20,8 | regular |
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 52,8 | (51,4, 54,1) | 1,3 | excelente | — |  |
+| Agregados | Nordeste | 54,6 | (52,7, 56,4) | 1,7 | excelente | — |  |
+| Agregados | Piauí | 55,6 | (49,2, 62,1) | 5,9 | boa | 7,0 |  |
+| Agregados | Teresina | 41,4 | (33,3, 49,5) | 10,0 | boa | 15,6 | † |
+| Zona | Urbana | 53,5 | (46,3, 60,6) | 6,8 | boa | 9,3 |  |
+| Zona | Rural | 60,6 | (49,4, 71,7) | 9,4 | boa | 9,6 |  |
+| Administrativo | Capital | 41,4 | (33,3, 49,5) | 10,0 | boa | 15,6 | † |
+| Administrativo | Resto da RIDE | 54,4 | (42,8, 65,9) | 10,8 | boa | 20,4 | † |
+| Administrativo | Resto da UF | 62,5 | (53,5, 71,5) | 7,3 | boa | 8,5 |  |
+| Estrato agregado | Teresina | 41,4 | (33,3, 49,5) | 10,0 | boa | 15,6 | † |
+| Estrato agregado | Entorno metropolitano | 54,4 | (42,8, 65,9) | 10,8 | boa | 20,4 | † |
+| Estrato agregado | Centro-Leste | 66,4 | (55,2, 77,5) | 8,6 | boa | 12,5 |  |
+| Estrato agregado | Baixo Parnaíba | 54,9 | (33,0, 76,8) | 20,3 | regular | 14,9 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 65,8 | (53,7, 77,8) | 9,4 | boa | 17,0 | † |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
+**Tabela D.7** — Pessoas em idade de trabalhar (mil pessoas), por recorte geográfico — 2º trimestre de 2026
 
-**Tabela 20** — Desalentados na força de trabalho ampliada, diferença entre as categorias de cada recorte — 2º trimestre de 2026
-
-| Recorte | p-valor | p ajustado | Significativo a 5%? |
-|---|---:|---:|:---:|
-| Zona (urbana × rural) | < 0,001 | < 0,001 | sim |
-| Estrato administrativo | < 0,001 | < 0,001 | sim |
-| Estrato agregado | < 0,001 | < 0,001 | sim |
-| Estrato (7 dígitos) | 0,662 | 0,671 | não |
-| Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-**Figura 11** — Percentual de desalentados na força de trabalho ampliada —
-2º trimestre de 2026
-
-![](./output/figuras/comp_geo_Desalentados_Forca_Ampliada.png)
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-![](./output/figuras/comp_geo_Desalentados_Fora_Forca.png)
-
-**Figura 12** — Desalentados como percentual das pessoas fora da força de
-trabalho — 2º trimestre de 2026
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 175.400 | (175.400, 175.400) | 0,0 | excelente | — |  |
+| Agregados | Nordeste | 46.431 | (46.292, 46.570) | 0,2 | excelente | — |  |
+| Agregados | Piauí | 2.743 | (2.713, 2.774) | 0,6 | excelente | 0,7 |  |
+| Agregados | Teresina | 747 | (731, 762) | 1,0 | excelente | 1,3 |  |
+| Zona | Urbana | 1.907 | (1.853, 1.961) | 1,4 | excelente | 1,9 |  |
+| Zona | Rural | 836 | (786, 886) | 3,0 | excelente | 4,4 |  |
+| Administrativo | Capital | 747 | (731, 762) | 1,0 | excelente | 1,3 |  |
+| Administrativo | Resto da RIDE | 178 | (173, 183) | 1,5 | excelente | 2,0 |  |
+| Administrativo | Resto da UF | 1.819 | (1.793, 1.845) | 0,7 | excelente | 0,9 |  |
+| Estrato agregado | Teresina | 747 | (731, 762) | 1,0 | excelente | 1,3 |  |
+| Estrato agregado | Entorno metropolitano | 178 | (173, 183) | 1,5 | excelente | 2,0 |  |
+| Estrato agregado | Centro-Leste | 648 | (610, 685) | 3,0 | excelente | 5,3 |  |
+| Estrato agregado | Baixo Parnaíba | 713 | (661, 765) | 3,7 | excelente | 4,9 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 458 | (411, 506) | 5,3 | boa | 6,5 |  |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-A leitura conjunta com a taxa de desocupação é o que dá sentido ao indicador.
+**Tabela D.8** — Pessoas na força de trabalho (mil pessoas), por recorte geográfico — 2º trimestre de 2026
 
-> **A REDIGIR** — comparar a lista de estratos com maior desalento com a de maior desocupação (Tabelas 2 e 11) e dizer se coincidem. Quando desalento alto convive com desocupação baixa, a taxa de desemprego daquele território está subestimando o problema.
-
-#### 3.5.2 Jovens que não trabalham nem estudam
-
-24,3% dos jovens piauienses de 14 a 29 anos não
-trabalhavam nem estudavam. A incidência variou de
-13,5% em estrato 2210012 a
-49,8% em estrato 2251022.
-
-**Tabela 21** — Jovens de 14 a 29 anos que não trabalham nem estudam, por
-recorte geográfico — 2º trimestre de 2026
-
-| Recorte | Categoria | Estimativa (%) | IC 95% | CV (%) | Precisão |
-|---|---|---:|:---:|---:|---|
-| Agregados | Brasil | 17,9 | (17,6, 18,2) | 0,9 | excelente |
-| Agregados | Nordeste | 24,5 | (23,9, 25,1) | 1,3 | excelente |
-| Agregados | Piauí | 24,3 | (22,3, 26,2) | 4,1 | excelente |
-| Agregados | Teresina | 17,7 | (14,5, 20,9) | 9,2 | boa |
-| Zona | Urbana | 20,6 | (18,4, 22,9) | 5,6 | boa |
-| Zona | Rural | 33,4 | (29,7, 37,1) | 5,7 | boa |
-| Administrativo | Capital | 17,7 | (14,5, 20,9) | 9,2 | boa |
-| Administrativo | Resto da RIDE | 31,5 | (26,1, 37,0) | 8,8 | boa |
-| Administrativo | Resto da UF | 26,2 | (23,7, 28,7) | 4,9 | excelente |
-| Estrato agregado | Teresina | 17,7 | (14,5, 20,9) | 9,2 | boa |
-| Estrato agregado | Entorno metropolitano | 31,5 | (26,1, 37,0) | 8,8 | boa |
-| Estrato agregado | Centro-Leste | 25,6 | (22,2, 29,0) | 6,7 | boa |
-| Estrato agregado | Baixo Parnaíba | 24,5 | (20,9, 28,0) | 7,3 | boa |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | 30,2 | (23,1, 37,3) | 12,0 | boa |
-| Estrato (7 dígitos) | maior: 2251022 | 49,8 | (35,5, 64,1) | 14,7 | boa |
-| Estrato (7 dígitos) | menor: 2210012 | 13,5 | (6,9, 20,1) | 24,9 | regular |
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 108.919 | (108.576, 109.261) | 0,2 | excelente | — |  |
+| Agregados | Nordeste | 25.161 | (24.946, 25.376) | 0,4 | excelente | — |  |
+| Agregados | Piauí | 1.451 | (1.407, 1.494) | 1,5 | excelente | 1,7 |  |
+| Agregados | Teresina | 465 | (446, 485) | 2,2 | excelente | 2,1 |  |
+| Zona | Urbana | 1.111 | (1.068, 1.155) | 2,0 | excelente | 2,7 |  |
+| Zona | Rural | 340 | (308, 371) | 4,8 | excelente | 5,8 |  |
+| Administrativo | Capital | 465 | (446, 485) | 2,2 | excelente | 2,1 |  |
+| Administrativo | Resto da RIDE | 94 | (87, 101) | 3,9 | excelente | 4,9 |  |
+| Administrativo | Resto da UF | 891 | (853, 929) | 2,2 | excelente | 2,4 |  |
+| Estrato agregado | Teresina | 465 | (446, 485) | 2,2 | excelente | 2,1 |  |
+| Estrato agregado | Entorno metropolitano | 94 | (87, 101) | 3,9 | excelente | 4,9 |  |
+| Estrato agregado | Centro-Leste | 310 | (280, 339) | 4,8 | excelente | 6,5 |  |
+| Estrato agregado | Baixo Parnaíba | 344 | (311, 378) | 5,0 | boa | 7,2 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 237 | (205, 270) | 7,0 | boa | 9,7 |  |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Tabela 22** — Jovens de 14 a 29 anos que não trabalham nem estudam, diferença entre as categorias de cada recorte — 2º trimestre de 2026
+**Tabela D.9** — Pessoas fora da força de trabalho (mil pessoas), por recorte geográfico — 2º trimestre de 2026
 
-| Recorte | p-valor | p ajustado | Significativo a 5%? |
-|---|---:|---:|:---:|
-| Zona (urbana × rural) | < 0,001 | < 0,001 | sim |
-| Estrato administrativo | < 0,001 | < 0,001 | sim |
-| Estrato agregado | < 0,001 | 0,001 | sim |
-| Estrato (7 dígitos) | 0,540 | 0,555 | não |
-| Teresina × resto do Piauí | < 0,001 | < 0,001 | sim |
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-**Figura 13** — Percentual de jovens de 14 a 29 anos que não trabalham nem
-estudam — 2º trimestre de 2026
-
-![](./output/figuras/comp_geo_Taxa_Nem_Nem.png)
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-> **A REDIGIR** — o que a amplitude entre os estratos extremos significa para a próxima década de oferta de trabalho no estado.
-
-> **A REDIGIR** — bloco demográfico dos nem-nem — é o recorte em que a diferença por sexo costuma ser mais acentuada, por conta do trabalho doméstico e de cuidado não remunerado. Incluir só se significativo E com CV abaixo de 15% em todas as subdivisões.
-
-#### 3.5.3 Motivos para não procurar trabalho
-
-Estes são os indicadores mais frágeis do relatório em termos de precisão: são
-proporções calculadas sobre um subconjunto já pequeno — os desalentados, ou os
-jovens nem-nem — e depois repartidas entre várias categorias de resposta. É
-normal que a maioria das células apareça com CV alto nos estratos mais finos, e
-elas devem ser lidas como indicativas, não conclusivas. Incluimos elas pois são importantissimos
-para distinguir quem desistiu de procurar emprego por baixar perspectivas de emprego na região, por obrigações domésticas ou por apenas desinteresse.
-
-**Figura 14** — Motivo declarado da desistência, entre os desalentados —
-2º trimestre de 2026
-
-![](./output/figuras/comp_geo_Motivo_Desistencia_Desalentado.png)
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 66.481 | (66.138, 66.824) | 0,3 | excelente | — |  |
+| Agregados | Nordeste | 21.270 | (21.050, 21.490) | 0,5 | excelente | — |  |
+| Agregados | Piauí | 1.293 | (1.248, 1.338) | 1,8 | excelente | 2,1 |  |
+| Agregados | Teresina | 281 | (262, 300) | 3,4 | excelente | 3,5 |  |
+| Zona | Urbana | 796 | (754, 838) | 2,7 | excelente | 3,1 |  |
+| Zona | Rural | 496 | (459, 534) | 3,9 | excelente | 4,8 |  |
+| Administrativo | Capital | 281 | (262, 300) | 3,4 | excelente | 3,5 |  |
+| Administrativo | Resto da RIDE | 84 | (74, 93) | 5,9 | boa | 5,5 |  |
+| Administrativo | Resto da UF | 928 | (890, 966) | 2,1 | excelente | 2,8 |  |
+| Estrato agregado | Teresina | 281 | (262, 300) | 3,4 | excelente | 3,5 |  |
+| Estrato agregado | Entorno metropolitano | 84 | (74, 93) | 5,9 | boa | 5,5 |  |
+| Estrato agregado | Centro-Leste | 338 | (307, 370) | 4,7 | excelente | 5,8 |  |
+| Estrato agregado | Baixo Parnaíba | 368 | (334, 403) | 4,8 | excelente | 5,1 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 221 | (192, 250) | 6,6 | boa | 7,5 |  |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Figura 15** — Motivo de não ter procurado trabalho, entre os jovens nem-nem —
-2º trimestre de 2026
+**Tabela D.10** — Pessoas ocupadas (mil pessoas), por recorte geográfico — 2º trimestre de 2026
 
-![](./output/figuras/comp_geo_Motivo_Nao_Procura_NemNem.png)
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-**Figura 16** — Motivo de não ter iniciado trabalho, entre os jovens nem-nem —
-2º trimestre de 2026
-
-![](./output/figuras/comp_geo_Motivo_Nao_Inicio_NemNem.png)
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-
-**Tabela 23** — Motivo da desistência entre os desalentados, por recorte
-geográfico — 2º trimestre de 2026
-
-| Recorte | Categoria | Motivo | Estimativa (%) | IC 95% | CV (%) | Precisão |
-|---|---|---|---:|:---:|---:|---|
-| Agregados | Brasil | Não havia trabalho na localidade | 55,8 | (53,8, 57,8) | 1,8 | excelente |
-| Agregados | Nordeste | Não havia trabalho na localidade | 67,5 | (65,2, 69,7) | 1,7 | excelente |
-| Agregados | Piauí | Não havia trabalho na localidade | 73,1 | (64,8, 81,5) | 5,8 | boa |
-| Agregados | Teresina | Não havia trabalho na localidade | 42,1 | (21,9, 62,3) | 24,5 | regular |
-| Zona | Urbana | Não havia trabalho na localidade | 54,9 | (36,9, 72,9) | 16,7 | regular |
-| Zona | Rural | Não havia trabalho na localidade | 84,6 | (78,2, 90,9) | 3,8 | excelente |
-| Administrativo | Capital | Não havia trabalho na localidade | 42,1 | (21,9, 62,3) | 24,5 | regular |
-| Administrativo | Resto da RIDE | Não havia trabalho na localidade | 57,4 | (0,9, 113,8) | 50,2 | baixa |
-| Administrativo | Resto da UF | Não havia trabalho na localidade | 74,6 | (66,1, 83,0) | 5,8 | boa |
-| Estrato agregado | Teresina | Não havia trabalho na localidade | 42,1 | (21,9, 62,3) | 24,5 | regular |
-| Estrato agregado | Entorno metropolitano | Não havia trabalho na localidade | 57,4 | (0,9, 113,8) | 50,2 | baixa |
-| Estrato agregado | Centro-Leste | Não havia trabalho na localidade | 79,7 | (70,5, 88,9) | 5,9 | boa |
-| Estrato agregado | Baixo Parnaíba | Não havia trabalho na localidade | 56,2 | (37,0, 75,4) | 17,5 | regular |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | Não havia trabalho na localidade | 85,7 | (72,4, 98,9) | 7,9 | boa |
-| Estrato (7 dígitos) | maior: 2220020 | Não havia trabalho na localidade | 100,0 | (100,0, 100,0) | 0,0 | excelente |
-| Estrato (7 dígitos) | menor: 2252022 | Não havia trabalho na localidade | 32,2 | (31,5, 32,9) | 1,2 | excelente |
-| Agregados | Brasil | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Agregados | Nordeste | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Agregados | Piauí | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Agregados | Teresina | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Zona | Urbana | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Zona | Rural | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Administrativo | Capital | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Administrativo | Resto da RIDE | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Administrativo | Resto da UF | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Estrato agregado | Teresina | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Estrato agregado | Entorno metropolitano | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Estrato agregado | Centro-Leste | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Estrato agregado | Baixo Parnaíba | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Estrato (7 dígitos) | maior: 2210011 | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Estrato (7 dígitos) | menor: 2254020 | Tinha que cuidar dos afazeres domésticos | 0,0 | (0,0, 0,0) | — | — |
-| Agregados | Brasil | Não conseguia trabalho adequado | 28,2 | (26,4, 30,0) | 3,2 | excelente |
-| Agregados | Nordeste | Não conseguia trabalho adequado | 23,2 | (21,1, 25,2) | 4,5 | excelente |
-| Agregados | Piauí | Não conseguia trabalho adequado | 21,8 | (13,5, 30,1) | 19,4 | regular |
-| Agregados | Teresina | Não conseguia trabalho adequado | 29,2 | (9,3, 49,1) | 34,7 | baixa |
-| Zona | Urbana | Não conseguia trabalho adequado | 37,1 | (19,0, 55,2) | 24,9 | regular |
-| Zona | Rural | Não conseguia trabalho adequado | 12,2 | (6,2, 18,2) | 25,1 | regular |
-| Administrativo | Capital | Não conseguia trabalho adequado | 29,2 | (9,3, 49,1) | 34,7 | baixa |
-| Administrativo | Resto da RIDE | Não conseguia trabalho adequado | 42,6 | (0,0, 99,1) | 67,6 | baixa |
-| Administrativo | Resto da UF | Não conseguia trabalho adequado | 20,9 | (12,6, 29,2) | 20,3 | regular |
-| Estrato agregado | Teresina | Não conseguia trabalho adequado | 29,2 | (9,3, 49,1) | 34,7 | baixa |
-| Estrato agregado | Entorno metropolitano | Não conseguia trabalho adequado | 42,6 | (0,0, 99,1) | 67,6 | baixa |
-| Estrato agregado | Centro-Leste | Não conseguia trabalho adequado | 18,3 | (9,4, 27,2) | 24,7 | regular |
-| Estrato agregado | Baixo Parnaíba | Não conseguia trabalho adequado | 34,5 | (13,8, 55,3) | 30,6 | baixa |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | Não conseguia trabalho adequado | 10,3 | (0,0, 21,2) | 53,5 | baixa |
-| Estrato (7 dígitos) | maior: 2252011 | Não conseguia trabalho adequado | 72,3 | (31,0, 113,7) | 29,1 | regular |
-| Estrato (7 dígitos) | menor: 2210020 | Não conseguia trabalho adequado | 65,9 | (31,2, 100,6) | 26,9 | regular |
-
-Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-Nota: mostra apenas as categorias "Não havia trabalho na localidade", "Tinha
-que cuidar dos afazeres domésticos, do(s) filho(s) ou de outro(s) parente(s)"
-e "Não conseguia trabalho adequado", independentemente do CV — as demais
-categorias de V4074A não entram nesta tabela.
-
-> **A REDIGIR** — comparar o peso das três categorias entre os territórios — "não havia trabalho na localidade" e "não conseguia trabalho adequado" são causas do lado da oferta (falta de vaga, ou vaga incompatível), enquanto "tinha que cuidar dos afazeres domésticos" é do lado da demanda por cuidado; são diagnósticos que pedem políticas diferentes.
-
-**Tabela 24** — Distribuição dos motivos declarados, jovens que não procuraram
-trabalho — 2º trimestre de 2026
-
-| Motivo declarado | Participação (%) | IC 95% | CV (%) | Precisão |
-|---|---:|:---:|---:|---|
-| Tinha que cuidar dos afazeres domésticos, do(s) filho(s) ou de outro(s) parente(s) | 43,2 | (37,6, 48,9) | 6,7 | boa |
-| Por problema de saúde ou gravidez | 18,5 | (14,7, 22,3) | 10,5 | boa |
-| Estava estudando | 6,9 | (4,7, 9,0) | 16,0 | regular |
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 103.057 | (102.713, 103.401) | 0,2 | excelente | — |  |
+| Agregados | Nordeste | 23.249 | (23.027, 23.471) | 0,5 | excelente | — |  |
+| Agregados | Piauí | 1.330 | (1.285, 1.376) | 1,8 | excelente | 1,9 |  |
+| Agregados | Teresina | 432 | (411, 453) | 2,5 | excelente | 2,4 |  |
+| Zona | Urbana | 1.028 | (986, 1.069) | 2,1 | excelente | 2,8 |  |
+| Zona | Rural | 303 | (273, 333) | 5,1 | boa | 6,1 |  |
+| Administrativo | Capital | 432 | (411, 453) | 2,5 | excelente | 2,4 |  |
+| Administrativo | Resto da RIDE | 79 | (74, 84) | 3,2 | excelente | 5,4 |  |
+| Administrativo | Resto da UF | 819 | (780, 858) | 2,4 | excelente | 2,7 |  |
+| Estrato agregado | Teresina | 432 | (411, 453) | 2,5 | excelente | 2,4 |  |
+| Estrato agregado | Entorno metropolitano | 79 | (74, 84) | 3,2 | excelente | 5,4 |  |
+| Estrato agregado | Centro-Leste | 284 | (257, 311) | 4,9 | excelente | 6,9 |  |
+| Estrato agregado | Baixo Parnaíba | 322 | (290, 353) | 5,0 | excelente | 7,8 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 214 | (182, 245) | 7,5 | boa | 9,6 |  |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-> **A REDIGIR** — nomear o motivo mais frequente da tabela acima e dizer que política pública ele aponta — falta de vaga pede uma coisa, incompatibilidade de qualificação pede outra.
+**Tabela D.11** — Pessoas desocupadas (mil pessoas), por recorte geográfico — 2º trimestre de 2026
 
-**Tabela 25** — Motivo de não ter iniciado trabalho entre os jovens nem-nem,
-por recorte geográfico — 2º trimestre de 2026
-
-| Recorte | Categoria | Motivo | Estimativa (%) | IC 95% | CV (%) | Precisão |
-|---|---|---|---:|:---:|---:|---|
-| Agregados | Brasil | Por não querer trabalhar | 13,7 | (12,8, 14,6) | 3,3 | excelente |
-| Agregados | Nordeste | Por não querer trabalhar | 12,3 | (10,9, 13,7) | 5,7 | boa |
-| Agregados | Piauí | Por não querer trabalhar | 7,6 | (4,2, 11,0) | 22,8 | regular |
-| Agregados | Teresina | Por não querer trabalhar | 4,7 | (0,0, 11,8) | 77,7 | baixa |
-| Zona | Urbana | Por não querer trabalhar | 8,0 | (3,4, 12,5) | 29,1 | regular |
-| Zona | Rural | Por não querer trabalhar | 6,9 | (2,5, 11,4) | 32,7 | baixa |
-| Administrativo | Capital | Por não querer trabalhar | 4,7 | (0,0, 11,8) | 77,7 | baixa |
-| Administrativo | Resto da RIDE | Por não querer trabalhar | 11,4 | (0,5, 22,2) | 48,8 | baixa |
-| Administrativo | Resto da UF | Por não querer trabalhar | 8,1 | (4,2, 12,1) | 24,9 | regular |
-| Estrato agregado | Teresina | Por não querer trabalhar | 4,7 | (0,0, 11,8) | 77,7 | baixa |
-| Estrato agregado | Entorno metropolitano | Por não querer trabalhar | 11,4 | (0,5, 22,2) | 48,8 | baixa |
-| Estrato agregado | Centro-Leste | Por não querer trabalhar | 10,0 | (2,1, 17,9) | 40,3 | baixa |
-| Estrato agregado | Baixo Parnaíba | Por não querer trabalhar | 6,6 | (1,4, 11,7) | 40,2 | baixa |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | Por não querer trabalhar | 8,7 | (0,0, 19,9) | 66,1 | baixa |
-| Estrato (7 dígitos) | maior: 2210013 | Por não querer trabalhar | 60,6 | (0,0, 136,1) | 63,5 | baixa |
-| Estrato (7 dígitos) | menor: 2254020 | Por não querer trabalhar | 0,0 | (0,0, 0,0) | — | — |
-| Agregados | Brasil | Tinha que cuidar dos afazeres domésticos | 47,3 | (46,1, 48,4) | 1,2 | excelente |
-| Agregados | Nordeste | Tinha que cuidar dos afazeres domésticos | 51,4 | (49,7, 53,2) | 1,8 | excelente |
-| Agregados | Piauí | Tinha que cuidar dos afazeres domésticos | 56,5 | (49,9, 63,1) | 6,0 | boa |
-| Agregados | Teresina | Tinha que cuidar dos afazeres domésticos | 49,6 | (39,2, 60,0) | 10,7 | boa |
-| Zona | Urbana | Tinha que cuidar dos afazeres domésticos | 52,2 | (44,2, 60,2) | 7,8 | boa |
-| Zona | Rural | Tinha que cuidar dos afazeres domésticos | 63,5 | (52,2, 74,8) | 9,1 | boa |
-| Administrativo | Capital | Tinha que cuidar dos afazeres domésticos | 49,6 | (39,2, 60,0) | 10,7 | boa |
-| Administrativo | Resto da RIDE | Tinha que cuidar dos afazeres domésticos | 60,3 | (39,4, 81,2) | 17,7 | regular |
-| Administrativo | Resto da UF | Tinha que cuidar dos afazeres domésticos | 58,4 | (49,8, 66,9) | 7,5 | boa |
-| Estrato agregado | Teresina | Tinha que cuidar dos afazeres domésticos | 49,6 | (39,2, 60,0) | 10,7 | boa |
-| Estrato agregado | Entorno metropolitano | Tinha que cuidar dos afazeres domésticos | 60,3 | (39,4, 81,2) | 17,7 | regular |
-| Estrato agregado | Centro-Leste | Tinha que cuidar dos afazeres domésticos | 51,6 | (36,8, 66,4) | 14,6 | boa |
-| Estrato agregado | Baixo Parnaíba | Tinha que cuidar dos afazeres domésticos | 57,0 | (43,8, 70,2) | 11,8 | boa |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | Tinha que cuidar dos afazeres domésticos | 69,8 | (55,3, 84,3) | 10,6 | boa |
-| Estrato (7 dígitos) | maior: 2251022 | Tinha que cuidar dos afazeres domésticos | 100,0 | (100,0, 100,0) | 0,0 | excelente |
-| Estrato (7 dígitos) | menor: 2252011 | Tinha que cuidar dos afazeres domésticos | 50,5 | (26,1, 74,8) | 24,6 | regular |
-| Agregados | Brasil | Por problema de saúde ou gravidez | 20,5 | (19,4, 21,5) | 2,7 | excelente |
-| Agregados | Nordeste | Por problema de saúde ou gravidez | 20,1 | (18,9, 21,4) | 3,1 | excelente |
-| Agregados | Piauí | Por problema de saúde ou gravidez | 26,3 | (21,1, 31,4) | 10,0 | boa |
-| Agregados | Teresina | Por problema de saúde ou gravidez | 20,6 | (13,1, 28,1) | 18,6 | regular |
-| Zona | Urbana | Por problema de saúde ou gravidez | 26,5 | (20,0, 33,0) | 12,5 | boa |
-| Zona | Rural | Por problema de saúde ou gravidez | 25,8 | (17,1, 34,6) | 17,3 | regular |
-| Administrativo | Capital | Por problema de saúde ou gravidez | 20,6 | (13,1, 28,1) | 18,6 | regular |
-| Administrativo | Resto da RIDE | Por problema de saúde ou gravidez | 20,1 | (4,9, 35,2) | 38,5 | baixa |
-| Administrativo | Resto da UF | Por problema de saúde ou gravidez | 28,6 | (22,0, 35,2) | 11,8 | boa |
-| Estrato agregado | Teresina | Por problema de saúde ou gravidez | 20,6 | (13,1, 28,1) | 18,6 | regular |
-| Estrato agregado | Entorno metropolitano | Por problema de saúde ou gravidez | 20,1 | (4,9, 35,2) | 38,5 | baixa |
-| Estrato agregado | Centro-Leste | Por problema de saúde ou gravidez | 34,7 | (22,8, 46,6) | 17,5 | regular |
-| Estrato agregado | Baixo Parnaíba | Por problema de saúde ou gravidez | 30,9 | (19,4, 42,3) | 19,0 | regular |
-| Estrato agregado | Alto Parnaíba e Chapadas Sul | Por problema de saúde ou gravidez | 16,4 | (4,8, 28,0) | 36,0 | baixa |
-| Estrato (7 dígitos) | maior: 2252011 | Por problema de saúde ou gravidez | 46,4 | (22,0, 70,8) | 26,8 | regular |
-| Estrato (7 dígitos) | menor: 2210011 | Por problema de saúde ou gravidez | 20,9 | (10,7, 31,2) | 25,0 | regular |
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 5.861 | (5.697, 6.026) | 1,4 | excelente | — |  |
+| Agregados | Nordeste | 1.912 | (1.833, 1.991) | 2,1 | excelente | — |  |
+| Agregados | Piauí | 121 | (103, 138) | 7,5 | boa | 7,3 |  |
+| Agregados | Teresina | 33 | (27, 39) | 9,2 | boa | 11,8 |  |
+| Zona | Urbana | 84 | (70, 98) | 8,6 | boa | 8,6 |  |
+| Zona | Rural | 37 | (27, 47) | 13,4 | boa | 13,2 |  |
+| Administrativo | Capital | 33 | (27, 39) | 9,2 | boa | 11,8 |  |
+| Administrativo | Resto da RIDE | 15 | (10, 20) | 16,7 | regular | 21,4 | † |
+| Administrativo | Resto da UF | 72 | (57, 86) | 10,3 | boa | 10,0 |  |
+| Estrato agregado | Teresina | 33 | (27, 39) | 9,2 | boa | 11,8 |  |
+| Estrato agregado | Entorno metropolitano | 15 | (10, 20) | 16,7 | regular | 21,4 | † |
+| Estrato agregado | Centro-Leste | 25 | (18, 32) | 14,3 | boa | 15,4 | † |
+| Estrato agregado | Baixo Parnaíba | 23 | (13, 33) | 21,8 | regular | 18,0 | † |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 24 | (15, 32) | 17,7 | regular | 21,9 | † |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-Nota: mostra apenas as categorias "Por não querer trabalhar", "Tinha que
-cuidar dos afazeres domésticos, do(s) filho(s) ou de outro(s) parente(s)" e
-"Por problema de saúde ou gravidez", independentemente do CV — as demais
-categorias de V4078A não entram nesta tabela.
 
-> **A REDIGIR** — comparar o peso das três categorias entre os territórios — "tinha que cuidar dos afazeres domésticos" e "por problema de saúde ou gravidez" são impedimentos, enquanto "não queria trabalhar" é desinteresse declarado; tratar as duas primeiras como a mesma coisa que "não queria trabalhar" seria um erro de leitura.
+**Tabela D.12** — Pessoas subutilizadas (mil pessoas), por recorte geográfico — 2º trimestre de 2026
 
-### 3.6 Síntese: onde as diferenças são estatisticamente significativas
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 14.659 | (14.390, 14.928) | 0,9 | excelente | — |  |
+| Agregados | Nordeste | 5.864 | (5.709, 6.019) | 1,4 | excelente | — |  |
+| Agregados | Piauí | 429 | (391, 468) | 4,6 | excelente | 3,8 |  |
+| Agregados | Teresina | 44 | (37, 51) | 8,5 | boa | 9,0 |  |
+| Zona | Urbana | 243 | (210, 276) | 7,0 | boa | 5,3 |  |
+| Zona | Rural | 186 | (162, 211) | 6,7 | boa | 6,6 |  |
+| Administrativo | Capital | 44 | (37, 51) | 8,5 | boa | 9,0 |  |
+| Administrativo | Resto da RIDE | 25 | (19, 31) | 11,3 | boa | 11,3 |  |
+| Administrativo | Resto da UF | 360 | (324, 396) | 5,1 | boa | 4,2 |  |
+| Estrato agregado | Teresina | 44 | (37, 51) | 8,5 | boa | 9,0 |  |
+| Estrato agregado | Entorno metropolitano | 25 | (19, 31) | 11,3 | boa | 11,3 |  |
+| Estrato agregado | Centro-Leste | 149 | (131, 167) | 6,2 | boa | 7,2 |  |
+| Estrato agregado | Baixo Parnaíba | 120 | (90, 151) | 12,7 | boa | 8,1 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 90 | (68, 112) | 12,3 | boa | 12,4 |  |
 
-Esta subseção reúne, em um único quadro, o resultado dos testes aplicados ao
-longo da seção. A pergunta que ela responde é: para cada indicador, quais
-recortes territoriais produzem diferenças que não se explicam por acaso
-amostral?
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Tabela 26** — Testes de diferença entre categorias, por indicador e recorte
-geográfico — 2º trimestre de 2026
+**Tabela D.13** — Taxa de informalidade (%), por recorte geográfico — 2º trimestre de 2026
 
-| Indicador | Zona | Estrato administrativo | Estrato agregado | Estrato (7 díg.) | Teresina × resto |
-|---|:---:|:---:|:---:|:---:|:---:|
-| Taxa de desocupação | \* | \*\*\* | \*\* | — | ns |
-| Responsáveis desocupados | ns | ns | \* | — | \* |
-| Responsáveis ou cônjuges desocupados | ns | \*\* | ns | — | \*\*\* |
-| Rendimento médio habitual | \*\*\* | \*\*\* | \*\*\* | \*\*\* | \*\*\* |
-| Sub-remuneração | \*\*\* | \*\*\* | \*\*\* | ns | \*\*\* |
-| Taxa de informalidade | \*\*\* | \*\*\* | \*\*\* | ns | \*\*\* |
-| Sub-ocupação | \*\*\* | \*\*\* | \*\*\* | ns | \*\*\* |
-| Ocupados com médio completo ou mais | \*\*\* | \*\*\* | \*\*\* | \* | \*\*\* |
-| Desalentados (força ampliada) | \*\*\* | \*\*\* | \*\*\* | ns | \*\*\* |
-| Desalentados (fora da força) | \*\*\* | \*\*\* | \*\*\* | ns | \*\*\* |
-| Jovens nem-nem | \*\*\* | \*\*\* | \*\* | ns | \*\*\* |
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 37,4 | (37,1, 37,8) | 0,5 | excelente | — |  |
+| Agregados | Nordeste | 48,7 | (48,1, 49,4) | 0,7 | excelente | — |  |
+| Agregados | Piauí | 49,5 | (47,4, 51,6) | 2,2 | excelente | 2,6 |  |
+| Agregados | Teresina | 35,7 | (32,3, 39,2) | 4,9 | excelente | 5,5 |  |
+| Zona | Urbana | 44,0 | (41,5, 46,5) | 2,9 | excelente | 3,6 |  |
+| Zona | Rural | 68,1 | (64,1, 72,2) | 3,0 | excelente | 2,8 |  |
+| Administrativo | Capital | 35,7 | (32,3, 39,2) | 4,9 | excelente | 5,5 |  |
+| Administrativo | Resto da RIDE | 55,9 | (48,0, 63,7) | 7,2 | boa | 7,6 |  |
+| Administrativo | Resto da UF | 56,1 | (53,5, 58,7) | 2,4 | excelente | 3,2 |  |
+| Estrato agregado | Teresina | 35,7 | (32,3, 39,2) | 4,9 | excelente | 5,5 |  |
+| Estrato agregado | Entorno metropolitano | 55,9 | (48,0, 63,7) | 7,2 | boa | 7,6 |  |
+| Estrato agregado | Centro-Leste | 56,9 | (52,0, 61,7) | 4,4 | excelente | 4,3 |  |
+| Estrato agregado | Baixo Parnaíba | 60,8 | (56,4, 65,1) | 3,6 | excelente | 5,0 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 48,0 | (42,4, 53,7) | 6,0 | boa | 8,2 |  |
 
-Legenda: \*\*\* p < 0,001; \*\* p < 0,01; \* p < 0,05; ns = não significativo;
-— = o teste não se sustenta nessa resolução (ver adiante). Os símbolos
-referem-se ao **p-valor ajustado** para multiplicidade; a tabela completa, com
-os p-valores brutos ao lado, está no anexo metodológico.
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-Duas leituras saltam da tabela. A primeira: **quase tudo difere entre territórios**. Nas quatro colunas em que
-o teste se sustenta, a esmagadora maioria das células traz três asteriscos. O
-Piauí não é homogêneo em praticamente nenhuma das dimensões medidas — e a
-coluna "Teresina × resto" mostra que a capital se destaca do estado em dez dos
-onze indicadores.
+**Tabela D.14** — Subocupação por insuficiência de horas (%), por recorte geográfico — 2º trimestre de 2026
 
-A segunda é mais sutil e diz respeito ao **tipo** de indicador. Os três
-primeiros — desocupação e suas variantes por posição no domicílio — são os
-únicos que oscilam entre significativo e não significativo conforme o recorte.
-Todos os demais, ligados a **renda, informalidade e escolaridade**, são
-significativos em todos os cortes territoriais disponíveis. A diferença é
-substantiva: estar desempregado é uma condição relativamente distribuída pelo
-estado, enquanto *quanto se ganha e sob que vínculo* depende fortemente de onde
-se mora.
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 4,0 | (3,8, 4,1) | 1,7 | excelente | — |  |
+| Agregados | Nordeste | 7,3 | (7,0, 7,7) | 2,4 | excelente | — |  |
+| Agregados | Piauí | 11,2 | (9,8, 12,5) | 6,1 | boa | 6,1 |  |
+| Agregados | Teresina | 1,3 | (0,7, 1,9) | 22,3 | regular | 18,4 | – |
+| Zona | Urbana | 8,7 | (7,3, 10,2) | 8,3 | boa | 8,6 |  |
+| Zona | Rural | 19,4 | (16,0, 22,7) | 8,8 | boa | 8,1 |  |
+| Administrativo | Capital | 1,3 | (0,7, 1,9) | 22,3 | regular | 18,4 | – |
+| Administrativo | Resto da RIDE | 6,4 | (2,7, 10,1) | 29,1 | regular | 28,1 | † |
+| Administrativo | Resto da UF | 16,8 | (14,6, 19,0) | 6,6 | boa | 6,8 |  |
+| Estrato agregado | Teresina | 1,3 | (0,7, 1,9) | 22,3 | regular | 18,4 | – |
+| Estrato agregado | Entorno metropolitano | 6,4 | (2,7, 10,1) | 29,1 | regular | 28,1 | † |
+| Estrato agregado | Centro-Leste | 21,3 | (17,8, 24,9) | 8,6 | boa | 9,5 |  |
+| Estrato agregado | Baixo Parnaíba | 13,8 | (9,7, 17,9) | 15,1 | regular | 12,1 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 15,3 | (11,5, 19,1) | 12,7 | boa | 15,5 | † |
 
-Em relação a coluna do estrato de 7 dígitos.** Três indicadores trazem "—". Não
-são resultados omitidos por conveniência: nesse recorte, com 26 categorias e
-estratos de até 3 UPAs, a matriz de covariância replicada perde posto e o
-p-valor que sairia dali seria enviesado para encontrar diferença (seção 6.5 do
-anexo). No caso da taxa de desocupação o posto cai para 1 de 26 — o teste
-simplesmente não existe. A leitura desses três indicadores no nível mais fino
-deve se apoiar nos intervalos de confiança das tabelas anteriores, não em
-teste de hipótese. Onde o teste se sustenta no recorte fino, ele é conservador:
-apenas rendimento médio e escolaridade dos ocupados discriminam entre os 26
-estratos.
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Figura 17** — p-valores dos testes de diferença entre categorias, por
-indicador e recorte regional — 2º trimestre de 2026
+**Tabela D.15** — Sub-remuneração (rendimento-hora abaixo do mínimo) (%), por recorte geográfico — 2º trimestre de 2026
 
-![](./output/figuras/anova_regional_2026T2.png)
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 18,7 | (18,5, 19,0) | 0,7 | excelente | — |  |
+| Agregados | Nordeste | 35,7 | (35,1, 36,3) | 0,9 | excelente | — |  |
+| Agregados | Piauí | 38,2 | (35,8, 40,5) | 3,1 | excelente | 3,9 |  |
+| Agregados | Teresina | 25,7 | (22,2, 29,3) | 7,0 | boa | 9,0 |  |
+| Zona | Urbana | 32,9 | (30,1, 35,7) | 4,3 | excelente | 5,5 |  |
+| Zona | Rural | 56,5 | (52,1, 61,0) | 4,0 | excelente | 3,9 |  |
+| Administrativo | Capital | 25,7 | (22,2, 29,3) | 7,0 | boa | 9,0 |  |
+| Administrativo | Resto da RIDE | 41,0 | (34,5, 47,6) | 8,1 | boa | 11,3 |  |
+| Administrativo | Resto da UF | 44,6 | (41,4, 47,8) | 3,7 | excelente | 4,7 |  |
+| Estrato agregado | Teresina | 25,7 | (22,2, 29,3) | 7,0 | boa | 9,0 |  |
+| Estrato agregado | Entorno metropolitano | 41,0 | (34,5, 47,6) | 8,1 | boa | 11,3 |  |
+| Estrato agregado | Centro-Leste | 42,9 | (37,8, 47,9) | 6,0 | boa | 6,0 |  |
+| Estrato agregado | Baixo Parnaíba | 53,0 | (47,8, 58,3) | 5,1 | boa | 7,6 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 34,4 | (28,8, 39,9) | 8,3 | boa | 11,1 |  |
 
-Fonte: `output/tabelas/anova_regional_2026T2.csv`. Elaboração própria.
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
+**Tabela D.16** — Ocupados com ensino médio completo ou mais (%), por recorte geográfico — 2º trimestre de 2026
 
-> **A REDIGIR** — dizer quantos testes regionais foram realizados, quantos deram significativos pelo p-valor bruto e quantos sobreviveram ao ajuste (os três números saem no console ao rodar o pipeline), e indicar quais recortes discriminam mais e quais indicadores são mais homogêneos no território.
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 73,3 | (72,9, 73,6) | 0,2 | excelente | — |  |
+| Agregados | Nordeste | 69,4 | (68,7, 70,1) | 0,5 | excelente | — |  |
+| Agregados | Piauí | 67,0 | (65,0, 69,0) | 1,5 | excelente | 2,5 |  |
+| Agregados | Teresina | 84,1 | (81,5, 86,7) | 1,6 | excelente | 2,9 |  |
+| Zona | Urbana | 74,6 | (72,4, 76,8) | 1,5 | excelente | 2,8 |  |
+| Zona | Rural | 41,2 | (37,4, 45,1) | 4,8 | excelente | 5,9 |  |
+| Administrativo | Capital | 84,1 | (81,5, 86,7) | 1,6 | excelente | 2,9 |  |
+| Administrativo | Resto da RIDE | 72,0 | (67,1, 76,9) | 3,4 | excelente | 6,1 |  |
+| Administrativo | Resto da UF | 57,5 | (54,6, 60,4) | 2,6 | excelente | 3,8 |  |
+| Estrato agregado | Teresina | 84,1 | (81,5, 86,7) | 1,6 | excelente | 2,9 |  |
+| Estrato agregado | Entorno metropolitano | 72,0 | (67,1, 76,9) | 3,4 | excelente | 6,1 |  |
+| Estrato agregado | Centro-Leste | 58,7 | (54,1, 63,3) | 4,0 | excelente | 5,1 |  |
+| Estrato agregado | Baixo Parnaíba | 54,2 | (48,9, 59,4) | 4,9 | excelente | 7,0 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 60,9 | (55,9, 65,9) | 4,2 | excelente | 7,2 |  |
 
-Duas observações que a leitura desta tabela exige. A significância estatística não é relevância prática.** Uma diferença pode ser estatisticamente sólida e pequena demais para orientar política pública; e um
-recorte com poucas observações pode não atingir significância diante de uma
-diferença real e grande, por falta de amostra.
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-## 4 Considerações finais
+**Tabela D.17** — Empregados no setor privado (mil pessoas), por recorte geográfico — 2º trimestre de 2026
 
-> **A REDIGIR** — síntese geral em três a cinco parágrafos, retomando (i) o quadro do Piauí frente a Brasil e Nordeste; (ii) o eixo capital-interior; (iii) o eixo urbano-rural; (iv) as dimensões em que o estado é mais homogêneo; (v) o que mudou em relação ao trimestre anterior.
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 52.987 | (52.593, 53.381) | 0,4 | excelente | — |  |
+| Agregados | Nordeste | 10.571 | (10.390, 10.751) | 0,9 | excelente | — |  |
+| Agregados | Piauí | 541 | (511, 570) | 2,7 | excelente | 3,3 |  |
+| Agregados | Teresina | 203 | (186, 221) | 4,4 | excelente | 5,0 |  |
+| Zona | Urbana | 423 | (394, 453) | 3,5 | excelente | 4,3 |  |
+| Zona | Rural | 117 | (103, 131) | 6,2 | boa | 7,5 |  |
+| Administrativo | Capital | 203 | (186, 221) | 4,4 | excelente | 5,0 |  |
+| Administrativo | Resto da RIDE | 33 | (29, 37) | 5,7 | boa | 9,8 |  |
+| Administrativo | Resto da UF | 304 | (282, 326) | 3,7 | excelente | 4,6 |  |
+| Estrato agregado | Teresina | 203 | (186, 221) | 4,4 | excelente | 5,0 |  |
+| Estrato agregado | Entorno metropolitano | 33 | (29, 37) | 5,7 | boa | 9,8 |  |
+| Estrato agregado | Centro-Leste | 108 | (92, 123) | 7,4 | boa | 9,1 |  |
+| Estrato agregado | Baixo Parnaíba | 126 | (109, 143) | 6,8 | boa | 9,3 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 71 | (54, 87) | 12,0 | boa | 15,7 | † |
 
-> **A REDIGIR** — ressalvas de encerramento — repetir que as estatísticas por estrato são experimentais e que estimativas com CV acima de 15% não sustentam conclusão.
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.18** — Empregados no setor público (mil pessoas), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 13.018 | (12.794, 13.242) | 0,9 | excelente | — |  |
+| Agregados | Nordeste | 3.829 | (3.718, 3.941) | 1,5 | excelente | — |  |
+| Agregados | Piauí | 273 | (244, 301) | 5,3 | boa | 6,6 |  |
+| Agregados | Teresina | 73 | (59, 86) | 9,4 | boa | 12,3 |  |
+| Zona | Urbana | 221 | (195, 247) | 6,0 | boa | 7,4 |  |
+| Zona | Rural | 52 | (40, 64) | 12,1 | boa | 11,9 |  |
+| Administrativo | Capital | 73 | (59, 86) | 9,4 | boa | 12,3 |  |
+| Administrativo | Resto da RIDE | 13 | (9, 17) | 16,5 | regular | 18,3 | † |
+| Administrativo | Resto da UF | 187 | (165, 209) | 6,0 | boa | 8,1 |  |
+| Estrato agregado | Teresina | 73 | (59, 86) | 9,4 | boa | 12,3 |  |
+| Estrato agregado | Entorno metropolitano | 13 | (9, 17) | 16,5 | regular | 18,3 | † |
+| Estrato agregado | Centro-Leste | 69 | (55, 82) | 9,9 | boa | 11,0 |  |
+| Estrato agregado | Baixo Parnaíba | 62 | (50, 74) | 9,9 | boa | 15,3 | † |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 57 | (43, 71) | 12,6 | boa | 18,9 | † |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.19** — Ocupados na agropecuária (mil pessoas), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 7.918 | (7.704, 8.132) | 1,4 | excelente | — |  |
+| Agregados | Nordeste | 2.512 | (2.406, 2.618) | 2,2 | excelente | — |  |
+| Agregados | Piauí | 143 | (126, 161) | 6,2 | boa | 8,0 |  |
+| Agregados | Teresina | 2 | (0, 4) | 44,1 | baixa | 48,6 | – |
+| Zona | Urbana | 44 | (34, 53) | 11,1 | boa | 17,9 | † |
+| Zona | Rural | 100 | (84, 115) | 7,9 | boa | 9,0 |  |
+| Administrativo | Capital | 2 | (0, 4) | 44,1 | baixa | 48,6 | – |
+| Administrativo | Resto da RIDE | 8 | (6, 11) | 15,1 | regular | 23,3 | † |
+| Administrativo | Resto da UF | 133 | (116, 150) | 6,6 | boa | 8,5 |  |
+| Estrato agregado | Teresina | 2 | (0, 4) | 44,1 | baixa | 48,6 | – |
+| Estrato agregado | Entorno metropolitano | 8 | (6, 11) | 15,1 | regular | 23,3 | † |
+| Estrato agregado | Centro-Leste | 46 | (37, 56) | 10,8 | boa | 14,4 |  |
+| Estrato agregado | Baixo Parnaíba | 46 | (33, 59) | 14,7 | boa | 14,9 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 41 | (31, 50) | 12,2 | boa | 15,6 | † |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.20** — Rendimento médio real habitual (R\$), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | R\$ 3.738 | (R\$ 3.679, R\$ 3.798) | 0,8 | excelente | — |  |
+| Agregados | Nordeste | R\$ 2.645 | (R\$ 2.564, R\$ 2.725) | 1,6 | excelente | — |  |
+| Agregados | Piauí | R\$ 2.547 | (R\$ 2.356, R\$ 2.738) | 3,8 | excelente | 10,1 |  |
+| Agregados | Teresina | R\$ 3.690 | (R\$ 3.207, R\$ 4.173) | 6,7 | boa | 17,2 | † |
+| Zona | Urbana | R\$ 2.902 | (R\$ 2.658, R\$ 3.146) | 4,3 | excelente | 11,0 |  |
+| Zona | Rural | R\$ 1.310 | (R\$ 1.194, R\$ 1.425) | 4,5 | excelente | 4,5 |  |
+| Administrativo | Capital | R\$ 3.690 | (R\$ 3.207, R\$ 4.173) | 6,7 | boa | 17,2 | † |
+| Administrativo | Resto da RIDE | R\$ 1.900 | (R\$ 1.645, R\$ 2.156) | 6,9 | boa | 7,3 |  |
+| Administrativo | Resto da UF | R\$ 1.992 | (R\$ 1.817, R\$ 2.167) | 4,5 | excelente | 10,7 |  |
+| Estrato agregado | Teresina | R\$ 3.690 | (R\$ 3.207, R\$ 4.173) | 6,7 | boa | 17,2 | † |
+| Estrato agregado | Entorno metropolitano | R\$ 1.900 | (R\$ 1.645, R\$ 2.156) | 6,9 | boa | 7,3 |  |
+| Estrato agregado | Centro-Leste | R\$ 1.991 | (R\$ 1.569, R\$ 2.412) | 10,8 | boa | 7,5 |  |
+| Estrato agregado | Baixo Parnaíba | R\$ 1.678 | (R\$ 1.505, R\$ 1.850) | 5,3 | boa | 21,4 | † |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | R\$ 2.463 | (R\$ 2.152, R\$ 2.774) | 6,4 | boa | 9,6 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.21** — Rendimento médio dos formais (R\$), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | R\$ 4.513 | (R\$ 4.435, R\$ 4.590) | 0,9 | excelente | — |  |
+| Agregados | Nordeste | R\$ 3.650 | (R\$ 3.523, R\$ 3.777) | 1,8 | excelente | — |  |
+| Agregados | Piauí | R\$ 3.675 | (R\$ 3.377, R\$ 3.972) | 4,1 | excelente | 11,5 |  |
+| Agregados | Teresina | R\$ 4.548 | (R\$ 3.920, R\$ 5.176) | 7,0 | boa | 18,2 | † |
+| Zona | Urbana | R\$ 3.917 | (R\$ 3.578, R\$ 4.257) | 4,4 | excelente | 12,2 |  |
+| Zona | Rural | R\$ 2.226 | (R\$ 1.991, R\$ 2.461) | 5,4 | boa | 5,3 |  |
+| Administrativo | Capital | R\$ 4.548 | (R\$ 3.920, R\$ 5.176) | 7,0 | boa | 18,2 | † |
+| Administrativo | Resto da RIDE | R\$ 2.675 | (R\$ 2.106, R\$ 3.244) | 10,9 | boa | 9,7 |  |
+| Administrativo | Resto da UF | R\$ 3.097 | (R\$ 2.812, R\$ 3.382) | 4,7 | excelente | 11,9 |  |
+| Estrato agregado | Teresina | R\$ 4.548 | (R\$ 3.920, R\$ 5.176) | 7,0 | boa | 18,2 | † |
+| Estrato agregado | Entorno metropolitano | R\$ 2.675 | (R\$ 2.106, R\$ 3.244) | 10,9 | boa | 9,7 |  |
+| Estrato agregado | Centro-Leste | R\$ 3.050 | (R\$ 2.336, R\$ 3.763) | 11,9 | boa | 8,2 |  |
+| Estrato agregado | Baixo Parnaíba | R\$ 2.781 | (R\$ 2.502, R\$ 3.060) | 5,1 | boa | 23,6 | † |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | R\$ 3.509 | (R\$ 3.095, R\$ 3.924) | 6,0 | boa | 9,9 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.22** — Rendimento médio dos informais (R\$), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | R\$ 2.399 | (R\$ 2.355, R\$ 2.443) | 0,9 | excelente | — |  |
+| Agregados | Nordeste | R\$ 1.549 | (R\$ 1.507, R\$ 1.591) | 1,4 | excelente | — |  |
+| Agregados | Piauí | R\$ 1.353 | (R\$ 1.263, R\$ 1.443) | 3,4 | excelente | 8,0 |  |
+| Agregados | Teresina | R\$ 2.142 | (R\$ 1.866, R\$ 2.419) | 6,6 | boa | 15,4 | † |
+| Zona | Urbana | R\$ 1.573 | (R\$ 1.451, R\$ 1.695) | 4,0 | excelente | 9,7 |  |
+| Zona | Rural | R\$ 855 | (R\$ 787, R\$ 923) | 4,1 | excelente | 4,9 |  |
+| Administrativo | Capital | R\$ 2.142 | (R\$ 1.866, R\$ 2.419) | 6,6 | boa | 15,4 | † |
+| Administrativo | Resto da RIDE | R\$ 1.276 | (R\$ 1.090, R\$ 1.462) | 7,4 | boa | 8,1 |  |
+| Administrativo | Resto da UF | R\$ 1.083 | (R\$ 1.010, R\$ 1.156) | 3,4 | excelente | 5,7 |  |
+| Estrato agregado | Teresina | R\$ 2.142 | (R\$ 1.866, R\$ 2.419) | 6,6 | boa | 15,4 | † |
+| Estrato agregado | Entorno metropolitano | R\$ 1.276 | (R\$ 1.090, R\$ 1.462) | 7,4 | boa | 8,1 |  |
+| Estrato agregado | Centro-Leste | R\$ 1.142 | (R\$ 1.005, R\$ 1.279) | 6,1 | boa | 8,9 |  |
+| Estrato agregado | Baixo Parnaíba | R\$ 932 | (R\$ 850, R\$ 1.015) | 4,5 | excelente | 9,6 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | R\$ 1.277 | (R\$ 1.095, R\$ 1.459) | 7,3 | boa | 10,4 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.23** — Razão entre rendimento formal e informal, por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 1,88 | (1,85, 1,92) | 0,9 | excelente | — |  |
+| Agregados | Nordeste | 2,36 | (2,27, 2,44) | 1,8 | excelente | — |  |
+| Agregados | Piauí | 2,72 | (2,51, 2,92) | 3,8 | excelente | 9,5 |  |
+| Agregados | Teresina | 2,12 | (1,87, 2,38) | 6,2 | boa | 13,4 |  |
+| Zona | Urbana | 2,49 | (2,29, 2,69) | 4,0 | excelente | 10,1 |  |
+| Zona | Rural | 2,60 | (2,28, 2,92) | 6,3 | boa | 7,1 |  |
+| Administrativo | Capital | 2,12 | (1,87, 2,38) | 6,2 | boa | 13,4 |  |
+| Administrativo | Resto da RIDE | 2,10 | (1,54, 2,66) | 13,6 | boa | 12,1 |  |
+| Administrativo | Resto da UF | 2,86 | (2,59, 3,13) | 4,8 | excelente | 11,2 |  |
+| Estrato agregado | Teresina | 2,12 | (1,87, 2,38) | 6,2 | boa | 13,4 |  |
+| Estrato agregado | Entorno metropolitano | 2,10 | (1,54, 2,66) | 13,6 | boa | 12,1 |  |
+| Estrato agregado | Centro-Leste | 2,67 | (2,14, 3,20) | 10,1 | boa | 11,0 |  |
+| Estrato agregado | Baixo Parnaíba | 2,98 | (2,63, 3,33) | 6,0 | boa | 21,1 | † |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 2,75 | (2,31, 3,18) | 8,1 | boa | 13,6 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.24** — Índice de Gini do rendimento do trabalho, por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 0,484 | (0,478, 0,489) | 0,6 | excelente | — |  |
+| Agregados | Nordeste | 0,499 | (0,488, 0,510) | 1,1 | excelente | — |  |
+| Agregados | Piauí | 0,507 | (0,484, 0,531) | 2,4 | excelente | 5,5 |  |
+| Agregados | Teresina | 0,495 | (0,458, 0,532) | 3,9 | excelente | 8,3 |  |
+| Zona | Urbana | 0,495 | (0,470, 0,520) | 2,6 | excelente | 5,9 |  |
+| Zona | Rural | 0,461 | (0,435, 0,487) | 2,9 | excelente | 3,7 |  |
+| Administrativo | Capital | 0,495 | (0,458, 0,532) | 3,9 | excelente | 8,3 |  |
+| Administrativo | Resto da RIDE | 0,395 | (0,325, 0,465) | 9,0 | boa | 7,6 |  |
+| Administrativo | Resto da UF | 0,492 | (0,467, 0,517) | 2,6 | excelente | 5,8 |  |
+| Estrato agregado | Teresina | 0,495 | (0,458, 0,532) | 3,9 | excelente | 8,3 |  |
+| Estrato agregado | Entorno metropolitano | 0,395 | (0,325, 0,465) | 9,0 | boa | 7,6 |  |
+| Estrato agregado | Centro-Leste | 0,514 | (0,458, 0,570) | 5,6 | boa | 4,5 |  |
+| Estrato agregado | Baixo Parnaíba | 0,470 | (0,441, 0,499) | 3,2 | excelente | 9,4 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 0,477 | (0,442, 0,512) | 3,7 | excelente | 6,1 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.25** — Desalentados na força de trabalho ampliada (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 2,1 | (2,0, 2,1) | 2,2 | excelente | — |  |
+| Agregados | Nordeste | 5,3 | (5,0, 5,6) | 2,7 | excelente | — |  |
+| Agregados | Piauí | 7,0 | (5,7, 8,3) | 9,4 | boa | 8,1 |  |
+| Agregados | Teresina | 0,7 | (0,3, 1,0) | 26,5 | regular | 29,9 | † |
+| Zona | Urbana | 3,7 | (2,4, 4,9) | 17,9 | regular | 13,4 |  |
+| Zona | Rural | 16,6 | (13,0, 20,1) | 10,9 | boa | 8,4 |  |
+| Administrativo | Capital | 0,7 | (0,3, 1,0) | 26,5 | regular | 29,9 | † |
+| Administrativo | Resto da RIDE | 3,3 | (1,2, 5,4) | 32,1 | baixa | 26,5 | † |
+| Administrativo | Resto da UF | 10,4 | (8,4, 12,4) | 9,8 | boa | 9,2 |  |
+| Estrato agregado | Teresina | 0,7 | (0,3, 1,0) | 26,5 | regular | 29,9 | † |
+| Estrato agregado | Entorno metropolitano | 3,3 | (1,2, 5,4) | 32,1 | baixa | 26,5 | † |
+| Estrato agregado | Centro-Leste | 13,5 | (10,0, 16,9) | 13,1 | boa | 12,0 |  |
+| Estrato agregado | Baixo Parnaíba | 7,8 | (4,7, 10,9) | 20,4 | regular | 17,5 | † |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 9,8 | (5,0, 14,7) | 25,0 | regular | 18,4 | † |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.26** — Desalentados na força de trabalho potencial (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 48,4 | (46,9, 50,0) | 1,6 | excelente | — |  |
+| Agregados | Nordeste | 62,8 | (60,9, 64,7) | 1,5 | excelente | — |  |
+| Agregados | Piauí | 68,4 | (63,2, 73,6) | 3,9 | excelente | 4,3 |  |
+| Agregados | Teresina | 58,4 | (34,5, 82,3) | 20,9 | regular | 22,6 | † |
+| Zona | Urbana | 60,8 | (50,8, 70,8) | 8,4 | boa | 8,3 |  |
+| Zona | Rural | 74,2 | (68,0, 80,3) | 4,2 | excelente | 4,3 |  |
+| Administrativo | Capital | 58,4 | (34,5, 82,3) | 20,9 | regular | 22,6 | † |
+| Administrativo | Resto da RIDE | 69,5 | (40,8, 98,2) | 21,1 | regular | 17,9 | † |
+| Administrativo | Resto da UF | 68,7 | (63,4, 74,0) | 3,9 | excelente | 4,5 |  |
+| Estrato agregado | Teresina | 58,4 | (34,5, 82,3) | 20,9 | regular | 22,6 | † |
+| Estrato agregado | Entorno metropolitano | 69,5 | (40,8, 98,2) | 21,1 | regular | 17,9 | † |
+| Estrato agregado | Centro-Leste | 76,0 | (68,9, 83,1) | 4,8 | excelente | 6,2 |  |
+| Estrato agregado | Baixo Parnaíba | 55,1 | (44,2, 66,0) | 10,1 | boa | 9,1 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 76,4 | (63,2, 89,6) | 8,8 | boa | 10,9 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.27** — Jovens de 14 a 29 anos que não estudam nem trabalham (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 17,9 | (17,6, 18,2) | 0,9 | excelente | — |  |
+| Agregados | Nordeste | 24,5 | (23,9, 25,1) | 1,3 | excelente | — |  |
+| Agregados | Piauí | 24,3 | (22,3, 26,2) | 4,1 | excelente | 4,8 |  |
+| Agregados | Teresina | 17,7 | (14,5, 20,9) | 9,2 | boa | 10,4 |  |
+| Zona | Urbana | 20,6 | (18,4, 22,9) | 5,6 | boa | 6,5 |  |
+| Zona | Rural | 33,4 | (29,7, 37,1) | 5,7 | boa | 5,9 |  |
+| Administrativo | Capital | 17,7 | (14,5, 20,9) | 9,2 | boa | 10,4 |  |
+| Administrativo | Resto da RIDE | 31,5 | (26,1, 37,0) | 8,8 | boa | 13,4 |  |
+| Administrativo | Resto da UF | 26,2 | (23,7, 28,7) | 4,9 | excelente | 5,7 |  |
+| Estrato agregado | Teresina | 17,7 | (14,5, 20,9) | 9,2 | boa | 10,4 |  |
+| Estrato agregado | Entorno metropolitano | 31,5 | (26,1, 37,0) | 8,8 | boa | 13,4 |  |
+| Estrato agregado | Centro-Leste | 25,6 | (22,2, 29,0) | 6,7 | boa | 8,1 |  |
+| Estrato agregado | Baixo Parnaíba | 24,5 | (20,9, 28,0) | 7,3 | boa | 10,1 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 30,2 | (23,1, 37,3) | 12,0 | boa | 12,7 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.28** — Sexo: Masculino (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 48,2 | (48,2, 48,2) | 0,0 | excelente | — |  |
+| Agregados | Nordeste | 47,5 | (47,3, 47,7) | 0,3 | excelente | — |  |
+| Agregados | Piauí | 47,8 | (47,1, 48,5) | 0,8 | excelente | 1,0 |  |
+| Agregados | Teresina | 45,4 | (44,2, 46,5) | 1,3 | excelente | 2,0 |  |
+| Zona | Urbana | 46,4 | (45,5, 47,3) | 1,0 | excelente | 1,3 |  |
+| Zona | Rural | 51,0 | (49,8, 52,2) | 1,2 | excelente | 1,2 |  |
+| Administrativo | Capital | 45,4 | (44,2, 46,5) | 1,3 | excelente | 2,0 |  |
+| Administrativo | Resto da RIDE | 49,0 | (46,2, 51,9) | 3,0 | excelente | 2,8 |  |
+| Administrativo | Resto da UF | 48,7 | (47,7, 49,6) | 1,0 | excelente | 1,2 |  |
+| Estrato agregado | Teresina | 45,4 | (44,2, 46,5) | 1,3 | excelente | 2,0 |  |
+| Estrato agregado | Entorno metropolitano | 49,0 | (46,2, 51,9) | 3,0 | excelente | 2,8 |  |
+| Estrato agregado | Centro-Leste | 48,7 | (47,4, 50,1) | 1,4 | excelente | 1,9 |  |
+| Estrato agregado | Baixo Parnaíba | 47,3 | (45,8, 48,9) | 1,6 | excelente | 2,0 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 50,7 | (48,5, 52,9) | 2,2 | excelente | 2,2 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.29** — Sexo: Feminino (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 51,8 | (51,8, 51,8) | 0,0 | excelente | — |  |
+| Agregados | Nordeste | 52,5 | (52,3, 52,7) | 0,2 | excelente | — |  |
+| Agregados | Piauí | 52,2 | (51,5, 52,9) | 0,7 | excelente | 0,9 |  |
+| Agregados | Teresina | 54,6 | (53,5, 55,8) | 1,1 | excelente | 1,6 |  |
+| Zona | Urbana | 53,6 | (52,7, 54,5) | 0,8 | excelente | 1,2 |  |
+| Zona | Rural | 49,0 | (47,8, 50,2) | 1,2 | excelente | 1,3 |  |
+| Administrativo | Capital | 54,6 | (53,5, 55,8) | 1,1 | excelente | 1,6 |  |
+| Administrativo | Resto da RIDE | 51,0 | (48,1, 53,8) | 2,9 | excelente | 2,9 |  |
+| Administrativo | Resto da UF | 51,3 | (50,4, 52,3) | 0,9 | excelente | 1,2 |  |
+| Estrato agregado | Teresina | 54,6 | (53,5, 55,8) | 1,1 | excelente | 1,6 |  |
+| Estrato agregado | Entorno metropolitano | 51,0 | (48,1, 53,8) | 2,9 | excelente | 2,9 |  |
+| Estrato agregado | Centro-Leste | 51,3 | (49,9, 52,6) | 1,4 | excelente | 1,9 |  |
+| Estrato agregado | Baixo Parnaíba | 52,7 | (51,1, 54,2) | 1,5 | excelente | 1,9 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 49,3 | (47,1, 51,5) | 2,2 | excelente | 2,2 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.30** — Cor ou raça: Branca (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 42,4 | (42,0, 42,8) | 0,4 | excelente | — |  |
+| Agregados | Nordeste | 24,6 | (24,1, 25,1) | 1,0 | excelente | — |  |
+| Agregados | Piauí | 19,4 | (18,1, 20,8) | 3,5 | excelente | 5,1 |  |
+| Agregados | Teresina | 21,9 | (19,3, 24,4) | 5,9 | boa | 9,4 |  |
+| Zona | Urbana | 21,4 | (19,5, 23,2) | 4,4 | excelente | 5,9 |  |
+| Zona | Rural | 15,1 | (13,0, 17,1) | 7,0 | boa | 9,8 |  |
+| Administrativo | Capital | 21,9 | (19,3, 24,4) | 5,9 | boa | 9,4 |  |
+| Administrativo | Resto da RIDE | 10,3 | (7,2, 13,5) | 15,3 | regular | 14,7 |  |
+| Administrativo | Resto da UF | 19,3 | (17,6, 21,0) | 4,5 | excelente | 6,5 |  |
+| Estrato agregado | Teresina | 21,9 | (19,3, 24,4) | 5,9 | boa | 9,4 |  |
+| Estrato agregado | Entorno metropolitano | 10,3 | (7,2, 13,5) | 15,3 | regular | 14,7 |  |
+| Estrato agregado | Centro-Leste | 22,6 | (19,5, 25,7) | 6,9 | boa | 9,4 |  |
+| Estrato agregado | Baixo Parnaíba | 19,9 | (16,9, 22,9) | 7,6 | boa | 11,2 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 13,9 | (10,9, 16,8) | 10,7 | boa | 13,2 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.31** — Cor ou raça: Preta (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 11,0 | (10,8, 11,2) | 0,9 | excelente | — |  |
+| Agregados | Nordeste | 14,1 | (13,7, 14,5) | 1,5 | excelente | — |  |
+| Agregados | Piauí | 13,7 | (12,5, 14,8) | 4,3 | excelente | 5,8 |  |
+| Agregados | Teresina | 13,9 | (12,1, 15,7) | 6,7 | boa | 8,6 |  |
+| Zona | Urbana | 13,1 | (11,9, 14,3) | 4,5 | excelente | 7,1 |  |
+| Zona | Rural | 14,9 | (12,2, 17,7) | 9,3 | boa | 10,7 |  |
+| Administrativo | Capital | 13,9 | (12,1, 15,7) | 6,7 | boa | 8,6 |  |
+| Administrativo | Resto da RIDE | 10,1 | (7,1, 13,1) | 15,0 | boa | 16,7 | † |
+| Administrativo | Resto da UF | 13,9 | (12,3, 15,5) | 5,9 | boa | 8,6 |  |
+| Estrato agregado | Teresina | 13,9 | (12,1, 15,7) | 6,7 | boa | 8,6 |  |
+| Estrato agregado | Entorno metropolitano | 10,1 | (7,1, 13,1) | 15,0 | boa | 16,7 | † |
+| Estrato agregado | Centro-Leste | 15,9 | (12,9, 19,0) | 9,7 | boa | 12,8 |  |
+| Estrato agregado | Baixo Parnaíba | 9,7 | (7,6, 11,8) | 11,2 | boa | 16,8 | † |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 17,6 | (14,4, 20,8) | 9,3 | boa | 16,6 | † |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.32** — Cor ou raça: Amarela (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 0,6 | (0,5, 0,7) | 5,9 | boa | — |  |
+| Agregados | Nordeste | 0,3 | (0,3, 0,3) | 7,2 | boa | — |  |
+| Agregados | Piauí | 0,0 | (0,0, 0,1) | 46,8 | baixa | 58,3 | – |
+| Agregados | Teresina | 0,1 | (0,0, 0,1) | 70,5 | baixa | 104,1 | – |
+| Zona | Urbana | 0,0 | (0,0, 0,1) | 59,8 | baixa | 70,5 | – |
+| Zona | Rural | 0,0 | (0,0, 0,1) | 69,3 | baixa | 80,5 | – |
+| Administrativo | Capital | 0,1 | (0,0, 0,1) | 70,5 | baixa | 104,1 | – |
+| Administrativo | Resto da RIDE | 0,1 | (0,0, 0,2) | 92,5 | baixa | 99,7 | – |
+| Administrativo | Resto da UF | 0,0 | (0,0, 0,0) | 73,7 | baixa | 73,7 | – |
+| Estrato agregado | Teresina | 0,1 | (0,0, 0,1) | 70,5 | baixa | 104,1 | – |
+| Estrato agregado | Entorno metropolitano | 0,1 | (0,0, 0,2) | 92,5 | baixa | 99,7 | – |
+| Estrato agregado | Centro-Leste | 0,0 | (0,0, 0,1) | 105,3 | baixa | 99,5 | – |
+| Estrato agregado | Baixo Parnaíba | 0,0 | (0,0, 0,0) | — | — | 100,3 | – |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 0,0 | (0,0, 0,1) | 101,5 | baixa | 105,0 | – |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.33** — Cor ou raça: Parda (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 45,6 | (45,3, 46,0) | 0,4 | excelente | — |  |
+| Agregados | Nordeste | 60,5 | (60,0, 61,0) | 0,4 | excelente | — |  |
+| Agregados | Piauí | 66,7 | (65,2, 68,2) | 1,1 | excelente | 1,5 |  |
+| Agregados | Teresina | 64,1 | (61,6, 66,6) | 2,0 | excelente | 3,3 |  |
+| Zona | Urbana | 65,3 | (63,3, 67,4) | 1,6 | excelente | 1,9 |  |
+| Zona | Rural | 69,8 | (66,8, 72,9) | 2,2 | excelente | 2,5 |  |
+| Administrativo | Capital | 64,1 | (61,6, 66,6) | 2,0 | excelente | 3,3 |  |
+| Administrativo | Resto da RIDE | 79,5 | (75,3, 83,6) | 2,7 | excelente | 3,4 |  |
+| Administrativo | Resto da UF | 66,5 | (64,5, 68,6) | 1,6 | excelente | 1,8 |  |
+| Estrato agregado | Teresina | 64,1 | (61,6, 66,6) | 2,0 | excelente | 3,3 |  |
+| Estrato agregado | Entorno metropolitano | 79,5 | (75,3, 83,6) | 2,7 | excelente | 3,4 |  |
+| Estrato agregado | Centro-Leste | 61,2 | (57,2, 65,1) | 3,3 | excelente | 3,8 |  |
+| Estrato agregado | Baixo Parnaíba | 70,3 | (66,9, 73,7) | 2,5 | excelente | 2,8 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 68,3 | (64,5, 72,1) | 2,8 | excelente | 3,4 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.34** — Cor ou raça: Indígena (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 0,4 | (0,4, 0,4) | 4,9 | excelente | — |  |
+| Agregados | Nordeste | 0,4 | (0,4, 0,5) | 8,6 | boa | — |  |
+| Agregados | Piauí | 0,2 | (0,0, 0,3) | 36,9 | baixa | 52,4 | – |
+| Agregados | Teresina | 0,0 | (0,0, 0,1) | 104,8 | baixa | 101,4 | – |
+| Zona | Urbana | 0,2 | (0,0, 0,3) | 46,6 | baixa | 70,8 | – |
+| Zona | Rural | 0,1 | (0,0, 0,3) | 49,9 | baixa | 54,5 | – |
+| Administrativo | Capital | 0,0 | (0,0, 0,1) | 104,8 | baixa | 101,4 | – |
+| Administrativo | Resto da RIDE | 0,0 | (0,0, 0,0) | — | — | 100,2 | – |
+| Administrativo | Resto da UF | 0,2 | (0,0, 0,4) | 39,2 | baixa | 57,4 | – |
+| Estrato agregado | Teresina | 0,0 | (0,0, 0,1) | 104,8 | baixa | 101,4 | – |
+| Estrato agregado | Entorno metropolitano | 0,0 | (0,0, 0,0) | — | — | 100,2 | – |
+| Estrato agregado | Centro-Leste | 0,3 | (0,0, 0,7) | 59,4 | baixa | 73,0 | – |
+| Estrato agregado | Baixo Parnaíba | 0,1 | (0,0, 0,3) | 68,8 | baixa | 79,0 | – |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 0,2 | (0,0, 0,4) | 56,3 | baixa | 85,3 | – |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.35** — Faixa etária: 14 a 17 anos (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 6,7 | (6,6, 6,8) | 0,5 | excelente | — |  |
+| Agregados | Nordeste | 7,4 | (7,3, 7,6) | 1,2 | excelente | — |  |
+| Agregados | Piauí | 7,1 | (6,4, 7,7) | 4,6 | excelente | 4,7 |  |
+| Agregados | Teresina | 6,5 | (5,5, 7,5) | 7,6 | boa | 8,5 |  |
+| Zona | Urbana | 6,7 | (5,9, 7,4) | 5,7 | boa | 6,6 |  |
+| Zona | Rural | 8,0 | (6,8, 9,1) | 7,1 | boa | 7,1 |  |
+| Administrativo | Capital | 6,5 | (5,5, 7,5) | 7,6 | boa | 8,5 |  |
+| Administrativo | Resto da RIDE | 7,9 | (6,2, 9,6) | 10,8 | boa | 13,6 |  |
+| Administrativo | Resto da UF | 7,2 | (6,4, 8,0) | 5,8 | boa | 6,1 |  |
+| Estrato agregado | Teresina | 6,5 | (5,5, 7,5) | 7,6 | boa | 8,5 |  |
+| Estrato agregado | Entorno metropolitano | 7,9 | (6,2, 9,6) | 10,8 | boa | 13,6 |  |
+| Estrato agregado | Centro-Leste | 7,7 | (6,4, 9,1) | 8,8 | boa | 11,0 |  |
+| Estrato agregado | Baixo Parnaíba | 7,4 | (6,0, 8,9) | 10,0 | boa | 10,3 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 6,1 | (4,6, 7,7) | 13,1 | boa | 13,0 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.36** — Faixa etária: 18 a 24 anos (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 12,0 | (12,0, 12,1) | 0,3 | excelente | — |  |
+| Agregados | Nordeste | 12,6 | (12,4, 12,9) | 1,0 | excelente | — |  |
+| Agregados | Piauí | 13,0 | (12,1, 13,8) | 3,3 | excelente | 3,7 |  |
+| Agregados | Teresina | 12,6 | (11,4, 13,8) | 4,8 | excelente | 7,0 |  |
+| Zona | Urbana | 13,7 | (12,6, 14,8) | 4,2 | excelente | 4,6 |  |
+| Zona | Rural | 11,4 | (10,1, 12,7) | 5,8 | boa | 5,9 |  |
+| Administrativo | Capital | 12,6 | (11,4, 13,8) | 4,8 | excelente | 7,0 |  |
+| Administrativo | Resto da RIDE | 13,6 | (10,5, 16,6) | 11,5 | boa | 10,5 |  |
+| Administrativo | Resto da UF | 13,1 | (12,0, 14,2) | 4,3 | excelente | 4,9 |  |
+| Estrato agregado | Teresina | 12,6 | (11,4, 13,8) | 4,8 | excelente | 7,0 |  |
+| Estrato agregado | Entorno metropolitano | 13,6 | (10,5, 16,6) | 11,5 | boa | 10,5 |  |
+| Estrato agregado | Centro-Leste | 13,3 | (11,7, 14,9) | 6,1 | boa | 6,7 |  |
+| Estrato agregado | Baixo Parnaíba | 13,4 | (11,3, 15,4) | 7,8 | boa | 7,8 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 12,4 | (10,0, 14,8) | 9,8 | boa | 10,7 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.37** — Faixa etária: 25 a 39 anos (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 27,7 | (27,7, 27,7) | 0,0 | excelente | — |  |
+| Agregados | Nordeste | 27,4 | (27,0, 27,8) | 0,7 | excelente | — |  |
+| Agregados | Piauí | 26,6 | (25,4, 27,7) | 2,2 | excelente | 2,9 |  |
+| Agregados | Teresina | 26,5 | (24,6, 28,4) | 3,6 | excelente | 4,8 |  |
+| Zona | Urbana | 27,2 | (25,8, 28,6) | 2,6 | excelente | 3,6 |  |
+| Zona | Rural | 25,1 | (23,2, 27,0) | 3,9 | excelente | 4,1 |  |
+| Administrativo | Capital | 26,5 | (24,6, 28,4) | 3,6 | excelente | 4,8 |  |
+| Administrativo | Resto da RIDE | 26,8 | (23,6, 30,1) | 6,2 | boa | 6,4 |  |
+| Administrativo | Resto da UF | 26,6 | (25,0, 28,1) | 2,9 | excelente | 4,0 |  |
+| Estrato agregado | Teresina | 26,5 | (24,6, 28,4) | 3,6 | excelente | 4,8 |  |
+| Estrato agregado | Entorno metropolitano | 26,8 | (23,6, 30,1) | 6,2 | boa | 6,4 |  |
+| Estrato agregado | Centro-Leste | 25,9 | (23,4, 28,3) | 4,9 | excelente | 4,9 |  |
+| Estrato agregado | Baixo Parnaíba | 27,1 | (24,3, 29,9) | 5,3 | boa | 6,7 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 26,8 | (23,6, 30,0) | 6,0 | boa | 8,2 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.38** — Faixa etária: 40 a 59 anos (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 32,9 | (32,9, 32,9) | 0,0 | excelente | — |  |
+| Agregados | Nordeste | 32,8 | (32,5, 33,2) | 0,5 | excelente | — |  |
+| Agregados | Piauí | 33,4 | (32,5, 34,4) | 1,5 | excelente | 2,2 |  |
+| Agregados | Teresina | 35,4 | (33,6, 37,1) | 2,5 | excelente | 3,3 |  |
+| Zona | Urbana | 33,5 | (32,4, 34,7) | 1,8 | excelente | 2,8 |  |
+| Zona | Rural | 33,2 | (31,6, 34,7) | 2,4 | excelente | 3,0 |  |
+| Administrativo | Capital | 35,4 | (33,6, 37,1) | 2,5 | excelente | 3,3 |  |
+| Administrativo | Resto da RIDE | 33,4 | (29,9, 36,9) | 5,3 | boa | 6,3 |  |
+| Administrativo | Resto da UF | 32,6 | (31,4, 33,8) | 1,9 | excelente | 3,1 |  |
+| Estrato agregado | Teresina | 35,4 | (33,6, 37,1) | 2,5 | excelente | 3,3 |  |
+| Estrato agregado | Entorno metropolitano | 33,4 | (29,9, 36,9) | 5,3 | boa | 6,3 |  |
+| Estrato agregado | Centro-Leste | 32,6 | (30,7, 34,5) | 3,0 | excelente | 3,5 |  |
+| Estrato agregado | Baixo Parnaíba | 32,0 | (29,6, 34,3) | 3,7 | excelente | 6,0 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 33,6 | (31,6, 35,6) | 3,1 | excelente | 5,0 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.39** — Faixa etária: 60 anos ou mais (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 20,7 | (20,7, 20,7) | 0,0 | excelente | — |  |
+| Agregados | Nordeste | 19,8 | (19,4, 20,1) | 0,9 | excelente | — |  |
+| Agregados | Piauí | 20,0 | (18,9, 21,0) | 2,8 | excelente | 3,4 |  |
+| Agregados | Teresina | 19,0 | (17,0, 21,1) | 5,5 | boa | 6,7 |  |
+| Zona | Urbana | 18,9 | (17,5, 20,3) | 3,7 | excelente | 4,6 |  |
+| Zona | Rural | 22,4 | (20,7, 24,1) | 3,9 | excelente | 4,9 |  |
+| Administrativo | Capital | 19,0 | (17,0, 21,1) | 5,5 | boa | 6,7 |  |
+| Administrativo | Resto da RIDE | 18,3 | (14,3, 22,3) | 11,2 | boa | 10,9 |  |
+| Administrativo | Resto da UF | 20,5 | (19,1, 21,9) | 3,5 | excelente | 4,3 |  |
+| Estrato agregado | Teresina | 19,0 | (17,0, 21,1) | 5,5 | boa | 6,7 |  |
+| Estrato agregado | Entorno metropolitano | 18,3 | (14,3, 22,3) | 11,2 | boa | 10,9 |  |
+| Estrato agregado | Centro-Leste | 20,5 | (18,5, 22,5) | 5,0 | excelente | 6,3 |  |
+| Estrato agregado | Baixo Parnaíba | 20,2 | (17,8, 22,6) | 6,1 | boa | 6,8 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 21,1 | (17,8, 24,3) | 7,9 | boa | 10,4 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.40** — Nível de instrução: Sem instrução e menos de 1 ano de estudo (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 4,0 | (3,9, 4,1) | 1,1 | excelente | — |  |
+| Agregados | Nordeste | 7,3 | (7,1, 7,5) | 1,5 | excelente | — |  |
+| Agregados | Piauí | 8,1 | (7,3, 9,0) | 5,2 | boa | 5,7 |  |
+| Agregados | Teresina | 2,6 | (2,0, 3,2) | 11,9 | boa | 14,4 |  |
+| Zona | Urbana | 6,0 | (5,1, 6,9) | 7,5 | boa | 8,5 |  |
+| Zona | Rural | 13,1 | (11,3, 14,8) | 6,9 | boa | 6,5 |  |
+| Administrativo | Capital | 2,6 | (2,0, 3,2) | 11,9 | boa | 14,4 |  |
+| Administrativo | Resto da RIDE | 6,1 | (4,1, 8,0) | 16,7 | regular | 15,0 |  |
+| Administrativo | Resto da UF | 10,6 | (9,4, 11,8) | 5,8 | boa | 6,6 |  |
+| Estrato agregado | Teresina | 2,6 | (2,0, 3,2) | 11,9 | boa | 14,4 |  |
+| Estrato agregado | Entorno metropolitano | 6,1 | (4,1, 8,0) | 16,7 | regular | 15,0 |  |
+| Estrato agregado | Centro-Leste | 12,7 | (10,8, 14,7) | 7,7 | boa | 8,8 |  |
+| Estrato agregado | Baixo Parnaíba | 8,9 | (6,9, 10,8) | 11,2 | boa | 11,1 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 10,4 | (7,9, 12,9) | 12,4 | boa | 13,8 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.41** — Nível de instrução: Fundamental incompleto ou equivalente (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 23,5 | (23,3, 23,7) | 0,5 | excelente | — |  |
+| Agregados | Nordeste | 28,1 | (27,7, 28,6) | 0,8 | excelente | — |  |
+| Agregados | Piauí | 30,9 | (29,5, 32,3) | 2,4 | excelente | 2,7 |  |
+| Agregados | Teresina | 16,9 | (15,2, 18,7) | 5,4 | boa | 7,9 |  |
+| Zona | Urbana | 24,7 | (23,1, 26,4) | 3,5 | excelente | 4,5 |  |
+| Zona | Rural | 44,9 | (42,3, 47,5) | 2,9 | excelente | 2,5 |  |
+| Administrativo | Capital | 16,9 | (15,2, 18,7) | 5,4 | boa | 7,9 |  |
+| Administrativo | Resto da RIDE | 32,6 | (29,7, 35,5) | 4,5 | excelente | 6,1 |  |
+| Administrativo | Resto da UF | 36,4 | (34,5, 38,4) | 2,7 | excelente | 3,0 |  |
+| Estrato agregado | Teresina | 16,9 | (15,2, 18,7) | 5,4 | boa | 7,9 |  |
+| Estrato agregado | Entorno metropolitano | 32,6 | (29,7, 35,5) | 4,5 | excelente | 6,1 |  |
+| Estrato agregado | Centro-Leste | 35,0 | (32,3, 37,6) | 3,9 | excelente | 4,3 |  |
+| Estrato agregado | Baixo Parnaíba | 37,7 | (34,5, 40,8) | 4,3 | excelente | 5,8 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 36,6 | (31,8, 41,4) | 6,7 | boa | 6,4 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.42** — Nível de instrução: Fundamental completo ou equivalente (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 8,0 | (7,8, 8,1) | 0,8 | excelente | — |  |
+| Agregados | Nordeste | 7,3 | (7,1, 7,5) | 1,3 | excelente | — |  |
+| Agregados | Piauí | 7,6 | (6,9, 8,2) | 4,4 | excelente | 4,9 |  |
+| Agregados | Teresina | 6,0 | (5,0, 6,9) | 8,0 | boa | 9,6 |  |
+| Zona | Urbana | 7,0 | (6,2, 7,7) | 5,6 | boa | 6,8 |  |
+| Zona | Rural | 8,9 | (7,8, 10,0) | 6,5 | boa | 6,6 |  |
+| Administrativo | Capital | 6,0 | (5,0, 6,9) | 8,0 | boa | 9,6 |  |
+| Administrativo | Resto da RIDE | 8,9 | (6,8, 11,0) | 12,0 | boa | 14,3 |  |
+| Administrativo | Resto da UF | 8,1 | (7,2, 8,9) | 5,4 | boa | 6,0 |  |
+| Estrato agregado | Teresina | 6,0 | (5,0, 6,9) | 8,0 | boa | 9,6 |  |
+| Estrato agregado | Entorno metropolitano | 8,9 | (6,8, 11,0) | 12,0 | boa | 14,3 |  |
+| Estrato agregado | Centro-Leste | 7,9 | (6,8, 9,1) | 7,4 | boa | 9,3 |  |
+| Estrato agregado | Baixo Parnaíba | 8,7 | (7,1, 10,3) | 9,4 | boa | 9,4 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 7,2 | (5,4, 9,1) | 13,2 | boa | 14,6 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.43** — Nível de instrução: Médio incompleto ou equivalente (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 8,1 | (8,0, 8,2) | 0,8 | excelente | — |  |
+| Agregados | Nordeste | 8,5 | (8,3, 8,8) | 1,4 | excelente | — |  |
+| Agregados | Piauí | 8,4 | (7,7, 9,1) | 4,0 | excelente | 5,0 |  |
+| Agregados | Teresina | 8,0 | (7,0, 9,1) | 6,6 | boa | 9,3 |  |
+| Zona | Urbana | 8,5 | (7,7, 9,3) | 4,8 | excelente | 6,1 |  |
+| Zona | Rural | 8,2 | (7,1, 9,4) | 7,1 | boa | 7,1 |  |
+| Administrativo | Capital | 8,0 | (7,0, 9,1) | 6,6 | boa | 9,3 |  |
+| Administrativo | Resto da RIDE | 9,6 | (7,6, 11,6) | 10,5 | boa | 13,2 |  |
+| Administrativo | Resto da UF | 8,4 | (7,6, 9,3) | 5,2 | boa | 6,1 |  |
+| Estrato agregado | Teresina | 8,0 | (7,0, 9,1) | 6,6 | boa | 9,3 |  |
+| Estrato agregado | Entorno metropolitano | 9,6 | (7,6, 11,6) | 10,5 | boa | 13,2 |  |
+| Estrato agregado | Centro-Leste | 8,5 | (7,2, 9,8) | 7,7 | boa | 8,6 |  |
+| Estrato agregado | Baixo Parnaíba | 8,4 | (6,9, 9,8) | 8,7 | boa | 9,8 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 8,4 | (6,5, 10,4) | 11,8 | boa | 13,1 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.44** — Nível de instrução: Médio completo ou equivalente (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 32,2 | (31,9, 32,4) | 0,4 | excelente | — |  |
+| Agregados | Nordeste | 31,2 | (30,8, 31,7) | 0,7 | excelente | — |  |
+| Agregados | Piauí | 26,3 | (25,2, 27,5) | 2,3 | excelente | 2,7 |  |
+| Agregados | Teresina | 34,2 | (32,2, 36,3) | 3,0 | excelente | 4,7 |  |
+| Zona | Urbana | 30,0 | (28,4, 31,5) | 2,6 | excelente | 3,2 |  |
+| Zona | Rural | 18,1 | (16,4, 19,8) | 4,7 | excelente | 5,2 |  |
+| Administrativo | Capital | 34,2 | (32,2, 36,3) | 3,0 | excelente | 4,7 |  |
+| Administrativo | Resto da RIDE | 32,2 | (30,0, 34,5) | 3,6 | excelente | 7,3 |  |
+| Administrativo | Resto da UF | 22,5 | (21,0, 24,1) | 3,5 | excelente | 3,5 |  |
+| Estrato agregado | Teresina | 34,2 | (32,2, 36,3) | 3,0 | excelente | 4,7 |  |
+| Estrato agregado | Entorno metropolitano | 32,2 | (30,0, 34,5) | 3,6 | excelente | 7,3 |  |
+| Estrato agregado | Centro-Leste | 22,0 | (19,7, 24,2) | 5,2 | boa | 5,7 |  |
+| Estrato agregado | Baixo Parnaíba | 21,9 | (19,4, 24,5) | 5,9 | boa | 6,0 |  |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 24,2 | (20,4, 28,1) | 8,1 | boa | 7,8 |  |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.45** — Nível de instrução: Superior incompleto ou equivalente (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 5,9 | (5,8, 6,0) | 1,1 | excelente | — |  |
+| Agregados | Nordeste | 4,9 | (4,6, 5,1) | 2,2 | excelente | — |  |
+| Agregados | Piauí | 5,0 | (4,4, 5,6) | 6,0 | boa | 7,4 |  |
+| Agregados | Teresina | 8,1 | (7,0, 9,3) | 7,4 | boa | 10,8 |  |
+| Zona | Urbana | 6,2 | (5,4, 7,0) | 6,5 | boa | 7,9 |  |
+| Zona | Rural | 2,3 | (1,6, 3,0) | 15,1 | regular | 17,5 | † |
+| Administrativo | Capital | 8,1 | (7,0, 9,3) | 7,4 | boa | 10,8 |  |
+| Administrativo | Resto da RIDE | 4,0 | (2,2, 5,9) | 23,6 | regular | 23,6 | † |
+| Administrativo | Resto da UF | 3,9 | (3,1, 4,6) | 9,8 | boa | 11,3 |  |
+| Estrato agregado | Teresina | 8,1 | (7,0, 9,3) | 7,4 | boa | 10,8 |  |
+| Estrato agregado | Entorno metropolitano | 4,0 | (2,2, 5,9) | 23,6 | regular | 23,6 | † |
+| Estrato agregado | Centro-Leste | 4,2 | (3,2, 5,2) | 12,4 | boa | 20,0 | † |
+| Estrato agregado | Baixo Parnaíba | 4,1 | (2,6, 5,6) | 19,1 | regular | 17,5 | † |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 3,1 | (2,0, 4,1) | 17,3 | regular | 30,9 | – |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
+**Tabela D.46** — Nível de instrução: Superior completo (%), por recorte geográfico — 2º trimestre de 2026
+
+| Recorte | Categoria | Estimativa | IC 95% | CV (%) | Precisão | p80 do CV na série (%) | Marca |
+|---|---|---:|:---:|---:|---|---:|:---:|
+| Agregados | Brasil | 18,4 | (18,0, 18,7) | 0,9 | excelente | — |  |
+| Agregados | Nordeste | 12,6 | (12,2, 13,1) | 1,8 | excelente | — |  |
+| Agregados | Piauí | 13,6 | (12,3, 15,0) | 5,0 | boa | 7,5 |  |
+| Agregados | Teresina | 24,1 | (21,1, 27,0) | 6,2 | boa | 11,0 |  |
+| Zona | Urbana | 17,6 | (15,8, 19,5) | 5,4 | boa | 7,7 |  |
+| Zona | Rural | 4,5 | (3,4, 5,5) | 12,2 | boa | 13,6 |  |
+| Administrativo | Capital | 24,1 | (21,1, 27,0) | 6,2 | boa | 11,0 |  |
+| Administrativo | Resto da RIDE | 6,5 | (4,6, 8,5) | 15,4 | regular | 21,0 | † |
+| Administrativo | Resto da UF | 10,0 | (8,5, 11,5) | 7,7 | boa | 11,5 |  |
+| Estrato agregado | Teresina | 24,1 | (21,1, 27,0) | 6,2 | boa | 11,0 |  |
+| Estrato agregado | Entorno metropolitano | 6,5 | (4,6, 8,5) | 15,4 | regular | 21,0 | † |
+| Estrato agregado | Centro-Leste | 9,7 | (6,5, 12,9) | 16,8 | regular | 12,1 |  |
+| Estrato agregado | Baixo Parnaíba | 10,3 | (8,3, 12,4) | 10,2 | boa | 21,8 | † |
+| Estrato agregado | Alto Parnaíba e Chapadas Sul | 10,0 | (7,3, 12,7) | 13,7 | boa | 18,4 | † |
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.

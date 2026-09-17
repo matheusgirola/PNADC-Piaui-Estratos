@@ -19,7 +19,10 @@
 # (força de trabalho potencial), VD4004A (subocupação por insuficiência de
 # horas habituais), VD4009 (posição na ocupação e categoria do emprego),
 # VD4010 (grupamento de atividade), VD4019 (rendimento habitual de todos os
-# trabalhos).
+# trabalhos), V4074A (principal motivo de não ter tomado providência para
+# conseguir trabalho, quesito do desalento), VD4030 (motivo pelo qual não
+# procurou trabalho ou não gostaria de ter trabalhado ou não estava
+# disponível para iniciar um trabalho).
 #
 # CONVENÇÃO: os indicadores de mercado de trabalho são 0/1 numéricos, com NA
 # virando 0 e o universo explícito. Comparação de fator com NA devolve NA, e
@@ -47,7 +50,10 @@ ROTULOS <- list(
              pub_com  = "Empregado no setor público com carteira de trabalho assinada",
              pub_sem  = "Empregado no setor público sem carteira de trabalho assinada",
              militar  = "Militar e servidor estatutário"),
-  VD4010 = c(agro = "Agricultura, pecuária, produção florestal, pesca e aquicultura")
+  VD4010 = c(agro = "Agricultura, pecuária, produção florestal, pesca e aquicultura"),
+  V4074A = c(localidade = "Não havia trabalho na localidade"),
+  VD4030 = c(afazeres = "Tinha que cuidar dos afazeres domésticos, do(s) filho(s) ou de outro(s) parente(s)",
+             saude    = "Por problema de saúde ou gravidez")
 )
 
 checar_rotulos <- function(variaveis) {
@@ -143,6 +149,25 @@ derivar_variaveis <- function(design, sm_hora) {
           (!is.na(V3002) & V3002 == "Não") &
           (is.na(VD4002) | VD4002 != "Pessoas ocupadas")
       ),
+
+      # Motivos agrupados (decisão de 17/09/2026, CONTEXTO_PROJETO.md §8.7): as
+      # categorias pequenas não sustentam CV < 15% nem no Piauí inteiro
+      # (triagem 2022T1–2026T2), então viram "Outros motivos". NA fica NA —
+      # aqui o universo é o subset do indicador, não um 0/1. Rótulos iguais
+      # nos 41 trimestres de 2016T2 a 2026T2.
+      motivo_desistencia_grupo = factor(case_when(
+        is.na(V4074A) ~ NA_character_,
+        V4074A == ROTULOS$V4074A[["localidade"]] ~ "Não havia trabalho na localidade",
+        TRUE ~ "Outros motivos"
+      ), levels = c("Não havia trabalho na localidade", "Outros motivos")),
+
+      motivo_nao_procura_grupo = factor(case_when(
+        is.na(VD4030) ~ NA_character_,
+        VD4030 == ROTULOS$VD4030[["afazeres"]] ~ "Afazeres domésticos ou cuidado de parentes",
+        VD4030 == ROTULOS$VD4030[["saude"]]    ~ "Problema de saúde ou gravidez",
+        TRUE ~ "Outros motivos"
+      ), levels = c("Afazeres domésticos ou cuidado de parentes",
+                    "Problema de saúde ou gravidez", "Outros motivos")),
 
       Setor_AdminPublica = factor(case_when(
         is.na(VD4010) ~ NA_character_,

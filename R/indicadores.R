@@ -16,6 +16,8 @@
 #   subset           universo, aplicado antes de estimar (NULL = todos)
 #   so_recorte_total TRUE = não cruza com recortes demográficos
 #   testar           FALSE = fica fora das baterias de teste de significância
+#   geografias       nomes das geografias em que o indicador é estimado
+#                    (NULL = todas)
 #
 # Totais saem em PESSOAS (o SIDRA publica em mil pessoas; a conversão fica
 # para a exibição). Todos passam pelo desenho replicado — SE e CV incluídos.
@@ -81,19 +83,25 @@ catalogo_original <- list(
        formula = ~(!is.na(VD4005) & VD4005 == "Pessoas desalentadas"),
        denominador = ~VD4003, fun = svyratio, subset = NULL),
 
+  # Motivos: categorias agrupadas e só nos níveis agregados (decisão de
+  # 17/09/2026, CONTEXTO_PROJETO.md §8.7) — nos recortes finos não passam na
+  # triagem. O antigo Motivo_Nao_Inicio_NemNem (V4078A) saiu: repetia o
+  # VD4030, que é a derivada oficial do IBGE.
   list(id = "Motivo_Desistencia_Desalentado",
-       formula = ~V4074A, denominador = NULL, fun = svymean,
-       subset = ~VD4005 == "Pessoas desalentadas"),
+       formula = ~motivo_desistencia_grupo, denominador = NULL, fun = svymean,
+       subset = ~VD4005 == "Pessoas desalentadas",
+       so_recorte_total = TRUE, testar = FALSE,
+       geografias = c("Brasil", "Nordeste", "Piauí")),
 
   list(id = "Taxa_Nem_Nem",
        formula = ~nem_nem, denominador = ~(V2009 >= 14 & V2009 <= 29),
        fun = svyratio, subset = NULL),
 
   list(id = "Motivo_Nao_Procura_NemNem",
-       formula = ~VD4030, denominador = NULL, fun = svymean, subset = ~nem_nem == 1),
-
-  list(id = "Motivo_Nao_Inicio_NemNem",
-       formula = ~V4078A, denominador = NULL, fun = svymean, subset = ~nem_nem == 1)
+       formula = ~motivo_nao_procura_grupo, denominador = NULL, fun = svymean,
+       subset = ~nem_nem == 1,
+       so_recorte_total = TRUE, testar = FALSE,
+       geografias = c("Brasil", "Nordeste", "Piauí"))
 )
 
 # Mercado de trabalho (set/2026). Definições e fontes em R/derivar_variaveis.R
@@ -366,6 +374,7 @@ estimar_trimestre <- function(lista_geografias, geografias_agregadas, ano, tri,
 
       for (spec in catalogo) {
         if (isTRUE(spec$so_recorte_total) && recorte_nome != "Total") next
+        if (!is.null(spec$geografias) && !geo_nome %in% spec$geografias) next
 
         by_usar       <- if (!is.null(spec$by_override)) spec$by_override else by_formula
         recorte_saida <- if (!is.null(spec$by_override)) "Formalidade" else recorte_nome

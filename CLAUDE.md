@@ -23,7 +23,7 @@ Não é um pacote R, não usa `targets`, não tem suíte de testes automatizada.
 `00_config.R`, `01_pipeline_trimestral.R`, `03_comparacoes_indicadores.R`,
 `04_mapas_estratos_piaui.R`, `05_setores_censitarios_piaui.R`,
 `06_upas_piaui.R`, `07_estrato_estatistico.R`, `08_mapa_aaagsse.R`,
-`09_preencher_relatorio.R`, mais `Teste_estrutura_aaagsse.R` (validação, fora
+`09_preencher_relatorio.R`, `10_serie_confiabilidade.R` e `11_triagem_confiabilidade.R` (série e triagem de confiabilidade, `CONTEXTO_PROJETO.md` §8.5), mais `Teste_estrutura_aaagsse.R` (validação, fora
 do fluxo de produção). Não há `02` — normal, não é lacuna a preencher. O que
 cada um faz está em `CONTEXTO_PROJETO.md` §4 — **essa tabela está
 desatualizada** em alguns nomes/arquivos (ver nota no fim deste documento);
