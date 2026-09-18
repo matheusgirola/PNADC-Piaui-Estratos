@@ -45,6 +45,13 @@ do pipeline, e converte pra `.docx` chamando `pandoc_run()` do pacote
 `pandoc` (usando `custom-reference.docx` e o filtro Lua
 `remover-figuras.lua`). **Não usa Quarto.**
 
+**Nunca gerar o `.docx` sem permissão explícita do usuário na conversa**,
+mesmo que o `.md` esteja pronto e a intenção pareça óbvia. Isso vale tanto
+pra rodar `09_preencher_relatorio.R` com `CONVERTER_DOCX = TRUE` quanto pra
+qualquer outra chamada a `pandoc_run()`/`pandoc::pandoc_convert()` sobre o
+relatório. Gerar (ou regerar) só o `.md` não precisa de permissão — a
+restrição é especificamente sobre o `.docx`.
+
 **Cache em `.rds` por trimestre (Brasil inteiro, 2016T2+).** `R/01a_cache_pnadc.R`
 (módulo) define `carregar_pnadc(ano, tri)`: lê `data/raw/pnadc_br_<ano>_<tri>.rds`
 se existir, senão baixa com `get_pnadc(deflator = TRUE)` e grava o desenho
