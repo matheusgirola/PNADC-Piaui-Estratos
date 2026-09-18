@@ -15,26 +15,23 @@ médio real habitual do trabalho no estado, de
 R\$ 2.547, equivale a
 68,1% do nacional.
 
-**Tabela 1** — Indicadores de destaque: Brasil, Nordeste e Piauí, e variação do Piauí — 2º trimestre de 2026
+**Tabela 1** — Indicadores de destaque: Brasil, Nordeste e Piauí — 2º trimestre de 2026
 
-| Indicador | Brasil | Nordeste | Piauí | Piauí: variação sobre 2026T1 | Piauí: variação sobre 2025T2 |
-|---|---:|---:|---:|---:|---:|
-| Taxa de participação na força de trabalho (%) | 62,1 | 54,2 | **52,9** | −0,6 ns | −0,6 ns |
-| Nível da ocupação (%) | 58,8 | 50,1 | **48,5** | −0,2 ns | −0,5 ns |
-| Taxa de desocupação (%) | 5,4 | 7,6 | **8,3** | −0,6 ns | −0,2 ns |
-| Taxa composta de subutilização (%) | 12,9 | 21,4 | **26,6** | −3,8 ns | −3,5 ns |
-| Taxa de informalidade (%) | 37,4 | 48,7 | **49,5** | −0,8 ns | −2,3 ns |
-| Rendimento médio real habitual (R\$) | R\$ 3.738 | R\$ 2.645 | **R\$ 2.547** | −R\$ 143 ns | +R\$ 10 ns |
-| Índice de Gini do rendimento do trabalho | 0,484 | 0,499 | **0,507** | −0,023 ns | −0,027 ns |
-| Jovens de 14 a 29 anos que não estudam nem trabalham (%) | 17,9 | 24,5 | **24,3** | −0,8 ns | −0,1 ns |
+| Indicador | Brasil | Nordeste | Piauí |
+|---|---:|---:|---:|
+| Taxa de participação na força de trabalho (%) | 62,1 | 54,2 | **52,9** |
+| Nível da ocupação (%) | 58,8 | 50,1 | **48,5** |
+| Taxa de desocupação (%) | 5,4 | 7,6 | **8,3** |
+| Taxa composta de subutilização (%) | 12,9 | 21,4 | **26,6** |
+| Taxa de informalidade (%) | 37,4 | 48,7 | **49,5** |
+| Rendimento médio real habitual (R\$) | R\$ 3.738 | R\$ 2.645 | **R\$ 2.547** |
+| Índice de Gini do rendimento do trabalho | 0,484 | 0,499 | **0,507** |
+| Jovens de 14 a 29 anos que não estudam nem trabalham (%) | 17,9 | 24,5 | **24,3** |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-Nota: variação em pontos percentuais (taxas), reais (rendimento) ou unidades
-do índice (Gini). \*\*\* p < 0,001; \*\* p < 0,01; \* p < 0,05; ns = não
-significativo (p ajustado). † = precisão regular na série; – = não sustenta
-leitura. Ver seção 2.
+Nota: † = precisão regular na série; – = não sustenta leitura. Ver seção 2.
 
-> **A REDIGIR** — dois ou três parágrafos com a leitura dos destaques — só o que a Tabela 1 marca como significativo; variação "ns" não é aumento nem queda.
+> **A REDIGIR** — dois ou três parágrafos com a leitura dos destaques do trimestre — Piauí frente a Brasil e Nordeste.
 
 ## 2 Como ler as tabelas
 
@@ -51,28 +48,30 @@ margem de erro. Três marcas orientam a leitura:
 Os **asteriscos** dizem se as diferenças são estatisticamente significativas,
 isto é, se não se explicam por acaso amostral: \*\*\* p < 0,001; \*\* p < 0,01;
 \* p < 0,05; ns = não significativo. Nas matrizes territoriais, a coluna
-"Teste estratos" diz se os cinco estratos diferem entre si, e "Teste zona", se
-urbano e rural diferem. Os testes não apontam *qual* território difere — para
-isso, compare os valores. Detalhes na nota metodológica (Anexo A).
+"Teste estratos" diz se os cinco estratos diferem entre si, "Teste zona", se
+urbano e rural diferem, e "Teste situação", se rural, urbano tradicional e
+Favela/Comunidade Urbana (FCU) diferem entre si. Os testes não apontam *qual*
+território difere — para isso, compare os valores. Detalhes na nota
+metodológica (Anexo A).
 
 ## 3 Ocupação e desocupação
 
 **Tabela 2** — Ocupação e desocupação, por território — 2º trimestre de 2026
 
-| Indicador | Piauí | Teresina | Entorno metropolitano | Centro-Leste | Baixo Parnaíba | Alto Parnaíba e Chapadas | Teste estratos | Urbana | Rural | Teste zona |
-|---|---:|---:|---:|---:|---:|---:|:---:|---:|---:|:---:|
-| Taxa de participação na força de trabalho (%) | 52,9 | 62,3 | 52,9 | 47,8 | 48,3 | 51,8 | \*\*\* | 58,3 | 40,6 | \*\*\* |
-| Nível da ocupação (%) | 48,5 | 57,9 | 44,3 | 43,9 | 45,1 | 46,6 | \*\*\* | 53,9 | 36,2 | \*\*\* |
-| Taxa de desocupação (%) | 8,3 | 7,1 | 16,4 † | 8,2 † | 6,7 † | 10,0 † | \*\* | 7,5 | 10,9 | \* |
-| Taxa composta de subutilização (%) | 26,6 | 9,4 | 25,4 | 40,0 | 30,3 | 33,3 | \*\*\* | 20,6 | 43,3 | \*\*\* |
-| Responsáveis pelo domicílio entre os desocupados (%) | 37,9 | 27,7 † | 38,4 † | 47,0 † | 28,5 † | 51,1 † | \* | 36,6 | 40,9 | ns |
-| Responsáveis ou cônjuges entre os desocupados (%) | 55,6 | 41,4 † | 54,4 † | 66,4 | 54,9 | 65,8 † | ns | 53,5 | 60,6 | ns |
-| Pessoas em idade de trabalhar (mil pessoas) | 2.743 | 747 | 178 | 648 | 713 | 458 | — | 1.907 | 836 | — |
-| Pessoas na força de trabalho (mil pessoas) | 1.451 | 465 | 94 | 310 | 344 | 237 | — | 1.111 | 340 | — |
-| Pessoas fora da força de trabalho (mil pessoas) | 1.293 | 281 | 84 | 338 | 368 | 221 | — | 796 | 496 | — |
-| Pessoas ocupadas (mil pessoas) | 1.330 | 432 | 79 | 284 | 322 | 214 | — | 1.028 | 303 | — |
-| Pessoas desocupadas (mil pessoas) | 121 | 33 | 15 † | 25 † | 23 † | 24 † | — | 84 | 37 | — |
-| Pessoas subutilizadas (mil pessoas) | 429 | 44 | 25 | 149 | 120 | 90 | — | 243 | 186 | — |
+| Indicador | Piauí | Teresina | Entorno metropolitano | Centro-Leste | Baixo Parnaíba | Alto Parnaíba e Chapadas | Teste estratos | Urbana | Rural | Teste zona | Urbano tradicional | Rural | FCU | Teste situação |
+|---|---:|---:|---:|---:|---:|---:|:---:|---:|---:|:---:|---:|---:|---:|:---:|
+| Taxa de participação na força de trabalho (%) | 52,9 | 62,3 | 52,9 | 47,8 | 48,3 | 51,8 | \*\*\* | 58,3 | 40,6 | \*\*\* | — | — | — | — |
+| Nível da ocupação (%) | 48,5 | 57,9 | 44,3 | 43,9 | 45,1 | 46,6 | \*\*\* | 53,9 | 36,2 | \*\*\* | — | — | — | — |
+| Taxa de desocupação (%) | 8,3 | 7,1 | 16,4 † | 8,2 † | 6,7 † | 10,0 † | \*\* | 7,5 | 10,9 | \* | — | — | — | — |
+| Taxa composta de subutilização (%) | 26,6 | 9,4 | 25,4 | 40,0 | 30,3 | 33,3 | \*\*\* | 20,6 | 43,3 | \*\*\* | — | — | — | — |
+| Responsáveis pelo domicílio entre os desocupados (%) | 37,9 | 27,7 † | 38,4 † | 47,0 † | 28,5 † | 51,1 † | \* | 36,6 | 40,9 | ns | — | — | — | — |
+| Responsáveis ou cônjuges entre os desocupados (%) | 55,6 | 41,4 † | 54,4 † | 66,4 | 54,9 | 65,8 † | ns | 53,5 | 60,6 | ns | — | — | — | — |
+| Pessoas em idade de trabalhar (mil pessoas) | 2.743 | 747 | 178 | 648 | 713 | 458 | — | 1.907 | 836 | — | — | — | — | — |
+| Pessoas na força de trabalho (mil pessoas) | 1.451 | 465 | 94 | 310 | 344 | 237 | — | 1.111 | 340 | — | — | — | — | — |
+| Pessoas fora da força de trabalho (mil pessoas) | 1.293 | 281 | 84 | 338 | 368 | 221 | — | 796 | 496 | — | — | — | — | — |
+| Pessoas ocupadas (mil pessoas) | 1.330 | 432 | 79 | 284 | 322 | 214 | — | 1.028 | 303 | — | — | — | — | — |
+| Pessoas desocupadas (mil pessoas) | 121 | 33 | 15 † | 25 † | 23 † | 24 † | — | 84 | 37 | — | — | — | — | — |
+| Pessoas subutilizadas (mil pessoas) | 429 | 44 | 25 | 149 | 120 | 90 | — | 243 | 186 | — | — | — | — | — |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
@@ -82,15 +81,15 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Tabela 3** — Qualidade da ocupação, por território — 2º trimestre de 2026
 
-| Indicador | Piauí | Teresina | Entorno metropolitano | Centro-Leste | Baixo Parnaíba | Alto Parnaíba e Chapadas | Teste estratos | Urbana | Rural | Teste zona |
-|---|---:|---:|---:|---:|---:|---:|:---:|---:|---:|:---:|
-| Taxa de informalidade (%) | 49,5 | 35,7 | 55,9 | 56,9 | 60,8 | 48,0 | \*\*\* | 44,0 | 68,1 | \*\*\* |
-| Subocupação por insuficiência de horas (%) | 11,2 | – | 6,4 † | 21,3 | 13,8 | 15,3 † | \*\*\* | 8,7 | 19,4 | \*\*\* |
-| Sub-remuneração (rendimento-hora abaixo do mínimo) (%) | 38,2 | 25,7 | 41,0 | 42,9 | 53,0 | 34,4 | \*\*\* | 32,9 | 56,5 | \*\*\* |
-| Ocupados com ensino médio completo ou mais (%) | 67,0 | 84,1 | 72,0 | 58,7 | 54,2 | 60,9 | \*\*\* | 74,6 | 41,2 | \*\*\* |
-| Empregados no setor privado (mil pessoas) | 541 | 203 | 33 | 108 | 126 | 71 † | — | 423 | 117 | — |
-| Empregados no setor público (mil pessoas) | 273 | 73 | 13 † | 69 | 62 † | 57 † | — | 221 | 52 | — |
-| Ocupados na agropecuária (mil pessoas) | 143 | – | 8 † | 46 | 46 | 41 † | — | 44 † | 100 | — |
+| Indicador | Piauí | Teresina | Entorno metropolitano | Centro-Leste | Baixo Parnaíba | Alto Parnaíba e Chapadas | Teste estratos | Urbana | Rural | Teste zona | Urbano tradicional | Rural | FCU | Teste situação |
+|---|---:|---:|---:|---:|---:|---:|:---:|---:|---:|:---:|---:|---:|---:|:---:|
+| Taxa de informalidade (%) | 49,5 | 35,7 | 55,9 | 56,9 | 60,8 | 48,0 | \*\*\* | 44,0 | 68,1 | \*\*\* | — | — | — | — |
+| Subocupação por insuficiência de horas (%) | 11,2 | – | 6,4 † | 21,3 | 13,8 | 15,3 † | \*\*\* | 8,7 | 19,4 | \*\*\* | — | — | — | — |
+| Sub-remuneração (rendimento-hora abaixo do mínimo) (%) | 38,2 | 25,7 | 41,0 | 42,9 | 53,0 | 34,4 | \*\*\* | 32,9 | 56,5 | \*\*\* | — | — | — | — |
+| Ocupados com ensino médio completo ou mais (%) | 67,0 | 84,1 | 72,0 | 58,7 | 54,2 | 60,9 | \*\*\* | 74,6 | 41,2 | \*\*\* | — | — | — | — |
+| Empregados no setor privado (mil pessoas) | 541 | 203 | 33 | 108 | 126 | 71 † | — | 423 | 117 | — | — | — | — | — |
+| Empregados no setor público (mil pessoas) | 273 | 73 | 13 † | 69 | 62 † | 57 † | — | 221 | 52 | — | — | — | — | — |
+| Ocupados na agropecuária (mil pessoas) | 143 | – | 8 † | 46 | 46 | 41 † | — | 44 † | 100 | — | — | — | — | — |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
@@ -100,13 +99,13 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Tabela 4** — Rendimento e desigualdade, por território — 2º trimestre de 2026
 
-| Indicador | Piauí | Teresina | Entorno metropolitano | Centro-Leste | Baixo Parnaíba | Alto Parnaíba e Chapadas | Teste estratos | Urbana | Rural | Teste zona |
-|---|---:|---:|---:|---:|---:|---:|:---:|---:|---:|:---:|
-| Rendimento médio real habitual (R\$) | R\$ 2.547 | R\$ 3.690 † | R\$ 1.900 | R\$ 1.991 | R\$ 1.678 † | R\$ 2.463 | \*\*\* | R\$ 2.902 | R\$ 1.310 | \*\*\* |
-| Rendimento médio dos formais (R\$) | R\$ 3.675 | R\$ 4.548 † | R\$ 2.675 | R\$ 3.050 | R\$ 2.781 † | R\$ 3.509 | \*\*\* | R\$ 3.917 | R\$ 2.226 | \*\*\* |
-| Rendimento médio dos informais (R\$) | R\$ 1.353 | R\$ 2.142 † | R\$ 1.276 | R\$ 1.142 | R\$ 932 | R\$ 1.277 | \*\*\* | R\$ 1.573 | R\$ 855 | \*\*\* |
-| Razão entre rendimento formal e informal | 2,72 | 2,12 | 2,10 | 2,67 | 2,98 † | 2,75 | — | 2,49 | 2,60 | — |
-| Índice de Gini do rendimento do trabalho | 0,507 | 0,495 | 0,395 | 0,514 | 0,470 | 0,477 | — | 0,495 | 0,461 | — |
+| Indicador | Piauí | Teresina | Entorno metropolitano | Centro-Leste | Baixo Parnaíba | Alto Parnaíba e Chapadas | Teste estratos | Urbana | Rural | Teste zona | Urbano tradicional | Rural | FCU | Teste situação |
+|---|---:|---:|---:|---:|---:|---:|:---:|---:|---:|:---:|---:|---:|---:|:---:|
+| Rendimento médio real habitual (R\$) | R\$ 2.547 | R\$ 3.690 † | R\$ 1.900 | R\$ 1.991 | R\$ 1.678 † | R\$ 2.463 | \*\*\* | R\$ 2.902 | R\$ 1.310 | \*\*\* | — | — | — | — |
+| Rendimento médio dos formais (R\$) | R\$ 3.675 | R\$ 4.548 † | R\$ 2.675 | R\$ 3.050 | R\$ 2.781 † | R\$ 3.509 | \*\*\* | R\$ 3.917 | R\$ 2.226 | \*\*\* | — | — | — | — |
+| Rendimento médio dos informais (R\$) | R\$ 1.353 | R\$ 2.142 † | R\$ 1.276 | R\$ 1.142 | R\$ 932 | R\$ 1.277 | \*\*\* | R\$ 1.573 | R\$ 855 | \*\*\* | — | — | — | — |
+| Razão entre rendimento formal e informal | 2,72 | 2,12 | 2,10 | 2,67 | 2,98 † | 2,75 | — | 2,49 | 2,60 | — | — | — | — | — |
+| Índice de Gini do rendimento do trabalho | 0,507 | 0,495 | 0,395 | 0,514 | 0,470 | 0,477 | — | 0,495 | 0,461 | — | — | — | — | — |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 Nota: rendimento médio real habitual de todos os trabalhos, deflacionado pelo
@@ -118,11 +117,11 @@ IBGE. O índice de Gini vai de 0 (igualdade total) a 1 (desigualdade máxima).
 
 **Tabela 5** — Desalento e jovens que não estudam nem trabalham, por território — 2º trimestre de 2026
 
-| Indicador | Piauí | Teresina | Entorno metropolitano | Centro-Leste | Baixo Parnaíba | Alto Parnaíba e Chapadas | Teste estratos | Urbana | Rural | Teste zona |
-|---|---:|---:|---:|---:|---:|---:|:---:|---:|---:|:---:|
-| Desalentados na força de trabalho ampliada (%) | 7,0 | 0,7 † | 3,3 † | 13,5 | 7,8 † | 9,8 † | \*\*\* | 3,7 | 16,6 | \*\*\* |
-| Desalentados na força de trabalho potencial (%) | 68,4 | 58,4 † | 69,5 † | 76,0 | 55,1 | 76,4 | \*\*\* | 60,8 | 74,2 | \*\*\* |
-| Jovens de 14 a 29 anos que não estudam nem trabalham (%) | 24,3 | 17,7 | 31,5 | 25,6 | 24,5 | 30,2 | \*\* | 20,6 | 33,4 | \*\*\* |
+| Indicador | Piauí | Teresina | Entorno metropolitano | Centro-Leste | Baixo Parnaíba | Alto Parnaíba e Chapadas | Teste estratos | Urbana | Rural | Teste zona | Urbano tradicional | Rural | FCU | Teste situação |
+|---|---:|---:|---:|---:|---:|---:|:---:|---:|---:|:---:|---:|---:|---:|:---:|
+| Desalentados na força de trabalho ampliada (%) | 7,0 | 0,7 † | 3,3 † | 13,5 | 7,8 † | 9,8 † | \*\*\* | 3,7 | 16,6 | \*\*\* | — | — | — | — |
+| Desalentados na força de trabalho potencial (%) | 68,4 | 58,4 † | 69,5 † | 76,0 | 55,1 | 76,4 | \*\*\* | 60,8 | 74,2 | \*\*\* | — | — | — | — |
+| Jovens de 14 a 29 anos que não estudam nem trabalham (%) | 24,3 | 17,7 | 31,5 | 25,6 | 24,5 | 30,2 | \*\* | 20,6 | 33,4 | \*\*\* | — | — | — | — |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
@@ -139,41 +138,34 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 ## 7 Perfil da população em idade de trabalhar
 
-**Tabela 7** — Composição da população de 14 anos ou mais (%) — 2º trimestre de 2026
+**Tabela 7** — Composição da população de 14 anos ou mais, por território (%) — 2º trimestre de 2026
 
-| Categoria | Brasil (%) | Nordeste (%) | Piauí (%) |
-|---|---:|---:|---:|
-| Sexo: Masculino | 48,2 | 47,5 | 47,8 |
-| Sexo: Feminino | 51,8 | 52,5 | 52,2 |
-| Cor ou raça: Branca | 42,4 | 24,6 | 19,4 |
-| Cor ou raça: Preta | 11,0 | 14,1 | 13,7 |
-| Cor ou raça: Amarela | 0,6 | 0,3 | – |
-| Cor ou raça: Parda | 45,6 | 60,5 | 66,7 |
-| Cor ou raça: Indígena | 0,4 | 0,4 | – |
-| Faixa etária: 14 a 17 anos | 6,7 | 7,4 | 7,1 |
-| Faixa etária: 18 a 24 anos | 12,0 | 12,6 | 13,0 |
-| Faixa etária: 25 a 39 anos | 27,7 | 27,4 | 26,6 |
-| Faixa etária: 40 a 59 anos | 32,9 | 32,8 | 33,4 |
-| Faixa etária: 60 anos ou mais | 20,7 | 19,8 | 20,0 |
-| Nível de instrução: Sem instrução e menos de 1 ano de estudo | 4,0 | 7,3 | 8,1 |
-| Nível de instrução: Fundamental incompleto ou equivalente | 23,5 | 28,1 | 30,9 |
-| Nível de instrução: Fundamental completo ou equivalente | 8,0 | 7,3 | 7,6 |
-| Nível de instrução: Médio incompleto ou equivalente | 8,1 | 8,5 | 8,4 |
-| Nível de instrução: Médio completo ou equivalente | 32,2 | 31,2 | 26,3 |
-| Nível de instrução: Superior incompleto ou equivalente | 5,9 | 4,9 | 5,0 |
-| Nível de instrução: Superior completo | 18,4 | 12,6 | 13,6 |
+| Indicador | Piauí | Teresina | Entorno metropolitano | Centro-Leste | Baixo Parnaíba | Alto Parnaíba e Chapadas | Teste estratos | Urbana | Rural | Teste zona | Urbano tradicional | Rural | FCU | Teste situação |
+|---|---:|---:|---:|---:|---:|---:|:---:|---:|---:|:---:|---:|---:|---:|:---:|
+| Sexo: Masculino | 47,8 | 45,4 | 49,0 | 48,7 | 47,3 | 50,7 | — | 46,4 | 51,0 | — | — | — | — | — |
+| Sexo: Feminino | 52,2 | 54,6 | 51,0 | 51,3 | 52,7 | 49,3 | — | 53,6 | 49,0 | — | — | — | — | — |
+| Cor ou raça: Branca | 19,4 | 21,9 | 10,3 | 22,6 | 19,9 | 13,9 | — | 21,4 | 15,1 | — | — | — | — | — |
+| Cor ou raça: Preta | 13,7 | 13,9 | 10,1 † | 15,9 | 9,7 † | 17,6 † | — | 13,1 | 14,9 | — | — | — | — | — |
+| Cor ou raça: Parda | 66,7 | 64,1 | 79,5 | 61,2 | 70,3 | 68,3 | — | 65,3 | 69,8 | — | — | — | — | — |
+| Faixa etária: 14 a 17 anos | 7,1 | 6,5 | 7,9 | 7,7 | 7,4 | 6,1 | — | 6,7 | 8,0 | — | — | — | — | — |
+| Faixa etária: 18 a 24 anos | 13,0 | 12,6 | 13,6 | 13,3 | 13,4 | 12,4 | — | 13,7 | 11,4 | — | — | — | — | — |
+| Faixa etária: 25 a 39 anos | 26,6 | 26,5 | 26,8 | 25,9 | 27,1 | 26,8 | — | 27,2 | 25,1 | — | — | — | — | — |
+| Faixa etária: 40 a 59 anos | 33,4 | 35,4 | 33,4 | 32,6 | 32,0 | 33,6 | — | 33,5 | 33,2 | — | — | — | — | — |
+| Faixa etária: 60 anos ou mais | 20,0 | 19,0 | 18,3 | 20,5 | 20,2 | 21,1 | — | 18,9 | 22,4 | — | — | — | — | — |
+| Nível de instrução: Sem instrução e menos de 1 ano de estudo | 8,1 | 2,6 | 6,1 | 12,7 | 8,9 | 10,4 | — | 6,0 | 13,1 | — | — | — | — | — |
+| Nível de instrução: Fundamental incompleto ou equivalente | 30,9 | 16,9 | 32,6 | 35,0 | 37,7 | 36,6 | — | 24,7 | 44,9 | — | — | — | — | — |
+| Nível de instrução: Fundamental completo ou equivalente | 7,6 | 6,0 | 8,9 | 7,9 | 8,7 | 7,2 | — | 7,0 | 8,9 | — | — | — | — | — |
+| Nível de instrução: Médio incompleto ou equivalente | 8,4 | 8,0 | 9,6 | 8,5 | 8,4 | 8,4 | — | 8,5 | 8,2 | — | — | — | — | — |
+| Nível de instrução: Médio completo ou equivalente | 26,3 | 34,2 | 32,2 | 22,0 | 21,9 | 24,2 | — | 30,0 | 18,1 | — | — | — | — | — |
+| Nível de instrução: Superior incompleto ou equivalente | 5,0 | 8,1 | 4,0 † | 4,2 † | 4,1 † | – | — | 6,2 | 2,3 † | — | — | — | — | — |
+| Nível de instrução: Superior completo | 13,6 | 24,1 | 6,5 † | 9,7 | 10,3 † | 10,0 † | — | 17,6 | 4,5 | — | — | — | — | — |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-Nota: a composição por território está no Anexo D.
 
 ## 8 Pontos de atenção
 
 Esta seção reúne apenas os resultados estatisticamente significativos e com
 precisão suficiente.
-
-**Variações no tempo (Piauí)**
-
-- Nenhum dos indicadores de destaque teve variação estatisticamente significativa no Piauí em relação aos trimestres de comparação.
 
 **Diferenças entre territórios**
 
@@ -245,9 +237,12 @@ contra as tabelas oficiais do SIDRA para o Piauí.
 
 **Territórios.** Brasil, Nordeste e Piauí; dentro do Piauí, os cinco estratos
 agregados da amostra (Teresina, entorno metropolitano, Centro-Leste, Baixo
-Parnaíba e Alto Parnaíba e Chapadas do Sul) e a situação do domicílio (urbana
-ou rural). O estrato administrativo aparece só nos anexos, porque repete
-informação dos estratos agregados.
+Parnaíba e Alto Parnaíba e Chapadas do Sul), a zona do domicílio (urbana ou
+rural) e a situação (rural, urbano tradicional ou Favela/Comunidade Urbana —
+FCU), um recorte mais fino que a zona simples porque separa a FCU como grupo
+próprio — dígito `S` do código de estrato da amostra (AAAGGS, 6 dígitos). O
+estrato administrativo aparece só nos anexos, porque repete informação dos
+estratos agregados.
 
 **Confiabilidade (marcas † e –).** A marca de cada número não vem do CV do
 trimestre isolado, que é ele próprio sujeito a ruído, mas do comportamento do
@@ -263,13 +258,6 @@ sobre o desenho amostral (`svyglm` com `regTermTest`, método LRT, e
 `svychisq` para respostas categóricas). Os p-valores são ajustados para
 comparações múltiplas pelo método de Benjamini-Hochberg.
 
-**Variações no tempo.** A diferença entre dois trimestres é testada tratando
-as amostras como independentes. Como o painel rotativo da PNAD Contínua faz
-trimestres próximos compartilharem domicílios, a variância verdadeira da
-diferença é menor que a usada no teste: o resultado é conservador, ou seja,
-pode deixar de apontar uma variação real, mas não aponta variações que não
-existem. Os p-valores são ajustados por Benjamini-Hochberg dentro da Tabela 1.
-
 ## Anexo B — Resolução territorial de cada indicador
 
 Percentual de categorias do indicador que passam no critério de confiabilidade
@@ -277,41 +265,41 @@ Percentual de categorias do indicador que passam no critério de confiabilidade
 
 **Tabela B.1** — Aprovação na triagem de confiabilidade, por indicador e nível territorial
 
-| Indicador | Piauí e Teresina | Zona | Estrato administrativo | Estrato agregado |
-|---|---:|---:|---:|---:|
-| Taxa de participação na força de trabalho | 100% | 100% | 100% | 100% |
-| Nível da ocupação | 100% | 100% | 100% | 100% |
-| Taxa de desocupação | 100% | 100% | 67% | 20% |
-| Taxa composta de subutilização | 100% | 100% | 100% | 100% |
-| Responsáveis pelo domicílio entre os desocupados | 50% | 100% | 33% | 0% |
-| Responsáveis ou cônjuges entre os desocupados | 50% | 100% | 33% | 40% |
-| Pessoas em idade de trabalhar | 100% | 100% | 100% | 100% |
-| Pessoas na força de trabalho | 100% | 100% | 100% | 100% |
-| Pessoas fora da força de trabalho | 100% | 100% | 100% | 100% |
-| Pessoas ocupadas | 100% | 100% | 100% | 100% |
-| Pessoas desocupadas | 100% | 100% | 67% | 20% |
-| Pessoas subutilizadas | 100% | 100% | 100% | 100% |
-| Taxa de informalidade | 100% | 100% | 100% | 100% |
-| Subocupação por insuficiência de horas | 50% | 100% | 33% | 40% |
-| Sub-remuneração (rendimento-hora abaixo do mínimo) | 100% | 100% | 100% | 100% |
-| Ocupados com ensino médio completo ou mais | 100% | 100% | 100% | 100% |
-| Empregados no setor privado | 100% | 100% | 100% | 80% |
-| Empregados no setor público | 100% | 100% | 67% | 40% |
-| Ocupados na agropecuária | 50% | 50% | 33% | 40% |
-| Rendimento médio real habitual | 50% | 100% | 67% | 60% |
-| Rendimento médio dos formais | 50% | 100% | 67% | 60% |
-| Rendimento médio dos informais | 50% | 100% | 67% | 80% |
-| Razão entre rendimento formal e informal | 100% | 100% | 100% | 80% |
-| Índice de Gini do rendimento do trabalho | 100% | 100% | 100% | 100% |
-| Desalentados na força de trabalho ampliada | 50% | 100% | 33% | 20% |
-| Desalentados na força de trabalho potencial | 50% | 100% | 33% | 60% |
-| Jovens de 14 a 29 anos que não estudam nem trabalham | 100% | 100% | 100% | 100% |
-| Sexo | 100% | 100% | 100% | 100% |
-| Cor ou raça | 60% | 60% | 53% | 48% |
-| Faixa etária | 100% | 100% | 100% | 100% |
-| Nível de instrução | 100% | 93% | 90% | 80% |
-| Por que o desalentado desistiu de procurar | 100% | — | — | — |
-| Por que o jovem nem-nem não procurou trabalho | 100% | — | — | — |
+| Indicador | Piauí e Teresina | Zona | Situação | Estrato administrativo | Estrato agregado |
+|---|---:|---:|---:|---:|---:|
+| Taxa de participação na força de trabalho | 100% | 100% | — | 100% | 100% |
+| Nível da ocupação | 100% | 100% | — | 100% | 100% |
+| Taxa de desocupação | 100% | 100% | — | 67% | 20% |
+| Taxa composta de subutilização | 100% | 100% | — | 100% | 100% |
+| Responsáveis pelo domicílio entre os desocupados | 50% | 100% | — | 33% | 0% |
+| Responsáveis ou cônjuges entre os desocupados | 50% | 100% | — | 33% | 40% |
+| Pessoas em idade de trabalhar | 100% | 100% | — | 100% | 100% |
+| Pessoas na força de trabalho | 100% | 100% | — | 100% | 100% |
+| Pessoas fora da força de trabalho | 100% | 100% | — | 100% | 100% |
+| Pessoas ocupadas | 100% | 100% | — | 100% | 100% |
+| Pessoas desocupadas | 100% | 100% | — | 67% | 20% |
+| Pessoas subutilizadas | 100% | 100% | — | 100% | 100% |
+| Taxa de informalidade | 100% | 100% | — | 100% | 100% |
+| Subocupação por insuficiência de horas | 50% | 100% | — | 33% | 40% |
+| Sub-remuneração (rendimento-hora abaixo do mínimo) | 100% | 100% | — | 100% | 100% |
+| Ocupados com ensino médio completo ou mais | 100% | 100% | — | 100% | 100% |
+| Empregados no setor privado | 100% | 100% | — | 100% | 80% |
+| Empregados no setor público | 100% | 100% | — | 67% | 40% |
+| Ocupados na agropecuária | 50% | 50% | — | 33% | 40% |
+| Rendimento médio real habitual | 50% | 100% | — | 67% | 60% |
+| Rendimento médio dos formais | 50% | 100% | — | 67% | 60% |
+| Rendimento médio dos informais | 50% | 100% | — | 67% | 80% |
+| Razão entre rendimento formal e informal | 100% | 100% | — | 100% | 80% |
+| Índice de Gini do rendimento do trabalho | 100% | 100% | — | 100% | 100% |
+| Desalentados na força de trabalho ampliada | 50% | 100% | — | 33% | 20% |
+| Desalentados na força de trabalho potencial | 50% | 100% | — | 33% | 60% |
+| Jovens de 14 a 29 anos que não estudam nem trabalham | 100% | 100% | — | 100% | 100% |
+| Sexo | 100% | 100% | — | 100% | 100% |
+| Cor ou raça | 60% | 60% | — | 53% | 48% |
+| Faixa etária | 100% | 100% | — | 100% | 100% |
+| Nível de instrução | 100% | 93% | — | 90% | 80% |
+| Por que o desalentado desistiu de procurar | 100% | — | — | — | — |
+| Por que o jovem nem-nem não procurou trabalho | 100% | — | — | — | — |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
@@ -319,24 +307,24 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Tabela C.1** — p-valor bruto / p-valor ajustado, por indicador e recorte — 2º trimestre de 2026
 
-| Indicador | Zona (urbana × rural) | Estrato administrativo | Estrato agregado | Teresina × resto do Piauí |
-|---|:---:|:---:|:---:|:---:|
-| Taxa de participação na força de trabalho | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
-| Nível da ocupação | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
-| Taxa de desocupação | 0,010 / 0,012 \* | < 0,001 / < 0,001 \*\*\* | 0,007 / 0,009 \*\* | 0,057 / 0,062 ns |
-| Taxa composta de subutilização | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
-| Responsáveis pelo domicílio entre os desocupados | 0,460 / 0,471 ns | 0,044 / 0,049 \* | 0,037 / 0,043 \* | 0,011 / 0,013 \* |
-| Responsáveis ou cônjuges entre os desocupados | 0,268 / 0,277 ns | 0,002 / 0,002 \*\* | 0,056 / 0,062 ns | < 0,001 / < 0,001 \*\*\* |
-| Taxa de informalidade | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
-| Subocupação por insuficiência de horas | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
-| Sub-remuneração (rendimento-hora abaixo do mínimo) | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
-| Ocupados com ensino médio completo ou mais | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
-| Rendimento médio real habitual | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
-| Rendimento médio dos formais | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
-| Rendimento médio dos informais | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
-| Desalentados na força de trabalho ampliada | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
-| Desalentados na força de trabalho potencial | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
-| Jovens de 14 a 29 anos que não estudam nem trabalham | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / 0,001 \*\* | < 0,001 / < 0,001 \*\*\* |
+| Indicador | Zona (urbana × rural) | Situação (rural × urbano × FCU) | Estrato administrativo | Estrato agregado | Teresina × resto do Piauí |
+|---|:---:|:---:|:---:|:---:|:---:|
+| Taxa de participação na força de trabalho | < 0,001 / < 0,001 \*\*\* | — | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Nível da ocupação | < 0,001 / < 0,001 \*\*\* | — | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Taxa de desocupação | 0,010 / 0,012 \* | — | < 0,001 / < 0,001 \*\*\* | 0,007 / 0,009 \*\* | 0,057 / 0,062 ns |
+| Taxa composta de subutilização | < 0,001 / < 0,001 \*\*\* | — | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Responsáveis pelo domicílio entre os desocupados | 0,460 / 0,471 ns | — | 0,044 / 0,049 \* | 0,037 / 0,043 \* | 0,011 / 0,013 \* |
+| Responsáveis ou cônjuges entre os desocupados | 0,268 / 0,277 ns | — | 0,002 / 0,002 \*\* | 0,056 / 0,062 ns | < 0,001 / < 0,001 \*\*\* |
+| Taxa de informalidade | < 0,001 / < 0,001 \*\*\* | — | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Subocupação por insuficiência de horas | < 0,001 / < 0,001 \*\*\* | — | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Sub-remuneração (rendimento-hora abaixo do mínimo) | < 0,001 / < 0,001 \*\*\* | — | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Ocupados com ensino médio completo ou mais | < 0,001 / < 0,001 \*\*\* | — | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Rendimento médio real habitual | < 0,001 / < 0,001 \*\*\* | — | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Rendimento médio dos formais | < 0,001 / < 0,001 \*\*\* | — | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Rendimento médio dos informais | < 0,001 / < 0,001 \*\*\* | — | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Desalentados na força de trabalho ampliada | < 0,001 / < 0,001 \*\*\* | — | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Desalentados na força de trabalho potencial | < 0,001 / < 0,001 \*\*\* | — | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* | < 0,001 / < 0,001 \*\*\* |
+| Jovens de 14 a 29 anos que não estudam nem trabalham | < 0,001 / < 0,001 \*\*\* | — | < 0,001 / < 0,001 \*\*\* | < 0,001 / 0,001 \*\* | < 0,001 / < 0,001 \*\*\* |
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 

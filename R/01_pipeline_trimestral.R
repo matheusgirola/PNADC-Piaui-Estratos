@@ -46,12 +46,12 @@ dados_brutos <- derivar_variaveis(dados_brutos, sm_hora = sm_hora_corrente)
 design_trimestre <- dados_brutos
 design_pi <- design_trimestre[design_trimestre$variables$UF == "Piauí", ]
 
-# Crosswalk Estrato -> Zona/Estrato_Admin/Estrato_agregado — é a
+# Crosswalk Estrato -> Zona/Estrato_Admin/Estrato_agregado/Situacao — é a
 # classificação já validada aqui em cima, exportada pra qualquer script à
 # parte (ex.: de mapa) poder colorir o polígono do IBGE sem precisar
 # redescobrir/duplicar essas regras.
 crosswalk_trimestre <- distinct(design_pi$variables, Estrato, Zona,
-                                Estrato_Admin, Estrato_agregado)
+                                Estrato_Admin, Estrato_agregado, Situacao)
 
 # Duas cópias, de propósito:
 #   - sem sufixo: é o que o 04 e o 07 leem, sempre o trimestre corrente
@@ -450,6 +450,7 @@ design_pi$variables$Teresina_Resto <- factor(ifelse(
 
 recortes_regionais <- list(
   "Zona"                   = "Zona",
+  "Situacao"               = "Situacao",
   "Estrato_Administrativo" = "Estrato_Admin",
   "Estrato_Agregado"       = "Estrato_agregado",
   "Estrato_Micro"          = "Estrato",
@@ -522,9 +523,10 @@ base_trimestre <- base_trimestre %>%
     CV = ifelse(Estimativa != 0, abs(SE / Estimativa) * 100, NA_real_),
     Nivel_Geografico = case_when(
       Regiao_Geografica %in% geografias_agregadas ~ "Agregado",
-      str_starts(Regiao_Geografica, "Zona_")  ~ "Zona",
-      str_starts(Regiao_Geografica, "Admin_") ~ "Administrativo",
-      str_starts(Regiao_Geografica, "Agreg_") ~ "Agregado_Geografico",
+      str_starts(Regiao_Geografica, "Zona_")     ~ "Zona",
+      str_starts(Regiao_Geografica, "Situacao_") ~ "Situacao",
+      str_starts(Regiao_Geografica, "Admin_")    ~ "Administrativo",
+      str_starts(Regiao_Geografica, "Agreg_")    ~ "Agregado_Geografico",
       TRUE ~ "Outro"
     )
   )

@@ -24,7 +24,7 @@
 # USO:   Rscript R/09_preencher_relatorio.R   (trimestre de R/00_config.R)
 # ENTRADA: output/relatorio_trimestral.md (modelo), output/base_<sufixo>.csv,
 #          output/testes_regionais_<sufixo>.csv, output/testes_significancia_<sufixo>.csv,
-#          output/tabelas/triagem_confiabilidade.csv, dados_saida/serie/base_*.rds
+#          output/tabelas/triagem_confiabilidade.csv
 # SAÍDA:   output/relatorio_trimestral_<sufixo>.md (+ .docx se CONVERTER_DOCX)
 # ==============================================================================
 
@@ -59,17 +59,6 @@ triagem     <- ler("output/tabelas/triagem_confiabilidade.csv") %>%
 
 CHAVE <- c("Indicador", "Subcategoria_Indicador", "Regiao_Geografica",
            "Recorte_Demografico", "Categoria_Demografica")
-
-# Trimestres de comparação, da série do Piauí (R/10).
-ler_serie <- function(ano, tri) {
-  f <- sprintf("dados_saida/serie/base_%dT%d.rds", ano, tri)
-  if (!file.exists(f)) return(NULL)
-  readRDS(f)$base %>% mutate(cv = 100 * SE / Estimativa)
-}
-ano_ant <- if (TRIMESTRE_REF == 1) ANO_REF - 1 else ANO_REF
-tri_ant <- if (TRIMESTRE_REF == 1) 4 else TRIMESTRE_REF - 1
-serie_tri_ant <- ler_serie(ano_ant, tri_ant)
-serie_ano_ant <- ler_serie(ANO_REF - 1, TRIMESTRE_REF)
 
 ausentes <- new.env(parent = emptyenv())
 ausentes$itens <- character(0)
@@ -136,6 +125,12 @@ GEO_AGREG <- c(
 )
 GEO_ZONA <- c("Urbana" = "Zona_Urbana", "Rural" = "Zona_Rural")
 
+# Situação (dígito S do Estrato, AAAGGS): recorte de comparação adotado em
+# 18/09/2026 ao lado de Zona e Estrato Agregado — CONTEXTO_PROJETO.md §1 e §8.8.
+GEO_SITUACAO <- c("Urbano tradicional" = "Situacao_Urbano tradicional",
+                  "Rural"              = "Situacao_Rural",
+                  "FCU"                = "Situacao_FCU")
+
 # Geografias do anexo (tabela completa por indicador).
 GEO_ANEXO <- tribble(
   ~recorte,           ~categoria,              ~geografia,
@@ -145,6 +140,9 @@ GEO_ANEXO <- tribble(
   "Agregados",        "Teresina",              "Teresina",
   "Zona",             "Urbana",                "Zona_Urbana",
   "Zona",             "Rural",                 "Zona_Rural",
+  "Situação",         "Urbano tradicional",    "Situacao_Urbano tradicional",
+  "Situação",         "Rural",                 "Situacao_Rural",
+  "Situação",         "FCU",                   "Situacao_FCU",
   "Administrativo",   "Capital",               "Admin_Capital",
   "Administrativo",   "Resto da RIDE",         "Admin_Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)",
   "Administrativo",   "Resto da UF",           "Admin_Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)",
@@ -156,11 +154,12 @@ GEO_ANEXO <- tribble(
 )
 
 RECORTES_TESTE <- tribble(
-  ~rotulo,                     ~recorte,
-  "Zona (urbana × rural)",     "Zona",
-  "Estrato administrativo",    "Estrato_Administrativo",
-  "Estrato agregado",          "Estrato_Agregado",
-  "Teresina × resto do Piauí", "Teresina_x_Resto_Piaui"
+  ~rotulo,                              ~recorte,
+  "Zona (urbana × rural)",              "Zona",
+  "Situação (rural × urbano × FCU)",    "Situacao",
+  "Estrato administrativo",             "Estrato_Administrativo",
+  "Estrato agregado",                   "Estrato_Agregado",
+  "Teresina × resto do Piauí",          "Teresina_x_Resto_Piaui"
 )
 
 RECORTES_DEMO <- c(Sexo = "Sexo", Raca = "Cor ou raça", Faixa_Etaria_trabalho = "Faixa etária",
@@ -180,9 +179,7 @@ formatar <- function(x, u) {
   if (u == "reais") paste0("R$ ", v) else v
 }
 unidade_rotulo <- function(u) switch(u, pct = "%", mil = "mil pessoas", reais = "R$", razao = "razão", gini = "índice")
-unidade_delta  <- function(u) switch(u, pct = "p.p.", mil = "mil", reais = "R$", razao = "", gini = "")
 com_unidade    <- function(rotulo, u) if (u %in% c("razao", "gini")) rotulo else paste0(rotulo, " (", unidade_rotulo(u), ")")
-sinal          <- function(v) if (v > 0) "+" else if (v < 0) "−" else ""
 
 classe_cv <- function(cv) {
   case_when(is.na(cv) ~ "—", cv < 5 ~ "excelente", cv < 15 ~ "boa", cv < 30 ~ "regular", TRUE ~ "baixa")
@@ -312,62 +309,19 @@ VOCABULARIO <- list(
   dif       = exp_dif,
   pct_de    = exp_pct_de,
   trimestre = function() sprintf("%dº trimestre de %d", TRIMESTRE_REF, ANO_REF),
-  trimestre_anterior = function() sprintf("%dº trimestre de %d", tri_ant, ano_ant),
-  trimestre_ano_anterior = function() sprintf("%dº trimestre de %d", TRIMESTRE_REF, ANO_REF - 1),
   sufixo    = function() sufixo,
   sm_hora   = function() num(sm_hora_corrente, 2)
 )
 
 # ---- 6. Tabelas geradas por diretiva ------------------------------------------------
 
-# 6a. Destaques: Brasil × Nordeste × Piauí e a variação do Piauí contra o
-# trimestre anterior e o mesmo trimestre do ano anterior.
-#
-# Os trimestres são tratados como amostras independentes: SE da diferença =
-# sqrt(SE1² + SE2²). O painel rotativo faz trimestres próximos compartilharem
-# domicílios, o que dá covariância positiva — a variância verdadeira da
-# diferença é MENOR, então o teste é conservador (acha menos variação do que
-# existe, nunca mais). p ajustado por BH dentro da tabela, como no 01.
-comparacoes_temporais <- function() {
-  ids <- CATALOGO$id[CATALOGO$destaque]
-  map_dfr(ids, function(id) {
-    atual <- linha_de(id, "Piauí")
-    map_dfr(list(trimestre = serie_tri_ant, ano = serie_ano_ant), function(s) {
-      anterior <- if (is.null(s)) NULL else linha_de(id, "Piauí", dados = s)
-      if (is.null(atual) || is.null(anterior)) {
-        return(tibble(dif = NA_real_, p = NA_real_))
-      }
-      dif <- atual$Estimativa - anterior$Estimativa
-      z <- dif / sqrt(atual$SE^2 + anterior$SE^2)
-      tibble(dif = dif, p = 2 * pnorm(-abs(z)))
-    }, .id = "contra") %>% mutate(id = id, .before = 1)
-  }) %>%
-    mutate(p_ajustado = p.adjust(p, method = "BH"))
-}
-COMP_TEMPORAIS <- comparacoes_temporais()
-
-formatar_delta <- function(dif, p, u) {
-  if (is.na(dif)) return("—")
-  v <- escala(dif, u)
-  s <- paste0(sinal(v), if (u == "reais") "R$ " else "", num(abs(v), casas_de(u)))
-  paste0(s, " ", estrelas(p))
-}
-
+# 6a. Destaques: Brasil × Nordeste × Piauí.
 tabela_destaques <- function() {
-  if (is.null(serie_tri_ant)) registrar_ausente(sprintf("série de %dT%d (trimestre anterior)", ano_ant, tri_ant))
-  if (is.null(serie_ano_ant)) registrar_ausente(sprintf("série de %dT%d (ano anterior)", ANO_REF - 1, TRIMESTRE_REF))
   linhas <- CATALOGO %>% filter(destaque) %>% pmap_chr(function(id, rotulo, unidade, ...) {
-    ct <- COMP_TEMPORAIS %>% filter(id == !!id)
-    tri <- ct[ct$contra == "trimestre", ]; ano <- ct[ct$contra == "ano", ]
     linha_md(com_unidade(rotulo, unidade),
-             celula(id, "Brasil"), celula(id, "Nordeste"), paste0("**", celula(id, "Piauí"), "**"),
-             formatar_delta(tri$dif, tri$p_ajustado, unidade),
-             formatar_delta(ano$dif, ano$p_ajustado, unidade))
+             celula(id, "Brasil"), celula(id, "Nordeste"), paste0("**", celula(id, "Piauí"), "**"))
   })
-  c(linha_md("Indicador", "Brasil", "Nordeste", "Piauí",
-             sprintf("Piauí: variação sobre %dT%d", ano_ant, tri_ant),
-             sprintf("Piauí: variação sobre %dT%d", ANO_REF - 1, TRIMESTRE_REF)),
-    "|---|---:|---:|---:|---:|---:|", linhas)
+  c(linha_md("Indicador", "Brasil", "Nordeste", "Piauí"), "|---|---:|---:|---:|", linhas)
 }
 
 # 6b. Matriz territorial de uma dimensão. Linha só entra no corpo se o Piauí
@@ -388,14 +342,20 @@ tabela_matriz <- function(dim) {
   linhas <- pmap_chr(L, function(id, sub, rotulo) {
     pi <- celula(id, "Piauí", sub)
     if (pi == "–") return(NA_character_)
-    agreg <- map_chr(GEO_AGREG, ~ celula(id, .x, sub))
-    zona  <- map_chr(GEO_ZONA,  ~ celula(id, .x, sub))
-    linha_md(rotulo, pi, agreg, exp_estrelas(id, "Estrato_Agregado"), zona, exp_estrelas(id, "Zona"))
+    agreg     <- map_chr(GEO_AGREG,     ~ celula(id, .x, sub))
+    zona      <- map_chr(GEO_ZONA,      ~ celula(id, .x, sub))
+    situacao  <- map_chr(GEO_SITUACAO,  ~ celula(id, .x, sub))
+    linha_md(rotulo, pi, agreg, exp_estrelas(id, "Estrato_Agregado"),
+             zona, exp_estrelas(id, "Zona"),
+             situacao, exp_estrelas(id, "Situacao"))
   })
   linhas <- linhas[!is.na(linhas)]
   if (length(linhas) == 0) return("*(nenhum indicador desta dimensão passou na triagem no nível do Piauí)*")
-  c(linha_md("Indicador", "Piauí", names(GEO_AGREG), "Teste estratos", names(GEO_ZONA), "Teste zona"),
-    paste0("|---|", strrep("---:|", 1 + length(GEO_AGREG)), ":---:|", strrep("---:|", length(GEO_ZONA)), ":---:|"),
+  c(linha_md("Indicador", "Piauí", names(GEO_AGREG), "Teste estratos",
+             names(GEO_ZONA), "Teste zona", names(GEO_SITUACAO), "Teste situação"),
+    paste0("|---|", strrep("---:|", 1 + length(GEO_AGREG)), ":---:|",
+           strrep("---:|", length(GEO_ZONA)), ":---:|",
+           strrep("---:|", length(GEO_SITUACAO)), ":---:|"),
     linhas)
 }
 
@@ -412,18 +372,6 @@ tabela_categorias <- function(dim) {
 
 # 6d. Pontos de atenção — gerados só a partir do que é significativo E passa
 # na triagem (regra de redação, §8.7). Tudo em tópicos.
-pontos_temporais <- function() {
-  sig <- COMP_TEMPORAIS %>% filter(!is.na(p_ajustado), p_ajustado < 0.05)
-  if (nrow(sig) == 0) return("- Nenhum dos indicadores de destaque teve variação estatisticamente significativa no Piauí em relação aos trimestres de comparação.")
-  pmap_chr(sig, function(id, contra, dif, p, p_ajustado) {
-    i <- info(id)
-    ref <- if (contra == "trimestre") sprintf("%dT%d", ano_ant, tri_ant) else sprintf("%dT%d", ANO_REF - 1, TRIMESTRE_REF)
-    sprintf("- **%s** no Piauí: %s %s em relação a %s (%s).", i$rotulo,
-            if (dif > 0) "alta de" else "queda de", paste(num(abs(escala(dif, i$unidade)), casas_de(i$unidade)), unidade_delta(i$unidade)),
-            ref, estrelas(p_ajustado))
-  })
-}
-
 pontos_territoriais <- function() {
   L <- map_dfr(c("ocupacao", "qualidade", "rendimento", "vulnerabilidade"), linhas_da_dimensao) %>%
     filter(!str_detect(id, "^(Distribuicao|Motivo)"))
@@ -453,6 +401,18 @@ pontos_territoriais <- function() {
         partes <- c(partes, sprintf("urbana %s × rural %s %s", cu, cr, estrelas(t_z$p_ajustado)))
       }
     }
+    t_s <- teste_reg(id, "Situacao")
+    if (!is.null(t_s) && t_s$p_ajustado < 0.05) {
+      v <- map_dfr(names(GEO_SITUACAO), function(nm) {
+        tibble(nome = nm, txt = celula(id, GEO_SITUACAO[[nm]], sub),
+               est = linha_de(id, GEO_SITUACAO[[nm]], sub = sub)$Estimativa %||% NA_real_)
+      }) %>% filter(txt != "–", txt != "—")
+      if (nrow(v) >= 2) {
+        mx <- v[which.max(v$est), ]; mn <- v[which.min(v$est), ]
+        partes <- c(partes, sprintf("por situação, maior em %s (%s) e menor em %s (%s) %s",
+                                    mx$nome, mx$txt, mn$nome, mn$txt, estrelas(t_s$p_ajustado)))
+      }
+    }
     if (length(partes) == 0) NA_character_ else sprintf("- **%s**: %s.", rotulo, paste(partes, collapse = "; "))
   })
   out <- out[!is.na(out)]
@@ -463,7 +423,9 @@ pontos_territoriais <- function() {
 # território (p ajustado) E todas as categorias do recorte, naquele território,
 # passam na triagem.
 pontos_demograficos <- function() {
-  geos <- c(setNames(GEO_AGREG, names(GEO_AGREG)), setNames(GEO_ZONA, paste("Zona", tolower(names(GEO_ZONA)))))
+  geos <- c(setNames(GEO_AGREG, names(GEO_AGREG)),
+            setNames(GEO_ZONA, paste("Zona", tolower(names(GEO_ZONA)))),
+            setNames(GEO_SITUACAO, paste("Situação", tolower(names(GEO_SITUACAO)))))
   cand <- testes_demo %>%
     filter(Regiao_Geografica %in% geos, Recorte_Demografico %in% names(RECORTES_DEMO),
            Indicador %in% CATALOGO$id, !is.na(p_ajustado), p_ajustado < 0.05)
@@ -538,8 +500,8 @@ tabela_anexo_testes <- function() {
 }
 
 tabela_anexo_triagem <- function() {
-  niveis <- c(Agregado = "Piauí e Teresina", Zona = "Zona", Estrato_Admin = "Estrato administrativo",
-              Estrato_Agregado = "Estrato agregado")
+  niveis <- c(Agregado = "Piauí e Teresina", Zona = "Zona", Situacao = "Situação",
+              Estrato_Admin = "Estrato administrativo", Estrato_Agregado = "Estrato agregado")
   resumo <- triagem %>%
     filter(Recorte_Demografico == "Total", Indicador %in% CATALOGO$id) %>%
     group_by(Indicador, Nivel_Geografico) %>%
@@ -566,7 +528,6 @@ resolver_tabelas <- function(linhas) {
       destaques            = tabela_destaques(),
       matriz               = tabela_matriz(arg[["dimensao"]]),
       categorias           = tabela_categorias(arg[["dimensao"]]),
-      "pontos-temporais"   = pontos_temporais(),
       "pontos-territoriais" = pontos_territoriais(),
       "pontos-demograficos" = pontos_demograficos(),
       "anexo-indicadores"  = tabela_anexo_indicadores(),

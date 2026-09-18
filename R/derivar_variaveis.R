@@ -95,6 +95,19 @@ derivar_variaveis <- function(design, sm_hora) {
                                            .default = NA_character_
       )),
 
+      # Situação: 6º dígito (S) do Estrato AAAGGSE, CONTEXTO_PROJETO.md §2 —
+      # mapeamento 1/2/3 -> Urbano tradicional/Rural/FCU confirmado em
+      # R/08_mapa_aaagsse.R contra a reconstrução por UPA. Restrito ao Piauí:
+      # a mesma posição de dígito não tem esse significado confirmado nas
+      # demais UFs.
+      Situacao = factor(case_when(
+        UF != "Piauí" ~ NA_character_,
+        (as.integer(Estrato) %/% 10) %% 10 == 1 ~ "Urbano tradicional",
+        (as.integer(Estrato) %/% 10) %% 10 == 2 ~ "Rural",
+        (as.integer(Estrato) %/% 10) %% 10 == 3 ~ "FCU",
+        TRUE ~ NA_character_
+      ), levels = c("Urbano tradicional", "Rural", "FCU")),
+
       Zona          = factor(V1022, labels = c("Urbana", "Rural")),
       Estrato_Admin = V1023,
 

@@ -140,9 +140,10 @@ triagem <- triagem %>%
   mutate(
     Nivel_Geografico = case_when(
       Regiao_Geografica %in% geografias_agregadas ~ "Agregado",
-      startsWith(Regiao_Geografica, "Zona_")  ~ "Zona",
-      startsWith(Regiao_Geografica, "Admin_") ~ "Estrato_Admin",
-      startsWith(Regiao_Geografica, "Agreg_") ~ "Estrato_Agregado",
+      startsWith(Regiao_Geografica, "Zona_")     ~ "Zona",
+      startsWith(Regiao_Geografica, "Situacao_") ~ "Situacao",
+      startsWith(Regiao_Geografica, "Admin_")    ~ "Estrato_Admin",
+      startsWith(Regiao_Geografica, "Agreg_")    ~ "Estrato_Agregado",
       TRUE ~ "Outro"
     ),
     crit_a   = (pct_excelente + pct_boa) >= 80,

@@ -8,8 +8,8 @@
 >
 > Construções resolvidas pelo script:
 > - `<!-- @tabela tipo=... -->` vira tabela ou lista inteira (destaques, matriz,
->   categorias, pontos-temporais, pontos-territoriais, pontos-demograficos,
->   anexo-indicadores, anexo-testes, anexo-triagem);
+>   categorias, pontos-territoriais, pontos-demograficos, anexo-indicadores,
+>   anexo-testes, anexo-triagem);
 > - `\{\{est Indicador Geografia\}\}` e afins viram números;
 > - `<!-- @redigir: ... -->` sai como bloco **A REDIGIR**.
 >
@@ -32,17 +32,14 @@ médio real habitual do trabalho no estado, de
 {{est Rendimento_Medio_Habitual Piauí}}, equivale a
 {{pct_de Rendimento_Medio_Habitual Piauí Brasil}}% do nacional.
 
-**Tabela 1** — Indicadores de destaque: Brasil, Nordeste e Piauí, e variação do Piauí — {{trimestre}}
+**Tabela 1** — Indicadores de destaque: Brasil, Nordeste e Piauí — {{trimestre}}
 
 <!-- @tabela tipo=destaques -->
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-Nota: variação em pontos percentuais (taxas), reais (rendimento) ou unidades
-do índice (Gini). \*\*\* p < 0,001; \*\* p < 0,01; \* p < 0,05; ns = não
-significativo (p ajustado). † = precisão regular na série; – = não sustenta
-leitura. Ver seção 2.
+Nota: † = precisão regular na série; – = não sustenta leitura. Ver seção 2.
 
-<!-- @redigir: dois ou três parágrafos com a leitura dos destaques — só o que a Tabela 1 marca como significativo; variação "ns" não é aumento nem queda. -->
+<!-- @redigir: dois ou três parágrafos com a leitura dos destaques do trimestre — Piauí frente a Brasil e Nordeste. -->
 
 ## 2 Como ler as tabelas
 
@@ -59,9 +56,11 @@ margem de erro. Três marcas orientam a leitura:
 Os **asteriscos** dizem se as diferenças são estatisticamente significativas,
 isto é, se não se explicam por acaso amostral: \*\*\* p < 0,001; \*\* p < 0,01;
 \* p < 0,05; ns = não significativo. Nas matrizes territoriais, a coluna
-"Teste estratos" diz se os cinco estratos diferem entre si, e "Teste zona", se
-urbano e rural diferem. Os testes não apontam *qual* território difere — para
-isso, compare os valores. Detalhes na nota metodológica (Anexo A).
+"Teste estratos" diz se os cinco estratos diferem entre si, "Teste zona", se
+urbano e rural diferem, e "Teste situação", se rural, urbano tradicional e
+Favela/Comunidade Urbana (FCU) diferem entre si. Os testes não apontam *qual*
+território difere — para isso, compare os valores. Detalhes na nota
+metodológica (Anexo A).
 
 ## 3 Ocupação e desocupação
 
@@ -116,21 +115,16 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 ## 7 Perfil da população em idade de trabalhar
 
-**Tabela 7** — Composição da população de 14 anos ou mais (%) — {{trimestre}}
+**Tabela 7** — Composição da população de 14 anos ou mais, por território (%) — {{trimestre}}
 
-<!-- @tabela tipo=categorias dimensao=populacao -->
+<!-- @tabela tipo=matriz dimensao=populacao -->
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
-Nota: a composição por território está no Anexo D.
 
 ## 8 Pontos de atenção
 
 Esta seção reúne apenas os resultados estatisticamente significativos e com
 precisão suficiente.
-
-**Variações no tempo (Piauí)**
-
-<!-- @tabela tipo=pontos-temporais -->
 
 **Diferenças entre territórios**
 
@@ -160,9 +154,12 @@ contra as tabelas oficiais do SIDRA para o Piauí.
 
 **Territórios.** Brasil, Nordeste e Piauí; dentro do Piauí, os cinco estratos
 agregados da amostra (Teresina, entorno metropolitano, Centro-Leste, Baixo
-Parnaíba e Alto Parnaíba e Chapadas do Sul) e a situação do domicílio (urbana
-ou rural). O estrato administrativo aparece só nos anexos, porque repete
-informação dos estratos agregados.
+Parnaíba e Alto Parnaíba e Chapadas do Sul), a zona do domicílio (urbana ou
+rural) e a situação (rural, urbano tradicional ou Favela/Comunidade Urbana —
+FCU), um recorte mais fino que a zona simples porque separa a FCU como grupo
+próprio — dígito `S` do código de estrato da amostra (AAAGGS, 6 dígitos). O
+estrato administrativo aparece só nos anexos, porque repete informação dos
+estratos agregados.
 
 **Confiabilidade (marcas † e –).** A marca de cada número não vem do CV do
 trimestre isolado, que é ele próprio sujeito a ruído, mas do comportamento do
@@ -177,13 +174,6 @@ série e usam o CV do próprio trimestre.
 sobre o desenho amostral (`svyglm` com `regTermTest`, método LRT, e
 `svychisq` para respostas categóricas). Os p-valores são ajustados para
 comparações múltiplas pelo método de Benjamini-Hochberg.
-
-**Variações no tempo.** A diferença entre dois trimestres é testada tratando
-as amostras como independentes. Como o painel rotativo da PNAD Contínua faz
-trimestres próximos compartilharem domicílios, a variância verdadeira da
-diferença é menor que a usada no teste: o resultado é conservador, ou seja,
-pode deixar de apontar uma variação real, mas não aponta variações que não
-existem. Os p-valores são ajustados por Benjamini-Hochberg dentro da Tabela 1.
 
 ## Anexo B — Resolução territorial de cada indicador
 

@@ -64,6 +64,7 @@ nomes_recortes <- c(
   Instrucao                = "Grau de Instrução (detalhado)",
   Instrucao_agregado       = "Grau de Instrução (dicotomizado)",
   Zona                     = "Zona (Urbana/Rural)",
+  Situacao                 = "Situação (Rural/Urbano tradicional/FCU)",
   Estrato_Administrativo   = "Estrato Administrativo",
   Estrato_Agregado         = "Estrato Agregado/Geográfico",
   Estrato_Micro            = "Estrato de 7 dígitos",
@@ -78,11 +79,11 @@ nomes_geografias_manual <- c(
   Zona_Rural  = "Zona Rural"
 )
 
-# Limpeza genérica pro resto: tira o prefixo do tipo (Admin_/Agreg_/Zona_) e
-# troca "_" por espaço — cobre qualquer categoria nova sem precisar mexer
-# nessa lista à mão toda hora.
+# Limpeza genérica pro resto: tira o prefixo do tipo (Admin_/Agreg_/Zona_/
+# Situacao_) e troca "_" por espaço — cobre qualquer categoria nova sem
+# precisar mexer nessa lista à mão toda hora.
 limpar_nome_geografia <- function(x) {
-  x <- str_replace(x, "^(Admin_|Agreg_|Zona_)", "")
+  x <- str_replace(x, "^(Admin_|Agreg_|Zona_|Situacao_)", "")
   str_replace_all(x, "_", " ")
 }
 
@@ -163,9 +164,10 @@ base <- base %>%
     Confiabilidade = classificar_cv(CV),
     Tipo_Geo = case_when(
       Regiao_Geografica %in% geografias_agregadas ~ "Agregados nacionais",
-      str_starts(Regiao_Geografica, "Zona_")  ~ "Zona",
-      str_starts(Regiao_Geografica, "Admin_") ~ "Estrato administrativo",
-      str_starts(Regiao_Geografica, "Agreg_") ~ "Estrato agregado",
+      str_starts(Regiao_Geografica, "Zona_")     ~ "Zona",
+      str_starts(Regiao_Geografica, "Situacao_") ~ "Situação",
+      str_starts(Regiao_Geografica, "Admin_")    ~ "Estrato administrativo",
+      str_starts(Regiao_Geografica, "Agreg_")    ~ "Estrato agregado",
       TRUE ~ "Outro"
     ),
     Indicador_Nome = nome_indicador(Indicador),

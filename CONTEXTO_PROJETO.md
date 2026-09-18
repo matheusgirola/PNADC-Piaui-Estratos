@@ -23,7 +23,8 @@ O projeto começou como uma **série histórica** (4ºT/2015 a 2ºT/2026, proces
 - **O objetivo deixa de ser "cobrir o máximo de indicadores possível" e passa a ser encontrar os indicadores (e a resolução geográfica) confiáveis o suficiente pra sustentar acompanhamento trimestral contínuo** — ver a frase de sucesso na seção 1. Isso exige voltar a rodar a **série histórica**, porque a confiabilidade de um indicador não se avalia num único trimestre: o CV de um trimestre isolado é ele mesmo uma estimativa sujeita a ruído amostral. Olhar a distribuição do CV de cada par indicador×recorte ao longo de vários trimestres é o que dá base estatística sólida pra essa triagem.
   - A confiabilidade não é uma propriedade só do indicador: é do par indicador×recorte geográfico. O resultado dessa triagem deveria ser algo como "cada indicador + a resolução mais fina em que ele é utilizável", não uma lista binária de indicadores aprovados/reprovados — isso evita descartar de vez indicadores de alto interesse (desalento, motivos de não-procura) só porque não sobrevivem no recorte mais fino, quando ainda podem ser ótimos no estrato agregado.
 - **O recorte de estrato fino (7 dígitos, AAAGGSE completo) sai do relatório.** Além de concentrar as estimativas de pior precisão e os testes que mais falham por posto degenerado (ver seção 6.5 do anexo metodológico), ele nunca foi um recorte totalmente geográfico: o último dígito (`E`, renda) não é mapeável, só aproximado estatisticamente (seção 2 abaixo) — misturar um dígito não-espacial dentro de um "recorte geográfico" sempre foi conceitualmente estranho. Os recortes geográficos restantes (Zona, Estrato Administrativo, Estrato Agregado, Teresina × resto) cobrem a análise territorial com boa precisão e continuam mapeáveis por inteiro.
-- **Cogita-se adicionar um recorte intermediário baseado só no dígito `S`** (Situação — rural / urbano tradicional / Favela e Comunidade Urbana, ou seja, `AAAGGS`, 6 dígitos) como parte do que se perde ao remover o recorte fino. Ao contrário do `E`, o `S` é mapeável a partir do tipo de setor censitário (seção 2) — e já é usado no mapa do `05_setores_censitarios_piaui.R`, só não como recorte de comparação de indicadores. Ele dá uma categoria a mais que a Zona simples (urbana/rural), separando FCU como grupo próprio, sem herdar o problema de confiabilidade do recorte de 7 dígitos. **Ainda não decidido definitivamente nem implementado** — ver seção 6.
+- **Recorte intermediário baseado só no dígito `S`** (Situação — rural / urbano tradicional / Favela e Comunidade Urbana, ou seja, `AAAGGS`, 6 dígitos): **decidido adotar (18/09/2026)** como recorte de comparação de indicadores, ao lado de Zona e Estrato Agregado. Ao contrário do `E`, o `S` é mapeável a partir do tipo de setor censitário (seção 2) e já tem mapa pronto (`output/figuras/mapa_setores_situacao.png`, gerado pelo `05_setores_censitarios_piaui.R`) — faltava só entrar como recorte nas tabelas de indicadores. Ele dá uma categoria a mais que a Zona simples (urbana/rural), separando FCU como grupo próprio, sem herdar o problema de confiabilidade do recorte de 7 dígitos. **Threading implementado no `01`/`03`/`09` em 18/09/2026** (item (b) de §8.8) — falta rodar o `01` de novo (item (c)) pra gerar os dados de fato; até lá as colunas de Situação saem em branco (–/—).
+- **Este primeiro relatório (2T2026) não é a edição trimestral acompanhada que o projeto pretende produzir depois — é um relatório de seleção/justificativa dos indicadores** (decidido 18/09/2026, revisão pós-primeira-leitura). Por isso a comparação "Piauí neste trimestre × trimestre anterior × mesmo trimestre do ano anterior" (Tabela 1 e a seção "Variações no tempo" dos Pontos de Atenção) sai do corpo desta edição — não é o que o relatório está tentando responder agora. Isso **não afeta** a série de confiabilidade (2022T1+) que sustenta a triagem e as marcas †/– (Anexo B): são mecanismos diferentes — a série mede estabilidade do CV ao longo do tempo, não "o indicador subiu ou caiu". Ver §8.8.
 
 ## 2. A estrutura do código de Estrato (AAAGGSE)
 
@@ -98,7 +99,7 @@ são scripts numerados em `R/`, rodados em ordem manual.
 - **Triagem de confiabilidade por indicador×recorte (nova direção, set/2026)** ainda não implementada — precisa: (i) reprocessar a série histórica com o pipeline atual de indicadores (hoje só o trimestre único roda por padrão); (ii) decidir a métrica de triagem (ex.: % de trimestres com CV bom/excelente, ou CV mediano, por par indicador×recorte); (iii) isolar ou tratar separadamente a quebra de desenho amostral Censo 2010 → Censo 2022 antes de comparar CVs entre trimestres de períodos diferentes — sem isso a triagem fica enviesada pelo desenho, não pelo indicador.
 - **Cache nacional 2016T2+ implementado e completo (17/09/2026)**, validação da série em curso — ver §8.4. Os `data/raw/pi_*.rds` (2022T3–2026T2, só Piauí, 20/08/2026) **só poderão ser apagados depois que essa validação passar** (avisar o usuário; não apagar por conta própria).
 - **Recorte de estrato fino (7 dígitos) removido do escopo do relatório (set/2026)**, mas os scripts (`pipeline_trimestre.R`, `03_comparacoes_indicadores.R`) ainda o calculam e exibem — falta atualizá-los pra parar de gerar esse recorte nas tabelas/gráficos do relatório principal (pode continuar existindo no anexo, se decidido manter lá).
-- **Recorte "Situação" (dígito `S`, `AAAGGS`, 6 dígitos: rural/urbano tradicional/FCU) como possível novo recorte de comparação de indicadores** — hoje o `S` só é usado no mapa (`05_setores_censitarios_piaui.R`), não como recorte no pipeline de indicadores. Decisão de adotar (ou não) ainda em aberto; se adotado, precisa entrar no `pipeline_trimestre.R` e no `03_comparacoes_indicadores.R` como um recorte geográfico novo.
+- **Recorte "Situação" (dígito `S`, `AAAGGS`, 6 dígitos: rural/urbano tradicional/FCU) — adotado (18/09/2026) como recorte de comparação de indicadores, threading implementado (18/09/2026)**: `derivar_variaveis()` deriva `Situacao` a partir de `(Estrato %/% 10) %% 10` (mapeamento 1/2/3 confirmado no `08_mapa_aaagsse.R`, restrito a `UF == "Piauí"`); `montar_geografias()` gera `Situacao_<categoria>`; `01` inclui no crosswalk e nos testes regionais; `03` classifica em `Tipo_Geo`/`nomes_recortes`; `09` tem colunas extras (Piauí + Situação + teste) nas matrizes do corpo, ao lado de Zona e Estrato Agregado, mais entradas em Pontos de Atenção e Anexo D. **Falta rodar o `01` de novo** para a Situação aparecer com dado de verdade nas tabelas (testado com `data/raw/pi_2026_2.rds` — divisão Rural/Urbano tradicional/FCU bate 100% com Zona, sem erros no motor de estimação). Ver §8.8.
 - **`aproximar_estrato_e.py`** ainda não rodou com dado real — falta o CSV da tabela V06 (renda por setor) do Censo 2022. A aproximação por Dalenius-Hodges não reproduz exatamente o método do IBGE (que combina "otimização linear e algoritmos estocásticos" com restrição de capacidade mínima de 150 UPAs — aqui uso setor como proxy de UPA).
 - **Zona/Estrato Administrativo no `04`**: nessa resolução (4 dígitos), Zona e Estrato Administrativo podem misturar categorias dentro do mesmo grupo — o script agora detecta e avisa isso, mas a versão confiável desses dois mapas é a do `05` (resolução de setor censitário).
 - **Coluna de tipo de setor/aglomerado subnormal** (usada pra separar FCU no `05`): a detecção automática tenta `TIPO`, `CD_TIPO`, `TIPO_SETOR`, `NM_TIPO_SETOR`, `SUBNORMAL`, `AGSN` — ainda não confirmado qual (se algum) existe no shapefile real.
@@ -222,6 +223,80 @@ Público: **gestor**. Meta: corpo enxuto (~10 páginas + crescimento da matriz),
 - **Pendente: rodar o `01` de novo para 2026T2.** O `output/base_2026T2.csv` e os testes são anteriores ao agrupamento dos motivos; o `09` acusa isso e a Tabela 6 sai vazia até lá. O `01` estima o Brasil inteiro (~9 GB) — rodar só com o OK do usuário.
 
 **Em aberto:** comparação entre trimestres — proposta: tratar trimestres como independentes (conservador sob o painel rotativo, que induz covariância positiva), documentado na metodologia. Composição da PIT: amarela e indígena com CV 37–47% no 2T2026 → agrupar em "outras".
+
+### 8.8 Revisão do relatório após 1ª leitura (18/09/2026)
+
+O usuário leu a primeira versão do `output/relatorio_trimestral_2026T2.md` (gerada em 17/09,
+§8.7) e trouxe três observações. Decisões tomadas na conversa; item (a) da ordem sugerida
+**implementado em 18/09/2026**, itens (b)–(d) ainda em aberto.
+
+**1. Propósito do relatório redefinido** (ver §1, "Evolução do escopo"): esta primeira edição
+não é a edição trimestral acompanhada — é um relatório de seleção/justificativa dos
+indicadores. Consequência: a comparação temporal do Piauí (trimestre anterior / mesmo
+trimestre do ano anterior) sai do corpo. **Implementado no `09` (18/09/2026):**
+- Tabela 1: colunas "Piauí: variação sobre 2026T1" e "Piauí: variação sobre 2025T2" removidas
+  (`tabela_destaques()` só monta Brasil/Nordeste/Piauí).
+- Pontos de Atenção: bloco "Variações no tempo (Piauí)" removido do modelo.
+- Anexo A (nota metodológica): parágrafo "Variações no tempo" removido (não descrevia mais
+  nenhum cálculo do relatório).
+- Código morto removido do `09`: `ler_serie()`, `comparacoes_temporais()`/`COMP_TEMPORAIS`,
+  `formatar_delta()`, `pontos_temporais()`, `sinal()`, `unidade_delta()`, vocabulário
+  `trimestre_anterior`/`trimestre_ano_anterior`.
+- **Não mexeu** na série de confiabilidade (2022T1+), no Anexo B nem nas marcas †/– — é outro
+  mecanismo (estabilidade do CV ao longo do tempo, não "subiu ou desceu").
+
+**2. Indicadores demográficos sem comparação por estrato no corpo — RESOLVIDO (18/09/2026).**
+A Tabela 7 (perfil da PIT: sexo, raça, faixa etária, instrução) tinha só colunas
+Brasil/Nordeste/Piauí; a quebra por território já existia (Tabelas D.28–D.46 do Anexo D), só
+não estava na matriz do corpo como as Tabelas 2–6. Reformulada como matriz única (mesmos 4
+indicadores `Distribuicao_PIT_por_*`, que já eram `multiplo` no catálogo) — bastou trocar
+`<!-- @tabela tipo=categorias dimensao=populacao -->` por `tipo=matriz dimensao=populacao`
+no modelo, reaproveitando `tabela_matriz()` sem tocar no motor. Colunas "Teste estratos" e
+"Teste zona" saem como "—" para essas linhas porque `testes_regionais_2026T2.csv` não tem
+testes de significância regional para os indicadores de composição — não é bug, só não foi
+calculado (ficaria para uma iteração futura se fizer falta).
+
+**3. Tabela 6 (motivos agregados) veio vazia** — causa já registrada em §8.7: o
+`output/base_2026T2.csv` usado para montar o relatório é anterior ao agrupamento dos
+motivos (`motivo_desistencia_grupo`/`motivo_nao_procura_grupo`). **Precisa rodar o
+`01_pipeline_trimestral.R` de novo para 2026T2** (Brasil inteiro, ~9 GB, alguns minutos).
+**Usuário pediu para não rodar agora** — só depois de fechar os ajustes estruturais acima
+(18/09/2026). Rodar só com OK explícito na conversa, como sempre para o `01` completo.
+
+**4. Recorte "Situação" (dígito `S`) adotado como recorte de comparação — threading
+RESOLVIDO (18/09/2026)** (ver §1 e §6):
+- `R/derivar_variaveis.R`: `Situacao` derivada de `(as.integer(Estrato) %/% 10) %% 10`
+  (1/2/3 -> Urbano tradicional/Rural/FCU, mapeamento confirmado em `08_mapa_aaagsse.R`),
+  `NA` fora do Piauí.
+- `R/indicadores.R` (`montar_geografias()`): loop sobre `niveis("Situacao")` gera
+  `Situacao_<categoria>`, mesmo padrão de `Agreg_`/`Admin_`.
+- `01_pipeline_trimestral.R`: `Situacao` entra no crosswalk exportado, em
+  `recortes_regionais` (testes regionais) e em `Nivel_Geografico` (gráfico de CV).
+- `03_comparacoes_indicadores.R`: prefixo `Situacao_` reconhecido em `Tipo_Geo` e
+  `limpar_nome_geografia()`; `nomes_recortes` ganhou a entrada.
+- `09_preencher_relatorio.R`: `GEO_SITUACAO` (3 categorias) vira 3 colunas + 1 coluna de
+  teste em `tabela_matriz()` (Tabelas 2–7, ao lado de Zona e Estrato Agregado); entra em
+  `pontos_territoriais()` (maior/menor por situação), `pontos_demograficos()` (território
+  candidato) e `tabela_anexo_triagem()`/`GEO_ANEXO` (Anexo B/D). Modelo (`.md`) atualizado:
+  título da Tabela 1 nota, §2 "Como ler as tabelas" e Anexo A ("Territórios").
+- `R/11_triagem_confiabilidade.R`: `Nivel_Geografico` reconhece `Situacao_` (código morto
+  até a série 2022T1+ ser reprocessada com essa geografia — não é parte do escopo 01/03/09).
+- **Validado** contra `data/raw/pi_2026_2.rds`: `Situacao` × `Zona` bate 100% (FCU e Urbano
+  tradicional só em Urbana, Rural só em Rural); `montar_geografias()` produz os 3
+  subconjuntos com N esperado; `svymean` de teste roda sem erro nos três. `09` e `03`
+  rodados de ponta a ponta sem falhar — as colunas de Situação saem em branco (–/—) porque
+  `output/base_2026T2.csv`/`testes_regionais_2026T2.csv` são de antes dessa mudança.
+- **Falta**: rodar o `01` de novo (item (c) abaixo) pra essas colunas terem dado de
+  verdade. A série histórica (R/10, usada na triagem de confiabilidade) também precisaria
+  ser reprocessada para a Situação ganhar marcas †/– de verdade — não estava no escopo
+  pedido (01/03/09) e fica para quando/se a série for reprocessada por outro motivo.
+
+**Ordem sugerida:** ~~(a) ajustes só de apresentação no `09` que não dependem de recalcular
+nada — remover colunas de variação, reformular Tabela 7 a partir do que já existe em Anexo
+D~~ **feito (18/09/2026)**; ~~(b) threading do recorte Situação em `01`/`03`/`09`~~ **feito
+(18/09/2026)**; (c) rodar o `01` completo para 2026T2 (com OK do usuário) e regerar o `.md`;
+(d) revisar o `.md` de novo antes de cogitar `.docx` (que também precisa de OK explícito,
+`CLAUDE.md`).
 
 ### 8.6 Lições práticas do ambiente
 - **`get_pnadc()` não apaga o que baixa**: zip + `.txt` extraído (~2 GB por trimestre) ficam em `savedir` (padrão `tempdir()`). A primeira pré-carga acumulou 72 GB num `Rtmp*` e, morta pelo fim da sessão, não limpou na saída (apagada com OK do usuário em 17/09). `carregar_pnadc()` agora usa uma subpasta por trimestre, apagada após gravar o `.rds`. Sessões antigas do RStudio também deixaram `Rtmp*` com `PNADC_*.txt` em `%TEMP%` (341 pastas, ~59 GB) — apagadas com OK do usuário em 17/09. Vale limpar `%TEMP%\Rtmp*` de vez em quando, com nenhum R aberto.

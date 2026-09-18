@@ -337,6 +337,9 @@ montar_geografias <- function(design,
   for (ea in niveis("Estrato_agregado")) {
     lista[[paste0("Agreg_", ea)]] <- subset(design_pi, Estrato_agregado == ea)
   }
+  for (s in niveis("Situacao")) {
+    lista[[paste0("Situacao_", s)]] <- subset(design_pi, Situacao == s)
+  }
   if (incluir_micro) {
     for (em in niveis("Estrato")) {
       lista[[paste0("Micro_", em)]] <- subset(design_pi, Estrato == em)
