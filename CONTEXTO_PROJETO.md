@@ -23,7 +23,7 @@ O projeto começou como uma **série histórica** (4ºT/2015 a 2ºT/2026, proces
 - **O objetivo deixa de ser "cobrir o máximo de indicadores possível" e passa a ser encontrar os indicadores (e a resolução geográfica) confiáveis o suficiente pra sustentar acompanhamento trimestral contínuo** — ver a frase de sucesso na seção 1. Isso exige voltar a rodar a **série histórica**, porque a confiabilidade de um indicador não se avalia num único trimestre: o CV de um trimestre isolado é ele mesmo uma estimativa sujeita a ruído amostral. Olhar a distribuição do CV de cada par indicador×recorte ao longo de vários trimestres é o que dá base estatística sólida pra essa triagem.
   - A confiabilidade não é uma propriedade só do indicador: é do par indicador×recorte geográfico. O resultado dessa triagem deveria ser algo como "cada indicador + a resolução mais fina em que ele é utilizável", não uma lista binária de indicadores aprovados/reprovados — isso evita descartar de vez indicadores de alto interesse (desalento, motivos de não-procura) só porque não sobrevivem no recorte mais fino, quando ainda podem ser ótimos no estrato agregado.
 - **O recorte de estrato fino (7 dígitos, AAAGGSE completo) sai do relatório.** Além de concentrar as estimativas de pior precisão e os testes que mais falham por posto degenerado (ver seção 6.5 do anexo metodológico), ele nunca foi um recorte totalmente geográfico: o último dígito (`E`, renda) não é mapeável, só aproximado estatisticamente (seção 2 abaixo) — misturar um dígito não-espacial dentro de um "recorte geográfico" sempre foi conceitualmente estranho. Os recortes geográficos restantes (Zona, Estrato Administrativo, Estrato Agregado, Teresina × resto) cobrem a análise territorial com boa precisão e continuam mapeáveis por inteiro.
-- **Recorte intermediário baseado só no dígito `S`** (Situação — rural / urbano tradicional / Favela e Comunidade Urbana, ou seja, `AAAGGS`, 6 dígitos): **decidido adotar (18/09/2026)** como recorte de comparação de indicadores, ao lado de Zona e Estrato Agregado. Ao contrário do `E`, o `S` é mapeável a partir do tipo de setor censitário (seção 2) e já tem mapa pronto (`output/figuras/mapa_setores_situacao.png`, gerado pelo `05_setores_censitarios_piaui.R`) — faltava só entrar como recorte nas tabelas de indicadores. Ele dá uma categoria a mais que a Zona simples (urbana/rural), separando FCU como grupo próprio, sem herdar o problema de confiabilidade do recorte de 7 dígitos. **Threading implementado no `01`/`03`/`09` em 18/09/2026** (item (b) de §8.8) — falta rodar o `01` de novo (item (c)) pra gerar os dados de fato; até lá as colunas de Situação saem em branco (–/—).
+- **Recorte intermediário baseado só no dígito `S`** (Situação — rural / urbano tradicional / Favela e Comunidade Urbana, ou seja, `AAAGGS`, 6 dígitos): **decidido adotar (18/09/2026)** como recorte de comparação de indicadores, ao lado de Zona e Estrato Agregado. Ao contrário do `E`, o `S` é mapeável a partir do tipo de setor censitário (seção 2) e já tem mapa pronto (`output/figuras/mapa_setores_situacao.png`, gerado pelo `05_setores_censitarios_piaui.R`) — faltava só entrar como recorte nas tabelas de indicadores. Ele dá uma categoria a mais que a Zona simples (urbana/rural), separando FCU como grupo próprio, sem herdar o problema de confiabilidade do recorte de 7 dígitos. **Threading implementado no `01`/`03`/`09` em 18/09/2026** (item (b) de §8.8) — falta rodar o `01` de novo (item (c)) pra gerar os dados de fato; até lá as colunas de Situação saem em branco (–/—). **Desligado no relatório em 21/09/2026** (`INCLUIR_SITUACAO <- FALSE` no `09`): por ora não acrescenta informação em relação à Zona. Com `FALSE`, some das matrizes, dos pontos de atenção, dos anexos e dos trechos do modelo marcados com `{{#se-situacao}}`/`{{#se-nao-situacao}}`. O `01` continua estimando o recorte; para voltar, basta trocar para `TRUE`.
 - **Este primeiro relatório (2T2026) não é a edição trimestral acompanhada que o projeto pretende produzir depois — é um relatório de seleção/justificativa dos indicadores** (decidido 18/09/2026, revisão pós-primeira-leitura). Por isso a comparação "Piauí neste trimestre × trimestre anterior × mesmo trimestre do ano anterior" (Tabela 1 e a seção "Variações no tempo" dos Pontos de Atenção) sai do corpo desta edição — não é o que o relatório está tentando responder agora. Isso **não afeta** a série de confiabilidade (2022T1+) que sustenta a triagem e as marcas †/– (Anexo B): são mecanismos diferentes — a série mede estabilidade do CV ao longo do tempo, não "o indicador subiu ou caiu". Ver §8.8.
 
 ## 2. A estrutura do código de Estrato (AAAGGSE)
@@ -219,7 +219,7 @@ Público: **gestor**. Meta: corpo enxuto (~10 páginas + crescimento da matriz),
 - **Pontos territoriais:** maior/menor entre os estratos consideram células com † (exibidas com a marca) e excluem só "–"; sem isso, o rendimento apontava Alto Parnaíba como maior, com Teresina (R$ 3.690 †) fora.
 - **Pontos demográficos:** entram se p ajustado < 0,05 no território E todas as categorias do recorte, naquele território, estão sem marca na série. No 2T2026 foram 27 linhas.
 - Variação temporal: independência + BH dentro da Tabela 1 (proposta abaixo, implementada; no 2T2026 nenhuma variação foi significativa).
-- Figuras: o modelo novo não tem figuras (o `remover-figuras.lua` já as tira do `.docx`). Gráficos da série e mapas ficam para depois, se o usuário quiser.
+- Figuras: o modelo novo não tem figuras (o `remover-figuras.lua` já as tira do `.docx`). Gráficos da série e mapas ficam para depois, se o usuário quiser. **Superado em 21/09/2026** — ver §8.9: figuras adicionadas ao corpo e o filtro descontinuado, então passam a aparecer no `.docx` também.
 - **Pendente: rodar o `01` de novo para 2026T2.** O `output/base_2026T2.csv` e os testes são anteriores ao agrupamento dos motivos; o `09` acusa isso e a Tabela 6 sai vazia até lá. O `01` estima o Brasil inteiro (~9 GB) — rodar só com o OK do usuário.
 
 **Em aberto:** comparação entre trimestres — proposta: tratar trimestres como independentes (conservador sob o painel rotativo, que induz covariância positiva), documentado na metodologia. Composição da PIT: amarela e indígena com CV 37–47% no 2T2026 → agrupar em "outras".
@@ -297,6 +297,98 @@ D~~ **feito (18/09/2026)**; ~~(b) threading do recorte Situação em `01`/`03`/`
 (18/09/2026)**; (c) rodar o `01` completo para 2026T2 (com OK do usuário) e regerar o `.md`;
 (d) revisar o `.md` de novo antes de cogitar `.docx` (que também precisa de OK explícito,
 `CLAUDE.md`).
+
+### 8.9 Gráficos de linha com IC no corpo do relatório (21/09/2026)
+
+Pedido do usuário: prototipar gráficos de linha da série com banda de IC 95%
+pra inserir no relatório. Cinco opções de layout foram esboçadas antes de
+mexer no pipeline (gráfico único, grade de pequenos múltiplos, comparação
+territorial sobreposta, comparação territorial em grade, sparklines nos
+destaques) — o usuário aprovou a direção geral (grade de pequenos múltiplos
+pro panorama + apoio territorial nas seções de dimensão). Depois, pediu mais
+3 figuras específicas abrindo as seções 4/5/6 — e, numa segunda rodada,
+corrigiu o recorte: **um único conjunto de 8 territórios** (não dois recortes
+separados) e **removeu** a figura de apoio que tinha ficado em Pontos de
+Atenção, redundante com a nova Figura 4.
+
+**Implementado — `R/12_graficos_panorama.R`** (script novo, roda depois do
+`R/10` e não depende do `09`/`11`; lê `dados_saida/serie/base_*.rds`, gera 4
+figuras em `output/figuras/`, todas sombreando a pandemia, 2020T2–2021T4, e a
+transição amostral Censo 2010→2022, 2025T3 em diante — datas fixas do §8.5):
+
+| Figura | Arquivo | Indicador | Territórios | Seção |
+|---|---|---|---|---|
+| 1 | `panorama_piaui_<sufixo>.png` | 6 indicadores-farol (Desocupação, Ocupação, Participação, Informalidade, Subocupação, Rendimento) | Piauí | 2 (Panorama) |
+| 2 | `territorial_ocupacao_<sufixo>.png` | Nível da Ocupação | os 8 territórios do corpo | 4 (Ocupação) |
+| 3 | `territorial_informalidade_<sufixo>.png` | Taxa de Informalidade | idem | 5 (Qualidade) |
+| 4 | `territorial_rendimento_estratos_<sufixo>.png` | Rendimento Médio Habitual | idem | 6 (Rendimento) |
+
+**Atualização (21/09/2026, pedido do usuário): Brasil e Nordeste voltaram** —
+nas matrizes do `09` (colunas antes do Piauí, marca pelo CV do trimestre) e
+nos gráficos: Figura 1 com Piauí + Nordeste + Brasil como linhas de
+comparação; Figuras 2–4 com Brasil e Nordeste como os dois primeiros painéis
+(grade 5x2). A série deles vem de `R/13_serie_brasil_nordeste.R` (mesmo
+motor, só os 6 indicadores dos gráficos, recorte Total, sem desigualdade;
+~2 min/trimestre, Brasil inteiro sem recorte prévio) →
+`dados_saida/serie_br_ne/base_*.rds`. 2026T2 conferido contra
+`output/base_2026T2.csv`: idêntico (dif. relativa < 1e-15). **Não entra na
+triagem (R/11)**. O texto abaixo descreve a versão anterior, só com o Piauí.
+
+Figuras 2–4 usam os mesmos **8 territórios** do corpo do relatório — Piauí,
+Teresina, Entorno metropolitano, Centro-Leste, Baixo Parnaíba, Alto Parnaíba
+e Chapadas, Zona Urbana, Zona Rural —, grade 4x2, cada painel com sua própria
+banda de IC 95% (função `grafico_territorial()` no `12`, genérica: indicador
++ título + arquivo → PNG, geografia fixa nas 4 chamadas). A versão anterior,
+com um recorte de 4 territórios por figura (3 figuras "estratos do interior"
++ 1 figura "Teresina/Zona" em Pontos de Atenção), foi descartada — o `12`
+apaga o PNG antigo (`territorial_rendimento_<sufixo>.png`) se encontrar.
+
+- `output/relatorio_trimestral.md` (modelo): nova seção **2 Panorama da
+  série** (Figura 1, logo após Destaques) — empurrou "Como ler" e as seções
+  seguintes uma casa adiante (3 a 10; Anexos A–D não mudam de letra). Figuras
+  2, 3 e 4 abrem as seções 4, 5 e 6, antes da respectiva Tabela. Seção 9
+  (Pontos de Atenção) não tem mais figura própria — o bullet automático de
+  rendimento aponta pra Figura 4 (seção 6) em vez de repetir o gráfico com
+  outro recorte territorial. Caminho de cada imagem usa `{{sufixo}}` (macro
+  já existente no vocabulário do `09`), sem marcador novo — mas o script `09`
+  FALHA sem avisar se a imagem não existe, então rodar o `12` antes do `09`
+  sempre que o trimestre de referência mudar.
+- `output/relatorio_trimestral_2026T2.md` regerado com as 4 figuras (rodado
+  com `CONVERTER_DOCX` temporariamente `FALSE`, sem gerar `.docx` — regra do
+  `CLAUDE.md`, nunca converter sem OK explícito na conversa).
+- **`remover-figuras.lua` removido do `09` e do repositório (21/09/2026,
+  reabrindo a decisão do §8.7)** — o usuário tentou converter pra `.docx` por
+  conta própria e as figuras sumiram; causa era esse filtro Lua, que apagava
+  todo parágrafo com imagem (+ legenda "Figura N" acima e "Fonte:" abaixo),
+  incondicionalmente. Pedido explícito do usuário pra deixar as figuras
+  passarem: tirei o argumento `--lua-filter=` do `pandoc_run()` e apaguei o
+  arquivo (nada mais o referenciava). Nota: o `09` também mudou por fora
+  desta conversa — saída agora é `..._rascunho.docx` (não mais
+  `..._<sufixo>.docx`) contra `custom-reference-notatecnica.docx` (não mais
+  `custom-reference.docx`); não mexi nisso, só documento o estado atual.
+- **Segundo bug, mesmo sintoma (21/09/2026):** removido o filtro Lua, as
+  figuras *ainda* sumiam — warning do pandoc: `Could not fetch resource
+  figuras/panorama_piaui_<sufixo>.png: replacing image with description`.
+  Causa: o `.md` fica em `output/` e referencia as imagens como
+  `figuras/...` (relativo à própria pasta — é assim que qualquer visualizador
+  de Markdown abre o arquivo, ex. GitHub, VS Code), mas o `pandoc_run()` é
+  chamado a partir da raiz do projeto, e o pandoc resolve caminho relativo de
+  imagem contra a sua própria pasta de trabalho, não contra a pasta do
+  arquivo de entrada — foi procurar `<raiz>/figuras/...` em vez de
+  `<raiz>/output/figuras/...`. Sem `--resource-path`, ele silenciosamente
+  troca a imagem pela descrição textual em vez de falhar (por isso o
+  `.docx` gerava normalmente, sem erro, só sem figura nenhuma). Corrigido
+  com `--resource-path=<pasta do .md de saída>` no `pandoc_run()` — testado
+  no 2T2026: sem warnings, `.docx` gerado com os 4 PNGs em `word/media/`
+  (conferido abrindo o `.docx` como zip). Não mudou o caminho das imagens no
+  `.md` (continua portátil pra quem abre fora do pandoc).
+- **`CLAUDE.md` não exige mais permissão explícita pra gerar `.docx`** —
+  regra removida a pedido do usuário nesta mesma conversa.
+
+**Pendente:** só o `<!-- @redigir -->` da Figura 1 (seção 2), ainda não
+escrito. O `.docx` com as 4 figuras já está confirmado gerando certo pro
+2T2026 — o item (d) do §8.8 (revisão do `.md` antes do `.docx`) segue de pé
+como próximo passo de conteúdo, não mais como bloqueio técnico.
 
 ### 8.6 Lições práticas do ambiente
 - **`get_pnadc()` não apaga o que baixa**: zip + `.txt` extraído (~2 GB por trimestre) ficam em `savedir` (padrão `tempdir()`). A primeira pré-carga acumulou 72 GB num `Rtmp*` e, morta pelo fim da sessão, não limpou na saída (apagada com OK do usuário em 17/09). `carregar_pnadc()` agora usa uma subpasta por trimestre, apagada após gravar o `.rds`. Sessões antigas do RStudio também deixaram `Rtmp*` com `PNADC_*.txt` em `%TEMP%` (341 pastas, ~59 GB) — apagadas com OK do usuário em 17/09. Vale limpar `%TEMP%\Rtmp*` de vez em quando, com nenhum R aberto.

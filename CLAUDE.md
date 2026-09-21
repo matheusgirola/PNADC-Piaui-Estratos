@@ -23,7 +23,10 @@ Não é um pacote R, não usa `targets`, não tem suíte de testes automatizada.
 `00_config.R`, `01_pipeline_trimestral.R`, `03_comparacoes_indicadores.R`,
 `04_mapas_estratos_piaui.R`, `05_setores_censitarios_piaui.R`,
 `06_upas_piaui.R`, `07_estrato_estatistico.R`, `08_mapa_aaagsse.R`,
-`09_preencher_relatorio.R`, `10_serie_confiabilidade.R` e `11_triagem_confiabilidade.R` (série e triagem de confiabilidade, `CONTEXTO_PROJETO.md` §8.5), mais `Teste_estrutura_aaagsse.R` (validação, fora
+`09_preencher_relatorio.R`, `10_serie_confiabilidade.R` e `11_triagem_confiabilidade.R` (série e triagem de confiabilidade, `CONTEXTO_PROJETO.md` §8.5),
+`12_graficos_panorama.R` (gráficos de linha do relatório) e
+`13_serie_brasil_nordeste.R` (série de Brasil/Nordeste só dos 6 indicadores
+dos gráficos, recorte Total — roda antes do `12`), mais `Teste_estrutura_aaagsse.R` (validação, fora
 do fluxo de produção). Não há `02` — normal, não é lacuna a preencher. O que
 cada um faz está em `CONTEXTO_PROJETO.md` §4 — **essa tabela está
 desatualizada** em alguns nomes/arquivos (ver nota no fim deste documento);
@@ -42,15 +45,13 @@ recente nem `convey`).
 **Geração do relatório**: `09_preencher_relatorio.R` monta
 `output/relatorio_trimestral_<trimestre>.md` a partir de templates + outputs
 do pipeline, e converte pra `.docx` chamando `pandoc_run()` do pacote
-`pandoc` (usando `custom-reference.docx` e o filtro Lua
-`remover-figuras.lua`). **Não usa Quarto.**
-
-**Nunca gerar o `.docx` sem permissão explícita do usuário na conversa**,
-mesmo que o `.md` esteja pronto e a intenção pareça óbvia. Isso vale tanto
-pra rodar `09_preencher_relatorio.R` com `CONVERTER_DOCX = TRUE` quanto pra
-qualquer outra chamada a `pandoc_run()`/`pandoc::pandoc_convert()` sobre o
-relatório. Gerar (ou regerar) só o `.md` não precisa de permissão — a
-restrição é especificamente sobre o `.docx`.
+`pandoc` (usando `custom-reference-notatecnica.docx`, com `--columns=10000`
+pra largura automática das colunas e o filtro `estilo-tabelas.lua`, que aplica
+às células o estilo de parágrafo "Tabela Texto" do reference). As figuras do corpo
+(painel da série, gráficos territoriais — `R/12_graficos_panorama.R`) passam
+pra o `.docx` normalmente desde 21/09/2026 (antes, um filtro Lua as removia
+na conversão — descontinuado a pedido do usuário). A saída de rascunho é
+`output/relatorio_trimestral_<trimestre>_rascunho.docx`. **Não usa Quarto.**
 
 **Cache em `.rds` por trimestre (Brasil inteiro, 2016T2+).** `R/01a_cache_pnadc.R`
 (módulo) define `carregar_pnadc(ano, tri)`: lê `data/raw/pnadc_br_<ano>_<tri>.rds`

@@ -3,7 +3,3 @@ Estrato_Micro,Taxa_Desocupacao,"RECUSADO pela guarda de variância: matriz de co
 Estrato_Micro,Chefes_Familia_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 24 de 26 — ver o recorte Estrato_Agregado, que responde à mesma pergunta em resolução menor"
 Estrato_Micro,Conribuintes_Desocupados,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 25 de 26 — ver o recorte Estrato_Agregado, que responde à mesma pergunta em resolução menor"
 Estrato_Micro,Desalentados_Forca_Ampliada,"RECUSADO pela guarda de variância: matriz de covariância replicada com posto 2 de 26 — ver o recorte Estrato_Agregado, que responde à mesma pergunta em resolução menor"
-Estrato_Micro,Motivo_Desistencia_Desalentado,"RECUSADO pela guarda de variância: tabela 4x25 com 41% de células vazias (limite 20%) — ver o recorte Estrato_Agregado, que responde à mesma pergunta em resolução menor"
-Estrato_Micro,Motivo_Nao_Procura_NemNem,"RECUSADO pela guarda de variância: tabela 6x26 com 35% de células vazias (limite 20%) — ver o recorte Estrato_Agregado, que responde à mesma pergunta em resolução menor"
-Estrato_Agregado,Motivo_Nao_Inicio_NemNem,RECUSADO pela guarda de variância: sistema é computacionalmente singular: condição recíproca número = 5.61873e-18 (não há recorte agregado equivalente nesta dimensão)
-Estrato_Micro,Motivo_Nao_Inicio_NemNem,"RECUSADO pela guarda de variância: tabela 6x26 com 49% de células vazias (limite 20%) — ver o recorte Estrato_Agregado, que responde à mesma pergunta em resolução menor"

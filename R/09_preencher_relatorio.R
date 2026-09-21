@@ -40,6 +40,12 @@ source("R/00_config.R")
 MODELO <- "./output/relatorio_trimestral.md"
 SAIDA  <- sprintf("./output/relatorio_trimestral_%s.md", sufixo)
 CONVERTER_DOCX <- TRUE
+# Recorte Situação (Urbano tradicional / Rural / FCU + "Teste situação"). Com
+# FALSE some do relatório inteiro: colunas das matrizes, pontos de atenção,
+# anexos e os trechos do modelo entre {{#se-situacao}} ... {{/se}} (o
+# alternativo fica em {{#se-nao-situacao}} ... {{/se}}). Desligado
+# em 21/09/2026: por ora não acrescenta informação em relação à Zona.
+INCLUIR_SITUACAO <- FALSE
 
 # ---- 1. Leitura ----------------------------------------------------------------
 
@@ -124,6 +130,8 @@ GEO_AGREG <- c(
   "Alto Parnaíba e Chapadas"   = "Agreg_Alto Parnaíba e Chapadas Sul do Piauí"
 )
 GEO_ZONA <- c("Urbana" = "Zona_Urbana", "Rural" = "Zona_Rural")
+# Referências externas nas matrizes, antes da coluna do Piauí.
+GEO_REFERENCIA <- c("Brasil" = "Brasil", "Nordeste" = "Nordeste")
 
 # Situação (dígito S do Estrato, AAAGGS): recorte de comparação adotado em
 # 18/09/2026 ao lado de Zona e Estrato Agregado — CONTEXTO_PROJETO.md §1 e §8.8.
@@ -161,6 +169,12 @@ RECORTES_TESTE <- tribble(
   "Estrato agregado",                   "Estrato_Agregado",
   "Teresina × resto do Piauí",          "Teresina_x_Resto_Piaui"
 )
+
+if (!INCLUIR_SITUACAO) {
+  GEO_SITUACAO   <- character(0)
+  GEO_ANEXO      <- filter(GEO_ANEXO, recorte != "Situação")
+  RECORTES_TESTE <- filter(RECORTES_TESTE, recorte != "Situacao")
+}
 
 RECORTES_DEMO <- c(Sexo = "Sexo", Raca = "Cor ou raça", Faixa_Etaria_trabalho = "Faixa etária",
                    Instrucao_agregado = "Instrução (2 grupos)", Instrucao = "Instrução (7 níveis)")
@@ -344,18 +358,21 @@ tabela_matriz <- function(dim) {
     if (pi == "–") return(NA_character_)
     agreg     <- map_chr(GEO_AGREG,     ~ celula(id, .x, sub))
     zona      <- map_chr(GEO_ZONA,      ~ celula(id, .x, sub))
-    situacao  <- map_chr(GEO_SITUACAO,  ~ celula(id, .x, sub))
-    linha_md(rotulo, pi, agreg, exp_estrelas(id, "Estrato_Agregado"),
-             zona, exp_estrelas(id, "Zona"),
-             situacao, exp_estrelas(id, "Situacao"))
+    situacao  <- if (INCLUIR_SITUACAO)
+      c(map_chr(GEO_SITUACAO, ~ celula(id, .x, sub)), exp_estrelas(id, "Situacao"))
+    # Brasil e Nordeste como referência (marca pelo CV do trimestre, ver topo).
+    ref       <- map_chr(GEO_REFERENCIA, ~ celula(id, .x, sub))
+    linha_md(rotulo, ref, paste0("**", pi, "**"), agreg, exp_estrelas(id, "Estrato_Agregado"),
+             zona, exp_estrelas(id, "Zona"), situacao)
   })
   linhas <- linhas[!is.na(linhas)]
   if (length(linhas) == 0) return("*(nenhum indicador desta dimensão passou na triagem no nível do Piauí)*")
-  c(linha_md("Indicador", "Piauí", names(GEO_AGREG), "Teste estratos",
-             names(GEO_ZONA), "Teste zona", names(GEO_SITUACAO), "Teste situação"),
-    paste0("|---|", strrep("---:|", 1 + length(GEO_AGREG)), ":---:|",
+  c(linha_md("Indicador", names(GEO_REFERENCIA), "Piauí", names(GEO_AGREG), "Teste estratos",
+             names(GEO_ZONA), "Teste zona",
+             if (INCLUIR_SITUACAO) c(names(GEO_SITUACAO), "Teste situação")),
+    paste0("|---|", strrep("---:|", length(GEO_REFERENCIA) + 1 + length(GEO_AGREG)), ":---:|",
            strrep("---:|", length(GEO_ZONA)), ":---:|",
-           strrep("---:|", length(GEO_SITUACAO)), ":---:|"),
+           if (INCLUIR_SITUACAO) paste0(strrep("---:|", length(GEO_SITUACAO)), ":---:|")),
     linhas)
 }
 
@@ -401,7 +418,7 @@ pontos_territoriais <- function() {
         partes <- c(partes, sprintf("urbana %s × rural %s %s", cu, cr, estrelas(t_z$p_ajustado)))
       }
     }
-    t_s <- teste_reg(id, "Situacao")
+    t_s <- if (INCLUIR_SITUACAO) teste_reg(id, "Situacao")
     if (!is.null(t_s) && t_s$p_ajustado < 0.05) {
       v <- map_dfr(names(GEO_SITUACAO), function(nm) {
         tibble(nome = nm, txt = celula(id, GEO_SITUACAO[[nm]], sub),
@@ -425,7 +442,7 @@ pontos_territoriais <- function() {
 pontos_demograficos <- function() {
   geos <- c(setNames(GEO_AGREG, names(GEO_AGREG)),
             setNames(GEO_ZONA, paste("Zona", tolower(names(GEO_ZONA)))),
-            setNames(GEO_SITUACAO, paste("Situação", tolower(names(GEO_SITUACAO)))))
+            if (INCLUIR_SITUACAO) setNames(GEO_SITUACAO, paste("Situação", tolower(names(GEO_SITUACAO)))))
   cand <- testes_demo %>%
     filter(Regiao_Geografica %in% geos, Recorte_Demografico %in% names(RECORTES_DEMO),
            Indicador %in% CATALOGO$id, !is.na(p_ajustado), p_ajustado < 0.05)
@@ -502,6 +519,7 @@ tabela_anexo_testes <- function() {
 tabela_anexo_triagem <- function() {
   niveis <- c(Agregado = "Piauí e Teresina", Zona = "Zona", Situacao = "Situação",
               Estrato_Admin = "Estrato administrativo", Estrato_Agregado = "Estrato agregado")
+  if (!INCLUIR_SITUACAO) niveis <- niveis[names(niveis) != "Situacao"]
   resumo <- triagem %>%
     filter(Recorte_Demografico == "Total", Indicador %in% CATALOGO$id) %>%
     group_by(Indicador, Nivel_Geografico) %>%
@@ -543,12 +561,14 @@ resolver_tabelas <- function(linhas) {
 # ---- 7. Interpretador ----------------------------------------------------------------
 
 resolver_condicionais <- function(txt) {
-  padrao <- regex("\\{\\{#(se-significativo|se-nao-significativo|se-existe)\\s+([^\\}]+?)\\}\\}(.*?)\\{\\{/se\\}\\}",
+  padrao <- regex("\\{\\{#(se-significativo|se-nao-significativo|se-existe|se-situacao|se-nao-situacao)(?:\\s+([^\\}]+?))?\\}\\}(.*?)\\{\\{/se\\}\\}",
                   dotall = TRUE)
   while (str_detect(txt, padrao)) {
     m <- str_match(txt, padrao)
     tipo <- m[2]; args <- str_split(str_trim(m[3]), "\\s+")[[1]]; corpo <- m[4]
     manter <- switch(tipo,
+      "se-situacao"          = INCLUIR_SITUACAO,
+      "se-nao-situacao"      = !INCLUIR_SITUACAO,
       "se-significativo"     = { r <- teste_reg(args[1], args[2]); !is.null(r) && r$p_ajustado < 0.05 },
       "se-nao-significativo" = { r <- teste_reg(args[1], args[2]); !is.null(r) && r$p_ajustado >= 0.05 },
       "se-existe"            = !is.null(teste_reg(args[1], args[2])))
@@ -643,11 +663,23 @@ if (length(redacoes$itens) > 0) {
 if (CONVERTER_DOCX) {
   message("Convertendo para .docx")
   arquivo_entrada <- normalizePath(SAIDA, mustWork = TRUE)
-  arquivo_saida   <- str_replace(arquivo_entrada, "\\.md$", ".docx")
+  arquivo_saida   <- str_replace(arquivo_entrada, "\\.md$", "_rascunho.docx")
+  # As imagens do relatório (R/12_graficos_panorama.R) são referenciadas no
+  # .md como "figuras/..." — caminho relativo a output/, de onde o .md é lido
+  # normalmente. O pandoc resolve caminho relativo à sua própria pasta de
+  # trabalho (a raiz do projeto), não à pasta do arquivo de entrada, então
+  # sem --resource-path ele não acha o arquivo e troca a imagem pela
+  # descrição (warning "Could not fetch resource", sem falhar a conversão).
+  # --columns=10000: sem isso, as tabelas pipe com linha longa ganham largura
+  # de coluna fixa (proporcional aos hifens do separador) e saem apertadas;
+  # assim o Word ajusta cada coluna ao conteúdo. estilo-tabelas.lua aplica o
+  # estilo "Tabela Texto" do reference às células (fonte 9 pt).
   result <- try(pandoc_run(args = c(
     arquivo_entrada, "-o", arquivo_saida,
-    paste0("--reference-doc=", normalizePath("custom-reference.docx", mustWork = TRUE)),
-    paste0("--lua-filter=", normalizePath("remover-figuras.lua", mustWork = TRUE)),
+    paste0("--reference-doc=", normalizePath("custom-reference-notatecnica.docx", mustWork = TRUE)),
+    paste0("--resource-path=", dirname(arquivo_entrada)),
+    paste0("--lua-filter=", normalizePath("estilo-tabelas.lua", mustWork = TRUE)),
+    "--columns=10000",
     "--toc", "--toc-depth=2")))
   if (inherits(result, "try-error")) {
     message("Erro ao rodar o pandoc: confira o pacote, se o .docx de destino está aberto e o custom-reference.docx.")
