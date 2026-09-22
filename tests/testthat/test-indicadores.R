@@ -245,3 +245,10 @@ test_that("razão formal/informal entra na base com SE = ep_razao", {
   expect_equal(des$Estimativa[des$Regiao_Geografica == "Piauí"], pi$razao)
   expect_equal(des$SE[des$Regiao_Geografica == "Piauí"], pi$ep_razao)
 })
+
+test_that("assinatura() muda com a fórmula e ignora id/rótulo", {
+  s <- catalogo_indicadores[[1]]
+  expect_identical(assinatura(s), assinatura(modifyList(s, list(id = "Outro"))))
+  expect_false(identical(assinatura(s), assinatura(modifyList(s, list(formula = ~outra)))))
+  expect_false(identical(assinatura(s), assinatura(modifyList(s, list(subset = ~x == 1)))))
+})

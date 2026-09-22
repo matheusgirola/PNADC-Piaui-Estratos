@@ -45,6 +45,18 @@ if (length(sm_hora_corrente) != 1) {
 
 geografias_agregadas <- c("Brasil", "Nordeste", "Piauí", "Teresina")
 
+# ---- Indicadores dos gráficos de linha ------------------------------------
+# Fonte única para o R/12 (o que plota) e o R/13 (o que estima para Brasil e
+# Nordeste). Acrescentar um indicador aqui e rodar o 13 antes do 12.
+# Painel: os 6 indicadores-farol. Territoriais: 1 gráfico por indicador
+# (Taxa_Nem_Nem e Proporcao_Populacao_14_59 desde 22/09/2026).
+
+INDICADORES_PAINEL <- c("Taxa_Desocupacao", "Nivel_Ocupacao", "Taxa_Participacao",
+                        "Taxa_Informalidade", "Taxa_Subocupacao", "Rendimento_Medio_Habitual")
+INDICADORES_TERRITORIAIS <- c("Taxa_Participacao", "Taxa_Informalidade", "Rendimento_Medio_Habitual",
+                              "Taxa_Nem_Nem", "Proporcao_Populacao_14_59")
+INDICADORES_GRAFICOS <- union(INDICADORES_PAINEL, INDICADORES_TERRITORIAIS)
+
 # ---- Pastas de saída --------------------------------------------
 
 dir.create("output/figuras", recursive = TRUE, showWarnings = FALSE)

@@ -28,18 +28,22 @@ módulos (ver "Testes unitários" abaixo).
 `10b_atualizar_serie_indicador.R <id>` refaz na série só o indicador cuja
 fórmula mudou, sem rodar o `10` de novo),
 `12_graficos_panorama.R` (gráficos de linha do relatório) e
-`13_serie_brasil_nordeste.R` (série de Brasil/Nordeste só dos 6 indicadores
-dos gráficos, recorte Total — roda antes do `12`), mais `Teste_estrutura_aaagsse.R` (validação, fora
+`13_serie_brasil_nordeste.R` (série de Brasil/Nordeste só dos indicadores
+dos gráficos — `INDICADORES_GRAFICOS` no `00_config.R` —, recorte Total, roda
+antes do `12`; incremental: refaz só indicador ausente ou com spec mudada,
+via `assinatura()` de `R/indicadores.R`), mais `Teste_estrutura_aaagsse.R` (validação, fora
 do fluxo de produção). Não há `02` — normal, não é lacuna a preencher. O que
 cada um faz está em `CONTEXTO_PROJETO.md` §4 — **essa tabela está
 desatualizada** em alguns nomes/arquivos (ver nota no fim deste documento);
 confirme contra o `ls R/` real se precisar.
 
-Quatro arquivos não numerados são **módulos carregados via `source()`**, não
+Cinco arquivos não numerados são **módulos carregados via `source()`**, não
 passos do fluxo: `R/derivar_variaveis.R` (variáveis derivadas),
 `R/indicadores.R` (catálogo + motor de estimação), `R/precisao.R` (CV, IC
 95%, classes de precisão e os limites 5/15/30 — fonte única para `01`, `03`,
-`09`, `11` e `12`; não reescrever essas contas nos scripts) e `R/sidra.R`
+`09`, `11` e `12`; não reescrever essas contas nos scripts), `R/triagem.R` (janelas, resumo do CV e critérios
+`crit_a`/`crit_b`/`crit_c`/`instavel` da triagem; o `11` só lê, chama `triar()`
+e grava) e `R/sidra.R`
 (mapa indicador → série oficial, busca na API do IBGE com cache, tolerâncias
 e conferências; usado por `scripts_teste/validacao_sidra.R`,
 `scripts_teste/calibracao_cv.R` e o teste de aceitação). O `01` e o
@@ -70,7 +74,7 @@ faltam. O `01` usa `carregar_pnadc()`. ~400 MB por arquivo; ler um custa
 derivar/estimar (estimar sobre o Brasil inteiro chega a ~9 GB).
 
 **Testes unitários (início, 22/09/2026):** `tests/testthat/` cobre
-`R/derivar_variaveis.R`, `R/precisao.R` e `R/indicadores.R` (contratos do catálogo, motor de
+`R/derivar_variaveis.R`, `R/precisao.R`, `R/triagem.R` (série sintética de CVs) e `R/indicadores.R` (contratos do catálogo, motor de
 estimação conferido contra bootstrap feito à mão, razão formal/informal,
 geografias, `estimar_trimestre()`), sobre microdado sintético:
 `helper-derivar.R` monta um `svrepdesign` pequeno com `pessoa(...)`,

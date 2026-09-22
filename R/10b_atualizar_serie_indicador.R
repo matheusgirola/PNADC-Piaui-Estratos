@@ -41,10 +41,7 @@ catalogo <- Filter(function(s) s$id %in% ids, catalogo_indicadores)
 desconhecidos <- setdiff(ids, vapply(catalogo, `[[`, "", "id"))
 if (length(desconhecidos)) stop("Fora do catálogo: ", paste(desconhecidos, collapse = ", "))
 
-# Assinatura da spec: muda sempre que fórmula, denominador ou subset mudam.
-assinatura <- function(s) {
-  paste(deparse(s[c("formula", "denominador", "subset", "fun")]), collapse = "")
-}
+# assinatura() vem de R/indicadores.R.
 assinaturas <- setNames(vapply(catalogo, assinatura, ""), vapply(catalogo, `[[`, "", "id"))
 
 dir_serie <- "dados_saida/serie"

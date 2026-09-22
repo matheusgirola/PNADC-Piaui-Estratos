@@ -44,13 +44,8 @@ source("R/precisao.R", encoding = "UTF-8")   # ic_inferior(), ic_superior()
 
 # ---- 1. Consolida a série -----------------------------------------------------
 
-INDICADORES_PAINEL <- c("Taxa_Desocupacao", "Nivel_Ocupacao", "Taxa_Participacao",
-                        "Taxa_Informalidade", "Taxa_Subocupacao", "Rendimento_Medio_Habitual")
-# Só nos gráficos territoriais (não no painel). A série de Brasil/Nordeste
-# (R/13, INDICADORES_SERIE) precisa ter os dois conjuntos.
-INDICADORES_TERRITORIAIS <- c("Taxa_Participacao", "Taxa_Informalidade", "Rendimento_Medio_Habitual",
-                              "Taxa_Nem_Nem", "Proporcao_Populacao_14_59")
-INDICADORES_GRAFICOS <- union(INDICADORES_PAINEL, INDICADORES_TERRITORIAIS)
+# INDICADORES_PAINEL, INDICADORES_TERRITORIAIS e INDICADORES_GRAFICOS vêm do
+# R/00_config.R (mesma lista que o R/13 estima para Brasil/Nordeste).
 
 # Os territórios do corpo do relatório (GEO_REFERENCIA + Piauí + GEO_AGREG +
 # GEO_ZONA no 09_preencher_relatorio.R), nesta ordem — preenche a grade 5x2

@@ -177,6 +177,16 @@ recortes_demograficos <- list(
   Instrucao              = ~VD3004
 )
 
+# Assinatura da spec: texto que muda sempre que fórmula, denominador, subset ou
+# função mudam. Guardada junto das séries (10b, 13) para perceber indicador com
+# fórmula nova e recalcular só ele. NÃO pega mudança em derivar_variaveis.R
+# (a variável ~desocup pode mudar de definição sem a spec mudar).
+# Não alterar o formato: as marcas já gravadas nas séries deixariam de bater
+# e o 10b/13 recalculariam tudo.
+assinatura <- function(s) {
+  paste(deparse(s[c("formula", "denominador", "subset", "fun")]), collapse = "")
+}
+
 # ---- Motor ---------------------------------------------------------------------
 
 aplicar_subset <- function(design, condicao) {
