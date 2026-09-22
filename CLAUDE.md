@@ -61,10 +61,15 @@ faltam. O `01` usa `carregar_pnadc()`. ~400 MB por arquivo; ler um custa
 ~2,3 GB de RAM — use `enxugar_pnadc()` e recorte o território antes de
 derivar/estimar (estimar sobre o Brasil inteiro chega a ~9 GB).
 
-**Sem suíte de testes automatizada.** Validações são manuais e pontuais,
+**Testes unitários (início, 22/09/2026):** `tests/testthat/` cobre só
+`R/derivar_variaveis.R`, sobre microdado sintético (`helper-derivar.R` monta
+um `svrepdesign` pequeno com `pessoa(...)`; não usa o cache). Rodar da raiz:
+`testthat::test_dir("tests/testthat")`. Não é pacote — o helper faz
+`source()` do módulo. `R/indicadores.R` e a validação SIDRA ainda não têm
+teste. Fora isso, validações são manuais e pontuais,
 registradas como decisão em `CONTEXTO_PROJETO.md` (ex.: campo de p-valor do
-`regTermTest()` confirmado como `$p` rodando com dado real). `testthat` é
-bem-vindo antes da migração da seção 2, mas não pressuponha que já existe.
+`regTermTest()` confirmado como `$p` rodando com dado real). Ampliar a
+cobertura de `testthat` não depende da migração da seção 2.
 
 **Dados fora do versionamento** — já real hoje via `.gitignore`: brutos
 (`data/raw/`) e saídas pesadas regeneráveis (`dados_saida/`, `*.gpkg`,
