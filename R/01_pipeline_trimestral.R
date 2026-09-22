@@ -30,6 +30,7 @@ library(ggplot2)
 
 source("R/00_config.R")
 source("R/derivar_variaveis.R", encoding = "UTF-8")
+source("R/precisao.R", encoding = "UTF-8")   # calcular_cv()
 
 # ---- 2. Download e variáveis derivadas --------------------------------------
 
@@ -520,7 +521,7 @@ if (length(falhas_regional) > 0) {
 
 base_trimestre <- base_trimestre %>%
   mutate(
-    CV = ifelse(Estimativa != 0, abs(SE / Estimativa) * 100, NA_real_),
+    CV = calcular_cv(Estimativa, SE),
     Nivel_Geografico = case_when(
       Regiao_Geografica %in% geografias_agregadas ~ "Agregado",
       str_starts(Regiao_Geografica, "Zona_")     ~ "Zona",
@@ -533,7 +534,7 @@ base_trimestre <- base_trimestre %>%
 
 p_hist_cv <- ggplot(base_trimestre %>% filter(!is.na(CV)), aes(x = CV)) +
   geom_histogram(binwidth = 5, boundary = 0, fill = "steelblue", color = "white") +
-  geom_vline(xintercept = 30, linetype = "dashed", color = "firebrick") +
+  geom_vline(xintercept = LIMITES_CV[["regular"]], linetype = "dashed", color = "firebrick") +
   labs(title = paste("Distribuição do coeficiente de variação —", sufixo),
        subtitle = "Linha tracejada: CV = 30% (referência de baixa confiabilidade)",
        x = "CV (%)", y = "Nº de estimativas") +
@@ -543,7 +544,7 @@ ggsave(sprintf("output/figuras/hist_cv_%s.png", sufixo), p_hist_cv, width = 8, h
 p_box_cv <- ggplot(base_trimestre %>% filter(!is.na(CV)),
                    aes(x = Nivel_Geografico, y = CV)) +
   geom_boxplot(fill = "lightblue") +
-  geom_hline(yintercept = 30, linetype = "dashed", color = "firebrick") +
+  geom_hline(yintercept = LIMITES_CV[["regular"]], linetype = "dashed", color = "firebrick") +
   labs(title = paste("CV por nível geográfico —", sufixo), x = NULL, y = "CV (%)") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 20, hjust = 1))

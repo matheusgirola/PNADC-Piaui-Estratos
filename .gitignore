@@ -19,3 +19,29 @@ dados_saida/
 output/renda_individual_*.csv
 output/base_*.csv
 output/tabelas/comparacao_demografica_*.csv
+
+# Temporários do Word/Office (arquivo de trava enquanto o documento está aberto)
+~$*
+~WRL*.tmp
+
+# Saídas regeneráveis a cada rodada (01, 03, 09, 11, 12) — não versionar.
+# Ficam versionados: mapas (dependem de .gpkg/malha fora do git), saídas do
+# 06/07, validações, crosswalks, o MODELO output/relatorio_trimestral.md e os
+# documentos escritos à mão.
+output/figuras/comp_geo_*.png
+output/figuras/anova_*.png
+output/figuras/boxplot_cv_*.png
+output/figuras/hist_cv_*.png
+output/figuras/renda_setor_*.png
+output/figuras/renda_total_*.png
+output/figuras/panorama_*.png
+output/figuras/territorial_*.png
+output/tabelas/triagem_confiabilidade.csv
+output/tabelas/comparacao_geografica_*.csv
+output/tabelas/anova_*.csv
+output/testes_significancia_*.csv
+output/testes_regionais_*.csv
+output/log_falhas*.csv
+output/desigualdade_formal_informal_*.csv
+output/relatorio_trimestral_*.md
+output/relatorio_trimestral_*_rascunho.docx

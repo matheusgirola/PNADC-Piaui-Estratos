@@ -18,7 +18,7 @@ o que está em aberto. Este arquivo cobre arquitetura e regras de código; o
 
 ### 1.1 Arquitetura real
 
-Não é um pacote R e não usa `targets`; a suíte de testes cobre só os dois
+Não é um pacote R e não usa `targets`; a suíte de testes cobre só os
 módulos (ver "Testes unitários" abaixo).
 É uma sequência de **scripts numerados em `R/`**, rodados em ordem manual —
 `00_config.R`, `01_pipeline_trimestral.R`, `03_comparacoes_indicadores.R`,
@@ -33,11 +33,13 @@ cada um faz está em `CONTEXTO_PROJETO.md` §4 — **essa tabela está
 desatualizada** em alguns nomes/arquivos (ver nota no fim deste documento);
 confirme contra o `ls R/` real se precisar.
 
-Dois arquivos não numerados são **módulos carregados via `source()`**, não
-passos do fluxo: `R/derivar_variaveis.R` (variáveis derivadas) e
-`R/indicadores.R` (catálogo + motor de estimação). O `01` e o
-`scripts_teste/validacao_sidra.R` carregam os dois — mudar uma fórmula é
-mexer só neles e rodar a validação de novo.
+Três arquivos não numerados são **módulos carregados via `source()`**, não
+passos do fluxo: `R/derivar_variaveis.R` (variáveis derivadas),
+`R/indicadores.R` (catálogo + motor de estimação) e `R/precisao.R` (CV, IC
+95%, classes de precisão e os limites 5/15/30 — fonte única para `01`, `03`,
+`09`, `11` e `12`; não reescrever essas contas nos scripts). O `01` e o
+`scripts_teste/validacao_sidra.R` carregam os dois primeiros — mudar uma
+fórmula é mexer só neles e rodar a validação de novo.
 
 **Versão do R: 4.5.2** (`C:\Users\matheus.barbosa\AppData\Local\Programs\R\R-4.5.2`).
 O R 4.1.2 em `C:\Program Files\R` não deve ser usado (não tem `survey`
@@ -63,14 +65,13 @@ faltam. O `01` usa `carregar_pnadc()`. ~400 MB por arquivo; ler um custa
 derivar/estimar (estimar sobre o Brasil inteiro chega a ~9 GB).
 
 **Testes unitários (início, 22/09/2026):** `tests/testthat/` cobre
-`R/derivar_variaveis.R` e `R/indicadores.R` (contratos do catálogo, motor de
+`R/derivar_variaveis.R`, `R/precisao.R` e `R/indicadores.R` (contratos do catálogo, motor de
 estimação conferido contra bootstrap feito à mão, razão formal/informal,
 geografias, `estimar_trimestre()`), sobre microdado sintético:
 `helper-derivar.R` monta um `svrepdesign` pequeno com `pessoa(...)`,
 `helper-indicadores.R` uma população de 60 pessoas; não usa o cache. Rodar
 da raiz: `testthat::test_dir("tests/testthat")`. Não é pacote — os helpers
-fazem `source()` dos módulos. Ainda sem teste: a validação SIDRA e o
-`classificar_cv()` (preso no `03`, que lê CSV ao ser carregado). Fora isso, validações são manuais e pontuais,
+fazem `source()` dos módulos. Ainda sem teste: a validação SIDRA. Fora isso, validações são manuais e pontuais,
 registradas como decisão em `CONTEXTO_PROJETO.md` (ex.: campo de p-valor do
 `regTermTest()` confirmado como `$p` rodando com dado real). Ampliar a
 cobertura de `testthat` não depende da migração da seção 2.
@@ -78,6 +79,14 @@ cobertura de `testthat` não depende da migração da seção 2.
 **Dados fora do versionamento** — já real hoje via `.gitignore`: brutos
 (`data/raw/`) e saídas pesadas regeneráveis (`dados_saida/`, `*.gpkg`,
 `base_*.csv`, `renda_individual_*.csv`, `comparacao_demografica_*.csv`).
+Desde 22/09/2026 também as saídas que o `01`/`03`/`09`/`11`/`12` regeram a
+cada rodada (figuras, tabelas de comparação/ANOVA/triagem, testes, logs, o
+`.md` e o `_rascunho.docx` do relatório) e os temporários do Word (`~$*`).
+Continuam versionados: os mapas (`04`/`05`/`08` dependem de `.gpkg` e da
+malha, fora do git), as saídas do `06`/`07`, validações, crosswalks, o
+modelo `output/relatorio_trimestral.md`, os documentos escritos à mão e o
+`_em_desenvolvimento.docx`. Script novo que grava em `output/`: decidir e
+anotar no `.gitignore`.
 
 ### 1.2 Regras que já valem hoje, independente de arquitetura
 

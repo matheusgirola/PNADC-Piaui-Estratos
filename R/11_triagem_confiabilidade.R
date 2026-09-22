@@ -11,7 +11,7 @@
 #   (c) p80 do CV < 15%                                (crit_c)
 #
 # CV = 100 * SE / |Estimativa| (o SE vem das 200 réplicas bootstrap do
-# desenho). Classes do 03_comparacoes_indicadores.R: Excelente < 5,
+# desenho). CV, classes e limites em R/precisao.R: Excelente < 5,
 # Boa < 15 (corte do IBGE), Regular < 30, Baixa >= 30.
 #
 # Janelas (decisão do usuário, 17/09/2026):
@@ -45,6 +45,7 @@ suppressPackageStartupMessages({
 })
 
 source("R/00_config.R", encoding = "UTF-8")  # geografias_agregadas
+source("R/precisao.R", encoding = "UTF-8")   # calcular_cv(), LIMITES_CV
 
 INICIO_PRINCIPAL  <- c(2022, 1)
 PANDEMIA          <- list(inicio = c(2020, 2), fim = c(2021, 4))
@@ -60,8 +61,7 @@ if (length(arquivos) == 0) stop("Nenhum dados_saida/serie/base_*.rds — rode o 
 
 serie <- map_dfr(arquivos, ~ readRDS(.x)$base) %>%
   mutate(idx = idx_tri(Ano, Trimestre),
-         CV  = ifelse(!is.na(Estimativa) & Estimativa != 0 & !is.na(SE),
-                      100 * SE / abs(Estimativa), NA_real_))
+         CV  = calcular_cv(Estimativa, SE))
 
 todos_idx <- sort(unique(serie$idx))
 ultimo    <- max(todos_idx)
@@ -94,16 +94,17 @@ amostragens <- list(todos = todos_idx, espacado_5 = espacados)
 resumir <- function(cv) {
   n  <- length(cv)
   ok <- cv[!is.na(cv)]
+  classe <- classificar_cv(ok)
   tibble(
     n_trimestres       = n,
     n_com_estimativa   = length(ok),
     cv_mediano         = if (length(ok)) median(ok) else NA_real_,
     cv_p80             = if (length(ok)) unname(quantile(ok, 0.8)) else NA_real_,
     cv_max             = if (length(ok)) max(ok) else NA_real_,
-    pct_excelente      = 100 * sum(ok < 5) / n,
-    pct_boa            = 100 * sum(ok >= 5 & ok < 15) / n,
-    pct_regular        = 100 * sum(ok >= 15 & ok < 30) / n,
-    pct_baixa          = 100 * sum(ok >= 30) / n,
+    pct_excelente      = 100 * sum(classe == "excelente") / n,
+    pct_boa            = 100 * sum(classe == "boa") / n,
+    pct_regular        = 100 * sum(classe == "regular") / n,
+    pct_baixa          = 100 * sum(classe == "baixa") / n,
     pct_sem_estimativa = 100 * (n - length(ok)) / n
   )
 }
@@ -147,9 +148,9 @@ triagem <- triagem %>%
       TRUE ~ "Outro"
     ),
     crit_a   = (pct_excelente + pct_boa) >= 80,
-    crit_b   = !is.na(cv_mediano) & cv_mediano < 15,
-    crit_c   = !is.na(cv_p80) & cv_p80 < 15,
-    instavel = crit_b & !is.na(cv_max_recentes) & cv_max_recentes >= 30
+    crit_b   = cv_aceitavel(cv_mediano),
+    crit_c   = cv_aceitavel(cv_p80),
+    instavel = crit_b & !is.na(cv_max_recentes) & cv_max_recentes >= LIMITES_CV[["regular"]]
   ) %>%
   relocate(Nivel_Geografico, .after = Regiao_Geografica) %>%
   arrange(Indicador, Subcategoria_Indicador, Nivel_Geografico, Regiao_Geografica,

@@ -36,6 +36,7 @@ suppressPackageStartupMessages({
 })
 
 source("R/00_config.R", encoding = "UTF-8")  # sufixo, ANO_REF, TRIMESTRE_REF
+source("R/precisao.R", encoding = "UTF-8")   # ic_inferior(), ic_superior()
 
 # ---- 1. Consolida a série -----------------------------------------------------
 
@@ -79,8 +80,8 @@ ler_br_ne <- function(f) {
 serie <- bind_rows(map_dfr(arquivos, ler_um), map_dfr(arquivos_br_ne, ler_br_ne)) %>%
   mutate(
     Ano_Trimestre = Ano + (Trimestre - 1) / 4,
-    IC_inf = Estimativa - 1.96 * SE,
-    IC_sup = Estimativa + 1.96 * SE
+    IC_inf = ic_inferior(Estimativa, SE),
+    IC_sup = ic_superior(Estimativa, SE)
   ) %>%
   arrange(Indicador, Regiao_Geografica, Ano, Trimestre)
 

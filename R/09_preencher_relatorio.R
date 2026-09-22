@@ -36,6 +36,7 @@ library(purrr)
 library(pandoc)
 
 source("R/00_config.R")
+source("R/precisao.R", encoding = "UTF-8")   # CV, IC 95%, classes de precisão
 
 MODELO <- "./output/relatorio_trimestral.md"
 SAIDA  <- sprintf("./output/relatorio_trimestral_%s.md", sufixo)
@@ -57,7 +58,7 @@ ler <- function(caminho, obrigatorio = TRUE) {
   read_csv(caminho, show_col_types = FALSE)
 }
 
-base        <- ler(sprintf("output/base_%s.csv", sufixo)) %>% mutate(cv = 100 * SE / Estimativa)
+base        <- ler(sprintf("output/base_%s.csv", sufixo)) %>% mutate(cv = calcular_cv(Estimativa, SE))
 testes_reg  <- ler(sprintf("output/testes_regionais_%s.csv", sufixo))
 testes_demo <- ler(sprintf("output/testes_significancia_%s.csv", sufixo))
 triagem     <- ler("output/tabelas/triagem_confiabilidade.csv") %>%
@@ -195,8 +196,12 @@ formatar <- function(x, u) {
 unidade_rotulo <- function(u) switch(u, pct = "%", mil = "mil pessoas", reais = "R$", razao = "razão", gini = "índice")
 com_unidade    <- function(rotulo, u) if (u %in% c("razao", "gini")) rotulo else paste0(rotulo, " (", unidade_rotulo(u), ")")
 
-classe_cv <- function(cv) {
-  case_when(is.na(cv) ~ "—", cv < 5 ~ "excelente", cv < 15 ~ "boa", cv < 30 ~ "regular", TRUE ~ "baixa")
+classe_cv <- function(cv) ifelse(is.na(cv), "—", classificar_cv(cv))
+
+# Marca pelo CV (ou p80 do CV): abaixo do corte do IBGE vale o número, até o
+# limite de "regular" leva †, acima some. Limites em R/precisao.R.
+marca_pelo_cv <- function(cv) {
+  if (cv < LIMITES_CV[["boa"]]) "ok" else if (cv < LIMITES_CV[["regular"]]) "adaga" else "traco"
 }
 
 estrelas <- function(p) {
@@ -231,13 +236,12 @@ marca_de <- function(ind, sub, geo, recorte = "Total", categoria = "Total", cv_a
   if (nrow(t) == 0) {
     # Brasil/Nordeste (fora da série): CV do trimestre.
     if (geo %in% c("Brasil", "Nordeste") && !is.na(cv_atual)) {
-      return(if (cv_atual < 15) "ok" else if (cv_atual < 30) "adaga" else "traco")
+      return(marca_pelo_cv(cv_atual))
     }
     return("traco")
   }
   if (nrow(t) > 1) stop("Triagem ambígua para ", ind, " / ", geo)
-  if (isTRUE(t$instavel) || is.na(t$cv_p80) || t$cv_p80 >= 30) "traco"
-  else if (t$cv_p80 >= 15) "adaga" else "ok"
+  if (isTRUE(t$instavel) || is.na(t$cv_p80)) "traco" else marca_pelo_cv(t$cv_p80)
 }
 
 celula <- function(ind, geo, sub = NULL, recorte = "Total", categoria = "Total") {
@@ -281,7 +285,7 @@ exp_ic <- function(ind, geo) {
   r <- linha_de(ind, geo)
   if (is.null(r)) { registrar_ausente(paste("IC", ind, "em", geo)); return("—") }
   u <- info(ind)$unidade
-  sprintf("(%s, %s)", formatar(max(0, r$Estimativa - 1.96 * r$SE), u), formatar(r$Estimativa + 1.96 * r$SE, u))
+  sprintf("(%s, %s)", formatar(ic_inferior(r$Estimativa, r$SE, piso = 0), u), formatar(ic_superior(r$Estimativa, r$SE), u))
 }
 
 exp_cv <- function(ind, geo) {
@@ -487,8 +491,8 @@ tabela_anexo_indicadores <- function() {
           p80 <- if (nrow(t) == 1) num(t$cv_p80, 1) else "—"
           marca <- switch(marca_de(i$id, sub, geografia, cv_atual = r$cv), ok = "", adaga = "†", traco = "–")
           linha_md(recorte, categoria, formatar(r$Estimativa, i$unidade),
-                   sprintf("(%s, %s)", formatar(max(0, r$Estimativa - 1.96 * r$SE), i$unidade),
-                           formatar(r$Estimativa + 1.96 * r$SE, i$unidade)),
+                   sprintf("(%s, %s)", formatar(ic_inferior(r$Estimativa, r$SE, piso = 0), i$unidade),
+                           formatar(ic_superior(r$Estimativa, r$SE), i$unidade)),
                    num(r$cv, 1), classe_cv(r$cv), p80, marca)
         })
       out <- c(out, "",

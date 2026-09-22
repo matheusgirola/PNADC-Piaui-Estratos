@@ -25,6 +25,7 @@ library(ggplot2)
 # arquivos, e esquecer de atualizar este aqui fazia o script reler a base do
 # trimestre anterior sem reclamar de nada.
 source("R/00_config.R")
+source("R/precisao.R", encoding = "UTF-8")   # CV, IC 95%, classes de precisão
 
 # ==============================================================================
 # NOMES PARA EXIBIÇÃO — mexe aqui se quiser mudar como um indicador/recorte
@@ -95,28 +96,13 @@ nome_geografia <- function(x) {
 }
 
 # ==============================================================================
-# CONFIABILIDADE PELO CV — o IBGE define CV < 15% como o corte de "boa
-# precisão" pras estimativas amostrais da PNADC (documentado nas notas
-# técnicas de calibração de pesos da pesquisa). Os cortes de 5% e 30% que
-# você pediu seguem a mesma lógica graduada, prática comum em relatórios de
-# estatísticas amostrais (o de 30% é o mais citado como limite de "não
-# recomendado" fora do Brasil também, ex. convenções do Statistics Canada e
-# do U.S. Census Bureau):
-#   CV <  5%          -> Excelente (***)
-#   5%  <= CV < 15%    -> Boa       (**)   [15% = corte oficial do IBGE]
-#   15% <= CV < 30%    -> Regular   (*)
-#   CV >= 30%          -> Baixa     (sem asterisco — usar com cautela)
+# CONFIABILIDADE PELO CV — limites, classes e fonte em R/precisao.R. Aqui só o
+# rótulo de exibição das tabelas do 03 (asteriscos = precisão, não p-valor).
 # ==============================================================================
 
-classificar_cv <- function(cv) {
-  case_when(
-    is.na(cv) ~ NA_character_,
-    cv < 5    ~ "Excelente (***)",
-    cv < 15   ~ "Boa (**)",
-    cv < 30   ~ "Regular (*)",
-    TRUE      ~ "Baixa"
-  )
-}
+ROTULOS_PRECISAO <- c(excelente = "Excelente (***)", boa = "Boa (**)",
+                      regular = "Regular (*)", baixa = "Baixa")
+rotular_precisao <- function(cv) unname(ROTULOS_PRECISAO[classificar_cv(cv)])
 
 # Estrelas de significância pro p-valor das ANOVAs — convenção estatística
 # padrão, NÃO confundir com os asteriscos de confiabilidade do CV acima
@@ -157,11 +143,11 @@ testes_regional <- if (file.exists(caminho_testes_regional)) read_csv(caminho_te
 
 base <- base %>%
   mutate(
-    CV     = ifelse(Estimativa != 0, abs(SE / Estimativa) * 100, NA_real_),
-    IC_inf = Estimativa - 1.96 * SE,
-    IC_sup = Estimativa + 1.96 * SE,
+    CV     = calcular_cv(Estimativa, SE),
+    IC_inf = ic_inferior(Estimativa, SE),
+    IC_sup = ic_superior(Estimativa, SE),
     IC_95  = sprintf("[%.3f — %.3f]", IC_inf, IC_sup),
-    Confiabilidade = classificar_cv(CV),
+    Confiabilidade = rotular_precisao(CV),
     Tipo_Geo = case_when(
       Regiao_Geografica %in% geografias_agregadas ~ "Agregados nacionais",
       str_starts(Regiao_Geografica, "Zona_")     ~ "Zona",
