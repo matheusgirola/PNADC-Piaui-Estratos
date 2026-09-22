@@ -71,8 +71,12 @@ catalogo_original <- list(
        formula = ~(!is.na(VD4004A) & VD4004A == "Pessoas subocupadas"),
        denominador = ~VD4002 == "Pessoas ocupadas", fun = svyratio, subset = NULL),
 
+  # Numerador restrito a ocupados (corrigido em 22/09/2026): antes contava
+  # todo mundo com médio completo, e o na.rm do svyratio só tirava quem está
+  # fora da força — os desocupados escolarizados entravam no numerador sem
+  # estar no denominador, inflando a proporção.
   list(id = "Proporcao_Ocupados_Escolarizados",
-       formula = ~(!is.na(medio_completo_ou_mais) & medio_completo_ou_mais == 1),
+       formula = ~(ocup == 1 & !is.na(medio_completo_ou_mais) & medio_completo_ou_mais == 1),
        denominador = ~VD4002 == "Pessoas ocupadas", fun = svyratio, subset = NULL),
 
   list(id = "Desalentados_Forca_Ampliada",

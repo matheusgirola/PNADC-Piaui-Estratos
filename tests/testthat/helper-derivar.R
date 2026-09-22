@@ -18,6 +18,7 @@ NIVEIS_VD3004 <- c("Sem instrução e menos de 1 ano de estudo",
                    "Superior completo")
 
 SM_HORA_TESTE <- 7
+N_REPLICAS <- 4
 
 # Pessoa "neutra": 35 anos, Teresina urbana, ocupada com carteira no setor
 # privado, médio completo. Cada teste sobrescreve só o que interessa.
@@ -31,7 +32,8 @@ pessoa <- function(...) {
     VD4009 = ROTULOS$VD4009[["priv_com"]], V4019 = NA,
     VD4010 = "Comércio, reparação de veículos automotores e motocicletas",
     VD4019 = 2000, VD4031 = 40, Habitual = 1,
-    V4074A = NA, VD4030 = NA
+    V4074A = NA, VD4030 = NA,
+    V1028 = 100
   )
   campos <- list(...)
   desconhecidos <- setdiff(names(campos), names(base))
@@ -58,8 +60,8 @@ linhas_cobertura <- function() {
   ))
 }
 
-# Monta o desenho com as pessoas do teste + cobertura. Pesos e réplicas são
-# arbitrários: aqui só a lógica linha a linha está em teste.
+# Monta o desenho com as pessoas do teste + cobertura. O peso vem da coluna
+# V1028 de cada pessoa; as réplicas são perturbações determinísticas dele.
 montar_desenho <- function(pessoas, cobertura = TRUE) {
   dados <- pessoas
   dados$.teste <- TRUE
@@ -69,12 +71,20 @@ montar_desenho <- function(pessoas, cobertura = TRUE) {
     cob[setdiff(names(dados), names(cob))] <- NA   # colunas extras do teste
     dados <- rbind(dados, cob)
   }
+  # get_pnadc() entrega as categóricas como fator
+  for (v in c("UF", "V2010", "V3002", "VD2002", "VD4001", "VD4002", "VD4003",
+              "VD4004A", "VD4005", "VD4009", "V4019", "VD4010", "V4074A", "VD4030")) {
+    dados[[v]] <- factor(dados[[v]])
+  }
   dados$V2007  <- factor(dados$V2007, levels = c("Homem", "Mulher"))
   dados$V1022  <- factor(dados$V1022, levels = c("Urbana", "Rural"))
   dados$VD3004 <- factor(dados$VD3004, levels = NIVEIS_VD3004)
-  dados$V1028  <- 100
-  dados$V1028001 <- 90
-  dados$V1028002 <- 110
+  # 4 réplicas que variam por linha (determinísticas), senão razões e médias
+  # sairiam com SE zero
+  for (r in seq_len(N_REPLICAS)) {
+    dados[[sprintf("V1028%03d", r)]] <-
+      dados$V1028 * (1 + 0.3 * sin(seq_len(nrow(dados)) * r + r))
+  }
   survey::svrepdesign(data = dados, weights = ~V1028,
                       repweights = "V1028[0-9]+", type = "bootstrap",
                       mse = TRUE, combined.weights = TRUE)

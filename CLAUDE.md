@@ -18,7 +18,8 @@ o que está em aberto. Este arquivo cobre arquitetura e regras de código; o
 
 ### 1.1 Arquitetura real
 
-Não é um pacote R, não usa `targets`, não tem suíte de testes automatizada.
+Não é um pacote R e não usa `targets`; a suíte de testes cobre só os dois
+módulos (ver "Testes unitários" abaixo).
 É uma sequência de **scripts numerados em `R/`**, rodados em ordem manual —
 `00_config.R`, `01_pipeline_trimestral.R`, `03_comparacoes_indicadores.R`,
 `04_mapas_estratos_piaui.R`, `05_setores_censitarios_piaui.R`,
@@ -61,12 +62,15 @@ faltam. O `01` usa `carregar_pnadc()`. ~400 MB por arquivo; ler um custa
 ~2,3 GB de RAM — use `enxugar_pnadc()` e recorte o território antes de
 derivar/estimar (estimar sobre o Brasil inteiro chega a ~9 GB).
 
-**Testes unitários (início, 22/09/2026):** `tests/testthat/` cobre só
-`R/derivar_variaveis.R`, sobre microdado sintético (`helper-derivar.R` monta
-um `svrepdesign` pequeno com `pessoa(...)`; não usa o cache). Rodar da raiz:
-`testthat::test_dir("tests/testthat")`. Não é pacote — o helper faz
-`source()` do módulo. `R/indicadores.R` e a validação SIDRA ainda não têm
-teste. Fora isso, validações são manuais e pontuais,
+**Testes unitários (início, 22/09/2026):** `tests/testthat/` cobre
+`R/derivar_variaveis.R` e `R/indicadores.R` (contratos do catálogo, motor de
+estimação conferido contra bootstrap feito à mão, razão formal/informal,
+geografias, `estimar_trimestre()`), sobre microdado sintético:
+`helper-derivar.R` monta um `svrepdesign` pequeno com `pessoa(...)`,
+`helper-indicadores.R` uma população de 60 pessoas; não usa o cache. Rodar
+da raiz: `testthat::test_dir("tests/testthat")`. Não é pacote — os helpers
+fazem `source()` dos módulos. Ainda sem teste: a validação SIDRA e o
+`classificar_cv()` (preso no `03`, que lê CSV ao ser carregado). Fora isso, validações são manuais e pontuais,
 registradas como decisão em `CONTEXTO_PROJETO.md` (ex.: campo de p-valor do
 `regTermTest()` confirmado como `$p` rodando com dado real). Ampliar a
 cobertura de `testthat` não depende da migração da seção 2.
