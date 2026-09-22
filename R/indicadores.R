@@ -154,8 +154,19 @@ catalogo_composicao_pit <- unlist(lapply(names(dimensoes_pit), function(nm) {
   )
 }), recursive = FALSE)
 
+# Demografia (22/09/2026, pedido do usuário): pessoas de 14 a 59 anos sobre a
+# população total (todas as idades). 14 anos = início da idade de trabalhar da
+# PNADC (IBGE, notas metodológicas); 60 anos = pessoa idosa (Lei 10.741/2003,
+# Estatuto da Pessoa Idosa), mesmo corte dos grupos de idade do SIDRA 4094.
+# Idade = V2009 (idade na data de referência), definida para todo morador.
+catalogo_demografia <- list(
+  list(id = "Proporcao_Populacao_14_59",
+       formula = ~(V2009 >= 14 & V2009 <= 59), denominador = ~(V2009 >= 0),
+       fun = svyratio, so_recorte_total = TRUE, testar = FALSE)
+)
+
 catalogo_indicadores <- c(catalogo_original, catalogo_mercado_trabalho,
-                          catalogo_composicao_pit)
+                          catalogo_composicao_pit, catalogo_demografia)
 
 recortes_demograficos <- list(
   Total                  = NULL,

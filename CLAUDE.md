@@ -24,7 +24,9 @@ módulos (ver "Testes unitários" abaixo).
 `00_config.R`, `01_pipeline_trimestral.R`, `03_comparacoes_indicadores.R`,
 `04_mapas_estratos_piaui.R`, `05_setores_censitarios_piaui.R`,
 `06_upas_piaui.R`, `07_estrato_estatistico.R`, `08_mapa_aaagsse.R`,
-`09_preencher_relatorio.R`, `10_serie_confiabilidade.R` e `11_triagem_confiabilidade.R` (série e triagem de confiabilidade, `CONTEXTO_PROJETO.md` §8.5),
+`09_preencher_relatorio.R`, `10_serie_confiabilidade.R` e `11_triagem_confiabilidade.R` (série e triagem de confiabilidade, `CONTEXTO_PROJETO.md` §8.5;
+`10b_atualizar_serie_indicador.R <id>` refaz na série só o indicador cuja
+fórmula mudou, sem rodar o `10` de novo),
 `12_graficos_panorama.R` (gráficos de linha do relatório) e
 `13_serie_brasil_nordeste.R` (série de Brasil/Nordeste só dos 6 indicadores
 dos gráficos, recorte Total — roda antes do `12`), mais `Teste_estrutura_aaagsse.R` (validação, fora

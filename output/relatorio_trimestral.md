@@ -6,12 +6,14 @@
 >
 > Estrutura decidida em 17/09/2026 (`CONTEXTO_PROJETO.md` §8.7): público gestor,
 > corpo curto, território em matrizes por dimensão, todo o resto no anexo.
-> Figuras 1-4 (seções 2, 4, 5 e 6) adicionadas em 21/09/2026 — únicas figuras
-> do corpo; aparecem no `.md` e no `.docx` (o filtro Lua que as removia da
-> conversão foi descontinuado no mesmo dia, a pedido do usuário). Figuras 2-4
-> usam os mesmos 8 territórios do corpo (grade 4x2: Piauí, Teresina, Entorno
-> metropolitano, Centro-Leste, Baixo Parnaíba, Alto Parnaíba e Chapadas,
-> Zona Urbana, Zona Rural).
+> Figuras 1-4 (seções 2, 4, 5 e 6) adicionadas em 21/09/2026; em 22/09/2026 a
+> Figura 2 passou do nível da ocupação para a taxa de participação e entraram
+> as Figuras 5 (nem-nem, seção 7) e 6 (pessoas de 14 a 59 anos, seção 8) —
+> únicas figuras do corpo; aparecem no `.md` e no `.docx` (o filtro Lua que
+> as removia da conversão foi descontinuado em 21/09, a pedido do usuário).
+> Figuras 2-6 usam Brasil, Nordeste e os mesmos 8 territórios do corpo
+> (grade 5x2: Piauí, Teresina, Entorno metropolitano, Centro-Leste, Baixo
+> Parnaíba, Alto Parnaíba e Chapadas, Zona Urbana, Zona Rural).
 >
 > Construções resolvidas pelo script:
 > - `<!-- @tabela tipo=... -->` vira tabela ou lista inteira (destaques, matriz,
@@ -98,9 +100,9 @@ metodológica (Anexo A).
 
 ## 4 Ocupação e desocupação
 
-**Figura 2** — Nível da ocupação por território, 2016T2–{{trimestre}}
+**Figura 2** — Taxa de participação na força de trabalho por território, 2016T2–{{trimestre}}
 
-![Nível da ocupação por território](figuras/territorial_ocupacao_{{sufixo}}.png)
+![Taxa de participação na força de trabalho por território](figuras/territorial_participacao_{{sufixo}}.png)
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
@@ -148,6 +150,12 @@ IBGE. O índice de Gini vai de 0 (igualdade total) a 1 (desigualdade máxima).
 
 ## 7 Vulnerabilidade
 
+**Figura 5** — Jovens de 14 a 29 anos que não estudam nem trabalham, por território, 2016T2–{{trimestre}}
+
+![Jovens nem-nem por território](figuras/territorial_nem_nem_{{sufixo}}.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
+
 **Tabela 5** — Desalento e jovens que não estudam nem trabalham, por território — {{trimestre}}
 
 <!-- @tabela tipo=matriz dimensao=vulnerabilidade -->
@@ -166,6 +174,12 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 <!-- @redigir: leitura das Tabelas 5 e 6 — um parágrafo curto. -->
 
 ## 8 Perfil da população em idade de trabalhar
+
+**Figura 6** — Pessoas de 14 a 59 anos na população total, por território (%), 2016T2–{{trimestre}}
+
+![Pessoas de 14 a 59 anos por território](figuras/territorial_populacao_14_59_{{sufixo}}.png)
+
+Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 **Tabela 7** — Composição da população de 14 anos ou mais, por território (%) — {{trimestre}}
 

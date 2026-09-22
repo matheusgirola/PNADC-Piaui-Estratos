@@ -320,9 +320,21 @@ transição amostral Censo 2010→2022, 2025T3 em diante — datas fixas do §8.
 | Figura | Arquivo | Indicador | Territórios | Seção |
 |---|---|---|---|---|
 | 1 | `panorama_piaui_<sufixo>.png` | 6 indicadores-farol (Desocupação, Ocupação, Participação, Informalidade, Subocupação, Rendimento) | Piauí | 2 (Panorama) |
-| 2 | `territorial_ocupacao_<sufixo>.png` | Nível da Ocupação | os 8 territórios do corpo | 4 (Ocupação) |
+| 2 | `territorial_participacao_<sufixo>.png` | Taxa de Participação (até 21/09: Nível da Ocupação, `territorial_ocupacao_`) | os 8 territórios do corpo | 4 (Ocupação) |
 | 3 | `territorial_informalidade_<sufixo>.png` | Taxa de Informalidade | idem | 5 (Qualidade) |
 | 4 | `territorial_rendimento_estratos_<sufixo>.png` | Rendimento Médio Habitual | idem | 6 (Rendimento) |
+| 5 | `territorial_nem_nem_<sufixo>.png` | Taxa Nem-Nem (14 a 29 anos) | idem | 7 (Vulnerabilidade) |
+| 6 | `territorial_populacao_14_59_<sufixo>.png` | `Proporcao_Populacao_14_59` (novo): pessoas de 14 a 59 anos / população total | idem | 8 (Perfil da PIT) |
+
+**Atualização (22/09/2026, pedido do usuário):** Figura 2 trocada para a taxa
+de participação; entraram as Figuras 5 e 6. O indicador da Figura 6 é novo no
+catálogo (`catalogo_demografia` em `R/indicadores.R`); base = população de
+todas as idades — interpretação adotada de "percentual de pessoas com mais de
+14 e menos de 60 anos"; se a intenção for a parcela *dentro da PIT*, basta
+trocar o denominador (é 100% menos a faixa "60 anos ou mais" da Tabela 7).
+Série: Piauí via `R/10b_atualizar_serie_indicador.R`, Brasil/Nordeste via
+`R/13` (agora incremental, com `Taxa_Nem_Nem` e o indicador novo). Ainda fora
+do `CATALOGO` do `09`, então não aparece nas tabelas.
 
 **Atualização (21/09/2026, pedido do usuário): Brasil e Nordeste voltaram** —
 nas matrizes do `09` (colunas antes do Piauí, marca pelo CV do trimestre) e

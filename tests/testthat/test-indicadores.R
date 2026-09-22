@@ -70,6 +70,14 @@ test_that("Proporcao_Ocupados_Escolarizados é a proporção entre os ocupados",
   expect_lte(unname(est), 1)
 })
 
+test_that("Proporcao_Populacao_14_59 usa a população de todas as idades como base", {
+  s <- Filter(function(s) s$id == "Proporcao_Populacao_14_59", catalogo_indicadores)[[1]]
+  est <- coef(computar_estimativa(d, s, NULL))
+  esperado <- sum(w * (v$V2009 >= 14 & v$V2009 <= 59)) / sum(w)
+  expect_equal(unname(est), esperado)
+  expect_lt(unname(est), 1)   # a população de teste tem criança e idoso
+})
+
 # ---- Subconjuntos -----------------------------------------------------------
 
 test_that("aplicar_subset() descarta NA e devolve o desenho intacto com NULL", {

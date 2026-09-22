@@ -10,16 +10,20 @@
 #     Piauí com Brasil e Nordeste como referência (linhas de comparação,
 #     pedido do usuário, 21/09/2026) — abre a seção Panorama sem inflar a
 #     contagem de figuras.
-#   - territorial_ocupacao / territorial_informalidade / territorial_rendimento_estratos:
-#     1 indicador cada (Nível da Ocupação, Taxa de Informalidade, Rendimento
-#     Médio Habitual — o indicador-farol de cada dimensão), TODOS os 8
+#   - territorial_participacao / territorial_informalidade / territorial_rendimento_estratos
+#     / territorial_nem_nem / territorial_populacao_14_59:
+#     1 indicador cada (Taxa de Participação — no lugar do Nível da Ocupação
+#     desde 22/09/2026 —, Taxa de Informalidade, Rendimento Médio Habitual,
+#     Taxa Nem-Nem e % da população de 14 a 59 anos, as duas últimas também
+#     de 22/09/2026, pedido do usuário), TODOS os 8
 #     territórios do corpo do relatório (Piauí, Teresina, Entorno
 #     metropolitano, Centro-Leste, Baixo Parnaíba, Alto Parnaíba e Chapadas,
 #     Zona Urbana, Zona Rural), mais Brasil e Nordeste na frente (21/09/2026,
 #     mesma ordem das colunas das matrizes do 09) — grade 5x2, em pequenos múltiplos por
 #     território — abrem as seções 4, 5 e 6, respectivamente (pedido do
 #     usuário, 21/09/2026, revisado no mesmo dia pra unificar num só conjunto
-#     de territórios em vez de dois recortes separados).
+#     de territórios em vez de dois recortes separados). Abrem as seções 4,
+#     5, 6, 7 e 8, respectivamente.
 # Todos sombreiam a pandemia (2020T2-2021T4, coleta por telefone) e a
 # transição amostral Censo 2010->2022 (2025T3 em diante, ainda em curso).
 #
@@ -42,6 +46,11 @@ source("R/precisao.R", encoding = "UTF-8")   # ic_inferior(), ic_superior()
 
 INDICADORES_PAINEL <- c("Taxa_Desocupacao", "Nivel_Ocupacao", "Taxa_Participacao",
                         "Taxa_Informalidade", "Taxa_Subocupacao", "Rendimento_Medio_Habitual")
+# Só nos gráficos territoriais (não no painel). A série de Brasil/Nordeste
+# (R/13, INDICADORES_SERIE) precisa ter os dois conjuntos.
+INDICADORES_TERRITORIAIS <- c("Taxa_Participacao", "Taxa_Informalidade", "Rendimento_Medio_Habitual",
+                              "Taxa_Nem_Nem", "Proporcao_Populacao_14_59")
+INDICADORES_GRAFICOS <- union(INDICADORES_PAINEL, INDICADORES_TERRITORIAIS)
 
 # Os territórios do corpo do relatório (GEO_REFERENCIA + Piauí + GEO_AGREG +
 # GEO_ZONA no 09_preencher_relatorio.R), nesta ordem — preenche a grade 5x2
@@ -65,7 +74,7 @@ if (length(faltam_br_ne) > 0) {
 ler_um <- function(f) {
   x <- readRDS(f)
   x$base %>%
-    filter(Indicador %in% INDICADORES_PAINEL,
+    filter(Indicador %in% INDICADORES_GRAFICOS,
            Regiao_Geografica %in% GEOGRAFIAS, Recorte_Demografico == "Total") %>%
     select(Indicador, Estimativa, SE, Ano, Trimestre, Regiao_Geografica)
 }
@@ -73,7 +82,7 @@ ler_um <- function(f) {
 # O 13 grava só a `base` (não a lista do 10).
 ler_br_ne <- function(f) {
   readRDS(f) %>%
-    filter(Indicador %in% INDICADORES_PAINEL, Recorte_Demografico == "Total") %>%
+    filter(Indicador %in% INDICADORES_GRAFICOS, Recorte_Demografico == "Total") %>%
     select(Indicador, Estimativa, SE, Ano, Trimestre, Regiao_Geografica)
 }
 
@@ -95,11 +104,14 @@ nomes_indicadores <- c(
   Taxa_Participacao         = "Taxa de participação na força de trabalho",
   Taxa_Informalidade        = "Taxa de informalidade",
   Taxa_Subocupacao          = "Subocupação por insuficiência de horas",
-  Rendimento_Medio_Habitual = "Rendimento médio real habitual"
+  Rendimento_Medio_Habitual = "Rendimento médio real habitual",
+  Taxa_Nem_Nem              = "Jovens de 14 a 29 anos que não estudam nem trabalham",
+  Proporcao_Populacao_14_59 = "Pessoas de 14 a 59 anos na população"
 )
 unidade_indicador <- c(
   Taxa_Desocupacao = "pct", Nivel_Ocupacao = "pct", Taxa_Participacao = "pct",
-  Taxa_Informalidade = "pct", Taxa_Subocupacao = "pct", Rendimento_Medio_Habitual = "reais"
+  Taxa_Informalidade = "pct", Taxa_Subocupacao = "pct", Rendimento_Medio_Habitual = "reais",
+  Taxa_Nem_Nem = "pct", Proporcao_Populacao_14_59 = "pct"
 )
 # Mesmos rótulos de território do GEO_AGREG/GEO_ZONA no 09_preencher_relatorio.R.
 nomes_geografias <- c(
@@ -201,6 +213,11 @@ ggsave(arq_painel, p_painel, width = 9, height = 5.4, bg = "white", dpi = 150)
 
 grafico_territorial <- function(indicador, titulo, arquivo, width = 7.5, height = 10.5) {
   d <- serie %>% filter(Indicador == indicador)
+  sem_dado <- setdiff(GEOGRAFIAS, d$Regiao_Geografica)
+  if (length(sem_dado) > 0) {
+    stop(indicador, " sem série para: ", paste(sem_dado, collapse = ", "),
+         " — rode R/13 (Brasil/Nordeste) ou R/10b (Piauí) antes.")
+  }
   d$Regiao_Nome <- factor(d$Regiao_Nome, levels = unname(nomes_geografias[GEOGRAFIAS]))
   u <- unidade_indicador[[indicador]]
 
@@ -223,10 +240,10 @@ grafico_territorial <- function(indicador, titulo, arquivo, width = 7.5, height 
   arquivo
 }
 
-arq_ocupacao <- grafico_territorial(
-  "Nivel_Ocupacao",
-  titulo = sprintf("Nível da ocupação por território (2016T2–%s)", sufixo),
-  arquivo = sprintf("output/figuras/territorial_ocupacao_%s.png", sufixo))
+arq_participacao <- grafico_territorial(
+  "Taxa_Participacao",
+  titulo = sprintf("Taxa de participação por território (2016T2–%s)", sufixo),
+  arquivo = sprintf("output/figuras/territorial_participacao_%s.png", sufixo))
 
 arq_informalidade <- grafico_territorial(
   "Taxa_Informalidade",
@@ -238,10 +255,27 @@ arq_rendimento_estratos <- grafico_territorial(
   titulo = sprintf("Rendimento médio real habitual por território (2016T2–%s)", sufixo),
   arquivo = sprintf("output/figuras/territorial_rendimento_estratos_%s.png", sufixo))
 
-# A versão anterior (Teresina + Zona só) saiu — as 4 figuras acima já cobrem
-# os 8 territórios do corpo, então esse recorte parcial ficou redundante.
-arquivo_antigo <- sprintf("output/figuras/territorial_rendimento_%s.png", sufixo)
-if (file.exists(arquivo_antigo)) { file.remove(arquivo_antigo); message("Removida (redundante): ", arquivo_antigo) }
+arq_nem_nem <- grafico_territorial(
+  "Taxa_Nem_Nem",
+  titulo = sprintf("Jovens nem-nem (14 a 29 anos) por território (2016T2–%s)", sufixo),
+  arquivo = sprintf("output/figuras/territorial_nem_nem_%s.png", sufixo))
 
-message("Figuras salvas:\n  ", paste(c(arq_painel, arq_ocupacao, arq_informalidade,
-                                       arq_rendimento_estratos), collapse = "\n  "))
+arq_populacao <- grafico_territorial(
+  "Proporcao_Populacao_14_59",
+  titulo = sprintf("Pessoas de 14 a 59 anos na população, por território (2016T2–%s)", sufixo),
+  arquivo = sprintf("output/figuras/territorial_populacao_14_59_%s.png", sufixo))
+
+# Versões que saíram do relatório: Teresina + Zona só (redundante com as
+# figuras de 8 territórios) e o Nível da Ocupação por território (trocado pela
+# Taxa de Participação em 22/09/2026).
+for (arquivo_antigo in sprintf(c("output/figuras/territorial_rendimento_%s.png",
+                                 "output/figuras/territorial_ocupacao_%s.png"), sufixo)) {
+  if (file.exists(arquivo_antigo)) {
+    file.remove(arquivo_antigo)
+    message("Removida (saiu do relatório): ", arquivo_antigo)
+  }
+}
+
+message("Figuras salvas:\n  ", paste(c(arq_painel, arq_participacao, arq_informalidade,
+                                       arq_rendimento_estratos, arq_nem_nem, arq_populacao),
+                                     collapse = "\n  "))
