@@ -33,11 +33,14 @@ cada um faz está em `CONTEXTO_PROJETO.md` §4 — **essa tabela está
 desatualizada** em alguns nomes/arquivos (ver nota no fim deste documento);
 confirme contra o `ls R/` real se precisar.
 
-Três arquivos não numerados são **módulos carregados via `source()`**, não
+Quatro arquivos não numerados são **módulos carregados via `source()`**, não
 passos do fluxo: `R/derivar_variaveis.R` (variáveis derivadas),
-`R/indicadores.R` (catálogo + motor de estimação) e `R/precisao.R` (CV, IC
+`R/indicadores.R` (catálogo + motor de estimação), `R/precisao.R` (CV, IC
 95%, classes de precisão e os limites 5/15/30 — fonte única para `01`, `03`,
-`09`, `11` e `12`; não reescrever essas contas nos scripts). O `01` e o
+`09`, `11` e `12`; não reescrever essas contas nos scripts) e `R/sidra.R`
+(mapa indicador → série oficial, busca na API do IBGE com cache, tolerâncias
+e conferências; usado por `scripts_teste/validacao_sidra.R`,
+`scripts_teste/calibracao_cv.R` e o teste de aceitação). O `01` e o
 `scripts_teste/validacao_sidra.R` carregam os dois primeiros — mudar uma
 fórmula é mexer só neles e rodar a validação de novo.
 
@@ -71,7 +74,15 @@ geografias, `estimar_trimestre()`), sobre microdado sintético:
 `helper-derivar.R` monta um `svrepdesign` pequeno com `pessoa(...)`,
 `helper-indicadores.R` uma população de 60 pessoas; não usa o cache. Rodar
 da raiz: `testthat::test_dir("tests/testthat")`. Não é pacote — os helpers
-fazem `source()` dos módulos. Ainda sem teste: a validação SIDRA. Fora isso, validações são manuais e pontuais,
+fazem `source()` dos módulos. **Aceitação** (`tests/acceptance/test-sidra.R`,
+separada por ser pesada: ~2,3 GB de RAM, alguns minutos): estima o catálogo
+com o microdado real do Piauí e confere contra o SIDRA na tolerância do
+arredondamento publicado, mais identidades internas e o Gini independente.
+Pula sozinha se faltar o cache `data/raw/pnadc_br_<ano>_<tri>.rds` (ou o
+SIDRA, sem cache e sem rede). Rodar da raiz:
+`testthat::test_dir("tests/acceptance")`; trimestre do `00_config.R`, ou
+outro com `Sys.setenv(PNADC_ACEITE = "2025 4")`. Rodar depois de mexer em
+`derivar_variaveis.R` ou `indicadores.R`. Fora isso, validações são manuais e pontuais,
 registradas como decisão em `CONTEXTO_PROJETO.md` (ex.: campo de p-valor do
 `regTermTest()` confirmado como `$p` rodando com dado real). Ampliar a
 cobertura de `testthat` não depende da migração da seção 2.

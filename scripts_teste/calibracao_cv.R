@@ -23,10 +23,8 @@
 
 suppressMessages({library(dplyr); library(tibble); library(purrr); library(jsonlite); library(readr)})
 
-# Mapa indicador -> série oficial e buscador do SIDRA: reaproveitados da validação.
-src <- readLines("scripts_teste/validacao_sidra.R", encoding = "UTF-8")
-eval(parse(text = src[grep("^mapa <- tribble", src):(grep("^# ---- 3\\. Estimativas", src) - 1)],
-           encoding = "UTF-8"))
+# Mapa indicador -> série oficial e buscador do SIDRA: módulo da validação.
+source("R/sidra.R", encoding = "UTF-8")
 
 var_cv <- c("1641" = 4087, "4104" = 4105, "4088" = 4089, "4090" = 4091, "4092" = 4093,
             "4094" = 4095, "4096" = 4100, "4097" = 4101, "4099" = 4103, "4118" = 4119)
