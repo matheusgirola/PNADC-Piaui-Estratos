@@ -30,6 +30,7 @@
 # Lê dados_saida/serie/base_<ano>T<tri>.rds (R/10_serie_confiabilidade.R, Piauí)
 # e dados_saida/serie_br_ne/base_<ano>T<tri>.rds (R/13_serie_brasil_nordeste.R)
 # — não recalcula nada. Roda depois do 10 e do 13; não depende do 11 nem do 09.
+# Dados e rótulos no módulo R/graficos_serie.R; aqui só os ggplot.
 #   Rscript R/12_graficos_panorama.R
 # ==============================================================================
 
@@ -41,104 +42,25 @@ suppressPackageStartupMessages({
 
 source("R/00_config.R", encoding = "UTF-8")  # sufixo, ANO_REF, TRIMESTRE_REF
 source("R/precisao.R", encoding = "UTF-8")   # ic_inferior(), ic_superior()
+source("R/graficos_serie.R", encoding = "UTF-8")  # territórios, rótulos, ler/preparar_serie()
 
 # ---- 1. Consolida a série -----------------------------------------------------
 
-# INDICADORES_PAINEL, INDICADORES_TERRITORIAIS e INDICADORES_GRAFICOS vêm do
-# R/00_config.R (mesma lista que o R/13 estima para Brasil/Nordeste).
+# INDICADORES_* vêm do R/00_config.R; territórios, rótulos e a leitura, do
+# R/graficos_serie.R.
+checar_rotulos_graficos(INDICADORES_GRAFICOS)
 
-# Os territórios do corpo do relatório (GEO_REFERENCIA + Piauí + GEO_AGREG +
-# GEO_ZONA no 09_preencher_relatorio.R), nesta ordem — preenche a grade 5x2
-# linha a linha: Brasil/Nordeste, Piauí/Teresina, Entorno/Centro-Leste, Baixo
-# Parnaíba/Alto Parnaíba, Urbana/Rural.
-GEOGRAFIAS_REFERENCIA <- c("Brasil", "Nordeste")
-GEOGRAFIAS <- c(GEOGRAFIAS_REFERENCIA, "Piauí", "Teresina",
-                "Agreg_Entorno metropolitano de Teresina (PI)", "Agreg_Centro-Leste do Piauí",
-                "Agreg_Baixo Parnaíba do Piauí", "Agreg_Alto Parnaíba e Chapadas Sul do Piauí",
-                "Zona_Urbana", "Zona_Rural")
-
-arquivos <- list.files("dados_saida/serie", pattern = "^base_\\d{4}T\\d\\.rds$", full.names = TRUE)
+arquivos <- listar_bases("dados_saida/serie")
 if (length(arquivos) == 0) stop("Nenhum dados_saida/serie/base_*.rds encontrado — rode R/10_serie_confiabilidade.R antes.")
-arquivos_br_ne <- list.files("dados_saida/serie_br_ne", pattern = "^base_\\d{4}T\\d\\.rds$", full.names = TRUE)
-faltam_br_ne <- setdiff(basename(arquivos), basename(arquivos_br_ne))
-if (length(faltam_br_ne) > 0) {
-  stop("Brasil/Nordeste sem série para ", length(faltam_br_ne), " trimestre(s) (",
-       paste(head(faltam_br_ne, 3), collapse = ", "), "...) — rode R/13_serie_brasil_nordeste.R antes.")
-}
+arquivos_br_ne <- listar_bases("dados_saida/serie_br_ne")
+checar_br_ne(arquivos, arquivos_br_ne)
 
-ler_um <- function(f) {
-  x <- readRDS(f)
-  x$base %>%
-    filter(Indicador %in% INDICADORES_GRAFICOS,
-           Regiao_Geografica %in% GEOGRAFIAS, Recorte_Demografico == "Total") %>%
-    select(Indicador, Estimativa, SE, Ano, Trimestre, Regiao_Geografica)
-}
-
-# O 13 grava só a `base` (não a lista do 10).
-ler_br_ne <- function(f) {
-  readRDS(f) %>%
-    filter(Indicador %in% INDICADORES_GRAFICOS, Recorte_Demografico == "Total") %>%
-    select(Indicador, Estimativa, SE, Ano, Trimestre, Regiao_Geografica)
-}
-
-serie <- bind_rows(map_dfr(arquivos, ler_um), map_dfr(arquivos_br_ne, ler_br_ne)) %>%
-  mutate(
-    Ano_Trimestre = Ano + (Trimestre - 1) / 4,
-    IC_inf = ic_inferior(Estimativa, SE),
-    IC_sup = ic_superior(Estimativa, SE)
-  ) %>%
-  arrange(Indicador, Regiao_Geografica, Ano, Trimestre)
-
+serie <- ler_serie(arquivos, arquivos_br_ne, INDICADORES_GRAFICOS)
 if (nrow(serie) == 0) stop("Série vazia depois do filtro — confira indicadores/geografias contra dados_saida/serie/.")
+serie <- preparar_serie(serie)
+paleta_todos <- montar_paleta()
 
-# ---- 2. Rótulos e escala de exibição (mesmos nomes do CATALOGO no 09) --------
-
-nomes_indicadores <- c(
-  Taxa_Desocupacao          = "Taxa de desocupação",
-  Nivel_Ocupacao            = "Nível da ocupação",
-  Taxa_Participacao         = "Taxa de participação na força de trabalho",
-  Taxa_Informalidade        = "Taxa de informalidade",
-  Taxa_Subocupacao          = "Subocupação por insuficiência de horas",
-  Rendimento_Medio_Habitual = "Rendimento médio real habitual",
-  Taxa_Nem_Nem              = "Jovens de 14 a 29 anos que não estudam nem trabalham",
-  Proporcao_Populacao_14_59 = "Pessoas de 14 a 59 anos na população"
-)
-unidade_indicador <- c(
-  Taxa_Desocupacao = "pct", Nivel_Ocupacao = "pct", Taxa_Participacao = "pct",
-  Taxa_Informalidade = "pct", Taxa_Subocupacao = "pct", Rendimento_Medio_Habitual = "reais",
-  Taxa_Nem_Nem = "pct", Proporcao_Populacao_14_59 = "pct"
-)
-# Mesmos rótulos de território do GEO_AGREG/GEO_ZONA no 09_preencher_relatorio.R.
-nomes_geografias <- c(
-  Brasil = "Brasil", Nordeste = "Nordeste",
-  Piauí = "Piauí", Teresina = "Teresina",
-  "Agreg_Entorno metropolitano de Teresina (PI)" = "Entorno metropolitano",
-  "Agreg_Centro-Leste do Piauí" = "Centro-Leste",
-  "Agreg_Baixo Parnaíba do Piauí" = "Baixo Parnaíba",
-  "Agreg_Alto Parnaíba e Chapadas Sul do Piauí" = "Alto Parnaíba e Chapadas",
-  Zona_Urbana = "Zona urbana", Zona_Rural = "Zona rural"
-)
-# Rampa fria (mesma família de cores do projeto — R/03_comparacoes_indicadores.R,
-# gerar_paleta_fria()), uma cor por território do Piauí, na ordem de
-# GEOGRAFIAS; Brasil e Nordeste em laranja/marrom, fora da rampa, pra ler como
-# referência externa.
-geos_pi <- setdiff(GEOGRAFIAS, GEOGRAFIAS_REFERENCIA)
-paleta_todos <- c(
-  Brasil = "#A6611A", Nordeste = "#E08214",
-  setNames(colorRampPalette(c("#08306B", "#2171B5", "#6BAED6", "#969696", "#252525"))(length(geos_pi)),
-           unname(nomes_geografias[geos_pi]))
-)
-
-serie <- serie %>%
-  mutate(
-    Regiao_Nome = recode(Regiao_Geografica, !!!nomes_geografias),
-    Indicador_Nome = recode(Indicador, !!!nomes_indicadores),
-    unidade = unidade_indicador[Indicador],
-    Estimativa_disp = ifelse(unidade == "pct", Estimativa * 100, Estimativa),
-    IC_inf_disp = ifelse(unidade == "pct", IC_inf * 100, IC_inf),
-    IC_sup_disp = ifelse(unidade == "pct", IC_sup * 100, IC_sup)
-  )
-serie$Indicador_Nome <- factor(serie$Indicador_Nome, levels = unname(nomes_indicadores))
+# ---- 2. Elementos comuns dos gráficos ----------------------------------------
 
 # Pandemia (coleta por telefone) e transição amostral Censo 2010->2022 — datas
 # fixas, decididas em CONTEXTO_PROJETO.md §8.5 (17/09/2026); não dependem do
@@ -168,14 +90,6 @@ tema_serie <- theme_minimal(base_size = 9) +
         plot.caption = element_text(hjust = 0, size = 6.3, color = "gray30", lineheight = 1.15),
         panel.grid.minor = element_blank(),
         strip.text = element_text(face = "bold"))
-
-# quebra a legenda da fonte em duas linhas pra caber na largura da figura
-quebrar_caption <- function(txt, largura = 130) paste(strwrap(txt, largura), collapse = "\n")
-
-formatar_eixo_y <- function(u) {
-  if (u == "reais") function(x) paste0("R$ ", format(x, big.mark = ".", scientific = FALSE))
-  else function(x) paste0(x, "%")
-}
 
 # ---- 3. Painel Piauí: 6 indicadores-farol em pequenos múltiplos --------------
 
@@ -207,12 +121,8 @@ ggsave(arq_painel, p_painel, width = 9, height = 5.4, bg = "white", dpi = 150)
 # ---- 4. Gráficos territoriais: 1 indicador, pequenos múltiplos por território ----
 
 grafico_territorial <- function(indicador, titulo, arquivo, width = 7.5, height = 10.5) {
+  checar_territorios(serie, indicador)
   d <- serie %>% filter(Indicador == indicador)
-  sem_dado <- setdiff(GEOGRAFIAS, d$Regiao_Geografica)
-  if (length(sem_dado) > 0) {
-    stop(indicador, " sem série para: ", paste(sem_dado, collapse = ", "),
-         " — rode R/13 (Brasil/Nordeste) ou R/10b (Piauí) antes.")
-  }
   d$Regiao_Nome <- factor(d$Regiao_Nome, levels = unname(nomes_geografias[GEOGRAFIAS]))
   u <- unidade_indicador[[indicador]]
 

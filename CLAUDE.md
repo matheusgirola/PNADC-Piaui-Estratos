@@ -37,18 +37,21 @@ cada um faz está em `CONTEXTO_PROJETO.md` §4 — **essa tabela está
 desatualizada** em alguns nomes/arquivos (ver nota no fim deste documento);
 confirme contra o `ls R/` real se precisar.
 
-Cinco arquivos não numerados são **módulos carregados via `source()`**, não
+Seis arquivos não numerados são **módulos carregados via `source()`**, não
 passos do fluxo: `R/derivar_variaveis.R` (variáveis derivadas),
 `R/indicadores.R` (catálogo + motor de estimação), `R/precisao.R` (CV, IC
 95%, classes de precisão e os limites 5/15/30 — fonte única para `01`, `03`,
 `09`, `11` e `12`; não reescrever essas contas nos scripts), `R/triagem.R` (janelas, resumo do CV e critérios
 `crit_a`/`crit_b`/`crit_c`/`instavel` da triagem; o `11` só lê, chama `triar()`
-e grava) e `R/sidra.R`
+e grava), `R/graficos_serie.R` (territórios, rótulos, leitura e escala de
+exibição da série dos gráficos; o `12` só desenha) e `R/sidra.R`
 (mapa indicador → série oficial, busca na API do IBGE com cache, tolerâncias
 e conferências; usado por `scripts_teste/validacao_sidra.R`,
 `scripts_teste/calibracao_cv.R` e o teste de aceitação). O `01` e o
 `scripts_teste/validacao_sidra.R` carregam os dois primeiros — mudar uma
-fórmula é mexer só neles e rodar a validação de novo.
+fórmula é mexer só neles e rodar a validação de novo. Os módulos dividem o
+ambiente global (não é pacote): nome de função novo não pode repetir o de
+outro módulo — `checar_rotulos()` já existe em `derivar_variaveis.R`.
 
 **Versão do R: 4.5.2** (`C:\Users\matheus.barbosa\AppData\Local\Programs\R\R-4.5.2`).
 O R 4.1.2 em `C:\Program Files\R` não deve ser usado (não tem `survey`
@@ -74,7 +77,8 @@ faltam. O `01` usa `carregar_pnadc()`. ~400 MB por arquivo; ler um custa
 derivar/estimar (estimar sobre o Brasil inteiro chega a ~9 GB).
 
 **Testes unitários (início, 22/09/2026):** `tests/testthat/` cobre
-`R/derivar_variaveis.R`, `R/precisao.R`, `R/triagem.R` (série sintética de CVs) e `R/indicadores.R` (contratos do catálogo, motor de
+`R/derivar_variaveis.R`, `R/precisao.R`, `R/triagem.R` (série sintética de CVs), `R/graficos_serie.R` (inclui o
+contrato: todo indicador de `INDICADORES_GRAFICOS` tem rótulo e unidade) e `R/indicadores.R` (contratos do catálogo, motor de
 estimação conferido contra bootstrap feito à mão, razão formal/informal,
 geografias, `estimar_trimestre()`), sobre microdado sintético:
 `helper-derivar.R` monta um `svrepdesign` pequeno com `pessoa(...)`,
