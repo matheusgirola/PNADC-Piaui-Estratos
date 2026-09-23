@@ -913,6 +913,62 @@ tamanho da família sobre a qual o ajuste foi calculado. O corpo do relatório
 usa o ajustado; o Apêndice C publica ambos, de modo que o leitor possa refazer
 o julgamento sob outro critério.
 
+### 6.9 Réplicas descartadas e a retirada dos recortes demográficos do corpo
+
+A seção 6.5 trata da degeneração da variância no ajuste de modelos. Há um
+segundo efeito da mesma causa — célula vazia em réplica — que atinge as
+**estimativas pontuais** e, por consequência, o critério de publicação.
+
+**O mecanismo.** O erro padrão de uma razão é a dispersão da razão entre as 200
+réplicas (equação 11). Quando uma réplica não contém nenhuma observação do
+denominador da célula, a razão naquela réplica é indefinida. O pacote `survey`
+resolve o caso descartando a réplica e emitindo o aviso *"N replicates gave NA
+results and were discarded"*. A estimativa pontual não se altera, porque é
+calculada sobre a amostra cheia; o erro padrão, porém, passa a ser a dispersão
+entre as réplicas **restantes**. Como as réplicas descartadas são justamente
+aquelas em que a célula ficou vazia — isto é, as de maior instabilidade —, há
+razão teórica para esperar erro padrão subestimado. A magnitude do viés não foi
+medida.
+
+O efeito é mais grave do que parece à primeira vista, porque o coeficiente de
+variação é o critério que decide o que se publica (seção 6.2 e §8.5 do contexto
+do projeto): subestimar o erro padrão reduz o CV e faz a triagem **aprovar
+justamente a estimativa frágil**.
+
+**Extensão, medida no 2º trimestre de 2026.** Varrendo o catálogo completo sobre
+as geografias do Piauí, 190 combinações de indicador × território × recorte
+apresentaram descarte. A mediana foi de 51,5 réplicas descartadas de 200, e o
+pior caso chegou a 91 — quase metade da base de cálculo da variância. A
+distribuição por recorte concentra-se nas células menores:
+
+| Recorte | Combinações com descarte |
+|---|---:|
+| Cor ou raça | 126 |
+| Instrução (7 níveis) | 35 |
+| Faixa etária | 19 |
+| Instrução (2 grupos) | 7 |
+| Sexo | 3 |
+| **Total (sem recorte demográfico)** | **0** |
+
+O recorte Total não registrou nenhuma ocorrência, o que é coerente com o
+mecanismo: ele dispõe da amostra inteira do território. Brasil, Nordeste, Piauí
+e Teresina só são estimados nesse recorte e, portanto, não são afetados. O
+cruzamento com a triagem de confiabilidade mostrou 745 linhas atingidas, das
+quais 228 eram aprovadas pelo critério vigente.
+
+**Decisão (23/09/2026).** Os recortes demográficos por território saem do corpo
+do relatório — em especial a lista de diferenças significativas da seção 9 —, e
+permanecem neste anexo (apêndices A e C), com esta ressalva de precisão. A
+alternativa técnica, registrar o número de réplicas descartadas por estimativa e
+usá-lo como critério adicional de triagem, exigiria recalcular a série completa
+e adiaria a publicação; fica como trabalho futuro. As estimativas continuam a ser
+produzidas pelo pipeline (`R/01_pipeline_trimestral.R`), de modo que a retomada
+não depende de reprocessamento.
+
+**Como verificar.** O aviso do `survey` é emitido durante a estimação; a
+contagem por combinação se obtém capturando os avisos com
+`withCallingHandlers()` em torno da chamada de estimação, sem alterar resultados.
+
 ---
 
 ## 7 RECONSTRUÇÃO DA GEOGRAFIA DOS ESTRATOS
@@ -1173,6 +1229,12 @@ adequada em nível de UF e de capital, não de sub-região. As estimativas por
 estrato fino são, portanto, um uso do dado além do propósito para o qual foi
 dimensionado — legítimo, mas que exige a leitura sistemática do CV.
 
+**Réplicas descartadas no recorte demográfico.** Em célula pequena, parte das
+200 réplicas bootstrap não contém observação do denominador e é descartada do
+cálculo do erro padrão (seção 6.9), o que tende a subestimá-lo. Por isso os
+recortes demográficos por território saíram do corpo do relatório nesta edição
+e figuram apenas nos apêndices A e C, onde devem ser lidos como indicativos.
+
 **Precisão decrescente com o refinamento.** Como demonstra a Figura A.2, os
 recortes finos concentram os CVs elevados. Parcela relevante das estimativas
 por estrato de sete dígitos, especialmente cruzadas com recortes demográficos,
@@ -1329,6 +1391,12 @@ independentemente do coeficiente de variação, cumprindo o compromisso assumido
 no corpo do relatório de que os resultados filtrados pela regra (15) não são
 descartados, apenas deslocados.
 
+**Ressalva adicional desde 23/09/2026.** Os recortes demográficos por
+território deixaram de figurar no corpo do relatório: parte das réplicas
+bootstrap é descartada em célula pequena e o erro padrão pode estar
+subestimado (seção 6.9). O que está aqui é, portanto, indicativo — inclusive
+as estimativas classificadas como de boa precisão.
+
 **Leia com a coluna de precisão à vista.** Diferentemente do corpo do
 relatório, aqui constam estimativas classificadas como *regular* e *baixa*. As
 primeiras devem ser usadas com ressalva explícita; as segundas não sustentam
@@ -1418,6 +1486,12 @@ descrever bem nenhuma delas. {INTERPRETACAO}
 ---
 
 ## APÊNDICE C — TESTES DE DIFERENÇA ENTRE CATEGORIAS DEMOGRÁFICAS
+
+Os testes seguem sendo calculados e publicados aqui, mas as diferenças
+demográficas por território saíram do corpo do relatório em 23/09/2026, pelo
+problema de réplicas descartadas descrito na seção 6.9. A significância
+estatística abaixo não vem acompanhada, nesta edição, da garantia de precisão
+que o corpo do relatório exige.
 
 ![ANOVA demográfica](figuras/anova_demografica_{SUFIXO}.png)
 

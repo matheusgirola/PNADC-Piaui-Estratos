@@ -25,7 +25,7 @@
 #
 # USO:   Rscript R/09_preencher_relatorio.R   (trimestre de R/00_config.R)
 # ENTRADA: output/relatorio_trimestral.md (modelo), output/base_<sufixo>.csv,
-#          output/testes_regionais_<sufixo>.csv, output/testes_significancia_<sufixo>.csv,
+#          output/testes_regionais_<sufixo>.csv,
 #          output/tabelas/triagem_confiabilidade.csv
 # SAÍDA:   output/relatorio_trimestral_<sufixo>.md (+ .docx se CONVERTER_DOCX)
 # ==============================================================================
@@ -63,7 +63,6 @@ ler <- function(caminho, obrigatorio = TRUE) {
 
 base        <- ler(sprintf("output/base_%s.csv", sufixo)) %>% mutate(cv = calcular_cv(Estimativa, SE))
 testes_reg  <- ler(sprintf("output/testes_regionais_%s.csv", sufixo))
-testes_demo <- ler(sprintf("output/testes_significancia_%s.csv", sufixo))
 triagem     <- ler("output/tabelas/triagem_confiabilidade.csv") %>%
   filter(janela == "principal", amostragem == "todos")
 
@@ -181,8 +180,12 @@ if (!INCLUIR_SITUACAO) {
   RECORTES_TESTE <- filter(RECORTES_TESTE, recorte != "Situacao")
 }
 
-RECORTES_DEMO <- c(Sexo = "Sexo", Raca = "Cor ou raça", Faixa_Etaria_trabalho = "Faixa etária",
-                   Instrucao_agregado = "Instrução (2 grupos)", Instrucao = "Instrução (7 níveis)")
+# Recortes demográficos (Sexo, Raca, Faixa_Etaria_trabalho, Instrucao*) estão
+# FORA do relatório desde 23/09/2026 (decisão do usuário): as réplicas bootstrap
+# descartadas em célula pequena podem subestimar o erro padrão, e a publicação
+# não podia esperar a correção. Ficam no anexo metodológico (§6.9, apêndices A e
+# C). O 01 continua estimando e testando esses recortes; o que saiu daqui foi a
+# tabela "pontos-demograficos" e a leitura de testes_significancia_<sufixo>.csv.
 
 # ---- 3. Formatação ------------------------------------------------------------------
 # num(), formatar(), com_unidade(), marca_pelo_cv(), estrelas(), linha_md(),
@@ -417,35 +420,6 @@ pontos_territoriais <- function() {
 # Recortes demográficos: entram só se a diferença é significativa naquele
 # território (p ajustado) E todas as categorias do recorte, naquele território,
 # passam na triagem.
-pontos_demograficos <- function() {
-  geos <- c(setNames(GEO_AGREG, names(GEO_AGREG)),
-            setNames(GEO_ZONA, paste("Zona", tolower(names(GEO_ZONA)))),
-            if (INCLUIR_SITUACAO) setNames(GEO_SITUACAO, paste("Situação", tolower(names(GEO_SITUACAO)))))
-  cand <- testes_demo %>%
-    filter(Regiao_Geografica %in% geos, Recorte_Demografico %in% names(RECORTES_DEMO),
-           Indicador %in% CATALOGO$id, !is.na(p_ajustado), p_ajustado < 0.05)
-  if (nrow(cand) == 0) return("*(nenhum recorte demográfico passou na regra neste trimestre)*")
-  ok <- pmap_lgl(cand %>% select(Indicador, Regiao_Geografica, Recorte_Demografico),
-    function(Indicador, Regiao_Geografica, Recorte_Demografico) {
-      cel <- base %>% filter(Indicador == !!Indicador, Regiao_Geografica == !!Regiao_Geografica,
-                             Recorte_Demografico == !!Recorte_Demografico)
-      nrow(cel) >= 2 && all(pmap_chr(cel %>% select(Subcategoria_Indicador, Categoria_Demografica),
-        function(Subcategoria_Indicador, Categoria_Demografica)
-          marca_de(Indicador, Subcategoria_Indicador, Regiao_Geografica, Recorte_Demografico, Categoria_Demografica)) == "ok")
-    })
-  sel <- cand[ok, ] %>%
-    mutate(territorio = names(geos)[match(Regiao_Geografica, geos)],
-           rotulo = map_chr(Indicador, ~ info(.x)$rotulo),
-           recorte = RECORTES_DEMO[Recorte_Demografico]) %>%
-    group_by(rotulo, recorte, ordem = match(Indicador, CATALOGO$id)) %>%
-    summarise(territorios = paste(territorio, collapse = ", "), .groups = "drop") %>%
-    arrange(ordem, recorte)
-  if (nrow(sel) == 0) return("*(nenhum recorte demográfico passou na regra neste trimestre)*")
-  c(linha_md("Indicador", "Recorte", "Territórios onde a diferença é significativa e confiável"),
-    "|---|---|---|", pmap_chr(sel, function(rotulo, recorte, ordem, territorios) linha_md(rotulo, recorte, territorios)))
-}
-
-# 6e. Anexos.
 tabela_anexo_indicadores <- function() {
   out <- character(0); n <- 0
   for (k in seq_len(nrow(CATALOGO))) {
@@ -521,7 +495,6 @@ gerar_tabela <- function(arg) {
     matriz               = tabela_matriz(arg[["dimensao"]]),
     categorias           = tabela_categorias(arg[["dimensao"]]),
     "pontos-territoriais" = pontos_territoriais(),
-    "pontos-demograficos" = pontos_demograficos(),
     "anexo-indicadores"  = tabela_anexo_indicadores(),
     "anexo-testes"       = tabela_anexo_testes(),
     "anexo-triagem"      = tabela_anexo_triagem(),

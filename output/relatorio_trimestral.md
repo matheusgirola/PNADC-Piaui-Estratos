@@ -202,10 +202,12 @@ Figura 4 (seção 6).
 
 **Diferenças por sexo, cor ou raça, idade e instrução**
 
-Um recorte demográfico só aparece aqui se, naquele território, a diferença
-entre os grupos for significativa e todos os grupos tiverem precisão boa na série.
-
-<!-- @tabela tipo=pontos-demograficos -->
+Esta edição não traz os recortes demográficos por território. Neles, parte das
+réplicas bootstrap que estimam a precisão fica sem observação na célula e é
+descartada, o que pode subestimar o erro padrão — e é o erro padrão que decide
+o que tem precisão suficiente para ser publicado. Enquanto a questão não se
+resolve, esses resultados ficam restritos ao anexo metodológico (seção 6.9 e
+apêndices A e C), com a ressalva de precisão.
 
 ## 10 Considerações finais
 
