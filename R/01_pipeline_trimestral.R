@@ -5,12 +5,12 @@
 # análise de distribuição de renda.
 #
 # Pensado pra rodar a cada atualização trimestral do relatório: muda
-# ANO_REF/TRIMESTRE_REF abaixo e roda o arquivo inteiro.
+# ANO_REF/TRIMESTRE_REF no R/00_config.R e roda o arquivo inteiro.
 #
-# É irmão do 01_run.R/02_testes_significancia.R (série histórica) — usa as
-# mesmas fórmulas de indicador e a mesma lógica de recorte, só que sem loop
-# de trimestres, sem cache em disco (tudo fica na memória do processo já
-# que é só uma rodada) e com a análise de renda a mais no final.
+# Microdado do cache (R/01a_cache_pnadc.R); fórmulas e motor de estimação em
+# R/derivar_variaveis.R e R/indicadores.R, os mesmos da série (R/10, R/13).
+# Os antigos scripts_teste/01_run.R e 02_testes_significancia.R (série
+# histórica) são legado.
 # ==============================================================================
 
 library(PNADcIBGE)
@@ -39,6 +39,19 @@ source("R/precisao.R", encoding = "UTF-8")   # calcular_cv()
 source("R/01a_cache_pnadc.R", encoding = "UTF-8")
 message("Carregando PNADC ", sufixo, "...")
 dados_brutos <- carregar_pnadc(ANO_REF, TRIMESTRE_REF)
+
+# Só as colunas usadas (COLUNAS_PNADC_USADAS/APOIO em R/01a_cache_pnadc.R),
+# como no 10 e no 13. Cada subset do desenho (aplicar_subset(), um por
+# indicador com universo próprio, e as geografias) copia a tabela de
+# variáveis inteira, com todas as colunas do microdado do Brasil. Medido no
+# 2026T2: estimação 26,5 -> 20,8 min, total 47,4 -> 41,2 min, pico de memória
+# 9,6 -> 8,6 GB (e o que o R pede, 15,2 -> 10,0 GB, sem paginação). Os
+# resultados não mudam: derivar_variaveis() só lê colunas da lista
+# (enxugar_pnadc() para com erro se faltar alguma). Com o cache de subsets dos
+# testes (preparar_design_teste(), seção 7), o total cai a 38,5 min; as 14
+# saídas do 01 saem idênticas byte a byte nas três versões.
+dados_brutos <- enxugar_pnadc(dados_brutos)
+gc()
 
 # Variáveis derivadas: R/derivar_variaveis.R (fonte única, também usada na
 # validação contra o SIDRA). Já devolve o desenho com convey_prep() aplicado.
@@ -187,11 +200,24 @@ extrair_p_valor <- function(teste) {
   NA_real_
 }
 
-rodar_teste <- function(design_geo, spec, var_recorte) {
-  design_usar <- aplicar_subset(design_geo, spec$subset)
-  if (identical(spec$fun, svyratio) && !is.null(spec$denominador)) {
-    design_usar <- aplicar_subset_denominador(design_usar, spec$denominador)
-  }
+# Universo do teste (subset do indicador e, nas razões, o do denominador).
+# Depende só de geografia x indicador, não do recorte: é preparado uma vez e
+# reaproveitado em todos os recortes (cada subset copia o desenho com as 200
+# réplicas). Erro na preparação é guardado e repetido em cada recorte, com a
+# mesma mensagem de quando o subset era refeito dentro de rodar_teste().
+# Medido no 2026T2: bateria demográfica 16,6 -> 14,8 min, regional 3,4 -> 3,1.
+preparar_design_teste <- function(design_geo, spec) {
+  tryCatch({
+    design_usar <- aplicar_subset(design_geo, spec$subset)
+    if (identical(spec$fun, svyratio) && !is.null(spec$denominador)) {
+      design_usar <- aplicar_subset_denominador(design_usar, spec$denominador)
+    }
+    design_usar
+  }, error = function(e) e)
+}
+
+rodar_teste <- function(design_usar, spec, var_recorte) {
+  if (inherits(design_usar, "error")) stop(conditionMessage(design_usar))
   if (nrow(design_usar) == 0) return(list(pulado = "design ficou com 0 linhas depois do subset/denominador"))
   
   design_usar$variables[[var_recorte]] <- droplevels(as.factor(design_usar$variables[[var_recorte]]))
@@ -292,8 +318,8 @@ rodar_teste <- function(design_geo, spec, var_recorte) {
 
 # Envelope do rodar_teste: traduz a recusa da guarda numa falha de log com
 # mensagem útil, e carimba a variável efetivamente testada na linha de saída.
-rodar_teste_guardado <- function(design_geo, spec, var_recorte) {
-  r <- tryCatch(rodar_teste(design_geo, spec, var_recorte),
+rodar_teste_guardado <- function(design_usar, spec, var_recorte) {
+  r <- tryCatch(rodar_teste(design_usar, spec, var_recorte),
                 error = function(e) list(degradar = conditionMessage(e)))
 
   if (is.null(r$degradar)) {
@@ -324,6 +350,7 @@ for (geo_nome in geografias_finas) {
     # Totais, composição da PIT e Gini ficam fora dos testes (ver R/indicadores.R).
     if (isFALSE(spec$testar)) next
     recortes_a_testar <- if (!is.null(spec$by_override)) all.vars(spec$by_override) else names(recortes_demograficos)[-1]
+    design_teste <- preparar_design_teste(design_geo, spec)
     
     for (nome_recorte in recortes_a_testar) {
 
@@ -354,7 +381,7 @@ for (geo_nome in geografias_finas) {
         nome_recorte
       }
 
-      resultado <- rodar_teste_guardado(design_geo, spec, var_recorte)
+      resultado <- rodar_teste_guardado(design_teste, spec, var_recorte)
       
       if (!is.null(resultado$pulado)) {
         falhas_teste[[length(falhas_teste) + 1]] <- tibble(
@@ -464,10 +491,11 @@ falhas_regional <- list()
 
 for (spec in catalogo_indicadores) {
   if (isFALSE(spec$testar)) next
+  design_teste <- preparar_design_teste(design_pi, spec)
   for (rotulo_recorte in names(recortes_regionais)) {
     var_recorte <- recortes_regionais[[rotulo_recorte]]
     
-    resultado <- rodar_teste_guardado(design_pi, spec, var_recorte)
+    resultado <- rodar_teste_guardado(design_teste, spec, var_recorte)
     
     if (!is.null(resultado$pulado)) {
       falhas_regional[[length(falhas_regional) + 1]] <- tibble(

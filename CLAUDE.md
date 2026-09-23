@@ -33,9 +33,9 @@ dos gráficos — `INDICADORES_GRAFICOS` no `00_config.R` —, recorte Total, ro
 antes do `12`; incremental: refaz só indicador ausente ou com spec mudada,
 via `assinatura()` de `R/indicadores.R`), mais `Teste_estrutura_aaagsse.R` (validação, fora
 do fluxo de produção). Não há `02` — normal, não é lacuna a preencher. O que
-cada um faz está em `CONTEXTO_PROJETO.md` §4 — **essa tabela está
-desatualizada** em alguns nomes/arquivos (ver nota no fim deste documento);
-confirme contra o `ls R/` real se precisar.
+cada um faz está em `CONTEXTO_PROJETO.md` §4 (tabela revista em 22/09/2026;
+script ou módulo novo: acrescentar a linha lá). Na dúvida, confira contra o
+`ls R/` real.
 
 Sete arquivos não numerados são **módulos carregados via `source()`**, não
 passos do fluxo: `R/derivar_variaveis.R` (variáveis derivadas),

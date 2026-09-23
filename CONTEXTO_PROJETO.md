@@ -63,14 +63,15 @@ O catálogo completo (fórmula, denominador, subset, função) está em `R/indic
 
 ## 4. Inventário de scripts
 
-**Atualizado em set/2026 — confira contra `ls R/` se parecer desatualizado de novo.**
+**Atualizado em 22/09/2026 — confira contra `ls R/` se parecer desatualizado de novo.** Testes em `tests/` (ver `CLAUDE.md` §1.1).
 Nada disto é pacote R nem `targets` (ver `CLAUDE.md` seção 1 pra arquitetura);
 são scripts numerados em `R/`, rodados em ordem manual.
 
 | Arquivo | O que faz |
 |---|---|
 | `00_config.R` | Parâmetros compartilhados (ano/trimestre de referência, caminhos, salário mínimo por hora — hard-coded, precisa atualizar todo ano). Alimenta o `01` e o `03` — rodar o `03` sem atualizar isso primeiro é a armadilha clássica (pega o trimestre antigo, sem erro). |
-| `01_pipeline_trimestral.R` | **Principal.** Baixa o trimestre via `PNADcIBGE::get_pnadc()`, calcula os indicadores em todas as geografias x recortes, roda os testes de significância demográficos e regionais, gera gráficos de confiabilidade (CV) e a análise de distribuição de renda. Irmão do par `01_run.R`/`02_testes_significancia.R` (série histórica, hoje em `scripts_teste/` — ver abaixo): mesmas fórmulas de indicador, sem loop de trimestres nem cache em disco. |
+| `01a_cache_pnadc.R` | Módulo do cache: `carregar_pnadc(ano, tri)` lê `data/raw/pnadc_br_<ano>_<tri>.rds` ou baixa e grava; `enxugar_pnadc()` corta as colunas não usadas. Rodado como script, pré-carrega os trimestres que faltam desde 2016T2. |
+| `01_pipeline_trimestral.R` | **Principal.** Lê o trimestre do cache (`carregar_pnadc()`, que só baixa via `PNADcIBGE::get_pnadc()` se faltar o `.rds`), calcula os indicadores em todas as geografias x recortes, roda os testes de significância demográficos e regionais, gera gráficos de confiabilidade (CV) e a análise de distribuição de renda. Irmão do par `01_run.R`/`02_testes_significancia.R` (série histórica, hoje em `scripts_teste/` — ver abaixo): mesmas fórmulas de indicador, sem loop de trimestres nem cache em disco. |
 | `derivar_variaveis.R` | Fonte única das variáveis derivadas (`derivar_variaveis(design, sm_hora)`), com checagem que para a execução se algum rótulo esperado do dicionário não existir na rodada. Termina com `convey_prep()`. |
 | `indicadores.R` | Catálogo de indicadores + motor (`computar_estimativa`, `extrair_resultados`, `aplicar_subset*`). Spec com `testar = FALSE` fica fora dos testes de significância. |
 | `03_comparacoes_indicadores.R` | Tabelas e gráficos comparando cada indicador entre categorias — geográfico com gráfico, demográfico só tabela. CV classificado com asteriscos de confiabilidade, tabelas + gráficos das duas baterias de teste (demográfica e regional). |
@@ -80,6 +81,16 @@ são scripts numerados em `R/`, rodados em ordem manual.
 | `07_estrato_estatistico.R` | Estima o dígito `E` (estrato estatístico de renda) sobre as UPAs do `06` — estratificação ótima univariada resolvida de forma **exata** por programação dinâmica (a escala do Piauí permite isso, ao contrário do Brasil inteiro, que é por onde o IBGE usa heurística). **Substitui** os antigos `dalenius_hodges.py`/`aproximar_estrato_e.py` citados em versões anteriores deste documento — esses dois arquivos `.py` não existem mais no repositório. |
 | `08_mapa_aaagsse.R` | Mapa dos estratos com os 7 dígitos completos do AAAGGSE, na resolução do setor censitário — o `E` (renda) finalmente espacializável porque `06`+`07` reconstroem a UPA que o define (no `05` ele ficava de fora, por não ser mapeável sem essa reconstrução). Pré-requisito: `06` e `07`. Gera `output/figuras/mapa_aaagsse_piaui.png` + um `.png` por painel. |
 | `09_preencher_relatorio.R` | Preenche `output/relatorio_trimestral.md` (modelo versionado) com os números do trimestre → `output/relatorio_trimestral_<trimestre>.md`, e opcionalmente converte pra `.docx` via `pandoc_run()` do pacote `pandoc` (não Quarto — ver `CLAUDE.md`). Falha de propósito se sobrar marcador não resolvido no modelo: relatório meio preenchido publicado por engano é pior que nenhum. |
+| `10_serie_confiabilidade.R` | Série 2016T2+ do Piauí (catálogo inteiro, todos os recortes) para a triagem de confiabilidade — `dados_saida/serie/base_<ano>T<tri>.rds`, retomável (§8.5). |
+| `10b_atualizar_serie_indicador.R` | Refaz na série do `10` só os indicadores indicados (`Rscript R/10b_atualizar_serie_indicador.R <id>`), quando a fórmula muda; guarda a `assinatura()` da spec para ser retomável. |
+| `11_triagem_confiabilidade.R` | Tabela de triagem (critérios a/b/c, instabilidade, transição de desenho) a partir da série do `10` → `output/tabelas/triagem_confiabilidade.csv`. Lógica no módulo `triagem.R`. |
+| `12_graficos_panorama.R` | Gráficos de linha da série com banda de IC 95% (painel dos 6 indicadores-farol e os territoriais) → `output/figuras/`. Dados e rótulos no módulo `graficos_serie.R`. |
+| `13_serie_brasil_nordeste.R` | Série de Brasil e Nordeste só dos indicadores dos gráficos (`INDICADORES_GRAFICOS`, `00_config.R`), recorte Total → `dados_saida/serie_br_ne/`. Incremental: refaz indicador ausente ou com spec mudada. Roda antes do `12`. |
+| `precisao.R` | Módulo: CV, IC 95%, classes de precisão e os limites 5/15/30 — fonte única, não reescrever nos scripts. |
+| `triagem.R` | Módulo: janelas, amostragem espaçada, resumo do CV e critérios da triagem (`triar()`), usado pelo `11`. |
+| `graficos_serie.R` | Módulo: territórios, rótulos, leitura e escala de exibição da série dos gráficos, usado pelo `12`. |
+| `relatorio_modelo.R` | Módulo: formatação e o interpretador do modelo do relatório (`@tabela`, `@redigir`, `{{#se-...}}`, `{{expressao}}`), usado pelo `09`. |
+| `sidra.R` | Módulo: mapa indicador → série oficial do SIDRA, busca na API com cache, tolerâncias; usado pela validação e pelo teste de aceitação. |
 | `scripts_teste/validacao_sidra.R` | Confere os indicadores de mercado de trabalho contra o SIDRA (API `servicodados.ibge.gov.br/api/v3` — a `apisidra`, usada pelo `sidrar`, devolve 403 do Cloudflare). Guarda as respostas em `data/raw/sidra/`. Saídas: `output/tabelas/validacao_sidra.csv`, `validacao_checagens_internas.csv` e `validacao_gini.csv`. |
 | `Teste_estrutura_aaagsse.R` | Script de validação (fora do pipeline de produção) que confirmou a estrutura AAAGGSE reanalisando o crosswalk já calculado. |
 | `scripts_teste/01_run.R` + `02_testes_significancia.R` | Série histórica (2015-2026, ordem reversa, retomável, cache de designs em `.rds`). **Não ficam mais em `R/`** — foram movidos pra `scripts_teste/` junto de outros scripts exploratórios/legados. Não são o fluxo principal hoje, mas voltam a ser relevantes se a triagem de confiabilidade via série histórica (seção "Evolução do escopo") for implementada. |
@@ -215,7 +226,7 @@ Público: **gestor**. Meta: corpo enxuto (~10 páginas + crescimento da matriz),
 - **Regra de célula da matriz, pela série (não pelo CV do trimestre corrente):** valor normal se p80 do CV < 15%; **"†"** se 15% ≤ p80 < 30%; **"–"** se p80 ≥ 30% ou `instavel`.
 - **Motivos: só nos níveis agregados (Brasil/Nordeste/Piauí), com categorias agrupadas — IMPLEMENTADO (17/09).** Desistência do desalentado (V4074A): "Não havia trabalho na localidade" × "Outros motivos". Não procura do nem-nem (VD4030): "Afazeres domésticos ou cuidado de parentes" × "Problema de saúde ou gravidez" × "Outros motivos". **`Motivo_Nao_Inicio_NemNem` (V4078A) saiu do catálogo** (repetia o VD4030). Derivadas `motivo_desistencia_grupo`/`motivo_nao_procura_grupo` em `R/derivar_variaveis.R` (rótulos em `ROTULOS`, iguais nos 41 trimestres); specs com o campo novo `geografias` (respeitado por `estimar_trimestre()`), `so_recorte_total = TRUE`, `testar = FALSE`. As linhas de motivo dos 41 `dados_saida/serie/base_*.rds` foram trocadas pelas agrupadas (script de scratch, não versionado; marca `$motivos_agrupados = TRUE`; demais linhas conferidas idênticas no 2026T2) e a triagem foi refeita (33.312 linhas). Janela principal, Piauí: todas as 5 categorias passam no crit_c (p80 de 6,7% a 13,6%). **Pendente:** `09` (tabelas de motivos com listas de categorias antigas e `Motivo_Nao_Inicio_NemNem`) e rótulo no `03` — reescrever junto com a estrutura nova do relatório.
 
-**Implementação (17/09):** `R/09_preencher_relatorio.R` e o modelo `output/relatorio_trimestral.md` reescritos (versão anterior no git, commit 3e514c6). Corpo: 1 Destaques (Tabela 1: BR × NE × PI + variação do Piauí sobre o trimestre anterior e o mesmo trimestre do ano anterior, vindas de `dados_saida/serie/`) → 2 Como ler → 3–6 matrizes por dimensão (ocupação, qualidade, rendimento, vulnerabilidade) + motivos (BR/NE/PI) → 7 composição da PIT (BR/NE/PI) → 8 Pontos de atenção (temporais, territoriais e demográficos, gerados automaticamente) → 9 Considerações. Anexos: A nota metodológica, B triagem por nível, C testes regionais, D tabelas completas (IC, CV, precisão, p80 da série, marca). Ordem, rótulos, unidades e dimensões dos indicadores ficam no `CATALOGO` do `09`.
+**Implementação (17/09):** `R/09_preencher_relatorio.R` e o modelo `output/relatorio_trimestral.md` reescritos (versão anterior no git, commit 3e514c6). Corpo: 1 Destaques (Tabela 1: BR × NE × PI + variação do Piauí sobre o trimestre anterior e o mesmo trimestre do ano anterior, vindas de `dados_saida/serie/`) → 2 Como ler → 3–6 matrizes por dimensão (ocupação, inserção no mercado de trabalho — antes "qualidade da ocupação", renomeada em 22/09/2026 —, rendimento, vulnerabilidade) + motivos (BR/NE/PI) → 7 composição da PIT (BR/NE/PI) → 8 Pontos de atenção (temporais, territoriais e demográficos, gerados automaticamente) → 9 Considerações. Anexos: A nota metodológica, B triagem por nível, C testes regionais, D tabelas completas (IC, CV, precisão, p80 da série, marca). Ordem, rótulos, unidades e dimensões dos indicadores ficam no `CATALOGO` do `09`.
 - **Desvio da decisão, forçado pela estrutura:** cada linha da matriz é um indicador com o seu próprio teste, então os asteriscos não cabem no cabeçalho do grupo — ficam nas colunas "Teste estratos" e "Teste zona", logo após cada grupo.
 - **Pontos territoriais:** maior/menor entre os estratos consideram células com † (exibidas com a marca) e excluem só "–"; sem isso, o rendimento apontava Alto Parnaíba como maior, com Teresina (R$ 3.690 †) fora.
 - **Pontos demográficos:** entram se p ajustado < 0,05 no território E todas as categorias do recorte, naquele território, estão sem marca na série. No 2T2026 foram 27 linhas.
@@ -321,7 +332,7 @@ transição amostral Censo 2010→2022, 2025T3 em diante — datas fixas do §8.
 |---|---|---|---|---|
 | 1 | `panorama_piaui_<sufixo>.png` | 6 indicadores-farol (Desocupação, Ocupação, Participação, Informalidade, Subocupação, Rendimento) | Piauí | 2 (Panorama) |
 | 2 | `territorial_participacao_<sufixo>.png` | Taxa de Participação (até 21/09: Nível da Ocupação, `territorial_ocupacao_`) | os 8 territórios do corpo | 4 (Ocupação) |
-| 3 | `territorial_informalidade_<sufixo>.png` | Taxa de Informalidade | idem | 5 (Qualidade) |
+| 3 | `territorial_informalidade_<sufixo>.png` | Taxa de Informalidade | idem | 5 (Inserção no mercado de trabalho) |
 | 4 | `territorial_rendimento_estratos_<sufixo>.png` | Rendimento Médio Habitual | idem | 6 (Rendimento) |
 | 5 | `territorial_nem_nem_<sufixo>.png` | Taxa Nem-Nem (14 a 29 anos) | idem | 7 (Vulnerabilidade) |
 | 6 | `territorial_populacao_14_59_<sufixo>.png` | `Proporcao_Populacao_14_59` (novo): pessoas de 14 a 59 anos / população total | idem | 8 (Perfil da PIT) |
@@ -331,7 +342,9 @@ de participação; entraram as Figuras 5 e 6. O indicador da Figura 6 é novo no
 catálogo (`catalogo_demografia` em `R/indicadores.R`); base = população de
 todas as idades — interpretação adotada de "percentual de pessoas com mais de
 14 e menos de 60 anos"; se a intenção for a parcela *dentro da PIT*, basta
-trocar o denominador (é 100% menos a faixa "60 anos ou mais" da Tabela 7).
+trocar o denominador (é 100% menos a faixa "60 anos ou mais" da Tabela 7). **Decidido (22/09/2026, usuário): fica a população total**; o indicador
+entra também como primeira linha da Tabela 7 (`CATALOGO` do `09`, dimensão
+`populacao`) — a diferença de base em relação ao título da tabela foi aceita.
 Série: Piauí via `R/10b_atualizar_serie_indicador.R`, Brasil/Nordeste via
 `R/13` (agora incremental, com `Taxa_Nem_Nem` e o indicador novo). Ainda fora
 do `CATALOGO` do `09`, então não aparece nas tabelas.

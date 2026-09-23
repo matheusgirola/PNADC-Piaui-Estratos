@@ -94,13 +94,13 @@ CATALOGO <- tribble(
   "Pessoas_Ocupadas",                    "Pessoas ocupadas",                                       "mil",    "ocupacao",      FALSE,     FALSE,
   "Pessoas_Desocupadas",                 "Pessoas desocupadas",                                    "mil",    "ocupacao",      FALSE,     FALSE,
   "Pessoas_Subutilizadas",               "Pessoas subutilizadas",                                  "mil",    "ocupacao",      FALSE,     FALSE,
-  "Taxa_Informalidade",                  "Taxa de informalidade",                                  "pct",    "qualidade",     TRUE,      FALSE,
-  "Taxa_Subocupacao",                    "Subocupação por insuficiência de horas",                 "pct",    "qualidade",     FALSE,     FALSE,
-  "Percentual_Subremuneracao",           "Sub-remuneração (rendimento-hora abaixo do mínimo)",     "pct",    "qualidade",     FALSE,     FALSE,
-  "Proporcao_Ocupados_Escolarizados",    "Ocupados com ensino médio completo ou mais",             "pct",    "qualidade",     FALSE,     FALSE,
-  "Empregados_Setor_Privado",            "Empregados no setor privado",                            "mil",    "qualidade",     FALSE,     FALSE,
-  "Empregados_Setor_Publico",            "Empregados no setor público",                            "mil",    "qualidade",     FALSE,     FALSE,
-  "Ocupados_Agropecuaria",               "Ocupados na agropecuária",                               "mil",    "qualidade",     FALSE,     FALSE,
+  "Taxa_Informalidade",                  "Taxa de informalidade",                                  "pct",    "insercao",      TRUE,      FALSE,
+  "Taxa_Subocupacao",                    "Subocupação por insuficiência de horas",                 "pct",    "insercao",      FALSE,     FALSE,
+  "Percentual_Subremuneracao",           "Sub-remuneração (rendimento-hora abaixo do mínimo)",     "pct",    "insercao",      FALSE,     FALSE,
+  "Proporcao_Ocupados_Escolarizados",    "Ocupados com ensino médio completo ou mais",             "pct",    "insercao",      FALSE,     FALSE,
+  "Empregados_Setor_Privado",            "Empregados no setor privado",                            "mil",    "insercao",      FALSE,     FALSE,
+  "Empregados_Setor_Publico",            "Empregados no setor público",                            "mil",    "insercao",      FALSE,     FALSE,
+  "Ocupados_Agropecuaria",               "Ocupados na agropecuária",                               "mil",    "insercao",      FALSE,     FALSE,
   "Rendimento_Medio_Habitual",           "Rendimento médio real habitual",                         "reais",  "rendimento",    TRUE,      FALSE,
   "Rendimento_Formal",                   "Rendimento médio dos formais",                           "reais",  "rendimento",    FALSE,     FALSE,
   "Rendimento_Informal",                 "Rendimento médio dos informais",                         "reais",  "rendimento",    FALSE,     FALSE,
@@ -109,7 +109,8 @@ CATALOGO <- tribble(
   "Desalentados_Forca_Ampliada",         "Desalentados na força de trabalho ampliada",             "pct",    "vulnerabilidade", FALSE,   FALSE,
   "Desalentados_Fora_Forca",             "Desalentados na força de trabalho potencial",            "pct",    "vulnerabilidade", FALSE,   FALSE,
   "Taxa_Nem_Nem",                        "Jovens de 14 a 29 anos que não estudam nem trabalham",   "pct",    "vulnerabilidade", TRUE,    FALSE,
-  "Distribuicao_PIT_por_Sexo",           "Sexo",                                                   "pct",    "populacao",     FALSE,     TRUE,
+  "Proporcao_Populacao_14_59",           "Pessoas de 14 a 59 anos na população total",             "pct",    "populacao",     FALSE,     FALSE,
+  "Distribuicao_PIT_por_Sexo",           "Sexo",                                                  "pct",    "populacao",     FALSE,     TRUE,
   "Distribuicao_PIT_por_Raca",           "Cor ou raça",                                            "pct",    "populacao",     FALSE,     TRUE,
   "Distribuicao_PIT_por_Faixa_Etaria_SIDRA", "Faixa etária",                                       "pct",    "populacao",     FALSE,     TRUE,
   "Distribuicao_PIT_por_Instrucao_SIDRA", "Nível de instrução",                                    "pct",    "populacao",     FALSE,     TRUE,
@@ -367,7 +368,7 @@ tabela_categorias <- function(dim) {
 # 6d. Pontos de atenção — gerados só a partir do que é significativo E passa
 # na triagem (regra de redação, §8.7). Tudo em tópicos.
 pontos_territoriais <- function() {
-  L <- map_dfr(c("ocupacao", "qualidade", "rendimento", "vulnerabilidade"), linhas_da_dimensao) %>%
+  L <- map_dfr(c("ocupacao", "insercao", "rendimento", "vulnerabilidade"), linhas_da_dimensao) %>%
     filter(!str_detect(id, "^(Distribuicao|Motivo)"))
   out <- pmap_chr(L, function(id, sub, rotulo) {
     u <- info(id)$unidade

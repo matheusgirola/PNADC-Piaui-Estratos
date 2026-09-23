@@ -114,7 +114,7 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 <!-- @redigir: leitura da Tabela 2 — um parágrafo curto, apoiado nos pontos de atenção (seção 9). -->
 
-## 5 Qualidade da ocupação
+## 5 Inserção no mercado de trabalho
 
 **Figura 3** — Taxa de informalidade por território, 2016T2–{{trimestre}}
 
@@ -122,9 +122,9 @@ Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Tabela 3** — Qualidade da ocupação, por território — {{trimestre}}
+**Tabela 3** — Inserção no mercado de trabalho, por território — {{trimestre}}
 
-<!-- @tabela tipo=matriz dimensao=qualidade -->
+<!-- @tabela tipo=matriz dimensao=insercao -->
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
