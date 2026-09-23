@@ -84,9 +84,8 @@ CATALOGO <- tribble(
   "Taxa_Participacao",                   "Taxa de participação na força de trabalho",              "pct",    "ocupacao",      TRUE,      FALSE,
   "Nivel_Ocupacao",                      "Nível da ocupação",                                      "pct",    "ocupacao",      TRUE,      FALSE,
   "Taxa_Desocupacao",                    "Taxa de desocupação",                                    "pct",    "ocupacao",      TRUE,      FALSE,
+  "Taxa_Subocupacao",                    "Subocupação por insuficiência de horas",                 "pct",    "ocupacao",      FALSE,     FALSE,
   "Taxa_Composta_Subutilizacao",         "Taxa composta de subutilização",                         "pct",    "ocupacao",      TRUE,      FALSE,
-  "Chefes_Familia_Desocupados",          "Responsáveis pelo domicílio entre os desocupados",       "pct",    "ocupacao",      FALSE,     FALSE,
-  "Conribuintes_Desocupados",            "Responsáveis ou cônjuges entre os desocupados",          "pct",    "ocupacao",      FALSE,     FALSE,
   "Pessoas_Idade_Trabalhar",             "Pessoas em idade de trabalhar",                          "mil",    "ocupacao",      FALSE,     FALSE,
   "Pessoas_Forca_Trabalho",              "Pessoas na força de trabalho",                           "mil",    "ocupacao",      FALSE,     FALSE,
   "Pessoas_Fora_Forca",                  "Pessoas fora da força de trabalho",                      "mil",    "ocupacao",      FALSE,     FALSE,
@@ -94,7 +93,6 @@ CATALOGO <- tribble(
   "Pessoas_Desocupadas",                 "Pessoas desocupadas",                                    "mil",    "ocupacao",      FALSE,     FALSE,
   "Pessoas_Subutilizadas",               "Pessoas subutilizadas",                                  "mil",    "ocupacao",      FALSE,     FALSE,
   "Taxa_Informalidade",                  "Taxa de informalidade",                                  "pct",    "insercao",      TRUE,      FALSE,
-  "Taxa_Subocupacao",                    "Subocupação por insuficiência de horas",                 "pct",    "insercao",      FALSE,     FALSE,
   "Percentual_Subremuneracao",           "Sub-remuneração (rendimento-hora abaixo do mínimo)",     "pct",    "insercao",      FALSE,     FALSE,
   "Proporcao_Ocupados_Escolarizados",    "Ocupados com ensino médio completo ou mais",             "pct",    "insercao",      FALSE,     FALSE,
   "Empregados_Setor_Privado",            "Empregados no setor privado",                            "mil",    "insercao",      FALSE,     FALSE,
@@ -108,6 +106,8 @@ CATALOGO <- tribble(
   "Desalentados_Forca_Ampliada",         "Desalentados na força de trabalho ampliada",             "pct",    "vulnerabilidade", FALSE,   FALSE,
   "Desalentados_Fora_Forca",             "Desalentados na força de trabalho potencial",            "pct",    "vulnerabilidade", FALSE,   FALSE,
   "Taxa_Nem_Nem",                        "Jovens de 14 a 29 anos que não estudam nem trabalham",   "pct",    "vulnerabilidade", TRUE,    FALSE,
+  "Chefes_Familia_Desocupados",          "Responsáveis pelo domicílio entre os desocupados",       "pct",    "vulnerabilidade", FALSE,   FALSE,
+  "Conribuintes_Desocupados",            "Responsáveis ou cônjuges entre os desocupados",          "pct",    "vulnerabilidade", FALSE,   FALSE,
   "Proporcao_Populacao_14_59",           "Pessoas de 14 a 59 anos na população total",             "pct",    "populacao",     FALSE,     FALSE,
   "Distribuicao_PIT_por_Sexo",           "Sexo",                                                  "pct",    "populacao",     FALSE,     TRUE,
   "Distribuicao_PIT_por_Raca",           "Cor ou raça",                                            "pct",    "populacao",     FALSE,     TRUE,
@@ -122,6 +122,75 @@ info <- function(id) {
   if (nrow(r) != 1) stop("Indicador fora do CATALOGO do 09: ", id)
   r
 }
+
+# ---- 2b. Definições dos indicadores (Tabela A.1) -----------------------------------
+# Numerador ÷ denominador de cada indicador em uma linha, com o código da
+# variável bruta da PNADC entre parênteses (regra do CLAUDE.md: toda fórmula
+# cita a fonte). As fórmulas em si ficam em R/indicadores.R e
+# R/derivar_variaveis.R — aqui é a redação para o leitor.
+
+DIMENSAO_ROTULO <- c(
+  ocupacao        = "Ocupação e desocupação",
+  insercao        = "Inserção no mercado de trabalho",
+  rendimento      = "Rendimento e desigualdade",
+  vulnerabilidade = "Vulnerabilidade",
+  populacao       = "Perfil da população em idade de trabalhar",
+  motivos         = "Vulnerabilidade"
+)
+
+# Medida exibida na Tabela A.1, a partir de `unidade` e `multiplo`.
+medida_de <- function(unidade, multiplo) {
+  if (multiplo) return("Distribuição (%)")
+  switch(unidade,
+    pct   = "Percentual (%)",
+    mil   = "Total (mil pessoas)",
+    reais = "Média (R$ reais)",
+    razao = "Razão",
+    gini  = "Índice (0 a 1)",
+    stop("Unidade sem medida definida: ", unidade)
+  )
+}
+
+DESCRICAO <- c(
+  Taxa_Participacao = "Pessoas na força de trabalho ÷ pessoas em idade de trabalhar (VD4001).",
+  Nivel_Ocupacao = "Pessoas ocupadas ÷ pessoas em idade de trabalhar (VD4002).",
+  Taxa_Desocupacao = "Pessoas desocupadas ÷ pessoas na força de trabalho (VD4002).",
+  Taxa_Subocupacao = "Ocupados que trabalham menos horas do que gostariam e estariam disponíveis para trabalhar mais ÷ pessoas ocupadas (VD4004A).",
+  Taxa_Composta_Subutilizacao = "Subocupados por insuficiência de horas + desocupados + força de trabalho potencial, ÷ força de trabalho ampliada (VD4003, VD4004A).",
+  Pessoas_Idade_Trabalhar = "Pessoas de 14 anos ou mais (V2009).",
+  Pessoas_Forca_Trabalho = "Pessoas ocupadas ou que procuraram trabalho e estavam disponíveis no período de referência (VD4001).",
+  Pessoas_Fora_Forca = "Pessoas em idade de trabalhar que não estão ocupadas nem procuraram trabalho (VD4001).",
+  Pessoas_Ocupadas = "Pessoas que trabalharam pelo menos uma hora na semana de referência ou estavam temporariamente afastadas (VD4002).",
+  Pessoas_Desocupadas = "Pessoas sem trabalho que procuraram e estavam disponíveis no período de referência (VD4002).",
+  Pessoas_Subutilizadas = "Subocupados por insuficiência de horas + desocupados + força de trabalho potencial (VD4003, VD4004A).",
+  Taxa_Informalidade = "Ocupados sem proteção do contrato formal ÷ pessoas ocupadas: empregado do setor privado ou doméstico sem carteira, trabalhador familiar auxiliar, e empregador ou conta-própria sem CNPJ (VD4009, V4019).",
+  Percentual_Subremuneracao = "Ocupados cujo rendimento por hora habitualmente trabalhada fica abaixo do salário mínimo-hora do trimestre ÷ pessoas ocupadas (VD4019, VD4031).",
+  Proporcao_Ocupados_Escolarizados = "Ocupados com ensino médio completo ou mais ÷ pessoas ocupadas (VD3004).",
+  Empregados_Setor_Privado = "Empregados do setor privado com e sem carteira assinada, exclusive trabalhadores domésticos (VD4009).",
+  Empregados_Setor_Publico = "Empregados do setor público com e sem carteira, militares e estatutários (VD4009).",
+  Ocupados_Agropecuaria = "Ocupados cujo trabalho principal está no grupamento agropecuária, inclusive conta-própria e trabalho familiar (VD4010).",
+  Rendimento_Medio_Habitual = "Rendimento médio habitualmente recebido em todos os trabalhos, deflacionado pelo IBGE (VD4019).",
+  Rendimento_Formal = "Mesmo rendimento, só entre os ocupados que não se enquadram na definição de informalidade acima.",
+  Rendimento_Informal = "Mesmo rendimento, só entre os ocupados informais.",
+  Desigualdade_Formal_Informal = "Rendimento médio dos formais ÷ rendimento médio dos informais; 1,0 significa rendimentos iguais.",
+  Gini_Rendimento_Habitual_Trabalho = "Concentração do rendimento habitual entre os ocupados com rendimento positivo: 0 é igualdade total e 1, desigualdade máxima (VD4019).",
+  Desalentados_Forca_Ampliada = "Pessoas que gostariam de trabalhar mas desistiram de procurar ÷ força de trabalho + desalentados (VD4005).",
+  Desalentados_Fora_Forca = "Desalentados ÷ força de trabalho potencial, ou seja, entre quem está fora da força mas próximo dela (VD4003, VD4005).",
+  Taxa_Nem_Nem = "Pessoas de 14 a 29 anos que não frequentam escola e não estão ocupadas ÷ total de pessoas de 14 a 29 anos (V2009, V3002, VD4002).",
+  Chefes_Familia_Desocupados = "Desocupados que são a pessoa responsável pelo domicílio ÷ pessoas desocupadas (VD2002).",
+  Conribuintes_Desocupados = "Desocupados que são a pessoa responsável ou o cônjuge ÷ pessoas desocupadas (VD2002).",
+  Motivo_Desistencia_Desalentado = "Entre os desalentados, distribuição do motivo declarado para não ter procurado trabalho (V4074A). Só Brasil, Nordeste e Piauí.",
+  Motivo_Nao_Procura_NemNem = "Entre os jovens que não estudam nem trabalham, distribuição do motivo declarado para não procurar trabalho (VD4030). Só Brasil, Nordeste e Piauí.",
+  Proporcao_Populacao_14_59 = "Pessoas de 14 a 59 anos ÷ população total de todas as idades (V2009).",
+  Distribuicao_PIT_por_Sexo = "Composição das pessoas em idade de trabalhar por sexo (V2007).",
+  Distribuicao_PIT_por_Raca = "Composição por cor ou raça declarada, exclusive as respostas ignoradas (V2010).",
+  Distribuicao_PIT_por_Faixa_Etaria_SIDRA = "Composição por faixa etária: 14 a 17, 18 a 24, 25 a 39, 40 a 59 e 60 anos ou mais (V2009).",
+  Distribuicao_PIT_por_Instrucao_SIDRA = "Composição por nível de instrução mais elevado alcançado (VD3004)."
+)
+
+faltam_descricao <- setdiff(CATALOGO$id, names(DESCRICAO))
+if (length(faltam_descricao) > 0)
+  stop("Indicador sem descrição em DESCRICAO: ", paste(faltam_descricao, collapse = ", "))
 
 # Colunas da matriz territorial. Estrato administrativo e "Teresina × resto"
 # ficam fora do corpo: Capital = Agreg_Teresina, Resto da RIDE = Entorno, Resto
@@ -487,6 +556,20 @@ tabela_anexo_triagem <- function() {
   c(linha_md("Indicador", niveis), paste0("|---|", strrep("---:|", length(niveis))), linhas)
 }
 
+# 6e. Definições dos indicadores (Anexo A). Sai do CATALOGO, na ordem dele, para
+# não descolar do que o corpo publica: indicador novo entra aqui sozinho.
+tabela_definicoes <- function() {
+  # "motivos" é uma dimensão à parte só porque não cabe na matriz territorial
+  # (§8.7); aqui ela volta para junto de vulnerabilidade, como o leitor a vê.
+  ordem <- c("ocupacao", "insercao", "rendimento", "vulnerabilidade", "motivos", "populacao")
+  linhas <- CATALOGO %>%
+    arrange(factor(dimensao, levels = ordem)) %>%
+    pmap_chr(function(id, rotulo, unidade, dimensao, multiplo, ...) {
+      linha_md(DIMENSAO_ROTULO[[dimensao]], medida_de(unidade, multiplo), rotulo, DESCRICAO[[id]])
+    })
+  c(linha_md("Dimensão", "Medida", "Indicador", "Descrição"), "|---|---|---|---|", linhas)
+}
+
 # Gerador de cada diretiva <!-- @tabela tipo=... -->; o módulo acha as
 # diretivas e chama esta função com os argumentos.
 gerar_tabela <- function(arg) {
@@ -495,6 +578,7 @@ gerar_tabela <- function(arg) {
     matriz               = tabela_matriz(arg[["dimensao"]]),
     categorias           = tabela_categorias(arg[["dimensao"]]),
     "pontos-territoriais" = pontos_territoriais(),
+    definicoes           = tabela_definicoes(),
     "anexo-indicadores"  = tabela_anexo_indicadores(),
     "anexo-testes"       = tabela_anexo_testes(),
     "anexo-triagem"      = tabela_anexo_triagem(),

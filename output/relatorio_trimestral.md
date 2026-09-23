@@ -156,7 +156,7 @@ IBGE. O índice de Gini vai de 0 (igualdade total) a 1 (desigualdade máxima).
 
 Fonte: IBGE — PNAD Contínua trimestral, microdados. Elaboração própria.
 
-**Tabela 5** — Desalento e jovens que não estudam nem trabalham, por território — {{trimestre}}
+**Tabela 5** — Desalento, jovens que não estudam nem trabalham e responsáveis pelo domicílio entre os desocupados, por território — {{trimestre}}
 
 <!-- @tabela tipo=matriz dimensao=vulnerabilidade -->
 
@@ -242,6 +242,17 @@ patamar da série, CV entre 15% e 30%. –: acima de 30% ou instável (CV acima 
 30% em algum dos quatro últimos trimestres). Os cortes de 15% e 30% seguem as
 faixas de precisão usadas pelo IBGE. Brasil e Nordeste não fazem parte dessa
 série e usam o CV do próprio trimestre.
+
+**Indicadores.** A tabela abaixo reúne todos os indicadores que aparecem no
+corpo e nos anexos, com a dimensão em que são publicados, a medida e a
+definição. As fórmulas completas e as variáveis da PNAD Contínua que as
+alimentam estão nos scripts de estimação.
+
+**Tabela A.1** — Indicadores utilizados, por dimensão
+
+<!-- @tabela tipo=definicoes -->
+
+Fonte: IBGE — PNAD Contínua trimestral, notas metodológicas e microdados. Elaboração própria.
 
 **Diferenças entre territórios e grupos.** Testes de razão de verossimilhança
 sobre o desenho amostral (`svyglm` com `regTermTest`, método LRT, e
