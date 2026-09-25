@@ -39,6 +39,7 @@ só que errado. Elas estão marcadas com ⚠️.
 | RAM | 16 GB. Um trimestre do Brasil lido custa ~2,3 GB, e estimar sobre o Brasil inteiro chega a ~9 GB | Recorte o território antes de estimar (§3) |
 | Disco temporário | O `get_pnadc()` deixa o zip e o `.txt` (~2 GB/trimestre) no `tempdir()`. Chegou a acumular **72 GB** num `Rtmp*`, e sessões antigas do RStudio deixaram outros **59 GB** em `%TEMP%` | Usar `savedir` próprio (§2). Limpar `%TEMP%\Rtmp*` de vez em quando, com nenhum R aberto |
 | Idioma | As mensagens de erro do R saem em português (idioma da sessão) | Não comparar logs de erro por texto entre máquinas ou sessões |
+| ⚠️ Testes com `testthat` sem pacote (sem DESCRIPTION) | Pelo `Rscript -e "testthat::test_dir(...)"` não existe `NOT_CRAN`, e aí `expect_snapshot()` e `skip_if_offline()` (que chama `skip_on_cran()`) viram **SKIP sem falhar**. No `pnadc_longitudinal` o snapshot ponta a ponta nunca tinha rodado (constatado em 25/09/2026) | No teste do snapshot: `local_edition(3)` + `withr::local_envvar(NOT_CRAN = "true")`. Para rede, checagem própria (`url()` + `readLines()` num `tryCatch`) em vez de `skip_if_offline()`. Ao rodar a suíte, confira que o resumo diz **SKIP 0** |
 | Processos longos | Download da série: horas. Série de estimação: ~2 h | Rodar em segundo plano, com log em arquivo, **retomável** (pula o que já existe) |
 
 ---
@@ -188,7 +189,11 @@ Bug real que isso causou: um subset de denominador tratava uma variável 0/1 com
 - **A confiabilidade é do par indicador × recorte**, não do indicador. O resultado útil é "a resolução mais fina em que o indicador funciona", não um aprovado/reprovado.
 - **Painel rotativo (1-2-5):** trimestres vizinhos compartilham até 4/5 dos domicílios. 41 trimestres equivalem a ~8 amostras disjuntas. Não use binomial/IC sobre "% de trimestres bons". Como sensibilidade, use **trimestres espaçados de 5 em 5**.
 - **Pandemia (2020T2–2021T4):** coleta por telefone e perda de amostra, com CV inflado. Deixe fora da janela principal ou mostre com e sem esse período.
-- **Quebra de desenho Censo 2010 → 2022** (renovação gradual de 2025T3 a 3T2026): os trimestres misturam duas amostras. Compare o CV antes e durante a transição. Nos gráficos, sombreie a pandemia e a transição.
+- **Quebra de desenho Censo 2010 → 2022** (renovação gradual de 2025T3 a 2026T3). **Isto NÃO é motivo para evitar o período, e já custou uma decisão errada** (pnadc_longitudinal, decisão 3.2, revista em 24/09/2026). O IBGE incorpora o ajuste ao próprio microdado, e diz isso explicitamente na nota sobre a nova metodologia: *"os usuários de microdados não precisarão realizar nenhuma alteração em seus procedimentos de análise [...] os pesos amostrais e as variáveis do plano amostral que definem estratos e UPAs já foram cuidadosamente ajustados e incorporados diretamente na base de dados [...] durante o período de transição, a única diferença relevante estará na base utilizada para a calibração, que continuará com 77 pós-estratos. A mudança para 79 pós-estratos geográficos será adotada somente após a conclusão da transição."* Na prática:
+  - **análise transversal:** nada muda. Não recorte a série nem descarte trimestres por causa disso;
+  - **calibração:** os 77 pós-estratos e as margens `V1029`/`V1033` continuam valendo durante toda a transição. Os 79 só valem depois, e também já virão nos pesos;
+  - **o que ainda vale fazer:** comparar o CV antes e durante (ele pode subir) e sombrear o período nos gráficos, junto com a pandemia;
+  - ⚠️ **uso LONGITUDINAL é o único caso que a nota não cobre.** Ela trata de estimação transversal; não diz se os domicílios da amostra antiga completam as cinco visitas do rodízio 1-2(5) durante a renovação. Se o projeto segue o mesmo domicílio entre ocasiões, **meça a taxa de pareamento dos trimestres da janela** antes de concluir qualquer coisa — é uma conta de minutos e substitui a especulação. **Medido em 24/09/2026** (`pnadc_longitudinal/scripts_teste/conferir_transicao.R`, 1,6 min): parear 2024 (1ª visita) com 2025 (5ª visita) dá 70,3% / 71,7% / **72,6%** / **71,9%** em T1-T4, ou seja, **os dois trimestres da janela de renovação são os de MAIOR pareamento**, e o par inteiro pareia melhor (71,6%) que 2017-2018 (67,3%). Os 77 pós-estratos e a identidade `sum(V1029) == sum(V1028)` valem nos oito trimestres.
 - **Células pequenas:** agrupe categorias. Instrução em 7 níveis ou "motivos" detalhados não sustentam CV < 15% em recorte fino. Amarela e indígena ficam com CV de 37–47% numa UF do Nordeste, então agrupe em "outras".
 
 ---
@@ -281,6 +286,7 @@ Bug real que isso causou: um subset de denominador tratava uma variável 0/1 com
 7. [ ] Validar contra o SIDRA (API v3) antes de publicar qualquer número. Copiar `scripts_teste/validacao_sidra.R`.
 8. [ ] Definir o critério de confiabilidade (p80 do CV na série) e os recortes.
 9. [ ] Testes com LRT + guarda de posto + BH.
+9b. [ ] Suíte de testes rodando com **SKIP 0** (ver §1, testthat sem DESCRIPTION).
 10. [ ] Relatório `.md` → `.docx` com `--resource-path`, conferindo as imagens no `.docx`.
 
 ### Arquivos deste repositório que valem como modelo
@@ -295,3 +301,53 @@ Bug real que isso causou: um subset de denominador tratava uma variável 0/1 com
 | `R/12_graficos_panorama.R` | gráficos de linha com IC e sombreamento de pandemia/transição |
 | `R/09_preencher_relatorio.R` | modelo `.md` + marcadores + pandoc |
 | `output/anexo_metodologico.md` | fundamentação (plano complexo, CV, LRT × Wald, guarda de posto, BH) para citar ou adaptar |
+
+---
+
+## 13. Uso longitudinal (seguir a mesma pessoa entre visitas)
+
+Lições do `pnadc_longitudinal` (set/2026), que reproduz os pesos longitudinais
+do Ipea (*Mercado de Trabalho* nº 67, out./2019) e a matriz de fluxo
+Ocupado/Desocupado/Inativo entre a 1ª e a 5ª visita. Detalhes e números em
+`pnadc_longitudinal/CONTEXTO_PROJETO.md` §4.4, §4.7, §4.15 e
+`docs/divergencias.md`.
+
+- **Não precisa baixar o anual por visita.** Parear pelo **cache trimestral**
+  selecionando `V1016` (1ª visita no ano de origem, 5ª quatro trimestres
+  depois) dá **exatamente** o mesmo pareamento do anual por visita, pessoa a
+  pessoa: 457.992 registros de origem e 308.123 pares nas duas rotas, mesma
+  situação, mesmo critério e mesmos estados (2017-2018, Brasil). O Ipea
+  autoriza essa via (p. 80).
+- **Os nomes de peso da literatura são do anual.** `V1031`/`V1032` (e as
+  margens `V1030`/`V1034`) **não existem no trimestral**; lá o peso calibrado é
+  `V1028`, com as margens `V1029` (pós-estrato, 77 valores) e `V1033` (sexo ×
+  idade, 34 valores). Idem `VD2004` e `VD5*`: só no anual.
+- ⚠️ **A calibração por sexo × idade que a literatura acrescenta ao peso é hoje
+  um no-op.** O `V1028` do trimestral já fecha `V1029` e `V1033` (desvio
+  2e-11), e o **`V1032` do anual por visita de hoje já fecha `V1030` e
+  `V1034`** (fator 1,000000 em todas as linhas, dp 1e-11). O fator médio de
+  1,17 e o CV de 12,4% do Ipea nº 67 não são reproduzíveis com arquivo nenhum
+  distribuído hoje — o IBGE passou a calibrar nas duas margens depois de 2019.
+  Não é bug do seu código se a etapa não mexer em nada.
+- ⚠️ **Tabela 3 do Ipea nº 67 (modelo de propensão): a coluna de razões de
+  chances está deslocada uma linha para cima** no PDF. O 1,50 do topo é
+  exp(0,405), o intercepto; o 0,62 que parece órfão é o de domicílio
+  composto. **Leia pelos coeficientes**, que estão alinhados (os 22 foram
+  reproduzidos a menos de 1 EP publicado). Na mesma nota, a coluna "máximo"
+  da Tabela 1 tem UF e pós-estrato trocados entre as linhas (a ordem
+  publicada é logicamente impossível).
+- **~13% dos registros de 1ª visita não têm data de nascimento**
+  (`V20082 == "9999"`) e nunca pareiam pelos critérios da fonte. É o teto do
+  pareamento; não imputar. Taxa de pareamento: ~67% (2017-2018), ~72%
+  (2024-2025).
+- **Precisão numa UF do porte do Piauí (~6.300 pessoas no universo fechado,
+  2024-2025), medida, não estimada:** a matriz 3x3 da UF fica com CV < 15%
+  em quase todas as células (Desocupado → Desocupado, n = 46, chega a 15,6%).
+  **Por sexo**, a linha Ocupado segura (permanência CV 1,5%, → Inativo < 10%)
+  e só as transições pequenas passam de 15% (Ocupado → Desocupado 16-19%;
+  linha Desocupado 10-23%, nenhuma acima de 30%). Faixa etária e
+  escolaridade em 4 classes já deixam células com n < 10 e CV de 30-75%
+  (60+ desocupado: n = 5). Em 3 faixas (14-29, 30-59, 60+), jovem e adulto
+  ficam como o recorte por sexo (CV de 15-29% nas transições pequenas); o idoso
+  só sustenta a linha Ocupado. A previsão de planejamento "~40-60 obs e CV > 30%"
+  valia para os recortes finos, não para sexo — meça antes de descartar.
